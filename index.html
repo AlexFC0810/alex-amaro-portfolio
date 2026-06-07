@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Amaro — Growth Marketing + Generative-AI Builder</title>
+<meta name="description" content="Alex Amaro — a rare Growth Marketer + Generative-AI Builder. Drives paid-media performance and builds the AI systems and generative creative that scale it. Remote, United States.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #16365C;
+    --accent: #1F4E79;
+    --accent-soft: #2c6aa8;
+    --ink: #1a2533;
+    --muted: #5a6b7e;
+    --line: #e4ebf3;
+    --bg: #ffffff;
+    --bg-soft: #f4f8fc;
+    --bg-tint: #eef4fb;
+    --shadow-sm: 0 2px 8px rgba(22,54,92,.06);
+    --shadow-md: 0 10px 30px rgba(22,54,92,.10);
+    --shadow-lg: 0 24px 60px rgba(22,54,92,.16);
+    --radius: 16px;
+    --maxw: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    background:
+      radial-gradient(1200px 600px at 12% -10%, rgba(44,106,168,.55), transparent 60%),
+      radial-gradient(1000px 700px at 100% 0%, rgba(31,78,121,.85), transparent 55%),
+      linear-gradient(135deg, #16365C 0%, #1F4E79 55%, #2c6aa8 100%);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(600px 300px at 85% 90%, rgba(120,180,240,.18), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; padding: 86px 0 78px; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #cfe2f5;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.16);
+    padding: 7px 15px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+    backdrop-filter: blur(4px);
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #6fe0a8; box-shadow: 0 0 10px #6fe0a8; }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 900;
+    letter-spacing: -.02em;
+    line-height: 1.02;
+    margin-bottom: 14px;
+  }
+  .hero .headline {
+    font-size: clamp(1.25rem, 3vw, 1.9rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    background: linear-gradient(90deg, #ffffff 0%, #bcd8f4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 760px;
+  }
+  .hero .value {
+    font-size: clamp(1.02rem, 2vw, 1.22rem);
+    color: #dbe8f6;
+    max-width: 640px;
+    margin-bottom: 26px;
+    font-weight: 400;
+  }
+  .hero .value strong { color: #fff; font-weight: 600; }
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #cfe2f5;
+    margin-bottom: 34px;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 12px;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+  }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-primary { background: #fff; color: var(--navy); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(0,0,0,.26); }
+  .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.3); backdrop-filter: blur(4px); }
+  .btn-ghost:hover { background: rgba(255,255,255,.18); transform: translateY(-3px); border-color: rgba(255,255,255,.55); }
+
+  /* ---------- METRIC STRIP ---------- */
+  .metrics {
+    background: var(--navy);
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+  .metric {
+    padding: 30px 18px;
+    text-align: center;
+    color: #fff;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .metric:last-child { border-right: none; }
+  .metric .num {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1.05;
+    background: linear-gradient(90deg, #ffffff, #aecdf0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .metric .lbl {
+    font-size: 12.5px;
+    color: #b8cce2;
+    margin-top: 8px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section.block { padding: 80px 0; }
+  section.block.tint { background: var(--bg-soft); }
+  .sec-head { margin-bottom: 44px; max-width: 760px; }
+  .kicker {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker::before { content: ""; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
+  h2.sec-title {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .sec-head p { margin-top: 14px; color: var(--muted); font-size: 1.05rem; }
+
+  /* ---------- THE RARE COMBO ---------- */
+  .combo {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .combo-copy p { font-size: 1.12rem; color: var(--ink); margin-bottom: 18px; }
+  .combo-copy p:last-child { margin-bottom: 0; }
+  .combo-copy strong { color: var(--navy); font-weight: 700; }
+  .combo-visual {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .combo-pill {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .combo-pill:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .combo-pill .pt {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.02rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .combo-pill .pt .ic {
+    width: 30px; height: 30px;
+    flex: 0 0 30px;
+    border-radius: 8px;
+    background: var(--bg-tint);
+    color: var(--accent);
+    display: grid; place-items: center;
+  }
+  .combo-pill .pt .ic svg { width: 17px; height: 17px; }
+  .combo-pill .pd { color: var(--muted); font-size: .94rem; padding-left: 40px; }
+  .combo-plus {
+    text-align: center;
+    font-weight: 800;
+    color: var(--accent-soft);
+    font-size: 1.1rem;
+    letter-spacing: .1em;
+  }
+
+  /* ---------- CARD GRIDS ---------- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .card {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 24px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: #cfe0f1; }
+  .card:hover::before { transform: scaleX(1); }
+  .card .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--bg-tint);
+    padding: 5px 11px;
+    border-radius: 100px;
+    margin-bottom: 14px;
+  }
+  .card .tag.flagship { color: #fff; background: linear-gradient(120deg, var(--navy), var(--accent-soft)); }
+  .card h3 {
+    font-size: 1.16rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    letter-spacing: -.01em;
+    margin-bottom: 10px;
+  }
+  .card p {
+    color: var(--muted);
+    font-size: .95rem;
+    flex-grow: 1;
+    margin-bottom: 18px;
+  }
+  .view-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: .94rem;
+    color: var(--accent);
+    align-self: flex-start;
+    transition: gap .2s ease, color .2s ease;
+  }
+  .view-link svg { width: 15px; height: 15px; transition: transform .2s ease; }
+  .view-link:hover { color: var(--navy); gap: 11px; }
+  .card:hover .view-link svg { transform: translate(2px, -2px); }
+  .built-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--accent-soft);
+    align-self: flex-start;
+  }
+  .built-note svg { width: 15px; height: 15px; }
+
+  /* flagship spans full width */
+  .card.flagship-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #16365C 0%, #1F4E79 100%);
+    border: none;
+    color: #fff;
+  }
+  .card.flagship-card::before { display: none; }
+  .card.flagship-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .flagship-inner { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
+  .flagship-badge {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    display: grid; place-items: center;
+    flex: 0 0 64px;
+  }
+  .flagship-badge svg { width: 32px; height: 32px; color: #fff; }
+  .card.flagship-card h3 { color: #fff; font-size: 1.4rem; margin-bottom: 8px; }
+  .card.flagship-card p { color: #cfe0f1; font-size: 1rem; margin-bottom: 0; max-width: 760px; }
+  .card.flagship-card .tag.flagship { background: rgba(255,255,255,.16); color: #fff; margin-bottom: 12px; }
+  .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .stack-chip {
+    font-size: 12px;
+    font-weight: 600;
+    color: #dbe8f6;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.16);
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .skill-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .skill-card .sh { display: flex; align-items: center; gap: 13px; margin-bottom: 14px; }
+  .skill-card .sh .si {
+    width: 42px; height: 42px;
+    border-radius: 11px;
+    background: var(--bg-tint);
+    color: var(--accent);
+    display: grid; place-items: center;
+    flex: 0 0 42px;
+  }
+  .skill-card .sh .si svg { width: 22px; height: 22px; }
+  .skill-card .sh h3 { font-size: 1.12rem; font-weight: 700; color: var(--navy); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 6px 13px;
+    border-radius: 100px;
+    transition: background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .skill-card:hover .chip { border-color: #d4e3f3; }
+
+  /* ---------- CERTS + LANGUAGES ---------- */
+  .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: stretch; }
+  .panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+  }
+  .panel h3 {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+  .panel h3 svg { width: 22px; height: 22px; color: var(--accent); }
+  .cert-group { margin-bottom: 20px; }
+  .cert-group:last-child { margin-bottom: 0; }
+  .cert-group .cg-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .cert-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cert-item {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 7px 13px;
+    border-radius: 9px;
+  }
+  .lang-list { display: flex; flex-direction: column; gap: 14px; }
+  .lang-item {
+    border-left: 3px solid var(--accent);
+    background: var(--bg-soft);
+    padding: 12px 16px;
+    border-radius: 0 10px 10px 0;
+  }
+  .lang-item .ln { font-weight: 700; color: var(--navy); font-size: 1.02rem; }
+  .lang-item .ld { font-size: 13px; color: var(--muted); }
+  .lang-note { margin-top: 16px; font-size: .92rem; color: var(--muted); font-style: italic; }
+
+  /* ---------- CONTACT FOOTER ---------- */
+  .footer {
+    background:
+      radial-gradient(900px 500px at 80% -20%, rgba(44,106,168,.5), transparent 60%),
+      linear-gradient(135deg, #16365C 0%, #1F4E79 100%);
+    color: #fff;
+    padding: 76px 0 40px;
+    text-align: center;
+  }
+  .footer h2 {
+    font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+  .footer .sub { color: #cfe0f1; font-size: 1.1rem; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .footer-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 40px; }
+  .contact-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    justify-content: center;
+    font-size: 15px;
+    color: #dbe8f6;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.14);
+  }
+  .contact-line a { display: inline-flex; align-items: center; gap: 8px; transition: color .18s ease; }
+  .contact-line a:hover { color: #fff; }
+  .contact-line svg { width: 16px; height: 16px; opacity: .85; }
+  .copyright { margin-top: 26px; font-size: 13px; color: #9fb8d2; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 940px) {
+    .metric-grid { grid-template-columns: repeat(3, 1fr); }
+    .metric:nth-child(3n) { border-right: none; }
+    .metric:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.1); }
+    .combo { grid-template-columns: 1fr; gap: 32px; }
+    .card-grid { grid-template-columns: repeat(2, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .hero-inner { padding: 64px 0 56px; }
+    section.block { padding: 56px 0; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); }
+    .metric:nth-child(2n) { border-right: none; }
+    .card-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .flagship-inner { grid-template-columns: 1fr; }
+    .btn { flex: 1 1 auto; justify-content: center; }
+    .cta-row { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Growth Marketer · Generative-AI Builder</span>
+    <h1>Alex Amaro</h1>
+    <div class="headline">Growth Marketing&nbsp;+&nbsp;Generative-AI Builder</div>
+    <p class="value">I turn paid traffic into <strong>booked revenue</strong> — and build the <strong>AI systems and generative creative</strong> that scale it.</p>
+    <div class="location">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Remote · United States
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:jesusalexelamaro@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email Me
+      </a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.5H5.67V18h2.67V9.5zM7 5.88a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.34 18v-4.66c0-2.49-1.33-3.65-3.1-3.65a2.68 2.68 0 0 0-2.42 1.33h-.04V9.5h-2.56V18h2.67v-4.2c0-1.11.21-2.18 1.58-2.18s1.37 1.26 1.37 2.25V18h2.5z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn btn-ghost" href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download Résumé
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ METRIC STRIP ============ -->
+<section class="metrics" aria-label="Impact metrics">
+  <div class="wrap">
+    <div class="metric-grid">
+      <div class="metric"><div class="num">$200K+</div><div class="lbl">Meta ad spend managed</div></div>
+      <div class="metric"><div class="num">$4–22</div><div class="lbl">Cost per lead delivered</div></div>
+      <div class="metric"><div class="num">~9×</div><div class="lbl">An incumbent agency's lead volume at ~75% lower CPL</div></div>
+      <div class="metric"><div class="num">60+</div><div class="lbl">Booked appointments in one month</div></div>
+      <div class="metric"><div class="num">120+</div><div class="lbl">Booked appointments in 90 days</div></div>
+      <div class="metric"><div class="num">$350K+</div><div class="lbl">E-commerce sales · 4.9★ rating</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE RARE COMBO ============ -->
+<section class="block" id="combo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The Rare Combo</div>
+      <h2 class="sec-title">Most marketers run ads <em>or</em> build systems. I do both.</h2>
+    </div>
+    <div class="combo">
+      <div class="combo-copy">
+        <p>Performance marketing and engineering usually live in two different people. They live in one here. I run the paid-media campaigns that book revenue, <strong>and</strong> I build the automation and AI systems that make that revenue compound.</p>
+        <p>On top of that, I produce <strong>generative-AI creative</strong> — AI-animated ads, UGC-style explainers, and product demos — and I've shipped an <strong>AI app that programmatically generates marketing video</strong>. That bridge between performance, automation, and creative is the whole point: fewer hand-offs, faster iteration, and systems that scale instead of breaking.</p>
+      </div>
+      <div class="combo-visual">
+        <div class="combo-pill">
+          <div class="pt"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span>Growth Marketer</div>
+          <div class="pd">Meta Ads, paid social, CPL optimization, funnels & CRO that turn spend into booked appointments.</div>
+        </div>
+        <div class="combo-plus">+</div>
+        <div class="combo-pill">
+          <div class="pt"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01M16 16h.01"/></svg></span>Generative-AI Builder</div>
+          <div class="pd">AI automation, lead-response workflows, and generative video — including an app I built from scratch.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GENERATIVE-AI WORK ============ -->
+<section class="block tint" id="ai-work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The Differentiator</div>
+      <h2 class="sec-title">Generative-AI Work</h2>
+      <p>AI-generated and AI-animated creative built for real ad accounts — plus a marketing-video engine I designed and shipped.</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="card">
+        <span class="tag">AI Animation</span>
+        <h3>3D AI Patient Animation</h3>
+        <p>3D AI-generated patient animation produced for a weight-loss clinic ad — built to stop the scroll and explain the offer.</p>
+        <a class="view-link" href="https://canva.com/d/BHVzzpbKxeVG9ZI" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">AI Animation</span>
+        <h3>Chiropractic / Knee-Pain Ad</h3>
+        <p>AI animation created for a chiropractic and knee-pain campaign — visualizing the problem and the relief in seconds.</p>
+        <a class="view-link" href="https://canva.com/d/14j-VlGsCj-DVsz" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">AI Animation</span>
+        <h3>"Weight Loss Is Not Just Willpower"</h3>
+        <p>AI-animated direct-response ad reframing the weight-loss conversation — a concept-led creative built to convert.</p>
+        <a class="view-link" href="https://canva.com/d/Knd145hs3OpDbM1" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">UGC Video</span>
+        <h3>UGC-Style Explainer Video</h3>
+        <p>UGC-style explainer video for weight-loss clinics — authentic, native-feeling creative engineered for paid social.</p>
+        <a class="view-link" href="https://canva.com/d/Bg5qRYtW9xCEsL9" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Product Demo</span>
+        <h3>CareLineAI — Product-Demo Creatives</h3>
+        <p>AI product-demo creatives for CareLineAI — showing the product in action with generative visuals and motion.</p>
+        <a class="view-link" href="https://canva.com/d/06ueuoh1zyVx2bP" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card flagship-card">
+        <div class="flagship-inner">
+          <div class="flagship-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+          </div>
+          <div>
+            <span class="tag flagship">★ AI App I Built · Flagship</span>
+            <h3>Careline Command Center</h3>
+            <p>A production app I built that <strong>programmatically generates marketing videos</strong> — wiring a Next.js front end to Remotion for code-driven video rendering and Google Generative AI for content. Proof I don't just use AI tools; I engineer them into systems that ship creative at scale.</p>
+            <div class="stack-row">
+              <span class="stack-chip">Next.js</span>
+              <span class="stack-chip">Remotion</span>
+              <span class="stack-chip">Google Generative AI</span>
+              <span class="stack-chip">Programmatic video</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDIES & PROOF ============ -->
+<section class="block" id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Case Studies &amp; Proof</div>
+      <h2 class="sec-title">Receipts, not adjectives.</h2>
+      <p>Paid-media results, backend automation builds, and client case studies — the work behind the numbers.</p>
+    </div>
+    <div class="card-grid">
+
+      <div class="card">
+        <span class="tag">Portfolio</span>
+        <h3>Local Business Growth Portfolio</h3>
+        <p>A walkthrough of local-business growth work — campaigns, offers, and the systems that turned spend into booked appointments.</p>
+        <a class="view-link" href="https://canva.com/d/vIza_7LRTkUZXBJ" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Paid Social</span>
+        <h3>Meta Ads &amp; Paid Social Portfolio</h3>
+        <p>Meta Ads and paid-social campaigns across clinics, medspas, and local services — creative, targeting, and CPL outcomes.</p>
+        <a class="view-link" href="https://canva.com/d/Kwl7hUAYXvy8rap" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Marketing Ops</span>
+        <h3>GoHighLevel &amp; Backend Marketing Ops</h3>
+        <p>The backend that makes ads pay off — GoHighLevel CRM automation, speed-to-lead, nurture sequences, and pipeline ops.</p>
+        <a class="view-link" href="https://canva.com/d/EjL-_xDDYPp0RnC" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">Case Studies</span>
+        <h3>Medspa Case Studies</h3>
+        <p>Medspa and aesthetics case studies — campaign breakdowns, cost-per-lead turnarounds, and booked-appointment results.</p>
+        <a class="view-link" href="https://canva.com/d/KJ4SdRSN8UhYLeB" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="card">
+        <span class="tag">eBook</span>
+        <h3>Clinic Profit Playbook</h3>
+        <p>An eBook packaging the playbook — how clinics turn paid traffic into booked, profitable appointments end to end.</p>
+        <a class="view-link" href="https://canva.com/d/I_lSXWiY0dvJDEx" target="_blank" rel="noopener">View<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS / STACK ============ -->
+<section class="block tint" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Skills &amp; Stack</div>
+      <h2 class="sec-title">The full stack — from ad to automation to AI.</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><h3>Paid Media</h3></div>
+        <div class="chips">
+          <span class="chip">Meta Ads</span>
+          <span class="chip">Paid Social</span>
+          <span class="chip">CPL Optimization</span>
+          <span class="chip">Audience Targeting</span>
+          <span class="chip">Creative Testing</span>
+          <span class="chip">Reporting &amp; Attribution</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Marketing Automation</h3></div>
+        <div class="chips">
+          <span class="chip">GoHighLevel</span>
+          <span class="chip">HubSpot</span>
+          <span class="chip">Make</span>
+          <span class="chip">Zapier</span>
+          <span class="chip">Speed-to-Lead</span>
+          <span class="chip">SMS / Email Nurture</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v4H3zM3 10h12v4H3zM3 17h18v4H3z"/></svg></span><h3>Growth Systems</h3></div>
+        <div class="chips">
+          <span class="chip">Funnels</span>
+          <span class="chip">CRO</span>
+          <span class="chip">Landing Pages</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Local SEO / AEO</span>
+          <span class="chip">Google Business Profile</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01M16 16h.01"/></svg></span><h3>AI &amp; Generative</h3></div>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Claude Code</span>
+          <span class="chip">ChatGPT</span>
+          <span class="chip">AI Lead-Response</span>
+          <span class="chip">AI Content Workflows</span>
+          <span class="chip">Generative Video</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS + LANGUAGES ============ -->
+<section class="block" id="creds">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Credentials</div>
+      <h2 class="sec-title">Certifications &amp; Languages</h2>
+    </div>
+    <div class="two-col">
+
+      <div class="panel">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
+          Certifications
+        </h3>
+        <div class="cert-group">
+          <div class="cg-label">HubSpot Academy</div>
+          <div class="cert-list">
+            <span class="cert-item">Digital Marketing</span>
+            <span class="cert-item">Data Integrations</span>
+            <span class="cert-item">Revenue Operations</span>
+          </div>
+        </div>
+        <div class="cert-group">
+          <div class="cg-label">Anthropic</div>
+          <div class="cert-list">
+            <span class="cert-item">Claude Code 101</span>
+            <span class="cert-item">AI Fluency for Small Businesses</span>
+            <span class="cert-item">Agent Skills</span>
+            <span class="cert-item">Subagents</span>
+            <span class="cert-item">Claude Code in Action</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Languages
+        </h3>
+        <div class="lang-list">
+          <div class="lang-item"><div class="ln">Native Spanish</div></div>
+          <div class="lang-item"><div class="ln">Fluent English</div></div>
+          <div class="lang-item"><div class="ln">Conversational French</div></div>
+        </div>
+        <p class="lang-note">Markets to both English- and Spanish-speaking audiences — including the under-served U.S. Hispanic market.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT FOOTER ============ -->
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <h2>Let's build the growth engine.</h2>
+    <p class="sub">Available for remote growth / marketing roles. Ready to drive performance and build the AI systems that scale it.</p>
+    <div class="footer-cta">
+      <a class="btn btn-primary" href="mailto:jesusalexelamaro@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        Email Me
+      </a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.5H5.67V18h2.67V9.5zM7 5.88a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.34 18v-4.66c0-2.49-1.33-3.65-3.1-3.65a2.68 2.68 0 0 0-2.42 1.33h-.04V9.5h-2.56V18h2.67v-4.2c0-1.11.21-2.18 1.58-2.18s1.37 1.26 1.37 2.25V18h2.5z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn btn-ghost" href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        Download Résumé
+      </a>
+    </div>
+    <div class="contact-line">
+      <a href="mailto:jesusalexelamaro@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        jesusalexelamaro@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.5H5.67V18h2.67V9.5zM7 5.88a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.34 18v-4.66c0-2.49-1.33-3.65-3.1-3.65a2.68 2.68 0 0 0-2.42 1.33h-.04V9.5h-2.56V18h2.67v-4.2c0-1.11.21-2.18 1.58-2.18s1.37 1.26 1.37 2.25V18h2.5z"/></svg>
+        linkedin.com/in/alex-amaro-a4187a221
+      </a>
+      <a href="tel:+19202517280">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (920) 251-7280
+      </a>
+    </div>
+    <div class="copyright">© 2026 Alex Amaro · Growth Marketing + Generative-AI Builder · Remote, United States</div>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- NOTE: set each Canva design to 'Anyone with the link can view' so visitors can open them. -->
