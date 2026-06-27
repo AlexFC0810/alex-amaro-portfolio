@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #fff;
+    background:
+      radial-gradient(1000px 520px at 10% -20%, rgba(44,106,168,.55), transparent 60%),
+      radial-gradient(900px 620px at 100% 0%, rgba(31,78,121,.9), transparent 55%),
+      linear-gradient(135deg, #16365C 0%, #1F4E79 55%, #2c6aa8 100%);
+    position: relative; overflow: hidden;
+    padding: 60px 70px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 30%, transparent 80%);
+  }
+  .top { position: relative; }
+  .eyebrow {
+    display: inline-block; font-size: 17px; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: #cfe2f5;
+    border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08);
+    padding: 8px 18px; border-radius: 100px; margin-bottom: 26px;
+  }
+  h1 { font-size: 84px; font-weight: 900; letter-spacing: -2.5px; line-height: 1; }
+  .role { font-size: 29px; font-weight: 700; color: #dbe8f6; margin-top: 18px; max-width: 940px; line-height: 1.26; }
+  .role .hl {
+    color: #fff;
+    background: linear-gradient(90deg,#ffffff,#bcd8f4);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .metrics { position: relative; display: flex; border-top: 1px solid rgba(255,255,255,.18); padding-top: 24px; }
+  .m { flex: 1; border-right: 1px solid rgba(255,255,255,.14); padding: 0 22px; }
+  .m:first-child { padding-left: 0; }
+  .m:last-child { border-right: none; }
+  .m .n { font-size: 40px; font-weight: 800; letter-spacing: -1px; line-height: 1; }
+  .m .l { font-size: 14.5px; color: #c2d4e8; margin-top: 9px; line-height: 1.28; }
+  .foot { position: relative; display: flex; justify-content: space-between; align-items: center; font-size: 18px; color: #cfe2f5; font-weight: 500; }
+  .tag { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; color: #bdf0d2; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #6fe0a8; box-shadow: 0 0 12px #6fe0a8; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="top">
+    <span class="eyebrow">Growth &amp; Lead-Gen &middot; Agentic-AI Builder &middot; Full-Funnel CRO</span>
+    <h1>Alex Amaro</h1>
+    <div class="role">I <span class="hl">run the ads</span>, build the <span class="hl">agentic-AI systems</span> that scale them, and own the <span class="hl">full funnel</span> that converts.</div>
+  </div>
+  <div class="metrics">
+    <div class="m"><div class="n">~75%</div><div class="l">Lower CPL vs incumbent agency &mdash; same account</div></div>
+    <div class="m"><div class="n">6,000+</div><div class="l">Qualified leads generated</div></div>
+    <div class="m"><div class="n">$229K</div><div class="l">Meta ad spend managed (verified)</div></div>
+    <div class="m"><div class="n">$4&ndash;22</div><div class="l">Cost per lead</div></div>
+  </div>
+  <div class="foot">
+    <span>alexfc0810.github.io/alex-amaro-portfolio</span>
+    <span class="tag"><span class="dot"></span>Platform-verified against live Meta Ads</span>
+  </div>
+</body>
+</html>
