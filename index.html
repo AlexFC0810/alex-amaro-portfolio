@@ -802,6 +802,109 @@
   </div>
 </section>
 
+<!-- ============ VOICE-AI LIVE DEMO ============ -->
+<style>
+  #voice { background: radial-gradient(1000px 520px at 12% -12%, rgba(44,106,168,.5), transparent 60%), linear-gradient(135deg,#0f2743 0%,#16365C 52%,#1F4E79 100%); color:#fff; position:relative; overflow:hidden; }
+  #voice .kicker { color:#8fe0b4; }
+  #voice .sec-title { color:#fff; }
+  #voice .sec-head p { color:#dbe8f6; }
+  .vx-console { display:grid; grid-template-columns:1.15fr 1fr; gap:34px; align-items:center; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); border-radius:22px; padding:34px; margin-top:6px; box-shadow:var(--shadow-lg); }
+  .vx-left h3 { font-size:1.45rem; font-weight:800; margin-bottom:10px; letter-spacing:-.01em; }
+  .vx-left p { color:#cfe0f3; font-size:1rem; margin-bottom:18px; }
+  .vx-feats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+  .vx-feat { font-size:.8rem; font-weight:600; color:#bfe0ff; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:6px 12px; border-radius:99px; }
+  .vx-right { display:flex; flex-direction:column; align-items:center; text-align:center; gap:15px; }
+  .vx-orb { position:relative; width:130px; height:130px; }
+  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background:linear-gradient(145deg,#6fe0a8,#33b487); color:#0f2743; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font-weight:800; font-size:.82rem; box-shadow:0 12px 34px rgba(55,185,138,.45); transition:transform .2s ease, box-shadow .2s ease; }
+  .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 18px 46px rgba(55,185,138,.62); }
+  .vx-call svg { width:32px; height:32px; }
+  html.motion .vx-orb::before, html.motion .vx-orb::after { content:""; position:absolute; inset:0; border-radius:50%; background:rgba(111,224,168,.32); animation:vxPulse 2.4s ease-out infinite; z-index:1; }
+  html.motion .vx-orb::after { animation-delay:1.2s; }
+  @keyframes vxPulse { 0%{transform:scale(1);opacity:.55} 100%{transform:scale(1.85);opacity:0} }
+  .vx-sub { font-size:.92rem; color:#cfe0f3; }
+  .vx-sub a { color:#fff; font-weight:700; border-bottom:1px solid rgba(255,255,255,.4); }
+  .vx-note { font-size:.72rem; color:#9fc2e8; max-width:290px; line-height:1.5; }
+  #vx-widget:not(:empty) { margin-top:6px; }
+  @media (max-width:760px){ .vx-console{ grid-template-columns:1fr; gap:26px; text-align:center; } .vx-feats{ justify-content:center; } .vx-left p{ margin-left:auto; margin-right:auto; max-width:520px; } }
+</style>
+<section class="block" id="voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Live Demo · Voice AI</div>
+      <h2 class="sec-title">Go ahead — talk to an AI agent I built.</h2>
+      <p>The same kind of <strong>AI voice receptionist</strong> I build and run paid campaigns for — it answers the phone, qualifies the lead, handles questions, and books the appointment, 24/7. Tap the button and have a real conversation with it.</p>
+    </div>
+    <div class="vx-console">
+      <div class="vx-left">
+        <h3>The AI Receptionist</h3>
+        <p>Real-time voice that never misses a call — an "AI employee" I build for clinics, venues, and local service businesses, already answering real calls in the wild.</p>
+        <div class="vx-feats">
+          <span class="vx-feat">Answers 24/7</span>
+          <span class="vx-feat">Books appointments</span>
+          <span class="vx-feat">Qualifies leads</span>
+          <span class="vx-feat">Natural conversation</span>
+        </div>
+        <div id="vx-widget"></div>
+      </div>
+      <div class="vx-right">
+        <div class="vx-orb">
+          <button class="vx-call" id="vx-call" type="button" aria-label="Talk to the AI agent">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg>
+            <span id="vx-call-label">Tap to talk</span>
+          </button>
+        </div>
+        <div class="vx-sub" id="vx-sub"></div>
+        <div class="vx-note" id="vx-note"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  // ===== Voice agent config — Alex to fill in (placeholders for now) =====
+  var VOICE = window.VOICE || {
+    provider: '',      // 'vapi' | 'retell'
+    publicKey: '',     // public / embeddable key (safe to expose in HTML)
+    assistantId: '',   // Vapi assistant id OR Retell agent id
+    phone: ''          // '+1XXXXXXXXXX' — the agent's phone line (click-to-call)
+  };
+  var btn=document.getElementById('vx-call'), label=document.getElementById('vx-call-label'),
+      sub=document.getElementById('vx-sub'), note=document.getElementById('vx-note');
+  if(!btn) return;
+  var CAL='https://calendly.com/alexelamaro/clarity-session';
+  var hasWidget = !!(VOICE.provider && VOICE.publicKey && VOICE.assistantId);
+  var hasPhone = !!VOICE.phone;
+  function mkLink(href, text, blank){ var a=document.createElement('a'); a.href=href; a.textContent=text; if(blank){ a.target='_blank'; a.rel='noopener'; } return a; }
+  function txt(t){ return document.createTextNode(t); }
+
+  if(hasWidget){
+    label.textContent='Tap to talk';
+    var started=false;
+    btn.addEventListener('click', function(){ if(started) return; started=true; label.textContent='Connecting…'; loadWidget(VOICE); });
+    if(hasPhone){ sub.appendChild(txt('Prefer the phone? ')); sub.appendChild(mkLink('tel:'+VOICE.phone,'Call it directly →',false)); }
+  } else if(hasPhone){
+    label.textContent='Call it now';
+    btn.addEventListener('click', function(){ window.location.href='tel:'+VOICE.phone; });
+    sub.appendChild(mkLink('tel:'+VOICE.phone,'Call the agent →',false)); sub.appendChild(txt(' — it answers instantly.'));
+  } else {
+    // Not configured yet — live-safe graceful state (a real working CTA, no dead button)
+    label.textContent='Hear it live';
+    btn.addEventListener('click', function(){ window.open(CAL,'_blank','noopener'); });
+    sub.appendChild(mkLink(CAL,'Book a 15-min call →',true));
+    note.textContent='In-browser demo activating shortly — these agents already answer real calls for the businesses I build them for.';
+  }
+
+  function loadWidget(v){
+    if(v.provider==='vapi'){
+      var s=document.createElement('script'); s.src='https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js'; s.async=true;
+      s.onload=function(){ var w=document.createElement('vapi-widget'); w.setAttribute('public-key',v.publicKey); w.setAttribute('assistant-id',v.assistantId); w.setAttribute('mode','voice'); document.getElementById('vx-widget').appendChild(w); label.textContent='Live — talk'; };
+      document.head.appendChild(s);
+    } else if(v.provider==='retell'){
+      var r=document.createElement('script'); r.id='retell-widget'; r.type='module'; r.src='https://dashboard.retellai.com/retell-widget-v2.js'; r.setAttribute('data-public-key',v.publicKey); r.setAttribute('data-agent-id',v.assistantId); document.getElementById('vx-widget').appendChild(r); label.textContent='Live — talk'; }
+  }
+})();
+</script>
+
 <!-- ============ THE THREE-IN-ONE ============ -->
 <section class="block" id="combo">
   <div class="wrap">
