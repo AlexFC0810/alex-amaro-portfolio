@@ -20,6 +20,7 @@
 <meta name="author" content="Alex Amaro">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/">
 <meta name="theme-color" content="#16365C">
+<script>if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('motion');}</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Alex Amaro","jobTitle":"Growth & Lead-Generation Marketer · Agentic-AI Builder · Full-Funnel CRO","url":"https://alexfc0810.github.io/alex-amaro-portfolio/","email":"jesusalexelamaro@gmail.com","telephone":"+1-920-251-7280","sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"],"knowsLanguage":["English","Spanish"],"knowsAbout":["Lead Generation","Paid Media","Meta Ads","GoHighLevel","Marketing Automation","Conversion Rate Optimization","AI Automation","Agentic AI","GTM Engineering","Marketing Operations","AI Receptionist"],"address":{"@type":"PostalAddress","addressLocality":"Fond du Lac","addressRegion":"WI","addressCountry":"US"}}
 </script>
@@ -724,6 +725,27 @@
     .btn { flex: 1 1 auto; justify-content: center; }
     .cta-row { width: 100%; }
   }
+
+  /* ===== WOW LAYER — Phase A: motion & polish ===== */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  html.motion .hero-inner > * { opacity: 0; transform: translateY(22px); animation: heroIn .9s cubic-bezier(.16,.8,.3,1) forwards; }
+  html.motion .hero-inner > *:nth-child(1){ animation-delay:.05s } html.motion .hero-inner > *:nth-child(2){ animation-delay:.13s } html.motion .hero-inner > *:nth-child(3){ animation-delay:.21s } html.motion .hero-inner > *:nth-child(4){ animation-delay:.29s } html.motion .hero-inner > *:nth-child(5){ animation-delay:.37s } html.motion .hero-inner > *:nth-child(6){ animation-delay:.45s } html.motion .hero-inner > *:nth-child(7){ animation-delay:.53s }
+  @keyframes heroIn { to { opacity: 1; transform: none; } }
+
+  html.motion .sec-head, html.motion .metric, html.motion .card, html.motion .receipt, html.motion .combo-pill, html.motion .chain-step, html.motion .skill-card, html.motion .wall-tile { opacity: 0; }
+  html.motion .sec-head.rv-in, html.motion .metric.rv-in { animation: riseIn .75s cubic-bezier(.16,.8,.3,1) forwards; }
+  html.motion .card.rv-in, html.motion .receipt.rv-in, html.motion .combo-pill.rv-in, html.motion .chain-step.rv-in, html.motion .skill-card.rv-in, html.motion .wall-tile.rv-in { animation: fadeIn .7s ease forwards; }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  .hero-trust { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-top: 24px; }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 500; color: #cfe2f5; }
+  .hero-trust span::before { content: ""; width: 15px; height: 15px; flex: 0 0 15px; background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236fe0a8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); }
+  .metric .num { font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -756,6 +778,12 @@
         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
         Download Résumé
       </a>
+    </div>
+    <div class="hero-trust">
+      <span>Platform-verified vs. live Meta Ads</span>
+      <span>AI voice + chat agents I build</span>
+      <span>Native English / Spanish</span>
+      <span>7 Anthropic certifications</span>
     </div>
   </div>
 </header>
@@ -1436,6 +1464,52 @@
     <div class="copyright">© 2026 Alex Amaro · Growth Marketer · AI Builder · Direct-Response Copywriter · Remote, United States</div>
   </div>
 </footer>
+
+<!-- ===== WOW LAYER: motion (Phase A) ===== -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script>
+(function(){
+  var root = document.documentElement;
+  var motion = root.classList.contains('motion');
+  function countUp(el){
+    var txt = el.textContent.trim();
+    var m = txt.match(/^([^\d]*)([\d][\d,]*)(.*)$/);
+    if(!m) return;
+    var prefix=m[1], numStr=m[2], suffix=m[3];
+    if(/\d/.test(suffix)) return;
+    var hadComma = numStr.indexOf(',') > -1;
+    var target = parseInt(numStr.replace(/,/g,''), 10);
+    if(isNaN(target)) return;
+    var dur=1100, start=null;
+    function fmt(n){ return hadComma ? n.toLocaleString() : String(n); }
+    el.textContent = prefix + fmt(0) + suffix;
+    function step(t){ if(!start) start=t; var p=Math.min(1,(t-start)/dur); var e=1-Math.pow(1-p,3); el.textContent = prefix + fmt(Math.round(target*e)) + suffix; if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  function init(){
+    var mstrip = document.querySelector('.metrics');
+    if(mstrip && 'IntersectionObserver' in window){
+      var mo = new IntersectionObserver(function(en){ if(en[0].isIntersecting){ [].forEach.call(document.querySelectorAll('.metric .num'), countUp); mo.disconnect(); } }, {threshold:.35});
+      mo.observe(mstrip);
+    }
+    if(!motion) return;
+    try{
+      var sel = '.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile';
+      var els = [].slice.call(document.querySelectorAll(sel));
+      if('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries){ entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('rv-in'); io.unobserve(en.target); } }); }, {rootMargin:'0px 0px -7% 0px', threshold:.08});
+        els.forEach(function(e){ io.observe(e); });
+        window.addEventListener('load', function(){ els.forEach(function(e){ var rc=e.getBoundingClientRect(); if(rc.top < (window.innerHeight||900)*1.1 && !e.classList.contains('rv-in')) e.classList.add('rv-in'); }); });
+      } else { els.forEach(function(e){ e.classList.add('rv-in'); }); }
+    }catch(err){ [].forEach.call(document.querySelectorAll('.card,.receipt,.metric,.sec-head,.combo-pill,.chain-step,.skill-card,.wall-tile'), function(x){ x.style.opacity=1; }); }
+    function startLenis(){ if(!window.Lenis) return; var lenis = new Lenis({duration:1.1, smoothWheel:true}); function raf(t){ lenis.raf(t); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+      [].forEach.call(document.querySelectorAll('a[href^="#"]'), function(a){ a.addEventListener('click', function(e){ var id=a.getAttribute('href'); if(id.length>1){ var t=document.querySelector(id); if(t){ e.preventDefault(); lenis.scrollTo(t,{offset:-8}); } } }); });
+    }
+    if(window.Lenis) startLenis(); else window.addEventListener('load', startLenis);
+  }
+  if(document.readyState !== 'loading') init(); else document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
 
 </body>
 </html>
