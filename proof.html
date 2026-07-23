@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Proof Room — Alex Amaro · every claim, evidenced</title>
+<meta name="description" content="Every results claim I use, with its verification status, source system, and method — including what I deliberately don't claim. Growth marketing with receipts.">
+<link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/proof.html">
+<meta property="og:title" content="The Proof Room — Alex Amaro">
+<meta property="og:description" content="Every number traces to a source system. Platform-verified, tracker-corroborated, or founder-attested — and labeled. Plus what I don't claim.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')}catch(e){}</script>
+<style>
+:root{--navy:#16365C;--accent:#1F4E79;--accent-soft:#2c6aa8;--ink:#1a2533;--muted:#5a6b7e;--line:#e4ebf3;--bg:#fff;--bg-soft:#f4f8fc;--bg-tint:#eef4fb;--green:#1a8f5f;--amber:#a05f0b;--slate:#5b6b85;--maxw:1120px;--shadow-md:0 6px 24px rgba(22,54,92,.09);--shadow-lg:0 14px 44px rgba(22,54,92,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+a{color:var(--accent)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.hero{background:radial-gradient(1000px 520px at 12% -12%,rgba(44,106,168,.5),transparent 60%),linear-gradient(135deg,#0f2743 0%,#16365C 52%,#1F4E79 100%);color:#fff;padding:64px 0 46px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#9fc4e8;margin-bottom:14px}
+.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#6fe0a8}
+.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:900;letter-spacing:-.5px;line-height:1.12;margin-bottom:12px}
+.hero .promise{max-width:56rem;font-size:clamp(1rem,1.6vw,1.15rem);color:#dbe7f4}
+.hero .promise strong{color:#fff}
+.crumb{margin-bottom:18px;font-size:.85rem}.crumb a{color:#9fc4e8;text-decoration:none}.crumb a:hover{text-decoration:underline}
+.lens-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
+.lens-label{font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#9fc4e8}
+.lens{display:inline-flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px}
+.lens button{appearance:none;border:0;background:transparent;color:#dbe7f4;font:inherit;font-weight:700;font-size:.92rem;padding:8px 18px;border-radius:999px;cursor:pointer}
+.lens button[aria-pressed="true"]{background:#fff;color:var(--navy)}
+.block{padding:56px 0}
+.block.tint{background:var(--bg-soft)}
+.sec-head{max-width:46rem;margin-bottom:30px}
+.kicker{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px;position:relative;padding-left:26px}
+.kicker::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:18px;height:3px;border-radius:2px;background:var(--accent-soft)}
+.sec-title{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;letter-spacing:-.3px;margin-bottom:10px}
+.sec-head p{color:var(--muted)}
+.doctrine{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.doc-chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:14px 16px;font-size:.86rem;color:#dbe7f4}
+.doc-chip b{display:block;color:#fff;margin-bottom:3px}
+@media(max-width:860px){.doctrine{grid-template-columns:1fr}}
+.receipts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:980px){.receipts-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.receipts-grid{grid-template-columns:1fr}}
+.receipt{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 14px;box-shadow:var(--shadow-md);display:flex;flex-direction:column}
+.receipt.hero-r{grid-column:span 3;background:linear-gradient(135deg,#f7fafd,#eef4fb);border-color:#cfdff0}
+@media(max-width:980px){.receipt.hero-r{grid-column:span 2}}
+@media(max-width:640px){.receipt.hero-r{grid-column:span 1}}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:999px;padding:4px 10px;margin-bottom:12px;width:max-content}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%}
+.badge.v{background:#e7f6ee;color:var(--green)}.badge.v::before{background:var(--green)}
+.badge.c{background:#fdf3e4;color:var(--amber)}.badge.c::before{background:var(--amber)}
+.badge.a{background:#eef1f7;color:var(--slate)}.badge.a::before{background:var(--slate)}
+.r-num{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:900;letter-spacing:-.5px;color:var(--navy);line-height:1.05}
+.hero-r .r-num{font-size:clamp(2.2rem,4.4vw,3.1rem)}
+.r-unit{font-weight:700;color:var(--accent-soft);font-size:.95rem;margin-bottom:8px}
+.r-copy{font-size:.92rem;color:var(--muted);flex:1}
+.receipt details{margin-top:12px;border-top:1px dashed var(--line);padding-top:8px}
+.receipt summary{cursor:pointer;font-size:.78rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--accent-soft);list-style:none;display:flex;align-items:center;gap:6px}
+.receipt summary::-webkit-details-marker{display:none}
+.receipt summary::after{content:"▾";transition:transform .2s}
+.motion .receipt details[open] summary::after{transform:rotate(180deg)}
+.how{font-size:.82rem;color:var(--muted);padding:8px 0 4px}
+.how b{color:var(--ink)}
+.nots{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.nots{grid-template-columns:1fr}}
+.not-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--slate);border-radius:12px;padding:16px 18px}
+.not-card b{display:block;margin-bottom:4px}
+.not-card p{font-size:.88rem;color:var(--muted)}
+.method{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.method{grid-template-columns:1fr}}
+.m-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.m-card b{display:block;margin-bottom:4px;color:var(--navy)}
+.m-card p{font-size:.88rem;color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:12px;padding:12px 20px;transition:transform .15s ease,box-shadow .15s ease}
+.motion .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.btn-primary{background:#6fe0a8;color:#0f2743}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.cta-dark .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}
+footer{background:var(--navy);color:#c9d9ea;padding:34px 0;font-size:.88rem}
+footer a{color:#9fc4e8}
+.foot-inner{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="./index.html">← alexamaro · portfolio</a></div>
+    <span class="eyebrow"><span class="dot"></span>Evidence-backed results · verification statuses shown</span>
+    <h1>The Proof Room</h1>
+    <p class="promise"><strong>Every number I use traces to a source system</strong> — the ad platform, the CRM, or a client tracker — and each one below is labeled with <em>how</em> it's verified. Claims that can't be sourced anymore are <strong>held and listed</strong>, not quietly reused. Most marketers ask you to trust them. I'd rather show receipts.</p>
+    <div class="lens-row" role="group" aria-label="Choose your lens">
+      <span class="lens-label">Viewing as:</span>
+      <div class="lens">
+        <button id="lensEmployer" aria-pressed="true" type="button">Hiring manager</button>
+        <button id="lensClient" aria-pressed="false" type="button">Business owner</button>
+      </div>
+    </div>
+    <div class="doctrine">
+      <div class="doc-chip"><b>CPL is per-campaign.</b> I never divide total spend by total leads — that blends brand spend with B2C and qualified B2B into a meaningless number.</div>
+      <div class="doc-chip"><b>I claim leads &amp; booked appointments — not client revenue.</b> Closing happens client-side; I don't take credit for numbers I can't see.</div>
+      <div class="doc-chip"><b>Clients stay anonymous here.</b> Business labels only, no client or patient data — the evidence lives in a private vault, shareable in interviews.</div>
+    </div>
+    <div class="cta-row" data-lens-block="employer">
+      <a class="btn btn-primary" href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a 15-min call</a>
+    </div>
+    <div class="cta-row" data-lens-block="client" hidden>
+      <a class="btn btn-primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a 15-min call</a>
+      <a class="btn btn-ghost" href="mailto:jesusalexelamaro@gmail.com?subject=Growth%20help%20%E2%80%94%20from%20the%20Proof%20Room">Email Alex</a>
+      <a class="btn btn-ghost" href="./index.html#systems">See the systems</a>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="receipts">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The receipts</div>
+      <h2 class="sec-title">Claims, with their verification status.</h2>
+      <p><span class="badge v" style="margin:0 6px 0 0">Platform-verified</span> pulled from the live ad platform. <span class="badge c" style="margin:0 6px">Corroborated</span> backed by CRM or client-tracker records. <span class="badge a" style="margin:0 6px">Founder-attested</span> my own operating history, labeled as such.</p>
+    </div>
+    <div class="receipts-grid" id="wall"></div>
+  </div>
+</section>
+
+<section class="block tint" id="not-claimed">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">The other half of honesty</div>
+      <h2 class="sec-title">What I <em>don't</em> claim.</h2>
+      <p>Numbers I've retired or refuse to use — because the source is gone, the metric is misleading, or it isn't mine to take credit for. This list is why you can trust the one above.</p>
+    </div>
+    <div class="nots">
+      <div class="not-card"><b>A famous "before → after" laser CPL pair</b><p>A med spa laser turnaround I ran is real — but the exact before/after figures lived in an ad account I no longer have access to. Until it's re-sourced, I say "cut CPL substantially" and cite the ~$16 laser CPL verified on an account I still hold.</p></div>
+      <div class="not-card"><b>Client revenue &amp; ROAS</b><p>My job ended at the qualified, booked appointment plus the follow-up system. Closing was the client's. I had no reliable post-booking revenue visibility — so I don't claim their revenue. Ever.</p></div>
+      <div class="not-card"><b>An exact Montreal CPL</b><p>The campaign's lead volume and bookings are tracker-corroborated (220+ leads, ~90 booked in ~10 weeks), but the exact CPL decimal lived in a lost account — so the decimal stays retired.</p></div>
+      <div class="not-card"><b>Blended "average CPL"</b><p>$200K+ managed and 6,000+ leads are both true — but dividing one by the other creates a fake CPL that blends brand spend, B2C, and qualified B2B. I quote CPL per campaign or not at all.</p></div>
+      <div class="not-card"><b>A shiny old e-commerce revenue figure</b><p>I built a six-figure Amazon/eBay business through college — founder-attested and I'll gladly talk through it. The precise lifetime figure predates retrievable records, so it stays out of the hard-claims column.</p></div>
+      <div class="not-card"><b>Calling a scheduled appointment a held call</b><p>My own B2B campaigns drove 200+ website-scheduled appointments. The platform can't verify who actually showed — so I say "scheduled," never something stronger. Precision is the point.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How this page stays honest</div>
+      <h2 class="sec-title">The verification system behind it.</h2>
+      <p>This isn't a claims page with adjectives — it's the public face of a private, version-controlled evidence vault.</p>
+    </div>
+    <div class="method">
+      <div class="m-card"><b>Source-system pulls</b><p>Headline metrics are pulled from the Meta Ads API at campaign level (spend, results, cost-per-result) — not from memory or old slides — and re-pulled before being called verified.</p></div>
+      <div class="m-card"><b>Dual-sourcing for bookings</b><p>Appointment claims are checked against two systems where possible (CRM + client tracking sheets). "Booked" means scheduled — I don't imply attendance.</p></div>
+      <div class="m-card"><b>A machine-readable claims contract</b><p>Every approved claim (and every banned phrasing) lives in a JSON contract; a linter scans my résumé, this site, and outreach copy so a retired number can't quietly come back.</p></div>
+      <div class="m-card"><b>Adversarial review</b><p>Claims get challenged before they ship — three were downgraded or retired after failing re-verification. The wall you see is what survived.</p></div>
+    </div>
+    <div class="cta-row cta-dark" style="margin-top:30px">
+      <a class="btn btn-primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Walk the evidence with me</a>
+      <a class="btn btn-ghost" href="./index.html">Back to the portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="yr"></span> Alex Amaro — every claim on this page maps to a vault entry.</div>
+    <div><a href="./index.html">Portfolio</a> · <a href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">LinkedIn</a> · <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé</a></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = String(new Date().getFullYear());
+
+// Green-lit claims (synced to AlexFC0810/proof · shareable/greenlit.json v1.1.0 · 2026-07-23)
+// how = [ [boldLabel, text], ... ]  — rendered with safe DOM methods only.
+const CLAIMS = [
+  {badge:'v', label:'Platform-verified', hero:true, num:'~9×', unit:'an incumbent agency’s lead volume — at ~75% lower cost per lead, same account',
+   emp:'Took over a chiropractic account from an incumbent national agency: 114 leads at $12.59 vs. their 12 at $49.81 — on the very same account. Apples to apples, no excuses.',
+   cli:'A clinic ran us head-to-head against their national agency on the same ad account. We delivered ~9× the leads at ~75% lower cost per lead.',
+   how:[['Source','Meta Ads, campaign-level — both agencies’ campaigns in one account.'],['Math','114/12 = 9.5×; ($49.81−$12.59)/$49.81 = 74.7% lower. Exact-match re-verified against the live account.']]},
+  {badge:'v', label:'Platform-verified', num:'$200K+', unit:'Meta ad spend managed · 12+ accounts',
+   emp:'Managed/supported $200K+ in Meta spend across 12+ U.S./Canada accounts — medspa, aesthetics, chiro, tattoo removal, weight loss, local service, B2B.',
+   cli:'We’ve managed $200K+ in Meta spend for businesses like yours across the U.S. and Canada.',
+   how:[['Source','account-level lifetime spend summed across every accessible ad account (≈$229K USD-equivalent over 14 accounts, multi-currency documented).'],['Note','excludes client accounts I’ve lost access to — the true figure is higher.']]},
+  {badge:'v', label:'Platform-verified', num:'6,000+', unit:'qualified leads generated',
+   emp:'A conservative floor: only clean lead campaigns counted — awareness and traffic “results” excluded, lost accounts excluded.',
+   cli:'6,000+ qualified leads for service businesses — counted conservatively, and qualified at the form so your calendar gets sales-ready people.',
+   how:[['Source','per-campaign lead results itemized across accounts (~6,295).'],['Discipline','never paired with total spend as an “average CPL” — CPL is per-campaign only.']]},
+  {badge:'v', label:'Platform-verified', num:'$4–$22', unit:'cost per lead, per campaign',
+   emp:'Strong B2C lead campaigns commonly land $4–$22 per campaign — as low as ~$1.50–$4 on the best ones. Quoted per campaign, never blended.',
+   cli:'Qualified leads commonly at $4–$22 per campaign — best campaigns under $4.',
+   how:[['Source','campaign-level cost-per-result across the portfolio.'],['Honesty','some campaigns run higher — that’s why this is a per-campaign range, not a promised average.']]},
+  {badge:'c', label:'Corroborated', num:'60+', unit:'appointments booked in one month',
+   emp:'Weight-loss clinic grand opening: 60+ booked in a single month (70 in the best 30-day window) — ads + a GoHighLevel follow-up system working as one.',
+   cli:'For a clinic’s grand opening we put 60+ appointments on the calendar in a month — because we build the follow-up system, not just the ads.',
+   how:[['Source','client CRM tracking sheet, de-duplicated; staff/test rows excluded.'],['Definition','“booked” = scheduled.']]},
+  {badge:'c', label:'Corroborated', num:'~120', unit:'appointments booked in ~3 months',
+   emp:'Aesthetic clinic: ~120 booked across roughly three months — double-sourced (client tracker + CRM records).',
+   cli:'~120 appointments booked in about three months for an aesthetic clinic.',
+   how:[['Source','two independent systems (113 in the tracker; 120 in the CRM window).'],['Precision','stated as ~120, booked-not-attended — I don’t inflate the margin.']]},
+  {badge:'v', label:'Platform-verified', num:'~1,700', unit:'leads · one med-spa program',
+   emp:'One clinic, full program: weight-loss, Botox, laser, photofacial — including 1,200+ weight-loss leads at ~$9 CPL.',
+   cli:'For one med spa we ran the whole program — ~1,700 leads across four service lines.',
+   how:[['Source','every campaign in the account itemized from the ads platform ($20.5K spend; blended ~$12 CPL across the program).']]},
+  {badge:'v', label:'Platform-verified', num:'700+', unit:'tattoo-removal leads · NYC',
+   emp:'737 leads at ~$19–$21 CPL in Brooklyn — one of the most saturated local markets in the country. Longest-tenured client.',
+   cli:'700+ leads for a tattoo-removal studio in Brooklyn’s brutally competitive market.',
+   how:[['Source','platform pull, all campaigns (flagship: 526 leads @ $19.00).'],['Bonus','client video testimonial on file.']]},
+  {badge:'v', label:'Platform-verified', num:'~$4', unit:'CPL or lower · B2B refrigeration',
+   emp:'800+ B2B leads for a commercial-refrigeration installer at ~$4 CPL or lower (blended ≈£1.48). The claim understates the data.',
+   cli:'B2B too: 800+ leads for a refrigeration installer at roughly $4 per lead or less.',
+   how:[['Source','platform pull (817 leads; best campaign £1.18 ≈ $1.50).'],['Honesty','noted as the cheap exception — I don’t generalize it to all B2B.']]},
+  {badge:'v', label:'Platform-verified', num:'~1,200', unit:'body-contouring leads',
+   emp:'Body-contouring leads at $4–$16 CPL on a single account — plus 80 booked appointments in the client’s tracker.',
+   cli:'~1,200 leads for one body-contouring clinic at $4–$16 per lead, with 80 appointments tracked onto the calendar.',
+   how:[['Source','platform pull across both of the client’s accounts (~1,204); bookings from the client tracking sheet (2026-06 pull).']]},
+  {badge:'c', label:'Corroborated', num:'220+', unit:'bilingual leads + ~90 booked · Montreal',
+   emp:'Fully bilingual FR/EN campaigns and follow-up for a Montreal beauty brand: 220+ leads and ~90 booked appointments in ~10 weeks (~40/month).',
+   cli:'For a Montreal beauty brand: 220+ leads and ~90 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.',
+   how:[['Source','bookings corroborated by the client’s master tracking sheet; lead volume founder-attested (ad account lost at off-boarding — which is also why the exact CPL is retired, see below).']]},
+  {badge:'v', label:'Platform-verified', num:'200+', unit:'scheduled B2B appointments (our own pipeline)',
+   emp:'I was the media buyer for the agency’s own growth too: 170+ leads and 200+ website-scheduled appointments at ~$62 each, from campaigns selling agency services into the medspa/clinic market.',
+   cli:'We run our own acquisition the same way we’d run yours — 200+ scheduled appointments generated for our own pipeline.',
+   how:[['Source','platform pull; result type is “website appointments scheduled.”'],['Precision','not “booked calls” — the platform can’t verify attendance.']]},
+  {badge:'c', label:'Corroborated', num:'290+', unit:'booked appointments across client trackers',
+   emp:'Across client tracking sheets: 290+ appointments booked — the ad-to-appointment chain working across accounts, not a one-off.',
+   cli:'290+ appointments booked across our client trackers — the system compounds across businesses.',
+   how:[['Source','per-client master tracking sheets (2026-06 pull).'],['Definition','booked = scheduled; overlapping client windows counted once.']]},
+  {badge:'a', label:'Founder-attested', num:'Six-figure', unit:'e-commerce business, built through college',
+   emp:'Built and ran a six-figure Amazon/eBay business while in college full-time — self-funding tuition. Sourcing, inventory, fulfillment, CS, end to end. The operating instincts behind everything above.',
+   cli:'Founder DNA: I built a six-figure e-commerce business from scratch while in college — I run your campaigns like an operator, not a vendor.',
+   how:[['Source','my own operating history (2017–2021) — labeled founder-attested because platform records that old aren’t retrievable.'],['Discipline','the precise figure stays retired; the story stands.']]}
+];
+
+const wall = document.getElementById('wall');
+let lens = 'emp';
+
+function el(tag, cls, text){
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined) n.textContent = text;
+  return n;
+}
+
+function render(){
+  wall.replaceChildren();
+  for (const c of CLAIMS){
+    const card = el('article', 'receipt' + (c.hero ? ' hero-r' : ''));
+    card.appendChild(el('span', 'badge ' + c.badge, c.label));
+    card.appendChild(el('div', 'r-num', c.num));
+    card.appendChild(el('div', 'r-unit', c.unit));
+    card.appendChild(el('p', 'r-copy', lens === 'emp' ? c.emp : c.cli));
+    const det = document.createElement('details');
+    const sum = el('summary', null, 'How it’s verified');
+    det.appendChild(sum);
+    const how = el('p', 'how');
+    c.how.forEach(function(pair, i){
+      if (i > 0) how.appendChild(document.createTextNode(' '));
+      const b = el('b', null, pair[0] + ': ');
+      how.appendChild(b);
+      how.appendChild(document.createTextNode(pair[1]));
+    });
+    det.appendChild(how);
+    card.appendChild(det);
+    wall.appendChild(card);
+  }
+}
+
+const bE = document.getElementById('lensEmployer'), bC = document.getElementById('lensClient');
+function setLens(l){
+  lens = l;
+  bE.setAttribute('aria-pressed', String(l === 'emp'));
+  bC.setAttribute('aria-pressed', String(l === 'cli'));
+  document.querySelectorAll('[data-lens-block]').forEach(function(elm){
+    elm.hidden = (elm.dataset.lensBlock === 'employer') !== (l === 'emp');
+  });
+  try { localStorage.setItem('proof-lens', l); } catch(e){}
+  render();
+}
+bE.addEventListener('click', function(){ setLens('emp'); });
+bC.addEventListener('click', function(){ setLens('cli'); });
+let saved = null; try { saved = localStorage.getItem('proof-lens'); } catch(e){}
+setLens(saved === 'cli' ? 'cli' : 'emp');
+</script>
+</body>
+</html>
