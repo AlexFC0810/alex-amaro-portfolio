@@ -806,13 +806,223 @@
     <div class="metric-grid">
       <div class="metric"><div class="num">~75%</div><div class="lbl">Lower CPL vs incumbent agency — same account</div></div>
       <div class="metric"><div class="num">6,000+</div><div class="lbl">Leads generated</div></div>
-      <div class="metric"><div class="num">$4–22</div><div class="lbl">Cost per lead</div></div>
+      <div class="metric"><div class="num">$4–22</div><div class="lbl">Cost per lead — quoted per campaign</div></div>
       <div class="metric"><div class="num">60+</div><div class="lbl">Booked appointments in one month</div></div>
       <div class="metric"><div class="num">~120</div><div class="lbl">Booked appointments in ~3 months</div></div>
-      <div class="metric"><div class="num">$200K+</div><div class="lbl">Meta ad spend managed</div></div>
+      <div class="metric"><div class="num">$200K+</div><div class="lbl">Meta ad spend managed across 12+ accounts</div></div>
     </div>
   </div>
 </section>
+
+<!-- ============ GENERATIVE AD CREATIVE (flagship) ============ -->
+<style>
+  #gen-creative{
+    position:relative; padding:88px 0 96px;
+    background:
+      radial-gradient(900px 480px at 82% -10%, rgba(31,78,121,.55), transparent 62%),
+      radial-gradient(700px 420px at 8% 110%, rgba(26,143,95,.20), transparent 60%),
+      linear-gradient(168deg,#0a1a2e 0%,#0d2440 55%,#0a1a2e 100%);
+    color:#eaf2fb; overflow:hidden;
+  }
+  #gen-creative .kicker{color:#7fd3a6;}
+  #gen-creative .sec-title{color:#fff; letter-spacing:-.02em;}
+  #gen-creative .sec-head p{color:#b8cbe0;}
+  .gc-lede{max-width:60ch;}
+  .gc-rule{height:1px;border:0;margin:38px 0 30px;
+    background:linear-gradient(90deg,rgba(255,255,255,.22),rgba(255,255,255,.02));}
+  .gc-eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:#7fd3a6;margin-bottom:6px;}
+  .gc-eyebrow-sub{font-size:.9rem;color:#b8cbe0;margin:0 0 20px;max-width:62ch;}
+
+  .gc-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
+  .gc-pair{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;padding:18px 18px 16px;}
+  .gc-pair h4{margin:0 0 4px;font-size:1rem;color:#fff;letter-spacing:-.01em;}
+  .gc-pair .gc-var{font-size:.82rem;color:#9fb6cf;margin:0 0 14px;}
+  .gc-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+  .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+
+  .gc-tile{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;
+    background:#08121f;border:1px solid rgba(255,255,255,.12);cursor:pointer;
+    box-shadow:0 12px 34px rgba(0,0,0,.42);
+    opacity:0;transform:translateY(22px);
+    transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1),
+               box-shadow .35s ease,border-color .35s ease;}
+  .gc-tile.in{opacity:1;transform:none;}
+  .gc-tile:hover{box-shadow:0 18px 46px rgba(0,0,0,.55);border-color:rgba(127,211,166,.55);}
+  .gc-tile video,.gc-tile img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gc-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 11px 10px;
+    font-size:.74rem;font-weight:600;color:#fff;line-height:1.3;
+    background:linear-gradient(to top,rgba(4,12,22,.94),rgba(4,12,22,.55) 55%,transparent);}
+  .gc-model{display:inline-block;margin-top:5px;font-size:.63rem;font-weight:800;
+    letter-spacing:.09em;text-transform:uppercase;color:#0a1a2e;background:#7fd3a6;
+    padding:2px 7px;border-radius:99px;}
+  .gc-sound{position:absolute;top:9px;right:9px;z-index:2;width:30px;height:30px;border-radius:50%;
+    display:grid;place-items:center;background:rgba(4,12,22,.72);border:1px solid rgba(255,255,255,.28);
+    color:#fff;font-size:.78rem;line-height:1;}
+  .gc-note{margin-top:30px;font-size:.86rem;color:#93aac4;max-width:72ch;}
+  .gc-note b{color:#cfe0f2;}
+  @media (max-width:560px){
+    #gen-creative{padding:64px 0 70px;}
+    .gc-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .gc-tile{opacity:1;transform:none;transition:none;}
+  }
+</style>
+<section id="gen-creative" aria-labelledby="gc-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Generative AI · Ad Creative</div>
+      <h2 class="sec-title" id="gc-title">I make the ads. Then I run them.</h2>
+      <p class="gc-lede">Most performance marketers brief creative and wait. Most creatives never touch a
+        media buy. Since the algorithm took over targeting, <b>the creative <em>is</em> the lever</b> — so I
+        generate it myself, at volume, and test it the same week. Below is a live campaign for our own AI
+        receptionist offer, aimed at aesthetic clinics.</p>
+    </div>
+
+    <hr class="gc-rule">
+    <div class="gc-eyebrow">The part that matters — controlled tests</div>
+    <p class="gc-eyebrow-sub">Anyone can generate a reel. These are matched pairs: one variable changed,
+      everything else held. That's the difference between owning a subscription and directing a model.</p>
+
+    <div class="gc-pairs">
+      <div class="gc-pair">
+        <h4>Same script, two models</h4>
+        <p class="gc-var">Variable: the model. Identical prompt, identical direction.</p>
+        <div class="gc-duo">
+          <figure class="gc-tile" data-src="./assets/creative/ai-03-sick-kling.mp4" data-poster="./assets/creative/ai-03-sick-kling.jpg">
+            <figcaption>"My receptionist called in sick today. The phone did not."<span class="gc-model">Kling v3 Turbo</span></figcaption>
+          </figure>
+          <figure class="gc-tile" data-src="./assets/creative/ai-04-sick-grok.mp4" data-poster="./assets/creative/ai-04-sick-grok.jpg">
+            <figcaption>Same line, same beat.<span class="gc-model">Grok Video</span></figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="gc-pair">
+        <h4>Same hook, thin prompt vs directed prompt</h4>
+        <p class="gc-var">Variable: prompt craft. Same model, same line.</p>
+        <div class="gc-duo">
+          <figure class="gc-tile" data-src="./assets/creative/ai-09-whopicks-simple.mp4" data-poster="./assets/creative/ai-09-whopicks-simple.jpg">
+            <figcaption>Thin brief — generic "UGC" ask.<span class="gc-model">Before</span></figcaption>
+          </figure>
+          <figure class="gc-tile" data-src="./assets/creative/ai-08-whopicks-detailed.mp4" data-poster="./assets/creative/ai-08-whopicks-detailed.jpg">
+            <figcaption>Directed: lens, skin texture, eyeline, handheld drift, delivery.<span class="gc-model">After</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <hr class="gc-rule">
+    <div class="gc-eyebrow">The hook set</div>
+    <p class="gc-eyebrow-sub">One offer, one buyer, five angles at the same pain — written and produced in
+      two days, ready to test against each other.</p>
+
+    <div class="gc-grid">
+      <figure class="gc-tile" data-src="./assets/creative/ai-01-frontdesk-walk.mp4" data-poster="./assets/creative/ai-01-frontdesk-walk.jpg">
+        <figcaption>"Your front desk is with a patient, the phone rings, and nobody picks up."</figcaption></figure>
+      <figure class="gc-tile" data-src="./assets/creative/ai-07-no-voicemail.mp4" data-poster="./assets/creative/ai-07-no-voicemail.jpg">
+        <figcaption>"Nobody leaves a voicemail any more. They just call the next clinic."</figcaption></figure>
+      <figure class="gc-tile" data-src="./assets/creative/ai-06-seven-at-night.mp4" data-poster="./assets/creative/ai-06-seven-at-night.jpg">
+        <figcaption>"It's seven at night. We closed two hours ago. Somebody just called."</figcaption></figure>
+      <figure class="gc-tile" data-src="./assets/creative/ai-02-uk-hook.mp4" data-poster="./assets/creative/ai-02-uk-hook.jpg">
+        <figcaption>UK market variant — same offer, localised voice.</figcaption></figure>
+      <figure class="gc-tile" data-src="./assets/creative/ai-05-sick-grok-detailed.mp4" data-poster="./assets/creative/ai-05-sick-grok-detailed.jpg">
+        <figcaption>Realism pass — pores, shine, messy hair, no studio light.</figcaption></figure>
+    </div>
+
+    <p class="gc-note"><b>What this is, precisely:</b> creative I generated and directed for our own offer —
+      so there's no client to clear and nothing anonymised. <b>It's craft, not a performance claim.</b> None
+      of these has run in market yet, so you'll find no CPL or ROAS attached to them. The numbers I've earned
+      live in <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>,
+      where every one names its source.</p>
+  </div>
+</section>
+<script>
+(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('#gen-creative .gc-tile'));
+  if (!tiles.length) return;
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var loud = null; // at most one tile plays sound
+
+  function mount(fig) {
+    if (fig.dataset.mounted) return fig.querySelector('video');
+    fig.dataset.mounted = '1';
+    var v = document.createElement('video');
+    v.src = fig.dataset.src;
+    v.poster = fig.dataset.poster;
+    v.muted = true; v.loop = true; v.playsInline = true;
+    v.setAttribute('playsinline', ''); v.setAttribute('muted', '');
+    v.preload = 'none';
+    fig.insertBefore(v, fig.firstChild);
+
+    var btn = document.createElement('span');
+    btn.className = 'gc-sound';
+    btn.textContent = '🔇';
+    btn.setAttribute('aria-hidden', 'true');
+    fig.appendChild(btn);
+    return v;
+  }
+
+  function play(fig) {
+    var v = mount(fig);
+    if (v && v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+  }
+
+  tiles.forEach(function (fig) {
+    fig.setAttribute('tabindex', '0');
+    fig.setAttribute('role', 'button');
+    var cap = fig.querySelector('figcaption');
+    fig.setAttribute('aria-label', 'Play with sound — ' + (cap ? cap.textContent : 'ad creative'));
+
+    function toggleSound() {
+      var v = mount(fig);
+      if (!v) return;
+      if (loud && loud !== v) { loud.muted = true; var lf = loud.closest('.gc-tile');
+        if (lf) { var lb = lf.querySelector('.gc-sound'); if (lb) lb.textContent = '🔇'; } }
+      v.muted = !v.muted;
+      loud = v.muted ? null : v;
+      var b = fig.querySelector('.gc-sound');
+      if (b) b.textContent = v.muted ? '🔇' : '🔊';
+      if (v.paused) play(fig);
+    }
+    fig.addEventListener('click', toggleSound);
+    fig.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSound(); }
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    tiles.forEach(function (f) { f.classList.add('in'); mount(f); });
+    return;
+  }
+
+  // Reveal on scroll — staggered by column position for a settled, non-jittery entrance.
+  var reveal = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      var i = tiles.indexOf(en.target);
+      en.target.style.transitionDelay = Math.min(i % 5, 4) * 70 + 'ms';
+      en.target.classList.add('in');
+      reveal.unobserve(en.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.15 });
+
+  // Only play what's actually on screen; pause the rest so we never decode 9 videos at once.
+  var motion = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      var v = en.target.querySelector('video');
+      if (en.isIntersecting) { if (!calm) play(en.target); }
+      else if (v) { v.pause(); if (loud === v) { v.muted = true; loud = null;
+        var b = en.target.querySelector('.gc-sound'); if (b) b.textContent = '🔇'; } }
+    });
+  }, { threshold: 0.35 });
+
+  tiles.forEach(function (f) { reveal.observe(f); motion.observe(f); if (calm) mount(f); });
+})();
+</script>
 
 <!-- ============ VOICE-AI LIVE DEMO ============ -->
 <style>
@@ -843,8 +1053,8 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Live Demo · Voice AI</div>
-      <h2 class="sec-title">Go ahead — talk to an AI agent I built.</h2>
-      <p>The same kind of <strong>AI voice receptionist</strong> I build and run paid campaigns for — it answers the phone, qualifies the lead, handles questions, and books the appointment, 24/7. Tap the button and have a real conversation with it.</p>
+      <h2 class="sec-title">Hear an AI agent I built take a real call.</h2>
+      <p>The same <strong>AI voice receptionist</strong> I build and run paid campaigns for — it answers the phone, qualifies the lead, handles the questions, and books the appointment, 24/7. Grab a slot and I'll put it on a live call with you, unscripted. You ask it whatever you'd ask a receptionist.</p>
     </div>
     <div class="vx-console">
       <div class="vx-left">
@@ -903,7 +1113,7 @@
     label.textContent='Hear it live';
     btn.addEventListener('click', function(){ window.open(CAL,'_blank','noopener'); });
     sub.appendChild(mkLink(CAL,'Book a 15-min call →',true));
-    note.textContent='In-browser demo activating shortly — these agents already answer real calls for the businesses I build them for.';
+    note.textContent='Demoed live on the call, not in the browser — these agents already answer real calls for the businesses I build them for.';
   }
 
   function loadWidget(v){
