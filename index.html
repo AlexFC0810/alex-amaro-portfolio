@@ -392,11 +392,19 @@
   .stack-chip {
     font-size: 12px;
     font-weight: 600;
+    /* Default = light cards. The translucent-white treatment below is scoped to
+       the navy flagship card; unscoped it rendered ~1.2:1 on white — invisible. */
+    color: #1F4E79;
+    background: #eef4fb;
+    border: 1px solid #d4e2f2;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  /* Navy flagship card keeps the translucent-white chips (9.8:1 there). */
+  .card.flagship-card .stack-chip {
     color: #dbe8f6;
     background: rgba(255,255,255,.1);
     border: 1px solid rgba(255,255,255,.16);
-    padding: 5px 12px;
-    border-radius: 100px;
   }
 
   /* ---------- RECEIPTS / PROOF GRID ---------- */
