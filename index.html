@@ -842,6 +842,8 @@
   .gc-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
   .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
+  /* A single showcased component shouldn't stretch to a full-width slab. */
+  .gc-single{grid-template-columns:minmax(0,268px);}
 
   .gc-tile{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;
     background:#08121f;border:1px solid rgba(255,255,255,.12);cursor:pointer;
@@ -883,61 +885,24 @@
     </div>
 
     <hr class="gc-rule">
-    <div class="gc-eyebrow">The part that matters — controlled tests</div>
-    <p class="gc-eyebrow-sub">Anyone can generate a reel. These are matched pairs: one variable changed,
-      everything else held. That's the difference between owning a subscription and directing a model.</p>
+    <div class="gc-eyebrow">Hook component · in production</div>
+    <p class="gc-eyebrow-sub">A generated UGC opener for our own AI-receptionist offer, aimed at aesthetic
+      clinics. This is the <em>hook</em> — one component. The finished direct-response unit pairs it with a
+      graphic endcard carrying the offer and the call to action.</p>
 
-    <div class="gc-pairs">
-      <div class="gc-pair">
-        <h4>Same script, two models</h4>
-        <p class="gc-var">Variable: the model. Identical prompt, identical direction.</p>
-        <div class="gc-duo">
-          <figure class="gc-tile" data-src="./assets/creative/ai-03-sick-kling.mp4" data-poster="./assets/creative/ai-03-sick-kling.jpg">
-            <figcaption>"My receptionist called in sick today. The phone did not."<span class="gc-model">Kling v3 Turbo</span></figcaption>
-          </figure>
-          <figure class="gc-tile" data-src="./assets/creative/ai-04-sick-grok.mp4" data-poster="./assets/creative/ai-04-sick-grok.jpg">
-            <figcaption>Same line, same beat.<span class="gc-model">Grok Video</span></figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <div class="gc-pair">
-        <h4>Same hook, thin prompt vs directed prompt</h4>
-        <p class="gc-var">Variable: prompt craft. Same model, same line.</p>
-        <div class="gc-duo">
-          <figure class="gc-tile" data-src="./assets/creative/ai-09-whopicks-simple.mp4" data-poster="./assets/creative/ai-09-whopicks-simple.jpg">
-            <figcaption>Thin brief — generic "UGC" ask.<span class="gc-model">Before</span></figcaption>
-          </figure>
-          <figure class="gc-tile" data-src="./assets/creative/ai-08-whopicks-detailed.mp4" data-poster="./assets/creative/ai-08-whopicks-detailed.jpg">
-            <figcaption>Directed: lens, skin texture, eyeline, handheld drift, delivery.<span class="gc-model">After</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-
-    <hr class="gc-rule">
-    <div class="gc-eyebrow">The hook set</div>
-    <p class="gc-eyebrow-sub">One offer, one buyer, five angles at the same pain — written and produced in
-      two days, ready to test against each other.</p>
-
-    <div class="gc-grid">
+    <div class="gc-grid gc-single">
       <figure class="gc-tile" data-src="./assets/creative/ai-01-frontdesk-walk.mp4" data-poster="./assets/creative/ai-01-frontdesk-walk.jpg">
-        <figcaption>"Your front desk is with a patient, the phone rings, and nobody picks up."</figcaption></figure>
-      <figure class="gc-tile" data-src="./assets/creative/ai-07-no-voicemail.mp4" data-poster="./assets/creative/ai-07-no-voicemail.jpg">
-        <figcaption>"Nobody leaves a voicemail any more. They just call the next clinic."</figcaption></figure>
-      <figure class="gc-tile" data-src="./assets/creative/ai-06-seven-at-night.mp4" data-poster="./assets/creative/ai-06-seven-at-night.jpg">
-        <figcaption>"It's seven at night. We closed two hours ago. Somebody just called."</figcaption></figure>
-      <figure class="gc-tile" data-src="./assets/creative/ai-02-uk-hook.mp4" data-poster="./assets/creative/ai-02-uk-hook.jpg">
-        <figcaption>UK market variant — same offer, localised voice.</figcaption></figure>
-      <figure class="gc-tile" data-src="./assets/creative/ai-05-sick-grok-detailed.mp4" data-poster="./assets/creative/ai-05-sick-grok-detailed.jpg">
-        <figcaption>Realism pass — pores, shine, messy hair, no studio light.</figcaption></figure>
+        <figcaption>"Your front desk is with a patient, the phone rings, and nobody picks up."<span class="gc-model">Hook · component</span></figcaption></figure>
     </div>
 
-    <p class="gc-note"><b>What this is, precisely:</b> creative I generated and directed for our own offer —
-      so there's no client to clear and nothing anonymised. <b>It's craft, not a performance claim.</b> None
-      of these has run in market yet, so you'll find no CPL or ROAS attached to them. The numbers I've earned
-      live in <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>,
-      where every one names its source.</p>
+    <p class="gc-note"><b>Deliberately one clip, and deliberately labelled.</b> A hook without its endcard is
+      a component, not an ad — so it's shown as one. The completed direct-response creatives and the static
+      library I've actually run for aesthetic, chiropractic and other clinics are being assembled properly
+      rather than dumped here as a reel wall.
+      <br><br><b>Craft, not a performance claim.</b> Nothing here has run in market, so no CPL or ROAS is
+      attached to it. The numbers I've earned live in
+      <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>, where every
+      one names its source.</p>
   </div>
 </section>
 <script>
