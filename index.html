@@ -845,6 +845,17 @@
   /* A single showcased component shouldn't stretch to a full-width slab. */
   .gc-single{grid-template-columns:minmax(0,268px);}
 
+  /* Static client creatives — square-ish paid-social ratio, quiet frame, work does the talking. */
+  .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;}
+  .gc-shot{margin:0;border-radius:14px;overflow:hidden;background:#08121f;
+    border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 34px rgba(0,0,0,.42);
+    transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s ease,box-shadow .35s ease;}
+  .gc-shot:hover{transform:translateY(-3px);border-color:rgba(127,211,166,.55);
+    box-shadow:0 18px 46px rgba(0,0,0,.55);}
+  .gc-shot img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;}
+  @media (max-width:560px){ .gc-static-grid{grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:12px;} }
+  @media (prefers-reduced-motion:reduce){ .gc-shot,.gc-shot:hover{transform:none;transition:none;} }
+
   .gc-tile{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;
     background:#08121f;border:1px solid rgba(255,255,255,.12);cursor:pointer;
     box-shadow:0 12px 34px rgba(0,0,0,.42);
@@ -885,24 +896,59 @@
     </div>
 
     <hr class="gc-rule">
-    <div class="gc-eyebrow">Hook component · in production</div>
-    <p class="gc-eyebrow-sub">A generated UGC opener for our own AI-receptionist offer, aimed at aesthetic
-      clinics. This is the <em>hook</em> — one component. The finished direct-response unit pairs it with a
-      graphic endcard carrying the offer and the call to action.</p>
+    <div class="gc-eyebrow">One offer, eight hooks — a real test matrix</div>
+    <p class="gc-eyebrow-sub">A $49 screening offer for a chiropractic client, built as eight competing hooks
+      against one landing offer. Same promise, same design system, eight different ways in — so the winner is
+      decided by the market instead of by my taste. This is what creative testing actually looks like when the
+      person making the ads is also the person buying the media.</p>
+
+    <div class="gc-static-grid">
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p01.jpg" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p02.jpg" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p03.jpg" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p04.jpg" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p05.jpg" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p06.jpg" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p07.jpg" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p08.jpg" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
+    </div>
+
+    <hr class="gc-rule">
+    <div class="gc-eyebrow">Across the verticals I actually buy media in</div>
+    <p class="gc-eyebrow-sub">Body contouring, laser, weight loss — offer-led, written and designed to be
+      bought, not to win a design award. Client names and any identifying detail are stripped.</p>
+
+    <div class="gc-static-grid">
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p01.jpg" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p02.jpg" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p03.jpg" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p04.jpg" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p01.jpg" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p02.jpg" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p03.jpg" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p04.jpg" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-nj-glp1_canva_creative_2026-08-06_p08.jpg" alt="Weight-loss programme offer creative"></figure>
+    </div>
+
+    <hr class="gc-rule">
+    <div class="gc-eyebrow">And now the same job, generated</div>
+    <p class="gc-eyebrow-sub">The newest addition to the stack: UGC-style openers generated and directed
+      rather than filmed. This one is the <em>hook</em> — one component of a direct-response unit that pairs
+      it with an offer end card.</p>
 
     <div class="gc-grid gc-single">
       <figure class="gc-tile" data-src="./assets/creative/ai-01-frontdesk-walk.mp4" data-poster="./assets/creative/ai-01-frontdesk-walk.jpg">
         <figcaption>"Your front desk is with a patient, the phone rings, and nobody picks up."<span class="gc-model">Hook · component</span></figcaption></figure>
     </div>
 
-    <p class="gc-note"><b>Deliberately one clip, and deliberately labelled.</b> A hook without its endcard is
-      a component, not an ad — so it's shown as one. The completed direct-response creatives and the static
-      library I've actually run for aesthetic, chiropractic and other clinics are being assembled properly
-      rather than dumped here as a reel wall.
-      <br><br><b>Craft, not a performance claim.</b> Nothing here has run in market, so no CPL or ROAS is
-      attached to it. The numbers I've earned live in
-      <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>, where every
-      one names its source.</p>
+    <p class="gc-note"><b>Craft, not a performance claim.</b> These are shown as creative work — you won't
+      find a CPL or a ROAS bolted onto any of them here, because a creative isn't a result. The numbers I've
+      earned live in <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>,
+      where every one names its source and its verification status.
+      <br><br><b>And nothing identifying ships.</b> Creatives carrying staff faces, name badges, clinic
+      signage or client logos are held back — no client here signed a release for my portfolio, so they don't
+      appear in it.</p>
   </div>
 </section>
 <script>
