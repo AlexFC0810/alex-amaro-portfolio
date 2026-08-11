@@ -844,9 +844,11 @@
   .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
   /* A single showcased component shouldn't stretch to a full-width slab. */
   .gc-single{grid-template-columns:minmax(0,268px);}
-  /* Component beside the finished unit it builds into — the pair IS the point. */
-  .gc-assembly{grid-template-columns:repeat(2,minmax(0,268px));}
-  @media (max-width:640px){ .gc-assembly{grid-template-columns:minmax(0,268px);} }
+  /* Component beside the finished unit it builds into — the pair IS the point.
+     Doubled class so the narrow-screen .gc-grid rule below can't shrink these to
+     two cramped columns; stacked full-width reads better than side-by-side thumbs. */
+  .gc-grid.gc-assembly{grid-template-columns:repeat(2,minmax(0,268px));}
+  @media (max-width:640px){ .gc-grid.gc-assembly{grid-template-columns:minmax(0,300px);} }
 
   /* Static client creatives — square-ish paid-social ratio, quiet frame, work does the talking. */
   .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;}
@@ -946,8 +948,8 @@
         <figcaption>"Your front desk is with a patient, the phone rings, and nobody picks up." Poses the
           problem, sells nothing.<span class="gc-model">Hook · component</span></figcaption></figure>
       <figure class="gc-tile" data-src="./assets/creative/ai-01-frontdesk-ad.mp4" data-poster="./assets/creative/ai-01-frontdesk-ad.jpg">
-        <figcaption>The same hook, cut on her closing gesture and landed into an end card that answers the
-          question and asks for the click.<span class="gc-model">Finished ad · hook + end card</span></figcaption></figure>
+        <figcaption>The same hook, cut on her closing gesture and landed into an end card that names the
+          stake and asks for the click.<span class="gc-model">Finished ad · hook + end card</span></figcaption></figure>
     </div>
 
     <p class="gc-note" style="margin-top:18px"><b>The end card is deliberately claim-free.</b> Brand, promise,
