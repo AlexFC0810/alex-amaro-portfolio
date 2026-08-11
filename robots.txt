@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_audit/
 
 # AI answer engines welcome
 User-agent: GPTBot

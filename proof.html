@@ -6,98 +6,432 @@
 <title>The Proof Room — Alex Amaro · every claim, evidenced</title>
 <meta name="description" content="Every results claim I use, with its verification status, source system, and method — including what I deliberately don't claim. Growth marketing with receipts.">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/proof.html">
+<meta name="author" content="Alex Amaro">
+<meta name="theme-color" content="#0d2440">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Alex Amaro — Portfolio">
 <meta property="og:title" content="The Proof Room — Alex Amaro">
 <meta property="og:description" content="Every number traces to a source system. Platform-verified, tracker-corroborated, or founder-attested — and labeled. Plus what I don't claim.">
-<meta property="og:type" content="website">
+<meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/proof.html">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-cover-proof.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="The Proof Room — Alex Amaro. Every number traces to a source system, labeled platform-verified, corroborated, or founder-attested.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Proof Room — Alex Amaro">
+<meta name="twitter:description" content="Every number traces to a source system — and is labeled with how it's verified. Plus what I don't claim.">
+<meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-cover-proof.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+/* Motion opt-in AND its own escape hatch in one statement — see index.html. */
+(function(){try{
+  var r=document.documentElement;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('settled');return;}
+  r.classList.add('motion');
+  setTimeout(function(){r.classList.add('settled');},2600);
+}catch(e){document.documentElement.classList.add('settled');}})();
+</script>
 <style>
-:root{--navy:#16365C;--accent:#1F4E79;--accent-soft:#2c6aa8;--ink:#1a2533;--muted:#5a6b7e;--line:#e4ebf3;--bg:#fff;--bg-soft:#f4f8fc;--bg-tint:#eef4fb;--green:#1a8f5f;--amber:#a05f0b;--slate:#5b6b85;--maxw:1120px;--shadow-md:0 6px 24px rgba(22,54,92,.09);--shadow-lg:0 14px 44px rgba(22,54,92,.14)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-a{color:var(--accent)}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.hero{background:radial-gradient(1000px 520px at 12% -12%,rgba(44,106,168,.5),transparent 60%),linear-gradient(135deg,#0f2743 0%,#16365C 52%,#1F4E79 100%);color:#fff;padding:64px 0 46px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#9fc4e8;margin-bottom:14px}
-.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#6fe0a8}
-.hero h1{font-size:clamp(1.9rem,4.4vw,3rem);font-weight:900;letter-spacing:-.5px;line-height:1.12;margin-bottom:12px}
-.hero .promise{max-width:56rem;font-size:clamp(1rem,1.6vw,1.15rem);color:#dbe7f4}
-.hero .promise strong{color:#fff}
-.crumb{margin-bottom:18px;font-size:.85rem}.crumb a{color:#9fc4e8;text-decoration:none}.crumb a:hover{text-decoration:underline}
-.lens-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
-.lens-label{font-size:.8rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#9fc4e8}
-.lens{display:inline-flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px}
-.lens button{appearance:none;border:0;background:transparent;color:#dbe7f4;font:inherit;font-weight:700;font-size:.92rem;padding:8px 18px;border-radius:999px;cursor:pointer}
-.lens button[aria-pressed="true"]{background:#fff;color:var(--navy)}
-.block{padding:56px 0}
-.block.tint{background:var(--bg-soft)}
-.sec-head{max-width:46rem;margin-bottom:30px}
-.kicker{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:10px;position:relative;padding-left:26px}
-.kicker::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:18px;height:3px;border-radius:2px;background:var(--accent-soft)}
-.sec-title{font-size:clamp(1.4rem,2.6vw,1.9rem);font-weight:800;letter-spacing:-.3px;margin-bottom:10px}
-.sec-head p{color:var(--muted)}
-.doctrine{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-.doc-chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:14px 16px;font-size:.86rem;color:#dbe7f4}
-.doc-chip b{display:block;color:#fff;margin-bottom:3px}
-@media(max-width:860px){.doctrine{grid-template-columns:1fr}}
-.receipts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:980px){.receipts-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.receipts-grid{grid-template-columns:1fr}}
-.receipt{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 20px 14px;box-shadow:var(--shadow-md);display:flex;flex-direction:column}
-.receipt.hero-r{grid-column:span 3;background:linear-gradient(135deg,#f7fafd,#eef4fb);border-color:#cfdff0}
-@media(max-width:980px){.receipt.hero-r{grid-column:span 2}}
-@media(max-width:640px){.receipt.hero-r{grid-column:span 1}}
-.badge{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:800;letter-spacing:.8px;text-transform:uppercase;border-radius:999px;padding:4px 10px;margin-bottom:12px;width:max-content}
-.badge::before{content:"";width:7px;height:7px;border-radius:50%}
-.badge.v{background:#e7f6ee;color:var(--green)}.badge.v::before{background:var(--green)}
-.badge.c{background:#fdf3e4;color:var(--amber)}.badge.c::before{background:var(--amber)}
-.badge.a{background:#eef1f7;color:var(--slate)}.badge.a::before{background:var(--slate)}
-.r-num{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:900;letter-spacing:-.5px;color:var(--navy);line-height:1.05}
-.hero-r .r-num{font-size:clamp(2.2rem,4.4vw,3.1rem)}
-.r-unit{font-weight:700;color:var(--accent-soft);font-size:.95rem;margin-bottom:8px}
-.r-copy{font-size:.92rem;color:var(--muted);flex:1}
-.receipt details{margin-top:12px;border-top:1px dashed var(--line);padding-top:8px}
-.receipt summary{cursor:pointer;font-size:.78rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--accent-soft);list-style:none;display:flex;align-items:center;gap:6px}
-.receipt summary::-webkit-details-marker{display:none}
-.receipt summary::after{content:"▾";transition:transform .2s}
-.motion .receipt details[open] summary::after{transform:rotate(180deg)}
-.how{font-size:.82rem;color:var(--muted);padding:8px 0 4px}
-.how b{color:var(--ink)}
-.nots{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:860px){.nots{grid-template-columns:1fr}}
-.not-card{background:#fff;border:1px solid var(--line);border-left:4px solid var(--slate);border-radius:12px;padding:16px 18px}
-.not-card b{display:block;margin-bottom:4px}
-.not-card p{font-size:.88rem;color:var(--muted)}
-.method{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-@media(max-width:860px){.method{grid-template-columns:1fr}}
-.m-card{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.m-card b{display:block;margin-bottom:4px;color:var(--navy)}
-.m-card p{font-size:.88rem;color:var(--muted)}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:12px;padding:12px 20px;transition:transform .15s ease,box-shadow .15s ease}
-.motion .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-lg)}
-.btn-primary{background:#6fe0a8;color:#0f2743}
-.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.3)}
-.cta-dark .btn-ghost{background:transparent;color:var(--navy);border:1px solid var(--line)}
-footer{background:var(--navy);color:#c9d9ea;padding:34px 0;font-size:.88rem}
-footer a{color:#9fc4e8}
-.foot-inner{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+/* ============================================================
+   TOKENS — shared with index.html. Every colour measured with a
+   WCAG calculator against the surface it actually sits on.
+   ============================================================ */
+  :root {
+    --navy: #16365C;
+    --accent: #1F4E79;
+    --accent-soft: #2c6aa8;
+    --ink: #101c2b;
+    --muted: #51637a;
+    --bg: #ffffff;
+    --bg-soft: #f6f9fc;
+    --bg-tint: #eef4fb;
+    --line: #e4ebf3;
+    --hair: rgba(22,54,92,.09);
+    /* lightest point any dark gradient on this page actually paints */
+    --field: #1c3e65;
+    --on-dark: #dbe8f6; --on-dark-2: #cfe2f5; --on-dark-3: #c2d9f0;
+    --green: #0d6b45; --green-tint: #e7f6ee; --green-bright: #7fd3a6;
+    --amber: #8a4f04; --amber-tint: #fdf3e4;
+    --slate: #48586f; --slate-tint: #eef1f7;
+
+    --fs-h1:    clamp(2.2rem, 5.4vw, 3.6rem);
+    --fs-h2:    clamp(1.75rem, 3.4vw, 2.55rem);
+    --fs-h3:    1.1875rem;
+    --fs-lead:  clamp(1.0625rem, 1.35vw, 1.1875rem);
+    --fs-body:  1rem;
+    --fs-sm:    .9375rem;
+    --fs-xs:    .8125rem;
+    --fs-micro: .75rem;
+
+    --sec-y: clamp(76px, 8.5vw, 122px);
+    --nav-h: 62px;
+
+    --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05);
+    --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07);
+    --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13);
+    --hi:   inset 0 1px 0 rgba(255,255,255,.92);
+    --hi-d: inset 0 1px 0 rgba(255,255,255,.07);
+
+    --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px;
+    --ease: cubic-bezier(.22,.61,.36,1);
+    --maxw: 1140px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--ink); background: var(--bg);
+    font-size: var(--fs-body); line-height: 1.65;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    font-feature-settings: "cv11", "ss01";
+  }
+  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 4.5vw, 34px); }
+  /* [hidden] must beat any display rule — the lens panes are display:flex */
+  [hidden] { display: none !important; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  :focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; border-radius: 4px; }
+  section[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
+  .skip {
+    position: absolute; left: 12px; top: -60px; z-index: 200;
+    background: #fff; color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
+    padding: 12px 18px; border-radius: 10px; box-shadow: var(--e2);
+    min-height: 44px; display: inline-flex; align-items: center; transition: top .2s var(--ease);
+  }
+  .skip:focus { top: 12px; }
+
+  /* ============================================================
+     STICKY HEADER (shared component)
+     ============================================================ */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(9,22,40,.92);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    box-shadow: var(--hi-d);
+    transition: background .35s var(--ease), border-color .35s var(--ease);
+  }
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .nav { background: rgba(9,22,40,.80); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%); }
+  }
+  .nav[data-light] { background: rgba(247,250,253,.90); border-bottom-color: rgba(22,54,92,.11); box-shadow: 0 1px 0 rgba(22,54,92,.05); }
+  @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+    .nav[data-light] { background: rgba(247,250,253,.76); }
+  }
+  .nav[data-light] .nm-name { color: var(--navy); }
+  .nav[data-light] .nm-role { color: var(--muted); }
+  .nav[data-light] .nav-links a { color: #33455e; }
+  .nav[data-light] .nav-links a:hover { color: var(--navy); background: rgba(22,54,92,.06); }
+  .nav[data-light] .nav-proof { color: #33455e; border-color: rgba(22,54,92,.18); }
+  .nav[data-light] .nav-proof[aria-current="page"] { color: var(--navy); border-color: rgba(22,54,92,.3); background: rgba(22,54,92,.05); }
+  .nav[data-light] .nav-proof .tick { color: var(--green); }
+  .nav[data-light] .nav-cta { background: var(--navy); color: #fff; box-shadow: 0 6px 18px rgba(22,54,92,.24); }
+  .nav[data-light] .nav-menu > summary { color: var(--navy); border-color: rgba(22,54,92,.18); }
+
+  .nav-inner {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 0 clamp(16px, 4.5vw, 34px); height: var(--nav-h);
+    display: flex; align-items: center; gap: clamp(10px, 2vw, 26px);
+  }
+  .nav-mark { display: flex; flex-direction: column; justify-content: center; min-height: 44px; margin-right: auto; color: inherit; }
+  .nav-mark .nm-name { font-size: var(--fs-sm); font-weight: 700; color: #fff; letter-spacing: -.005em; line-height: 1.15; white-space: nowrap; }
+  .nav-mark .nm-role { font-size: 11px; font-weight: 600; color: var(--on-dark-3); letter-spacing: .1em; text-transform: uppercase; line-height: 1.3; }
+  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; min-width: 44px; padding: 0 11px;
+    font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
+    white-space: nowrap; border-radius: 9px;
+    transition: color .18s var(--ease), background .18s var(--ease);
+  }
+  .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+  .nav-proof {
+    display: inline-flex; align-items: center; gap: 7px;
+    min-height: 44px; padding: 0 13px; border-radius: 10px;
+    font-size: var(--fs-xs); font-weight: 600; color: var(--on-dark-2);
+    border: 1px solid rgba(255,255,255,.22); white-space: nowrap;
+    transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+  }
+  .nav-proof[aria-current="page"] { color: #fff; border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.10); }
+  .nav-proof .tick { width: 14px; height: 14px; flex: 0 0 14px; color: var(--green-bright); }
+  .nav-cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; padding: 0 17px; border-radius: 10px;
+    font-size: var(--fs-xs); font-weight: 700; color: #0d2440; background: #fff;
+    white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+  .nav-progress { height: 2px; background: transparent; margin-top: -1px; }
+  .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green-bright), #6fbdf0); transition: width .1s linear; }
+  .nav-menu { position: relative; display: none; }
+  .nav-menu > summary { list-style: none; cursor: pointer; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,.22); }
+  .nav-menu > summary::-webkit-details-marker { display: none; }
+  .nav-menu > summary svg { width: 19px; height: 19px; }
+  .nav-menu > summary .x { display: none; }
+  .nav-menu[open] > summary .x { display: block; }
+  .nav-menu[open] > summary .bars { display: none; }
+  .nav-panel {
+    position: absolute; right: -6px; top: calc(100% + 12px); width: min(78vw, 268px);
+    background: #0b1a2e; border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg);
+    box-shadow: 0 22px 60px rgba(0,0,0,.55), var(--hi-d);
+    padding: 8px; display: flex; flex-direction: column; max-height: 76vh; overflow-y: auto;
+  }
+  @supports (backdrop-filter: blur(1px)) { .nav-panel { background: rgba(11,26,46,.94); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); } }
+  .nav-panel a { display: flex; align-items: center; min-height: 48px; padding: 0 14px; font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: 10px; }
+  .nav-panel a:hover, .nav-panel a:focus-visible { background: rgba(255,255,255,.09); color: #fff; }
+  .nav-panel hr { border: 0; height: 1px; background: rgba(255,255,255,.12); margin: 6px 10px; }
+  @media (max-width: 1040px) { .nav-links { display: none; } .nav-menu { display: block; } .nav-proof { display: none; } }
+  @media (max-width: 420px) { .nav-mark .nm-role { display: none; } }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    position: relative; color: #fff; overflow: hidden;
+    background-color: var(--field);
+    background-image:
+      radial-gradient(1100px 640px at 8% -18%, rgba(47,110,178,.42), transparent 62%),
+      radial-gradient(900px 640px at 96% 2%, rgba(24,86,140,.42), transparent 58%),
+      linear-gradient(158deg, #081726 0%, #0d2440 46%, #123153 100%);
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(120% 100% at 50% 0%, #000 26%, transparent 74%);
+    -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 26%, transparent 74%);
+  }
+  .hero-inner { position: relative; padding-top: calc(var(--nav-h) + clamp(34px, 4.5vw, 60px)); padding-bottom: clamp(52px, 6vw, 78px); }
+  .crumb { margin-bottom: 18px; }
+  .crumb a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-3); }
+  .crumb a:hover { color: #fff; }
+  .crumb svg { width: 15px; height: 15px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    color: #c9dcf1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+    padding: 8px 15px; border-radius: 100px; margin-bottom: 22px; box-shadow: var(--hi-d);
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 10px var(--green-bright); flex: 0 0 7px; }
+  .hero h1 { font-size: var(--fs-h1); font-weight: 900; letter-spacing: -.035em; line-height: .98; margin-bottom: 18px; }
+  .hero .promise { max-width: 64ch; font-size: var(--fs-lead); color: var(--on-dark); text-wrap: pretty; }
+  .hero .promise strong { color: #fff; font-weight: 600; }
+
+  .lens-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 30px; }
+  .lens-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-3); }
+  .lens { display: inline-flex; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 4px; box-shadow: var(--hi-d); }
+  .lens button {
+    appearance: none; border: 0; background: transparent; color: var(--on-dark-2);
+    font: inherit; font-weight: 600; font-size: var(--fs-xs);
+    min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer;
+    transition: background .2s var(--ease), color .2s var(--ease);
+  }
+  .lens button[aria-pressed="true"] { background: #fff; color: var(--navy); font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+
+  .doctrine { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
+  .doc-chip { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r); padding: 16px 18px; font-size: var(--fs-xs); color: var(--on-dark-2); line-height: 1.55; box-shadow: var(--hi-d); }
+  .doc-chip b { display: block; color: #fff; margin-bottom: 4px; font-weight: 700; }
+  @media (max-width: 860px) { .doctrine { grid-template-columns: 1fr; } }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    font-size: var(--fs-sm); font-weight: 600; min-height: 50px; padding: 0 22px;
+    border-radius: 12px; border: 1px solid transparent; text-decoration: none;
+    transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+  }
+  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+  .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--hi-d); }
+  .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); border-color: rgba(255,255,255,.5); }
+  .btn-solid { background: var(--navy); color: #fff; font-weight: 700; box-shadow: var(--e2); }
+  .btn-solid:hover { transform: translateY(-2px); box-shadow: var(--e3); }
+  .btn-line { background: #fff; color: var(--navy); border-color: var(--line); box-shadow: var(--e1); }
+  .btn-line:hover { transform: translateY(-2px); border-color: #c9d9ea; box-shadow: var(--e2); }
+  .cta-dark { margin-top: 34px; }
+
+  /* ============================================================
+     SECTION FURNITURE
+     ============================================================ */
+  .block { padding: var(--sec-y) 0; }
+  .block.tint { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .sec-head { margin-bottom: clamp(34px, 4vw, 54px); max-width: 46rem; }
+  .kicker {
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 11px;
+  }
+  .kicker::before { content: ""; width: 26px; height: 2px; background: currentColor; border-radius: 2px; opacity: .55; }
+  .sec-title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em; color: var(--navy); line-height: 1.06; text-wrap: balance; }
+  .sec-head > p { margin-top: 16px; color: var(--muted); font-size: var(--fs-lead); max-width: 62ch; text-wrap: pretty; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; }
+  .legend-item { display: inline-flex; align-items: center; gap: 9px; font-size: var(--fs-xs); color: var(--muted); }
+  .legend-item .badge { margin: 0; }
+
+  /* ============================================================
+     THE CLAIM WALL — the verification math is promoted into every
+     card rather than hidden behind fourteen separate clicks.
+     ============================================================ */
+  .claim-wall { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; align-items: start; }
+  @media (max-width: 760px) { .claim-wall { grid-template-columns: 1fr; } }
+
+  .receipt {
+    background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg);
+    padding: 26px 26px 24px; box-shadow: var(--e1), var(--hi);
+    display: flex; flex-direction: column;
+    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
+  }
+  .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3), var(--hi); }
+  .receipt.hero-r {
+    grid-column: 1 / -1;
+    /* solid declared under the gradient = the DARKER end, so the contrast
+       numbers measured on this card are conservative rather than flattering */
+    background-color: #eef4fb;
+    background-image: linear-gradient(135deg, #fbfdff, #eef4fb);
+    border-color: #cfdff0;
+    box-shadow: var(--e2), var(--hi);
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px; width: max-content;
+    font-size: var(--fs-micro); font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
+    border-radius: 999px; padding: 5px 11px; margin-bottom: 16px;
+  }
+  .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px; }
+  .badge.v { background: var(--green-tint); color: var(--green); } .badge.v::before { background: var(--green); }
+  .badge.c { background: var(--amber-tint); color: var(--amber); } .badge.c::before { background: var(--amber); }
+  .badge.a { background: var(--slate-tint); color: var(--slate); } .badge.a::before { background: var(--slate); }
+
+  .r-num { font-size: clamp(1.85rem, 3.2vw, 2.4rem); font-weight: 900; letter-spacing: -.04em; color: var(--navy); line-height: 1.02; font-variant-numeric: tabular-nums; }
+  .hero-r .r-num { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+  .r-unit { font-weight: 600; color: var(--accent); font-size: var(--fs-sm); margin-top: 6px; letter-spacing: -.008em; }
+  .hero-r .r-unit { font-size: var(--fs-body); max-width: 44ch; }
+  .r-copy { font-size: var(--fs-sm); color: var(--muted); margin-top: 14px; flex: 1; text-wrap: pretty; }
+  .hero-r .r-copy { font-size: var(--fs-body); max-width: 74ch; }
+
+  .r-how { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .hero-r .r-how { border-top-color: #d8e5f3; }
+  .r-how-t {
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 9px;
+  }
+  .r-how-t::before { content: ""; width: 16px; height: 2px; background: currentColor; border-radius: 2px; opacity: .5; }
+  .r-how-l dt { font-weight: 700; color: var(--ink); font-size: var(--fs-xs); margin-top: 11px; }
+  .r-how-l dt:first-of-type { margin-top: 0; }
+  .r-how-l dd { color: var(--muted); font-size: var(--fs-xs); line-height: 1.6; margin-top: 2px; }
+
+  /* ============================================================
+     WHAT I WON'T CLAIM / METHOD
+     ============================================================ */
+  .nots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .nots { grid-template-columns: 1fr; } }
+  .not-card {
+    background: #fff; border: 1px solid var(--hair); border-left: 3px solid var(--slate);
+    border-radius: var(--r); padding: 20px 22px; box-shadow: var(--e1), var(--hi);
+  }
+  .not-card b { display: block; margin-bottom: 6px; color: var(--navy); font-size: var(--fs-body); letter-spacing: -.015em; }
+  .not-card p { font-size: var(--fs-sm); color: var(--muted); text-wrap: pretty; }
+
+  .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .method { grid-template-columns: 1fr; } }
+  .m-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r); padding: 22px; box-shadow: var(--e1), var(--hi); }
+  .m-card b { display: block; margin-bottom: 6px; color: var(--navy); font-size: var(--fs-body); letter-spacing: -.015em; }
+  .m-card p { font-size: var(--fs-sm); color: var(--muted); text-wrap: pretty; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  .footer {
+    background-color: var(--field);
+    background-image:
+      radial-gradient(900px 520px at 82% -25%, rgba(47,110,178,.38), transparent 62%),
+      linear-gradient(150deg, #081726 0%, #0d2440 52%, #123153 100%);
+    color: var(--on-dark); padding: 44px 0; font-size: var(--fs-sm);
+  }
+  .foot-inner { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: center; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 4px; }
+  .foot-links a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; justify-content: center; padding: 0 12px; border-radius: 9px; color: var(--on-dark-2); }
+  .foot-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+
+  /* ============================================================
+     MOTION — same contract as index.html: the .settled timer is
+     armed by the same script that adds .motion.
+     ============================================================ */
+  html.motion :is(.sec-head,.receipt,.not-card,.m-card) {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .62s var(--ease), transform .62s var(--ease);
+  }
+  html.motion :is(.sec-head,.receipt,.not-card,.m-card).rv-in { opacity: 1; transform: none; }
+  html.settled :is(.sec-head,.receipt,.not-card,.m-card) { opacity: 1 !important; transform: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    html.motion :is(.sec-head,.receipt,.not-card,.m-card) { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="crumb"><a href="./index.html">← alexamaro · portfolio</a></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============ STICKY HEADER ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="./index.html" aria-label="Alex Amaro — portfolio home">
+      <span class="nm-name">Alex Amaro</span>
+      <span class="nm-role">Growth · Agentic AI</span>
+    </a>
+    <nav class="nav-links" aria-label="Portfolio sections">
+      <a href="./index.html#gen-creative">Creative</a>
+      <a href="./index.html#voice">Voice AI</a>
+      <a href="./index.html#systems">Systems</a>
+      <a href="./index.html#proof">Receipts</a>
+      <a href="./index.html#growth-math">Growth math</a>
+      <a href="./index.html#creds">Credentials</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-proof" href="./proof.html" aria-current="page">
+        <svg class="tick" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Proof Room
+      </a>
+      <a class="nav-cta" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a call</a>
+      <details class="nav-menu" id="navMenu">
+        <summary aria-label="Sections menu">
+          <svg class="bars" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="x" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </summary>
+        <div class="nav-panel">
+          <a href="#claims">The receipts</a>
+          <a href="#not-claimed">What I won’t claim</a>
+          <a href="#method">The verification system</a>
+          <hr>
+          <a href="./index.html">Back to the portfolio</a>
+          <a href="./index.html#gen-creative">Creative</a>
+          <a href="./index.html#voice">Voice AI</a>
+          <a href="./index.html#systems">Systems</a>
+          <a href="./index.html#proof">Receipts</a>
+          <a href="./index.html#growth-math">Growth math</a>
+          <a href="./index.html#creds">Credentials</a>
+          <hr>
+          <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="nav-progress"><i id="navProgress"></i></div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" data-nav-dark>
+  <div class="wrap hero-inner">
+    <div class="crumb"><a href="./index.html"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>alexamaro · portfolio</a></div>
     <span class="eyebrow"><span class="dot"></span>Evidence-backed results · verification statuses shown</span>
     <h1>The Proof Room</h1>
     <p class="promise"><strong>Every number I use traces to a source system</strong> — the ad platform, the CRM, or a client tracker — and each one below is labeled with <em>how</em> it's verified. Claims that can't be sourced anymore are <strong>held and listed</strong>, not quietly reused. Most marketers ask you to trust them. I'd rather show receipts.</p>
     <div class="lens-row" role="group" aria-label="Choose your lens">
-      <span class="lens-label">Viewing as:</span>
+      <span class="lens-label">Viewing as</span>
       <div class="lens">
         <button id="lensEmployer" aria-pressed="true" type="button">Hiring manager</button>
         <button id="lensClient" aria-pressed="false" type="button">Business owner</button>
@@ -108,27 +442,278 @@ footer a{color:#9fc4e8}
       <div class="doc-chip"><b>I claim leads &amp; booked appointments — not client revenue.</b> Closing happens client-side; I don't take credit for numbers I can't see.</div>
       <div class="doc-chip"><b>Clients stay anonymous here.</b> Business labels only, no client or patient data — the evidence lives in a private vault, shareable in interviews.</div>
     </div>
-    <div class="cta-row" data-lens-block="employer">
+    <div class="cta-row" data-lens="emp">
       <a class="btn btn-primary" href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
       <a class="btn btn-ghost" href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-ghost" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a 15-min call</a>
     </div>
-    <div class="cta-row" data-lens-block="client" hidden>
+    <div class="cta-row" data-lens="cli" hidden>
       <a class="btn btn-primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a 15-min call</a>
       <a class="btn btn-ghost" href="mailto:jesusalexelamaro@gmail.com?subject=Growth%20help%20%E2%80%94%20from%20the%20Proof%20Room">Email Alex</a>
       <a class="btn btn-ghost" href="./index.html#systems">See the systems</a>
     </div>
   </div>
-</header>
+</section>
 
-<section class="block" id="receipts">
+<section class="block" id="claims">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">The receipts</div>
       <h2 class="sec-title">Claims, with their verification status.</h2>
-      <p><span class="badge v" style="margin:0 6px 0 0">Platform-verified</span> pulled from the live ad platform. <span class="badge c" style="margin:0 6px">Corroborated</span> backed by CRM or client-tracker records. <span class="badge a" style="margin:0 6px">Founder-attested</span> my own operating history, labeled as such.</p>
+      <p>Fourteen claims. Every one carries its status, its source system, and the arithmetic behind it — shown on the card, not hidden behind a click.</p>
+      <div class="legend">
+        <span class="legend-item"><span class="badge v">Platform-verified</span> pulled from the live ad platform.</span>
+        <span class="legend-item"><span class="badge c">Corroborated</span> backed by CRM or client-tracker records.</span>
+        <span class="legend-item"><span class="badge a">Founder-attested</span> my own operating history, labeled as such.</span>
+      </div>
     </div>
-    <div class="receipts-grid" id="wall"></div>
+    <div class="claim-wall">
+
+      <article class="receipt hero-r">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">9.5×</p>
+        <p class="r-unit">an incumbent agency’s lead volume — at ~75% lower cost per lead, same account</p>
+        <p class="r-copy" data-lens="emp">Took over a chiropractic account from an incumbent national agency: 114 leads at $12.59 vs. their 12 at $49.81 — on the very same account. Apples to apples, no excuses.</p>
+        <p class="r-copy" data-lens="cli" hidden>A clinic ran us head-to-head against their national agency on the same ad account. We delivered 9.5× the leads at ~75% lower cost per lead.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>Meta Ads, campaign-level — both agencies’ campaigns in one account.</dd>
+            <dt>Math</dt>
+            <dd>114/12 = 9.5×; ($49.81−$12.59)/$49.81 = 74.7% lower. Exact-match re-verified against the live account.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">$225K+</p>
+        <p class="r-unit">Meta ad spend managed · 14+ accounts</p>
+        <p class="r-copy" data-lens="emp">Managed/supported $225K+ in Meta spend across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiro, tattoo removal, weight loss, local service, B2B.</p>
+        <p class="r-copy" data-lens="cli" hidden>We’ve managed $225K+ in Meta spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>account-level lifetime spend summed across every accessible ad account — ≈$229,100 USD-equivalent across 14 accounts with non-zero spend, multi-currency (USD / CAD / GBP) documented.</dd>
+            <dt>Note</dt>
+            <dd>excludes client accounts I’ve lost access to at off-boarding — the true lifetime figure is higher.</dd>
+            <dt>Scope</dt>
+            <dd>“managed/supported”: one account is ~63% of the total and much of it ran awareness objectives, so this number is never divided by leads to imply a CPL.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">6,250+</p>
+        <p class="r-unit">qualified leads generated</p>
+        <p class="r-copy" data-lens="emp">An itemized floor: only clean lead-form / lead-action campaigns counted — awareness and traffic “results” excluded, lost accounts excluded.</p>
+        <p class="r-copy" data-lens="cli" hidden>6,250+ qualified leads for service businesses — counted account by account, and qualified at the form so your calendar gets sales-ready people.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>per-campaign lead results itemized account by account — 6,295 counted.</dd>
+            <dt>Discipline</dt>
+            <dd>never paired with total spend as an “average CPL” — CPL is per-campaign only.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">$4–$22</p>
+        <p class="r-unit">cost per lead, per campaign</p>
+        <p class="r-copy" data-lens="emp">Strong B2C lead campaigns commonly land $4–$22 per campaign — as low as ~$1.50–$4 on the best ones. Quoted per campaign, never blended.</p>
+        <p class="r-copy" data-lens="cli" hidden>Qualified leads commonly at $4–$22 per campaign — best campaigns under $4.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>campaign-level cost-per-result across the portfolio.</dd>
+            <dt>Honesty</dt>
+            <dd>some campaigns run higher — that’s why this is a per-campaign range, not a promised average.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge c">Corroborated</span>
+        <p class="r-num">70</p>
+        <p class="r-unit">appointments booked in a 30-day window</p>
+        <p class="r-copy" data-lens="emp">Weight-loss clinic grand opening: 70 booked in a 30-day window (61 of them inside the July calendar month) — ads + a GoHighLevel follow-up system working as one.</p>
+        <p class="r-copy" data-lens="cli" hidden>For a clinic’s grand opening we put 70 appointments on the calendar in 30 days — because we build the follow-up system, not just the ads.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>client CRM tracking sheet, de-duplicated; staff/test rows excluded.</dd>
+            <dt>Window</dt>
+            <dd>2025-06-24 to 2025-07-23 — the 30-day window is stated because it isn’t the calendar month (that one holds 61).</dd>
+            <dt>Definition</dt>
+            <dd>“booked” = scheduled.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge c">Corroborated</span>
+        <p class="r-num">~120</p>
+        <p class="r-unit">appointments booked in ~3 months</p>
+        <p class="r-copy" data-lens="emp">Aesthetic clinic: ~120 booked across roughly three months — double-sourced (client tracker + CRM records).</p>
+        <p class="r-copy" data-lens="cli" hidden>~120 appointments booked in about three months for an aesthetic clinic.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>two independent systems (113 in the tracker; 120 in the CRM window).</dd>
+            <dt>Precision</dt>
+            <dd>stated as ~120, booked-not-attended — I don’t inflate the margin.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">1,750+</p>
+        <p class="r-unit">leads · one med-spa program</p>
+        <p class="r-copy" data-lens="emp">One clinic, full program: weight-loss, Botox, laser, photofacial — 1,750+ leads, including 1,200+ weight-loss leads at ~$9 CPL.</p>
+        <p class="r-copy" data-lens="cli" hidden>For one med spa we ran the whole program — 1,750+ leads across four service lines.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>every campaign in the account itemized from the ads platform — 1,781 verified ($20.5K spend; blended ~$12 CPL across the program).</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">730+</p>
+        <p class="r-unit">tattoo-removal leads · NYC</p>
+        <p class="r-copy" data-lens="emp">730+ leads at ~$19–$21 CPL in Brooklyn — one of the most saturated local markets in the country. Flagship campaign: 526 leads at $19. Longest-tenured client.</p>
+        <p class="r-copy" data-lens="cli" hidden>730+ leads for a tattoo-removal studio in Brooklyn’s brutally competitive market.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>platform pull, all campaigns — 737 verified; flagship campaign 526 leads @ $19.00.</dd>
+            <dt>Precision</dt>
+            <dd>the CPL is quoted as a range because $19 is the flagship campaign’s price, not the account’s — the account average is ~$21. A total never gets a single campaign’s price attached to it.</dd>
+            <dt>Bonus</dt>
+            <dd>client video testimonial on file.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">~$1.88</p>
+        <p class="r-unit">CPL · 817 B2B leads · refrigeration</p>
+        <p class="r-copy" data-lens="emp">817 B2B leads for a UK commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.</p>
+        <p class="r-copy" data-lens="cli" hidden>B2B works too: 817 leads for a commercial-refrigeration installer at under $2 per lead.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>platform pull — 817 leads, ~$1.88 blended; flagship campaign 709 leads at £1.18 ≈ $1.50.</dd>
+            <dt>Honesty</dt>
+            <dd>noted as the cheap exception — I don’t generalize it to all B2B. Qualified B2B booked-call work runs ~$40–$80.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">~1,200</p>
+        <p class="r-unit">body-contouring leads</p>
+        <p class="r-copy" data-lens="emp">Body-contouring leads at $4–$16 CPL on a single account — plus 80 booked appointments in the client’s tracker.</p>
+        <p class="r-copy" data-lens="cli" hidden>~1,200 leads for one body-contouring clinic at $4–$16 per lead, with 80 appointments tracked onto the calendar.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>platform pull across both of the client’s accounts (~1,204); bookings from the client tracking sheet (2026-06 pull).</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge c">Corroborated</span>
+        <p class="r-num">220+</p>
+        <p class="r-unit">bilingual leads + 89 booked · Montreal</p>
+        <p class="r-copy" data-lens="emp">Fully bilingual FR/EN campaigns and follow-up for a Montreal beauty brand: 220+ leads and 89 booked appointments in ~10 weeks (~40/month).</p>
+        <p class="r-copy" data-lens="cli" hidden>For a Montreal beauty brand: 220+ leads and 89 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>bookings corroborated by the client’s master tracking sheet; lead volume founder-attested (ad account lost at off-boarding — which is also why the exact CPL is retired, see below).</dd>
+            <dt>Why 89 and not “~90”</dt>
+            <dd>89 is the count of rows carrying an actual appointment date. A row without a date isn’t a booking, so it isn’t rounded up into one.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge v">Platform-verified</span>
+        <p class="r-num">215+</p>
+        <p class="r-unit">scheduled B2B appointments (our own pipeline)</p>
+        <p class="r-copy" data-lens="emp">I was the media buyer for the agency’s own growth too, selling agency services into the medspa/clinic market: 170+ leads from lead-form campaigns, and separately 215+ appointments scheduled straight through the site — two different paths, at ~$62 per scheduled appointment.</p>
+        <p class="r-copy" data-lens="cli" hidden>We run our own acquisition the same way we’d run yours — 170+ leads from lead forms, plus 215+ appointments scheduled directly on the site.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>platform pull; result type is “website appointments scheduled.”</dd>
+            <dt>Two paths, not one funnel</dt>
+            <dd>the 170+ lead-form leads and the 215+ site-scheduled appointments are separate results — appointments are not a subset of those leads, so don’t read them as a booking rate.</dd>
+            <dt>Precision</dt>
+            <dd>not “booked calls” — the platform can’t verify attendance.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge c">Corroborated</span>
+        <p class="r-num">1,300+</p>
+        <p class="r-unit">booked appointments and consults · 22 client sub-accounts</p>
+        <p class="r-copy" data-lens="emp">Counted across all 22 client sub-accounts in the CRM: 1,300+ appointments and consults booked — the ad-to-appointment chain working across the whole book of business, not a one-off. 830+ if you exclude recurring-service rebookings entirely.</p>
+        <p class="r-copy" data-lens="cli" hidden>1,300+ appointments and consults booked for clients — read out of the systems themselves, not estimated. The chain compounds across businesses.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>a census of every client sub-account in GoHighLevel, read directly off the platform before the estate was torn down (2026-08-07) — 1,301 counted.</dd>
+            <dt>Conservative floor</dt>
+            <dd>830+ excluding recurring-service rebookings and taking the largest account at its in-person figure — the number I’d defend in the most skeptical room.</dd>
+            <dt>Definition</dt>
+            <dd>booked = scheduled, not attended; consults are counted in the unit rather than relabeled as appointments; overlapping client windows counted once.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge a">Founder-attested</span>
+        <p class="r-num">Six-figure</p>
+        <p class="r-unit">e-commerce business, built through college</p>
+        <p class="r-copy" data-lens="emp">Built and ran a six-figure Amazon/eBay business while in college full-time — self-funding tuition. Sourcing, inventory, fulfillment, CS, end to end. The operating instincts behind everything above.</p>
+        <p class="r-copy" data-lens="cli" hidden>Founder DNA: I built a six-figure e-commerce business from scratch while in college — I run your campaigns like an operator, not a vendor.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>my own operating history (2017–2021) — labeled founder-attested because platform records that old aren’t retrievable.</dd>
+            <dt>Discipline</dt>
+            <dd>the precise figure stays retired; the story stands.</dd>
+          </dl>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
@@ -163,133 +748,109 @@ footer a{color:#9fc4e8}
       <div class="m-card"><b>A machine-readable claims contract</b><p>Every approved claim (and every banned phrasing) lives in a JSON contract; a linter scans my résumé, this site, and outreach copy so a retired number can't quietly come back.</p></div>
       <div class="m-card"><b>Adversarial review</b><p>Claims get challenged before they ship — three were downgraded or retired after failing re-verification. The wall you see is what survived.</p></div>
     </div>
-    <div class="cta-row cta-dark" style="margin-top:30px">
-      <a class="btn btn-primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Walk the evidence with me</a>
-      <a class="btn btn-ghost" href="./index.html">Back to the portfolio</a>
+    <div class="cta-row cta-dark">
+      <a class="btn btn-solid" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Walk the evidence with me</a>
+      <a class="btn btn-line" href="./index.html">Back to the portfolio</a>
     </div>
   </div>
 </section>
 
-<footer>
+</main>
+
+<footer class="footer" data-nav-dark>
   <div class="wrap foot-inner">
-    <div>© <span id="yr"></span> Alex Amaro — every claim on this page maps to a vault entry.</div>
-    <div><a href="./index.html">Portfolio</a> · <a href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">LinkedIn</a> · <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé</a></div>
+    <div>© <span id="yr">2026</span> Alex Amaro — every claim on this page maps to a vault entry.</div>
+    <div class="foot-links">
+      <a href="./index.html">Portfolio</a>
+      <a href="https://linkedin.com/in/alex-amaro-a4187a221" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </div>
   </div>
 </footer>
 
 <script>
 document.getElementById('yr').textContent = String(new Date().getFullYear());
 
-// Green-lit claims (synced to AlexFC0810/proof · shareable/greenlit.json v1.6.0 · 2026-08-07)
-// how = [ [boldLabel, text], ... ]  — rendered with safe DOM methods only.
-const CLAIMS = [
-  {badge:'v', label:'Platform-verified', hero:true, num:'9.5×', unit:'an incumbent agency’s lead volume — at ~75% lower cost per lead, same account',
-   emp:'Took over a chiropractic account from an incumbent national agency: 114 leads at $12.59 vs. their 12 at $49.81 — on the very same account. Apples to apples, no excuses.',
-   cli:'A clinic ran us head-to-head against their national agency on the same ad account. We delivered 9.5× the leads at ~75% lower cost per lead.',
-   how:[['Source','Meta Ads, campaign-level — both agencies’ campaigns in one account.'],['Math','114/12 = 9.5×; ($49.81−$12.59)/$49.81 = 74.7% lower. Exact-match re-verified against the live account.']]},
-  {badge:'v', label:'Platform-verified', num:'$225K+', unit:'Meta ad spend managed · 14+ accounts',
-   emp:'Managed/supported $225K+ in Meta spend across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiro, tattoo removal, weight loss, local service, B2B.',
-   cli:'We’ve managed $225K+ in Meta spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.',
-   how:[['Source','account-level lifetime spend summed across every accessible ad account — ≈$229,100 USD-equivalent across 14 accounts with non-zero spend, multi-currency (USD / CAD / GBP) documented.'],['Note','excludes client accounts I’ve lost access to at off-boarding — the true lifetime figure is higher.'],['Scope','“managed/supported”: one account is ~63% of the total and much of it ran awareness objectives, so this number is never divided by leads to imply a CPL.']]},
-  {badge:'v', label:'Platform-verified', num:'6,250+', unit:'qualified leads generated',
-   emp:'An itemized floor: only clean lead-form / lead-action campaigns counted — awareness and traffic “results” excluded, lost accounts excluded.',
-   cli:'6,250+ qualified leads for service businesses — counted account by account, and qualified at the form so your calendar gets sales-ready people.',
-   how:[['Source','per-campaign lead results itemized account by account — 6,295 counted.'],['Discipline','never paired with total spend as an “average CPL” — CPL is per-campaign only.']]},
-  {badge:'v', label:'Platform-verified', num:'$4–$22', unit:'cost per lead, per campaign',
-   emp:'Strong B2C lead campaigns commonly land $4–$22 per campaign — as low as ~$1.50–$4 on the best ones. Quoted per campaign, never blended.',
-   cli:'Qualified leads commonly at $4–$22 per campaign — best campaigns under $4.',
-   how:[['Source','campaign-level cost-per-result across the portfolio.'],['Honesty','some campaigns run higher — that’s why this is a per-campaign range, not a promised average.']]},
-  {badge:'c', label:'Corroborated', num:'70', unit:'appointments booked in a 30-day window',
-   emp:'Weight-loss clinic grand opening: 70 booked in a 30-day window (61 of them inside the July calendar month) — ads + a GoHighLevel follow-up system working as one.',
-   cli:'For a clinic’s grand opening we put 70 appointments on the calendar in 30 days — because we build the follow-up system, not just the ads.',
-   how:[['Source','client CRM tracking sheet, de-duplicated; staff/test rows excluded.'],['Window','2025-06-24 to 2025-07-23 — the 30-day window is stated because it isn’t the calendar month (that one holds 61).'],['Definition','“booked” = scheduled.']]},
-  {badge:'c', label:'Corroborated', num:'~120', unit:'appointments booked in ~3 months',
-   emp:'Aesthetic clinic: ~120 booked across roughly three months — double-sourced (client tracker + CRM records).',
-   cli:'~120 appointments booked in about three months for an aesthetic clinic.',
-   how:[['Source','two independent systems (113 in the tracker; 120 in the CRM window).'],['Precision','stated as ~120, booked-not-attended — I don’t inflate the margin.']]},
-  {badge:'v', label:'Platform-verified', num:'1,750+', unit:'leads · one med-spa program',
-   emp:'One clinic, full program: weight-loss, Botox, laser, photofacial — 1,750+ leads, including 1,200+ weight-loss leads at ~$9 CPL.',
-   cli:'For one med spa we ran the whole program — 1,750+ leads across four service lines.',
-   how:[['Source','every campaign in the account itemized from the ads platform — 1,781 verified ($20.5K spend; blended ~$12 CPL across the program).']]},
-  {badge:'v', label:'Platform-verified', num:'730+', unit:'tattoo-removal leads · NYC',
-   emp:'730+ leads at ~$19–$21 CPL in Brooklyn — one of the most saturated local markets in the country. Flagship campaign: 526 leads at $19. Longest-tenured client.',
-   cli:'730+ leads for a tattoo-removal studio in Brooklyn’s brutally competitive market.',
-   how:[['Source','platform pull, all campaigns — 737 verified; flagship campaign 526 leads @ $19.00.'],['Precision','the CPL is quoted as a range because $19 is the flagship campaign’s price, not the account’s — the account average is ~$21. A total never gets a single campaign’s price attached to it.'],['Bonus','client video testimonial on file.']]},
-  {badge:'v', label:'Platform-verified', num:'~$1.88', unit:'CPL · 817 B2B leads · refrigeration',
-   emp:'817 B2B leads for a UK commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.',
-   cli:'B2B works too: 817 leads for a commercial-refrigeration installer at under $2 per lead.',
-   how:[['Source','platform pull — 817 leads, ~$1.88 blended; flagship campaign 709 leads at £1.18 ≈ $1.50.'],['Honesty','noted as the cheap exception — I don’t generalize it to all B2B. Qualified B2B booked-call work runs ~$40–$80.']]},
-  {badge:'v', label:'Platform-verified', num:'~1,200', unit:'body-contouring leads',
-   emp:'Body-contouring leads at $4–$16 CPL on a single account — plus 80 booked appointments in the client’s tracker.',
-   cli:'~1,200 leads for one body-contouring clinic at $4–$16 per lead, with 80 appointments tracked onto the calendar.',
-   how:[['Source','platform pull across both of the client’s accounts (~1,204); bookings from the client tracking sheet (2026-06 pull).']]},
-  {badge:'c', label:'Corroborated', num:'220+', unit:'bilingual leads + 89 booked · Montreal',
-   emp:'Fully bilingual FR/EN campaigns and follow-up for a Montreal beauty brand: 220+ leads and 89 booked appointments in ~10 weeks (~40/month).',
-   cli:'For a Montreal beauty brand: 220+ leads and 89 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.',
-   how:[['Source','bookings corroborated by the client’s master tracking sheet; lead volume founder-attested (ad account lost at off-boarding — which is also why the exact CPL is retired, see below).'],['Why 89 and not “~90”','89 is the count of rows carrying an actual appointment date. A row without a date isn’t a booking, so it isn’t rounded up into one.']]},
-  {badge:'v', label:'Platform-verified', num:'215+', unit:'scheduled B2B appointments (our own pipeline)',
-   emp:'I was the media buyer for the agency’s own growth too, selling agency services into the medspa/clinic market: 170+ leads from lead-form campaigns, and separately 215+ appointments scheduled straight through the site — two different paths, at ~$62 per scheduled appointment.',
-   cli:'We run our own acquisition the same way we’d run yours — 170+ leads from lead forms, plus 215+ appointments scheduled directly on the site.',
-   how:[['Source','platform pull; result type is “website appointments scheduled.”'],['Two paths, not one funnel','the 170+ lead-form leads and the 215+ site-scheduled appointments are separate results — appointments are not a subset of those leads, so don’t read them as a booking rate.'],['Precision','not “booked calls” — the platform can’t verify attendance.']]},
-  {badge:'c', label:'Corroborated', num:'1,300+', unit:'booked appointments and consults · 22 client sub-accounts',
-   emp:'Counted across all 22 client sub-accounts in the CRM: 1,300+ appointments and consults booked — the ad-to-appointment chain working across the whole book of business, not a one-off. 830+ if you exclude recurring-service rebookings entirely.',
-   cli:'1,300+ appointments and consults booked for clients — read out of the systems themselves, not estimated. The chain compounds across businesses.',
-   how:[['Source','a census of every client sub-account in GoHighLevel, read directly off the platform before the estate was torn down (2026-08-07) — 1,301 counted.'],['Conservative floor','830+ excluding recurring-service rebookings and taking the largest account at its in-person figure — the number I’d defend in the most skeptical room.'],['Definition','booked = scheduled, not attended; consults are counted in the unit rather than relabeled as appointments; overlapping client windows counted once.']]},
-  {badge:'a', label:'Founder-attested', num:'Six-figure', unit:'e-commerce business, built through college',
-   emp:'Built and ran a six-figure Amazon/eBay business while in college full-time — self-funding tuition. Sourcing, inventory, fulfillment, CS, end to end. The operating instincts behind everything above.',
-   cli:'Founder DNA: I built a six-figure e-commerce business from scratch while in college — I run your campaigns like an operator, not a vendor.',
-   how:[['Source','my own operating history (2017–2021) — labeled founder-attested because platform records that old aren’t retrievable.'],['Discipline','the precise figure stays retired; the story stands.']]}
-];
-
-const wall = document.getElementById('wall');
-let lens = 'emp';
-
-function el(tag, cls, text){
-  const n = document.createElement(tag);
-  if (cls) n.className = cls;
-  if (text !== undefined) n.textContent = text;
-  return n;
-}
-
-function render(){
-  wall.replaceChildren();
-  for (const c of CLAIMS){
-    const card = el('article', 'receipt' + (c.hero ? ' hero-r' : ''));
-    card.appendChild(el('span', 'badge ' + c.badge, c.label));
-    card.appendChild(el('div', 'r-num', c.num));
-    card.appendChild(el('div', 'r-unit', c.unit));
-    card.appendChild(el('p', 'r-copy', lens === 'emp' ? c.emp : c.cli));
-    const det = document.createElement('details');
-    const sum = el('summary', null, 'How it’s verified');
-    det.appendChild(sum);
-    const how = el('p', 'how');
-    c.how.forEach(function(pair, i){
-      if (i > 0) how.appendChild(document.createTextNode(' '));
-      const b = el('b', null, pair[0] + ': ');
-      how.appendChild(b);
-      how.appendChild(document.createTextNode(pair[1]));
-    });
-    det.appendChild(how);
-    card.appendChild(det);
-    wall.appendChild(card);
+/* Lens toggle. Both lenses are already in the HTML — this only flips which
+   one is visible, so the page is complete for scrapers, link previews and
+   no-JS readers before a single line of script runs. */
+(function(){
+  var bE = document.getElementById('lensEmployer'), bC = document.getElementById('lensClient');
+  if(!bE || !bC) return;
+  var panes = [].slice.call(document.querySelectorAll('[data-lens]'));
+  function setLens(l){
+    bE.setAttribute('aria-pressed', String(l === 'emp'));
+    bC.setAttribute('aria-pressed', String(l === 'cli'));
+    panes.forEach(function(el){ el.hidden = el.getAttribute('data-lens') !== l; });
+    try { localStorage.setItem('proof-lens', l); } catch(e){}
   }
-}
+  bE.addEventListener('click', function(){ setLens('emp'); });
+  bC.addEventListener('click', function(){ setLens('cli'); });
+  var saved = null; try { saved = localStorage.getItem('proof-lens'); } catch(e){}
+  if(saved === 'cli') setLens('cli');
+})();
 
-const bE = document.getElementById('lensEmployer'), bC = document.getElementById('lensClient');
-function setLens(l){
-  lens = l;
-  bE.setAttribute('aria-pressed', String(l === 'emp'));
-  bC.setAttribute('aria-pressed', String(l === 'cli'));
-  document.querySelectorAll('[data-lens-block]').forEach(function(elm){
-    elm.hidden = (elm.dataset.lensBlock === 'employer') !== (l === 'emp');
-  });
-  try { localStorage.setItem('proof-lens', l); } catch(e){}
-  render();
-}
-bE.addEventListener('click', function(){ setLens('emp'); });
-bC.addEventListener('click', function(){ setLens('cli'); });
-let saved = null; try { saved = localStorage.getItem('proof-lens'); } catch(e){}
-setLens(saved === 'cli' ? 'cli' : 'emp');
+/* Header: menu, progress hairline, light/dark material. */
+(function(){
+  var nav = document.querySelector('.nav');
+  if(!nav) return;
+  var bar = document.getElementById('navProgress');
+  var menu = document.getElementById('navMenu');
+  if(menu){
+    [].forEach.call(menu.querySelectorAll('a'), function(a){ a.addEventListener('click', function(){ menu.open = false; }); });
+    document.addEventListener('click', function(e){ if(menu.open && !menu.contains(e.target)) menu.open = false; });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && menu.open) menu.open = false; });
+  }
+  var darkZones = [].slice.call(document.querySelectorAll('[data-nav-dark]'));
+  var ticking = false;
+  function darkBehind(){
+    var probe = window.scrollY + nav.offsetHeight * 0.55;
+    for(var i = 0; i < darkZones.length; i++){
+      var el = darkZones[i], top = el.getBoundingClientRect().top + window.scrollY;
+      if(probe >= top && probe <= top + el.offsetHeight) return true;
+    }
+    return false;
+  }
+  function paint(){
+    ticking = false;
+    if(bar){
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? Math.min(100, (window.scrollY / h) * 100) : 0) + '%';
+    }
+    if(darkZones.length){
+      if(darkBehind()) nav.removeAttribute('data-light'); else nav.setAttribute('data-light','');
+    }
+  }
+  function schedule(){ if(!ticking){ ticking = true; (window.requestAnimationFrame || setTimeout)(paint, 16); } }
+  window.addEventListener('scroll', schedule, {passive:true});
+  window.addEventListener('resize', schedule, {passive:true});
+  window.addEventListener('load', paint);
+  paint();
+})();
+
+/* Scroll reveal. Purely additive: the CSS that hides these elements is armed
+   by the same script that arms the .settled fallback timer. */
+(function(){
+  if(!document.documentElement.classList.contains('motion')) return;
+  var els = [].slice.call(document.querySelectorAll('.sec-head,.receipt,.not-card,.m-card'));
+  try{
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        var n = 0;
+        entries.forEach(function(en){
+          if(!en.isIntersecting) return;
+          en.target.style.transitionDelay = Math.min(n++, 4) * 55 + 'ms';
+          en.target.classList.add('rv-in');
+          io.unobserve(en.target);
+        });
+      }, {rootMargin:'0px 0px -7% 0px', threshold:.08});
+      els.forEach(function(e){ io.observe(e); });
+      window.addEventListener('load', function(){
+        els.forEach(function(e){ if(e.getBoundingClientRect().top < (window.innerHeight||900)*1.1) e.classList.add('rv-in'); });
+      });
+    } else { els.forEach(function(e){ e.classList.add('rv-in'); }); }
+  }catch(err){ els.forEach(function(e){ e.classList.add('rv-in'); }); }
+})();
 </script>
 </body>
 </html>

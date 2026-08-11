@@ -1,0 +1,30 @@
+https://alexfc0810.github.io/alex-amaro-portfolio/
+https://alexfc0810.github.io/alex-amaro-portfolio/proof.html
+
+Test both URLs live, on a 375px phone viewport and on desktop.
+Score each dimension 1-10 and cite the specific element that earned the score.
+
+RUBRIC DIMENSIONS
+
+1.  First impression: what tier of studio does this look like it came from
+2.  Typographic scale: are the steps far enough apart to create hierarchy
+3.  Vertical rhythm and whitespace across section boundaries
+4.  Elevation and material: do raised surfaces read as lit, or as flat boxes
+5.  Colour discipline: how many accents compete, and does each carry meaning
+6.  Iconography: one family, one stroke weight, no platform-dependent glyphs
+7.  Motion: does every animation communicate something statable in one sentence
+8.  Reduced-motion and no-JavaScript behaviour
+9.  Navigation and orientation: can a visitor tell where they are and reach any section
+10. Tap-target geometry at 375px, measured rather than eyeballed
+11. Text contrast against WCAG AA, measured at the size each string renders
+12. Focal hierarchy: is there one clear focus per screen, or uniform weight
+13. Link-preview behaviour when each URL is pasted into LinkedIn or Slack
+14. Machine readability: what a scraper with no JavaScript sees on each page
+15. Performance: layout shift, image and video loading, console output
+16. Credibility: does the evidence read as verifiable, or as assertion
+
+For each dimension report the strongest instance, the weakest instance, and the
+single change that would move the score most.
+
+Then answer one question in one paragraph: does this read as world-class, and
+if not, name the one thing holding it back.
