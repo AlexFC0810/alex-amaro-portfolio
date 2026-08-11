@@ -1,7 +1,7 @@
 {
   "$schema": "./GREENLIT.md",
-  "version": "1.1.0",
-  "updated": "2026-07-23",
+  "version": "1.6.0",
+  "updated": "2026-08-07",
   "source_of_truth": "AlexFC0810/proof — CLAIMS_LEDGER.md (scorecard 2026-06-25) + shareable/master-positioning.md",
   "doctrine": {
     "name": "Alex Amaro",
@@ -17,22 +17,30 @@
       "id": "C1",
       "label": "Meta ad spend managed",
       "status": "verified",
-      "headline": { "value": "$200K+", "unit": "ad spend", "qualifier": "12+ accounts, U.S. & Canada (≈$229K USD-eq verified across 14 accounts)" },
+      "headline": {
+        "value": "$225K+",
+        "unit": "ad spend",
+        "qualifier": "14+ accounts, U.S., Canada and the U.K. (≈$229,100 USD-eq verified across 14 accounts with non-zero spend; excludes client accounts lost at off-boarding, so true lifetime is higher)"
+      },
       "wording": {
-        "resume": "Managed/supported $200K+ in Meta ad spend across 12+ clinic, medspa, weight-loss, tattoo-removal, local-service, and B2B accounts in the U.S. and Canada.",
-        "linkedin": "I've managed $200K+ in Meta ad spend across 12+ U.S./Canada accounts.",
-        "portfolio_employer": "$200K+ in Meta ad spend managed across 12+ U.S./Canada accounts — medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service, and B2B.",
-        "portfolio_client": "We've managed $200K+ in Meta ad spend for businesses like yours — clinics, med spas, local services, and B2B — across the U.S. and Canada.",
-        "one_liner": "$200K+ Meta spend managed (12+ accounts)"
+        "resume": "Managed/supported $225K+ in Meta ad spend across 14+ clinic, medspa, weight-loss, tattoo-removal, local-service and B2B accounts in the U.S., Canada and the U.K.",
+        "linkedin": "I've managed $225K+ in Meta ad spend across 14+ U.S., Canada and U.K. accounts.",
+        "portfolio_employer": "$225K+ in Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B.",
+        "portfolio_client": "We've managed $225K+ in Meta ad spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.",
+        "one_liner": "$225K+ Meta spend managed (14+ accounts)"
       },
       "evidence_path": "evidence/meta-ads/spend-summary.md",
-      "notes": "Scope note: ~63% is one account (South Jersey), much of it awareness objectives — use 'managed/supported', never pair with lead totals as a CPL."
+      "notes": "Scope note: ~63% is one account (South Jersey), much of it awareness objectives — use \"managed/supported\", never pair with lead totals as a CPL. RAISED 2026-08-05 from \"$200K+ / 12+ accounts\": the platform total is $229,100 USD-eq across 14 accounts with non-zero spend, and evidence/meta-ads/spend-summary.md had flagged for weeks that the claim understated its own verified data. $225K+ keeps a round floor rather than pinning $229,100 precisely. The SJA scope caveat is identical at either figure — the same dollars are in both — so the raise adds no new exposure."
     },
     {
       "id": "C2",
       "label": "Cost per lead (per campaign)",
       "status": "partial",
-      "headline": { "value": "$4–$22", "unit": "CPL", "qualifier": "per campaign; as low as ~$1.50–$4 on the best campaigns" },
+      "headline": {
+        "value": "$4–$22",
+        "unit": "CPL",
+        "qualifier": "per campaign; as low as ~$1.50–$4 on the best campaigns"
+      },
       "wording": {
         "resume": "Delivered cost-per-lead as low as ~$4 (under $2 on a B2B campaign), with strong lead-gen campaigns commonly in the $4–$22 range per campaign.",
         "linkedin": "Strong lead campaigns at $4–22 cost-per-lead per campaign (as low as ~$4).",
@@ -47,22 +55,30 @@
       "id": "C3",
       "label": "Beat incumbent national agency (hero)",
       "status": "verified",
-      "headline": { "value": "~9×", "unit": "lead volume", "qualifier": "at ~75% lower CPL, same account (114 @ $12.59 vs 12 @ $49.81)" },
+      "headline": {
+        "value": "9.5×",
+        "unit": "lead volume",
+        "qualifier": "9.5x the lead volume at ~75% lower CPL, same account (114 at $12.59 vs the incumbent's 12 at $49.81)"
+      },
       "wording": {
-        "resume": "Outperformed an incumbent national chiropractic agency on the same client account: 114 leads at $12.59 CPL vs. 12 at $49.81 — ~9× the lead volume at ~75% lower cost per lead.",
-        "linkedin": "Outperformed a national incumbent agency on the SAME client account — ~9× the lead volume at ~75% lower CPL (114 leads at $12.59 vs. their 12 at $49.81).",
-        "portfolio_employer": "Took over a chiropractic account from an incumbent national agency and delivered ~9× the leads at ~75% lower cost per lead — on the same account (114 @ $12.59 vs 12 @ $49.81).",
-        "portfolio_client": "When a clinic ran us head-to-head against their national agency, we delivered ~9× the leads at ~75% lower cost per lead — on the same account.",
-        "one_liner": "~9× an agency's leads at ~75% lower CPL, same account"
+        "resume": "Outperformed an incumbent national chiropractic agency on the same client account: 114 leads at $12.59 CPL vs. their 12 at $49.81 — 9.5x the lead volume at ~75% lower cost per lead.",
+        "linkedin": "Outperformed a national incumbent agency on the SAME client account — 9.5x the lead volume at ~75% lower CPL (114 leads at $12.59 vs. their 12 at $49.81).",
+        "portfolio_employer": "Took over a chiropractic account from an incumbent national agency and delivered 9.5x the leads at ~75% lower cost per lead — same account (114 @ $12.59 vs 12 @ $49.81).",
+        "portfolio_client": "When a clinic ran us head-to-head against their national agency, we delivered 9.5x the leads at ~75% lower cost per lead — on the same account.",
+        "one_liner": "9.5x an agency's leads at ~75% lower CPL, same account"
       },
       "evidence_path": "evidence/meta-ads/chirovirginia-head-to-head.md",
-      "notes": "Exact-match verified from the live ad account. Anonymize competitor publicly ('an incumbent national agency')."
+      "notes": "Exact-match verified from the live ad account. Anonymize competitor publicly ('an incumbent national agency'). RAISED 2026-08-06: 114/12 = 9.5, which both the evidence file and the ledger already computed. \"~9x\" was rounding our own hero claim down."
     },
     {
       "id": "C4",
       "label": "Med spa laser turnaround",
       "status": "hold",
-      "headline": { "value": "HELD", "unit": "", "qualifier": "the $87→$11 figure is unsourced (lost account)" },
+      "headline": {
+        "value": "HELD",
+        "unit": "",
+        "qualifier": "the $87→$11 figure is unsourced (lost account)"
+      },
       "wording": {
         "resume": "Optimized a med spa laser lead-gen campaign, cutting cost-per-lead substantially.",
         "linkedin": "Optimized a med spa laser campaign, cutting cost-per-lead substantially.",
@@ -77,7 +93,11 @@
       "id": "C5",
       "label": "Body-sculpting / contouring leads",
       "status": "partial",
-      "headline": { "value": "~$4–$16", "unit": "CPL", "qualifier": "~1,200 body-contouring leads + 80 booked appointments (tracker) on one account" },
+      "headline": {
+        "value": "~$4–$16",
+        "unit": "CPL",
+        "qualifier": "~1,200 body-contouring leads + 80 booked appointments (tracker) on one account"
+      },
       "wording": {
         "resume": "Produced body-sculpting/contouring leads in the ~$4–$16 range (~1,200 leads and 80 booked appointments on one account).",
         "linkedin": "Body-sculpting/contouring leads in the ~$4–$16 range.",
@@ -92,13 +112,17 @@
       "id": "C6",
       "label": "Booked appointments — one month",
       "status": "verified",
-      "headline": { "value": "60+", "unit": "booked appointments", "qualifier": "in a single month (weight-loss clinic grand opening); 70 in best 30-day window" },
+      "headline": {
+        "value": "70",
+        "unit": "booked appointments",
+        "qualifier": "booked appointments in a 30-day window (2025-06-24 to 07-23); 61 within the July calendar month — weight-loss clinic grand opening"
+      },
       "wording": {
-        "resume": "Booked 60+ appointments in a single month for a weight-loss clinic grand opening via paid ads + a GoHighLevel follow-up system.",
-        "linkedin": "Booked 60+ appointments in a single month for a clinic grand opening.",
-        "portfolio_employer": "60+ appointments booked in one month for a weight-loss clinic — paid ads + an integrated GoHighLevel follow-up system.",
-        "portfolio_client": "60+ booked appointments in a single month for a weight-loss clinic's grand opening — ads plus the follow-up system that gets leads onto the calendar.",
-        "one_liner": "60+ booked appointments in one month"
+        "resume": "Booked 70 appointments in a 30-day window for a weight-loss clinic grand opening (61 within the calendar month), via paid ads and an integrated GoHighLevel follow-up system.",
+        "linkedin": "70 booked appointments in a 30-day window for a weight-loss clinic grand opening.",
+        "portfolio_employer": "70 booked appointments in a 30-day window (61 in the calendar month) for a weight-loss clinic grand opening.",
+        "portfolio_client": "70 appointments booked in 30 days for a weight-loss clinic opening.",
+        "one_liner": "70 booked appointments in 30 days"
       },
       "evidence_path": "evidence/gohighlevel/appointments-summary.md",
       "notes": "Verified from CRM tracker (deduped)."
@@ -107,7 +131,11 @@
       "id": "C7",
       "label": "Booked appointments — 90 days",
       "status": "partial",
-      "headline": { "value": "~120", "unit": "booked appointments", "qualifier": "in ~3 months (aesthetic clinic) — double-sourced: 113 tracker + 120 GHL" },
+      "headline": {
+        "value": "~120",
+        "unit": "booked appointments",
+        "qualifier": "in ~3 months (aesthetic clinic) — double-sourced: 113 tracker + 120 GHL"
+      },
       "wording": {
         "resume": "Booked ~120 appointments in ~3 months for an aesthetic clinic.",
         "linkedin": "~120 appointments booked in ~3 months for an aesthetic clinic.",
@@ -115,44 +143,56 @@
         "portfolio_client": "~120 appointments booked in about three months for an aesthetic clinic.",
         "one_liner": "~120 booked appointments in ~3 months"
       },
-      "evidence_path": "case-studies/ghl-appointments-120-in-90-days/README.md",
+      "evidence_path": "case-studies/aesthetic-clinic-appointment-volume/README.md",
       "notes": "Booked ≠ attended; never '120+ in 90 days'."
     },
     {
       "id": "C8",
       "label": "Montreal bilingual campaign",
       "status": "partial",
-      "headline": { "value": "220+", "unit": "bilingual leads", "qualifier": "FR/EN + ~90 booked appointments in ~10 weeks (~40/mo), tracker-corroborated" },
-      "wording": {
-        "resume": "Generated 220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks for a Montreal beauty brand using in-language follow-up.",
-        "linkedin": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks for a Montreal beauty brand.",
-        "portfolio_employer": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks for a Montreal beauty brand — campaigns and follow-up run in-language.",
-        "portfolio_client": "For a Montreal beauty brand: 220+ leads and ~90 booked appointments in ~10 weeks, with fully bilingual (FR/EN) campaigns and follow-up.",
-        "one_liner": "220+ FR/EN leads · ~90 booked in ~10 weeks (Montreal)"
+      "headline": {
+        "value": "220+",
+        "unit": "bilingual leads",
+        "qualifier": "220+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks (~40/month), Montreal beauty brand — tracker-corroborated; exact CPL permanently retired (ad account revoked at off-boarding)"
       },
-      "evidence_path": "case-studies/montreal-bilingual-waxbar/README.md",
-      "notes": "Leads founder-attested; ~90 booked tracker-corroborated (Drive Master Sheet). Exact '$22.14 CPL' and '41 booked/referral' remain held (lost Meta account)."
+      "wording": {
+        "resume": "Generated 220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — campaigns and follow-up run in-language, not translated.",
+        "linkedin": "220+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — built and run in-language.",
+        "portfolio_employer": "220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand.",
+        "portfolio_client": "For a Montreal brand: 220+ bilingual leads and 89 booked appointments in about ten weeks — campaigns run in-language.",
+        "one_liner": "220+ bilingual leads, 89 booked in ~10 weeks"
+      },
+      "evidence_path": "case-studies/montreal-bilingual-acquisition/README.md",
+      "notes": "Leads founder-attested; ~90 booked tracker-corroborated (Drive Master Sheet). Exact '$22.14 CPL' and '41 booked/referral' remain held (lost Meta account). 2026-08-06: booked count is exactly 89 dated rows (not ~90, not 91 — a row without an appointment date is not a booking). CPL is retired in EVERY form including \"~$22\": the account was revoked and GHL retains no spend for off-boarded clients, so nobody can check it."
     },
     {
       "id": "C9",
       "label": "B2B refrigeration lead-gen",
       "status": "verified",
-      "headline": { "value": "~$4", "unit": "CPL or lower", "qualifier": "800+ B2B leads for a commercial-refrigeration installer (blended ≈£1.48)" },
+      "headline": {
+        "value": "~$1.88",
+        "unit": "CPL, B2B",
+        "qualifier": "817 leads for a commercial-refrigeration installer; flagship campaign 709 leads at £1.18 (~$1.50)"
+      },
       "wording": {
-        "resume": "Generated 800+ B2B leads for a commercial-refrigeration installer at ~$4 CPL or lower.",
-        "linkedin": "800+ B2B leads at ~$4 CPL for a commercial-refrigeration installer.",
-        "portfolio_employer": "800+ B2B leads for a commercial-refrigeration installer at ~$4 CPL or lower (best campaign ≈$1.50).",
-        "portfolio_client": "B2B works too: 800+ leads for a commercial-refrigeration installer at roughly $4 per lead or less.",
-        "one_liner": "800+ B2B leads @ ~$4 CPL (refrigeration)"
+        "resume": "Generated 817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.",
+        "linkedin": "817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead (flagship campaign ~$1.50).",
+        "portfolio_employer": "817 B2B leads at ~$1.88 CPL for a UK commercial-refrigeration installer — flagship campaign 709 leads at ~$1.50.",
+        "portfolio_client": "B2B works too: 817 leads for a commercial-refrigeration installer at under $2 per lead.",
+        "one_liner": "817 B2B leads at ~$1.88 CPL"
       },
       "evidence_path": "evidence/meta-ads/kcool-b2b-refrigeration.md",
-      "notes": "Claim is conservative vs verified data. The cheap exception — don't generalize all B2B from it."
+      "notes": "Claim is conservative vs verified data. The cheap exception — don't generalize all B2B from it. RAISED 2026-08-06: was \"~$4 or lower / 800+\". Verified blended is $1.88 and the flagship $1.50 — the old claim understated performance by ~2.1x. Lower CPL is the win, so the round-down was costing us."
     },
     {
       "id": "C10",
       "label": "E-commerce (2017–2021)",
       "status": "attested",
-      "headline": { "value": "six-figure", "unit": "e-commerce business", "qualifier": "built through college, self-funding tuition (founder-attested)" },
+      "headline": {
+        "value": "six-figure",
+        "unit": "e-commerce business",
+        "qualifier": "built through college, self-funding tuition (founder-attested)"
+      },
       "wording": {
         "resume": "Built and ran a six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
         "linkedin": "Built and ran a six-figure online retail business while in college full-time — how I paid tuition.",
@@ -160,20 +200,24 @@
         "portfolio_client": "Founder DNA: built a six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
         "one_liner": "Six-figure e-commerce business built through college"
       },
-      "evidence_path": "case-studies/ecommerce-350k/README.md",
+      "evidence_path": "case-studies/ecommerce-college-venture/README.md",
       "notes": "Founder-attested grit story. Never '$350K' or '4.9-star' (unverifiable)."
     },
     {
       "id": "B1",
       "label": "Total qualified leads",
       "status": "verified",
-      "headline": { "value": "6,000+", "unit": "qualified leads", "qualifier": "conservative floor (~6,295 itemized); excludes awareness/traffic spend and lost accounts" },
+      "headline": {
+        "value": "6,250+",
+        "unit": "qualified leads",
+        "qualifier": "itemized floor — 6,295 counted account by account from clean lead-form/lead-action campaigns only; excludes awareness and traffic spend, and excludes accounts lost at off-boarding"
+      },
       "wording": {
-        "resume": "Generated 6,000+ qualified leads across paid-social campaigns (medspa, aesthetics, tattoo removal, chiro, weight loss, B2B).",
-        "linkedin": "6,000+ qualified leads generated across paid-social campaigns.",
-        "portfolio_employer": "6,000+ qualified leads generated — counted conservatively from clean lead campaigns only (per-campaign CPL $4–$22 B2C).",
-        "portfolio_client": "6,000+ qualified leads generated for service businesses — qualified, not vanity volume.",
-        "one_liner": "6,000+ qualified leads generated"
+        "resume": "Generated 6,250+ qualified leads across paid-social campaigns — cost per lead quoted per campaign, never blended.",
+        "linkedin": "6,250+ qualified leads generated across paid social.",
+        "portfolio_employer": "6,250+ qualified leads across medspa, aesthetics, chiropractic, tattoo-removal, weight-loss and B2B campaigns.",
+        "portfolio_client": "6,250+ qualified leads generated for clients — and that's a counted floor, not an estimate.",
+        "one_liner": "6,250+ qualified leads"
       },
       "evidence_path": "evidence/meta-ads/leads-summary.md",
       "notes": "Never pair with $200K as an implied CPL without the per-campaign note."
@@ -182,13 +226,17 @@
       "id": "B2",
       "label": "Full medspa program (one clinic)",
       "status": "verified",
-      "headline": { "value": "~1,700", "unit": "leads", "qualifier": "weight-loss, Botox, laser & photofacial — incl. 1,200+ weight-loss leads at ~$9 CPL" },
+      "headline": {
+        "value": "1,750+",
+        "unit": "leads",
+        "qualifier": "one clinic, full program — weight-loss, Botox, laser & photofacial (1,781 platform-verified); incl. 1,200+ weight-loss leads at ~$9 CPL"
+      },
       "wording": {
-        "resume": "Ran a full medspa lead-gen program for one clinic — ~1,700 leads across weight-loss, Botox, laser, and photofacial, including 1,200+ weight-loss leads at ~$9 CPL.",
-        "linkedin": "Ran a full medspa program for one clinic — ~1,700 leads (1,200+ weight-loss at ~$9 CPL).",
-        "portfolio_employer": "One med spa, full program: ~1,700 leads across four service lines, including 1,200+ weight-loss leads at ~$9 CPL.",
-        "portfolio_client": "For one med spa we ran the whole program — ~1,700 leads across weight loss, Botox, laser, and photofacial.",
-        "one_liner": "~1,700 leads for one medspa program (WL @ ~$9)"
+        "resume": "Ran a full med spa lead-gen program for one clinic — 1,750+ leads across weight-loss, Botox, laser and photofacial, including 1,200+ weight-loss leads at ~$9 CPL.",
+        "linkedin": "Full medspa program for one clinic — 1,750+ leads across weight-loss, Botox, laser and photofacial.",
+        "portfolio_employer": "1,750+ leads for a single med spa across four service lines, including 1,200+ weight-loss leads at ~$9 CPL.",
+        "portfolio_client": "For one med spa: 1,750+ leads across weight-loss, Botox, laser and photofacial.",
+        "one_liner": "1,750+ leads, one medspa program"
       },
       "evidence_path": "evidence/meta-ads/elevate-medspa.md",
       "notes": ""
@@ -197,28 +245,36 @@
       "id": "B3",
       "label": "Tattoo-removal studio",
       "status": "verified",
-      "headline": { "value": "700+", "unit": "leads", "qualifier": "at ~$19–$21 CPL in a saturated NYC market (737 verified)" },
+      "headline": {
+        "value": "730+",
+        "unit": "leads",
+        "qualifier": "tattoo-removal leads at ~$19–$21 CPL in a saturated Brooklyn/NYC market (737 verified; flagship campaign 526 at $19)"
+      },
       "wording": {
-        "resume": "Generated 700+ tattoo-removal leads (~$19 CPL) in a highly competitive NYC market.",
-        "linkedin": "700+ tattoo-removal leads at ~$19 CPL (Brooklyn).",
-        "portfolio_employer": "700+ leads for a tattoo-removal studio at ~$19 CPL — Brooklyn, one of the most saturated markets in the country.",
-        "portfolio_client": "700+ leads for a tattoo-removal studio at ~$19 per lead — in Brooklyn's saturated market.",
-        "one_liner": "700+ tattoo-removal leads @ ~$19 CPL (NYC)"
+        "resume": "Generated 730+ tattoo-removal leads at ~$19–$21 CPL in a saturated NYC market — flagship campaign 526 leads at $19.",
+        "linkedin": "730+ tattoo-removal leads at ~$19–$21 CPL in a saturated NYC market.",
+        "portfolio_employer": "730+ tattoo-removal leads at ~$19–$21 CPL (Brooklyn/NYC) — flagship campaign 526 leads at $19.",
+        "portfolio_client": "730+ tattoo-removal leads in one of the most competitive markets in the country.",
+        "one_liner": "730+ tattoo-removal leads (~$19–$21 CPL)"
       },
       "evidence_path": "evidence/meta-ads/velvet-tattoo-removal.md",
-      "notes": "Longest-tenured client; genuine video testimonial on file (no signed release yet — private use)."
+      "notes": "Longest-tenured client; genuine video testimonial on file (no signed release yet — private use). OVER-CLAIM FIXED 2026-08-06: the account total (737) had the flagship campaign price ($19) attached to it; the account average is ~$21. Never quote a total at a single campaign price — quote the range, or the flagship WITH its own count."
     },
     {
       "id": "B4",
       "label": "B2B agency growth (own pipeline)",
       "status": "verified",
-      "headline": { "value": "200+", "unit": "scheduled appointments", "qualifier": "B2B client-acquisition campaigns; 170+ leads at ~$62 per scheduled appointment" },
+      "headline": {
+        "value": "215+",
+        "unit": "scheduled appointments",
+        "qualifier": "scheduled appointments from the agency's own B2B client-acquisition campaigns, ~$62 each (Meta schedule_website conversions) — 'scheduled', never 'booked calls'"
+      },
       "wording": {
-        "resume": "Ran the agency's own B2B client-acquisition campaigns — 170+ leads and 200+ scheduled appointments at ~$62 per scheduled appointment.",
-        "linkedin": "Ran our own B2B growth engine — 170+ leads and 200+ scheduled appointments from campaigns targeting medspa/clinic owners.",
-        "portfolio_employer": "Media buyer for the growth team too: 170+ B2B leads and 200+ website-scheduled appointments at ~$62 each, from campaigns selling agency services to the medspa/clinic market.",
-        "portfolio_client": "We do this for ourselves as well — 200+ scheduled appointments generated for our own B2B pipeline.",
-        "one_liner": "200+ scheduled B2B appointments (~$62 each)"
+        "resume": "Ran the agency's own B2B client-acquisition — 170+ leads and 215+ scheduled appointments at ~$62 per scheduled appointment.",
+        "linkedin": "Ran our own B2B growth engine — 170+ leads and 215+ scheduled appointments from campaigns targeting clinic owners.",
+        "portfolio_employer": "170+ B2B leads and 215+ website-scheduled appointments at ~$62 each, from campaigns selling agency services into the medspa/clinic market.",
+        "portfolio_client": "We run our own acquisition the same way — 215+ scheduled appointments into our own pipeline.",
+        "one_liner": "215+ scheduled B2B appointments (~$62 each)"
       },
       "evidence_path": "evidence/meta-ads/b2b-agency-growth.md",
       "notes": "Meta result type = website appointments scheduled — NOT verified 'booked sales calls'; don't assert attendee identity (target market ≠ verified attendees)."
@@ -227,7 +283,11 @@
       "id": "B5",
       "label": "Lead qualification (differentiator)",
       "status": "verified",
-      "headline": { "value": "Qualified", "unit": "not vanity volume", "qualifier": "B2C qualifying questions; $20K+/mo revenue filter on B2B forms" },
+      "headline": {
+        "value": "Qualified",
+        "unit": "not vanity volume",
+        "qualifier": "B2C qualifying questions; $20K+/mo revenue filter on B2B forms"
+      },
       "wording": {
         "resume": "Engineered qualified lead flow — qualifying questions on B2C forms and a $20K+/mo revenue filter on B2B — so cost-per-lead reflects sales-ready prospects, not raw volume.",
         "linkedin": "I optimize for QUALIFIED leads, not vanity volume — qualifying questions on B2C forms, a $20K+/mo filter on B2B.",
@@ -235,14 +295,18 @@
         "portfolio_client": "We qualify at the form — intent questions on B2C, revenue filters on B2B — so your calendar fills with sales-ready prospects.",
         "one_liner": "Qualified leads, not vanity volume"
       },
-      "evidence_path": "evidence/crm-revenue/lead-quality-signals.md",
+      "evidence_path": "evidence/lead-quality/lead-quality-signals.md",
       "notes": "Downstream closes are lead-quality evidence only (attribution boundary). Do NOT cite 'financing approvals' — that claim was disproven."
     },
     {
       "id": "B6",
       "label": "Appointment-engine systems (GoHighLevel)",
       "status": "verified",
-      "headline": { "value": "Full-chain", "unit": "ad → booked appointment", "qualifier": "GoHighLevel systems: speed-to-lead, missed-call text-back, SMS/email/voicemail nurture, reactivation" },
+      "headline": {
+        "value": "Full-chain",
+        "unit": "ad → booked appointment",
+        "qualifier": "GoHighLevel systems: speed-to-lead, missed-call text-back, SMS/email/voicemail nurture, reactivation"
+      },
       "wording": {
         "resume": "Built integrated GoHighLevel systems — lead capture, pipeline, SMS/email/voicemail nurture, speed-to-lead, missed-call text-back, booking reminders, reactivation — engineered as one system.",
         "linkedin": "I build the GoHighLevel + AI follow-up systems that turn ad clicks into booked appointments.",
@@ -257,31 +321,106 @@
       "id": "B7",
       "label": "Booked appointments across clients",
       "status": "partial",
-      "headline": { "value": "290+", "unit": "booked appointments", "qualifier": "across client trackers (2026-06-25 Drive pull) — booked, not all attended" },
+      "headline": {
+        "value": "1,300+",
+        "unit": "booked appointments and consults",
+        "qualifier": "DOM-verified across all 22 client sub-accounts in GoHighLevel (pre-teardown census, 2026-08-07). Conservative paid-acquisition floor: 830+, excluding recurring-service rebookings and taking the largest account at its in-person figure."
+      },
       "wording": {
-        "resume": "Drove 290+ booked appointments across client trackers via paid ads + GoHighLevel follow-up systems.",
-        "linkedin": "290+ booked appointments tracked across clients — ads + follow-up systems working together.",
-        "portfolio_employer": "290+ booked appointments across client trackers — the ad-to-appointment chain, working across accounts.",
-        "portfolio_client": "290+ appointments booked across our client trackers — because the system doesn't stop at the lead.",
-        "one_liner": "290+ booked appointments across clients"
+        "resume": "Drove 1,300+ booked appointments and consults across 22 client CRM sub-accounts — every figure read from the platform, not estimated.",
+        "linkedin": "1,300+ booked appointments and consults across 22 client sub-accounts, counted from the CRM itself.",
+        "portfolio_employer": "1,300+ booked appointments and consults, counted across all 22 client sub-accounts in the CRM (830+ excluding recurring-service rebookings).",
+        "portfolio_client": "1,300+ appointments and consults booked for clients — counted from the systems themselves, not estimated.",
+        "one_liner": "1,300+ booked appointments and consults (22 accounts)"
       },
       "evidence_path": "evidence/gohighlevel/drive-appointment-trackers.md",
-      "notes": "Booked ≠ attended. Amiyah overlaps C7 (same client) — not additive with C7; safe as the cross-client total."
+      "notes": "Booked ≠ attended. Amiyah overlaps C7 (same client) — not additive with C7; safe as the cross-client total. Raised from \"~290+\" 2026-08-05: the seven trackers sum to 341 and the origin of ~290+ was never recorded, so the vault was understating itself by ~50. Velvet's 12 are CONSULTS not appointments: inclusive total 341, strict-booked 329 - both clear 290, so the raise holds either way, but the unit says \"appointments and consults\" rather than picking the flattering noun. Amiyah 113 is counted ONCE here and must NEVER be added on top of C7 (~120) - same client, same window. RAISED 2026-08-06: an eighth tracker (Gratitude, 112) was never counted. 340+ understated by ~33%. RAISED 2026-08-07 from 450+ after a full pre-teardown census of every client sub-account: 1,301 DOM-verified. Prior figures were drawn from Drive trackers covering a fraction of the estate. Quote 830+ when the room will challenge recurring bookings; quote 1,300+ when the platform census is the point. NEVER quote ChiroVirginia workflow enrolments (30,497 on New Lead Alert vs 17,796 contacts) - that is re-enrolment of imported lists, not leads."
+    },
+    {
+      "id": "B8",
+      "label": "People management — 4-person delivery team",
+      "status": "attested",
+      "headline": {
+        "value": "4",
+        "unit": "person delivery team",
+        "qualifier": "~10 months, at Alex’s agency: call center, media buyer, ad-creative specialist, GoHighLevel specialist"
+      },
+      "wording": {
+        "resume": "Led a four-person delivery team for ~10 months — call center, media buyer, ad-creative specialist and GoHighLevel specialist — setting priorities, reviewing output and owning the client relationships.",
+        "linkedin": "Ran the agency with a four-person delivery team — call center, media buyer, ad creative and GoHighLevel — before rebuilding that same capability as AI systems.",
+        "portfolio_employer": "Managed a four-person delivery team (call center, media buyer, ad creative, GoHighLevel specialist) for roughly 10 months.",
+        "portfolio_client": "Our delivery has run with a specialist team — call center, media buying, creative and CRM build.",
+        "one_liner": "Led a 4-person delivery team (~10 months)"
+      },
+      "evidence_path": "CLAIMS_LEDGER.md#b8",
+      "notes": "Founder-attested (Alex, 2026-07-30). Tier gate for Track B / function-owner roles — was missing from every surface and was silently capping the positioning. NEVER say hired/recruited (not established), do not imply a corporate reporting line, do not inflate the ~10 months."
     }
   ],
   "do_not_say": [
-    { "pattern": "\\$350\\s?K|350K\\+|4\\.9[\\s–-]?★|4\\.9[\\s–-]?star", "reason": "C10 unverifiable (Amazon/eBay history gone)", "replacement": "six-figure Amazon/eBay business built through college (founder-attested)" },
-    { "pattern": "\\$87\\s*(→|->|to)\\s*~?\\$?1[01](\\.\\d+)?|\\$10\\.92", "reason": "C4 laser turnaround — lost account, unsourced", "replacement": "Optimized a med spa laser campaign, cutting CPL substantially (verified laser ~$16 CPL on accessible account)" },
-    { "pattern": "\\$13\\.51", "reason": "C5 exact figure from lost MD Body account", "replacement": "body-contouring leads in the ~$4–$16 range" },
-    { "pattern": "\\$22\\.14", "reason": "C8 exact CPL unrecoverable (lost Foxy Box Meta account)", "replacement": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks" },
-    { "pattern": "consistently\\s+(deliver|delivering|landing)?\\s*\\$?\\d", "reason": "CPL range is per-campaign, not consistent/blanket", "replacement": "strong lead-gen campaigns commonly $4–$22 per campaign (as low as ~$4)" },
-    { "pattern": "120\\+\\s*(booked|appointments|appts)?\\s*(in|/)\\s*90", "reason": "C7 verified at exactly 120 booked, low show rate", "replacement": "~120 booked appointments in ~3 months" },
-    { "pattern": "B\\.?S\\.?\\s*(in\\s*)?Marketing[^.\\n]{0,40}(in\\s*progress)", "reason": "Not yet enrolled at WGU; wrong program name", "replacement": "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)" },
-    { "pattern": "41\\s*booked\\s*/?\\s*referral", "reason": "C8 old booked-outcomes figure superseded (and unsourced)", "replacement": "~90 booked appointments in ~10 weeks (tracker-corroborated)" },
-    { "pattern": "booked\\s+sales\\s+calls", "reason": "B4 corrected 2026-06-24: Meta result = website appointments scheduled, not verified booked/held calls", "replacement": "scheduled appointments (from B2B client-acquisition campaigns)" },
-    { "pattern": "financing\\s+(was\\s+)?approv", "reason": "Disproven claim — the financing case was the refrigeration client and it was DECLINED", "replacement": "(remove — do not cite financing approvals as proof)" }
+    {
+      "pattern": "\\$350\\s?K|350K\\+|4\\.9[\\s–-]?★|4\\.9[\\s–-]?star",
+      "reason": "C10 unverifiable (Amazon/eBay history gone)",
+      "replacement": "six-figure Amazon/eBay business built through college (founder-attested)"
+    },
+    {
+      "pattern": "\\$87\\s*(→|->|to)\\s*~?\\$?1[01](\\.\\d+)?|\\$10\\.92",
+      "reason": "C4 laser turnaround — lost account, unsourced",
+      "replacement": "Optimized a med spa laser campaign, cutting CPL substantially (verified laser ~$16 CPL on accessible account)"
+    },
+    {
+      "pattern": "\\$13\\.51",
+      "reason": "C5 exact figure from lost MD Body account",
+      "replacement": "body-contouring leads in the ~$4–$16 range"
+    },
+    {
+      "pattern": "\\$22\\.14",
+      "reason": "C8 exact CPL unrecoverable (lost Foxy Box Meta account)",
+      "replacement": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks"
+    },
+    {
+      "pattern": "consistently\\s+(deliver|delivering|landing)?\\s*\\$?\\d",
+      "reason": "CPL range is per-campaign, not consistent/blanket",
+      "replacement": "strong lead-gen campaigns commonly $4–$22 per campaign (as low as ~$4)"
+    },
+    {
+      "pattern": "120\\+\\s*(booked|appointments|appts)?\\s*(in|/)\\s*90",
+      "reason": "C7 verified at exactly 120 booked, low show rate",
+      "replacement": "~120 booked appointments in ~3 months"
+    },
+    {
+      "pattern": "B\\.?S\\.?\\s*(in\\s*)?Marketing[^.\\n]{0,40}(in\\s*progress)",
+      "reason": "Not yet enrolled at WGU; wrong program name",
+      "replacement": "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)"
+    },
+    {
+      "pattern": "41\\s*booked\\s*/?\\s*referral",
+      "reason": "C8 old booked-outcomes figure superseded (and unsourced)",
+      "replacement": "~90 booked appointments in ~10 weeks (tracker-corroborated)"
+    },
+    {
+      "pattern": "booked\\s+sales\\s+calls",
+      "reason": "B4 corrected 2026-06-24: Meta result = website appointments scheduled, not verified booked/held calls",
+      "replacement": "scheduled appointments (from B2B client-acquisition campaigns)"
+    },
+    {
+      "pattern": "financing\\s+(was\\s+)?approv",
+      "reason": "Disproven claim — the financing case was the refrigeration client and it was DECLINED",
+      "replacement": "(remove — do not cite financing approvals as proof)"
+    },
+    {
+      "pattern": "30,?497",
+      "reason": "ChiroVirginia workflow re-enrolment count, not leads - imported lists re-entering a workflow. Quoting it as lead volume would collapse instantly.",
+      "replacement": "Do not cite workflow enrolment counts as lead volume. ChiroVirginia is evidenced by the head-to-head campaign data (114 @ $12.59 vs 12 @ $49.81)."
+    }
   ],
   "proximity_rules": [
-    { "a": "\\$200K", "b": "6,?000", "window_chars": 300, "unless": "per[- ]campaign", "reason": "Reads as an implied blended CPL (~$33). Separate the totals or add the per-campaign CPL note.", "severity": "warn" }
+    {
+      "a": "\\$(200|225|229)K",
+      "b": "6,?000",
+      "window_chars": 300,
+      "unless": "per[- ]campaign",
+      "reason": "Reads as an implied blended CPL (~$33). Separate the totals or add the per-campaign CPL note. (pattern covers $200K/$225K/$229K so raising the headline cannot silently disable this guard)",
+      "severity": "warn"
+    }
   ]
 }
