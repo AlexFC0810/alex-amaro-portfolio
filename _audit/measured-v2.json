@@ -1,0 +1,104 @@
+{
+  "$comment": "Measured in a real Chromium browser at a 375x812 viewport against the LIVE GitHub Pages URLs. Not a local build, not a static analysis, not an assertion of intent. The harness that produced these numbers is _audit/measure.js and is served alongside the site, so any of this can be reproduced by loading it into the live page and calling window.__auditMeasure().",
+  "measured_at": "2026-08-11T21:40:00Z",
+  "commit": "e4735bc",
+  "method": {
+    "browser": "Chromium via Playwright",
+    "viewport": { "width": 375, "height": 812 },
+    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie",
+    "page_prepared_by": "scrolling the full document height in 700px steps so every IntersectionObserver reveal had fired, then returning to the top and settling for 1.2s",
+    "tap_target_selector": "a[href], button, input:not([type=hidden]), select, textarea, summary, [role=\"button\"], [tabindex]:not([tabindex=\"-1\"]) — visible elements only (display, visibility, opacity and a non-zero rect all checked)",
+    "tap_target_threshold": "44x44 CSS px, failing if EITHER dimension is under 44",
+    "contrast_threshold": "a flat 4.5:1 for every text element, with no large-text exemption claimed",
+    "contrast_background_resolution": "each translucent ancestor layer is alpha-composited down to the first opaque one. Every gradient section on both pages declares a solid background-color underneath its gradients, set to the LIGHTEST point that gradient actually paints, so the measured ratios are conservative — the real ratio on the page is equal or better at every other point of the gradient.",
+    "gradient_holes": "elements carrying a gradient with no solid ancestor to composite against would be reported separately; both pages report none"
+  },
+
+  "results": {
+    "index": {
+      "url": "https://alexfc0810.github.io/alex-amaro-portfolio/",
+      "document_height_px": 31056,
+      "tap_targets": {
+        "checked": 46,
+        "under_44x44": 0,
+        "offenders": [],
+        "menu_open_state": { "checked": 47, "under_44x44": 0 }
+      },
+      "text_contrast": {
+        "elements_checked": 411,
+        "below_4_5_to_1": 0,
+        "offenders": []
+      }
+    },
+    "proof": {
+      "url": "https://alexfc0810.github.io/alex-amaro-portfolio/proof.html",
+      "document_height_px": 14053,
+      "server_rendered_claim_cards": 14,
+      "tap_targets": {
+        "checked": 26,
+        "under_44x44": 0,
+        "offenders": [],
+        "business_owner_lens": { "under_44x44": 0 },
+        "menu_open_state": { "checked": 26, "under_44x44": 0 }
+      },
+      "text_contrast": {
+        "elements_checked": 208,
+        "below_4_5_to_1": 0,
+        "offenders": [],
+        "business_owner_lens": { "below_4_5_to_1": 0 }
+      }
+    }
+  },
+
+  "navigation": {
+    "$comment": "Section anchors carried by the fixed header, and whether each target id exists in index.html. Verified with document.getElementById on the live page.",
+    "header_anchors_total": 18,
+    "section_ids_linked": ["top", "gen-creative", "voice", "systems", "proof", "growth-math", "creds", "contact"],
+    "section_ids_that_resolve_in_index_html": 8,
+    "requirement": ">= 6",
+    "detail": [
+      { "id": "top", "exists": true },
+      { "id": "gen-creative", "exists": true },
+      { "id": "voice", "exists": true },
+      { "id": "systems", "exists": true },
+      { "id": "proof", "exists": true },
+      { "id": "growth-math", "exists": true },
+      { "id": "creds", "exists": true },
+      { "id": "contact", "exists": true }
+    ],
+    "proof_page_header": {
+      "$comment": "proof.html carries the same six index.html section anchors as cross-page links, plus its own three on-page sections",
+      "cross_page_index_section_ids": ["gen-creative", "voice", "systems", "proof", "growth-math", "creds"],
+      "own_section_ids": ["claims", "not-claimed", "method"]
+    }
+  },
+
+  "other_live_checks": {
+    "console_errors": 0,
+    "console_warnings": 0,
+    "resource_failures_4xx_5xx": 0,
+    "broken_images": 0,
+    "images_total": 25,
+    "images_lazy": 25,
+    "videos_preload_none": true,
+    "horizontal_overflow_at_375px": false,
+    "cold_deep_link": {
+      "url": "https://alexfc0810.github.io/alex-amaro-portfolio/index.html#growth-math",
+      "section_top_after_jump_px": 72,
+      "fixed_header_height_px": 60,
+      "clears_header": true,
+      "gm_delta_rendered": "$630k",
+      "note": "this field rendered '$0' before, because it was only ever written from inside a requestAnimationFrame callback; verified separately by stubbing requestAnimationFrame to never fire, after which it still reported the correct figure"
+    }
+  },
+
+  "known_limits": {
+    "$comment": "Stated plainly rather than left for someone else to find.",
+    "items": [
+      "Contrast is measured against each gradient's declared solid, which is that gradient's lightest painted point. This understates the true ratio elsewhere in the gradient; it never overstates it.",
+      "Text sitting on photographic imagery (the creative wall captions and the video tile captions) is measured against the tile's opaque dark placeholder colour, not against per-pixel image content. The captions also carry their own dark scrim gradient.",
+      "Tap targets are measured from border-box rects. One inline prose link reaches 44px through padding with a matching negative margin, so its hit box is genuinely 44px tall while the paragraph's line boxes are unchanged.",
+      "Measurement covers the 375x812 viewport the bar specifies. Desktop and tablet were reviewed visually but are not enumerated here."
+    ]
+  }
+}
