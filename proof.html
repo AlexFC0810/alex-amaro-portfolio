@@ -395,7 +395,10 @@
     transition: opacity .62s var(--ease), transform .62s var(--ease);
   }
   html.motion :is(.sec-head,.receipt,.not-card,.m-card).rv-in { opacity: 1; transform: none; }
-  html.settled :is(.sec-head,.receipt,.not-card,.m-card) { opacity: 1 !important; transform: none !important; }
+  /* `transition: none` is load-bearing — a transition already running outranks
+     an !important end value, so without it a backgrounded tab can leave
+     receipts stuck at opacity 0 even after the .settled timer fires. */
+  html.settled :is(.sec-head,.receipt,.not-card,.m-card) { opacity: 1 !important; transform: none !important; transition: none !important; }
   @media (prefers-reduced-motion: reduce) {
     html.motion :is(.sec-head,.receipt,.not-card,.m-card) { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
@@ -494,7 +497,7 @@
     <div class="sec-head t1">
       <div class="kicker">The receipts</div>
       <h2 class="sec-title t1">Claims, with their verification status.</h2>
-      <p>Fifteen claims. Every one carries its status, its source system, and the arithmetic behind it — shown on the card, not hidden behind a click.</p>
+      <p>Fourteen claims. Every one carries its status, its source system, and the arithmetic behind it — shown on the card, not hidden behind a click.</p>
       <div class="legend">
         <span class="legend-item"><span class="badge v">Platform-verified</span> pulled from the live ad platform.</span>
         <span class="legend-item"><span class="badge c">Corroborated</span> double-sourced — CRM, client-tracker, or a second reconciling platform pull, with no retained export.</span>
@@ -510,7 +513,7 @@
         <p class="r-copy" data-lens="emp">Took over a chiropractic account from an incumbent national agency: 114 leads at $12.59 vs. their 12 at $49.81 — on the very same account. Apples to apples, no excuses.</p>
         <p class="r-copy" data-lens="cli" hidden>A clinic ran us head-to-head against their national agency on the same ad account. We delivered 9.5× the leads at ~75% lower cost per lead.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 9.5× claim is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>Meta Ads, campaign-level — both agencies’ campaigns in one account. Read twice, 19 days apart, at two different query levels.</dd>
@@ -531,7 +534,7 @@
         <p class="r-copy" data-lens="emp">Managed/supported $225K+ in Meta spend across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiro, tattoo removal, weight loss, local service, B2B.</p>
         <p class="r-copy" data-lens="cli" hidden>We’ve managed $225K+ in Meta spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the $225K+ spend figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>account-level lifetime spend summed across every accessible ad account — ≈$229,100 USD-equivalent across 14 accounts with non-zero spend, multi-currency (USD / CAD / GBP) documented.</dd>
@@ -550,7 +553,7 @@
         <p class="r-copy" data-lens="emp">An itemized floor: only clean lead-form / lead-action campaigns counted — awareness and traffic “results” excluded, lost accounts excluded.</p>
         <p class="r-copy" data-lens="cli" hidden>6,250+ qualified leads for service businesses — counted account by account, and qualified at the form so your calendar gets sales-ready people.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 6,250+ leads figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>per-campaign lead results itemized account by account — 6,295 counted.</dd>
@@ -567,7 +570,7 @@
         <p class="r-copy" data-lens="emp">Strong B2C lead campaigns commonly land $4–$22 per campaign — as low as ~$1.50–$4 on the best ones. Quoted per campaign, never blended.</p>
         <p class="r-copy" data-lens="cli" hidden>Qualified leads commonly at $4–$22 per campaign — best campaigns under $4.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the $4–$22 cost-per-lead band is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>campaign-level cost-per-result across the portfolio.</dd>
@@ -584,7 +587,7 @@
         <p class="r-copy" data-lens="emp">Weight-loss clinic grand opening: 70 booked in a 30-day window (61 of them inside the July calendar month) — ads + a GoHighLevel follow-up system working as one.</p>
         <p class="r-copy" data-lens="cli" hidden>For a clinic’s grand opening we put 70 appointments on the calendar in 30 days — because we build the follow-up system, not just the ads.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 70 booked appointments figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>client CRM tracking sheet, de-duplicated; staff/test rows excluded.</dd>
@@ -603,7 +606,7 @@
         <p class="r-copy" data-lens="emp">Aesthetic clinic: ~120 booked across roughly three months — double-sourced (client tracker + CRM records).</p>
         <p class="r-copy" data-lens="cli" hidden>~120 appointments booked in about three months for an aesthetic clinic.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the ~120 booked appointments figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>two independent systems (113 in the tracker; 120 in the CRM window).</dd>
@@ -620,7 +623,7 @@
         <p class="r-copy" data-lens="emp">One clinic, full program: weight-loss, Botox, laser, photofacial — 1,750+ leads, including 1,200+ weight-loss leads at ~$9 CPL.</p>
         <p class="r-copy" data-lens="cli" hidden>For one med spa we ran the whole program — 1,750+ leads across four service lines.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 1,750+ med-spa leads figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>every campaign in the account itemized from the ads platform — 1,781 verified ($21K spend; $11.82 blended across the program — one account, one program, stated as the account’s own figure, never as a portfolio CPL).</dd>
@@ -635,7 +638,7 @@
         <p class="r-copy" data-lens="emp">730+ leads at ~$19–$21 CPL in Brooklyn — one of the most saturated local markets in the country. Flagship campaign: 526 leads at $19. Longest-tenured client.</p>
         <p class="r-copy" data-lens="cli" hidden>730+ leads for a tattoo-removal studio in Brooklyn’s brutally competitive market.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 730+ tattoo-removal leads figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>platform pull, all campaigns — 737 verified; flagship campaign 526 leads @ $19.00.</dd>
@@ -654,7 +657,7 @@
         <p class="r-copy" data-lens="emp">817 B2B leads for a UK commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.</p>
         <p class="r-copy" data-lens="cli" hidden>B2B works too: 817 leads for a commercial-refrigeration installer at under $2 per lead.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the ~$1.88 cost-per-lead figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>platform pull — 817 leads, ~$1.88 blended; flagship campaign 709 leads at £1.18 ≈ $1.50.</dd>
@@ -671,7 +674,7 @@
         <p class="r-copy" data-lens="emp">Body-contouring leads at $4–$16 CPL on a single account — plus 80 booked appointments in the client’s tracker.</p>
         <p class="r-copy" data-lens="cli" hidden>~1,200 leads for one body-contouring clinic at $4–$16 per lead, with 80 appointments tracked onto the calendar.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the ~1,200 body-contouring leads figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>platform pull across both of the client’s accounts (~1,204); bookings from the client tracking sheet (2026-06 pull).</dd>
@@ -690,7 +693,7 @@
         <p class="r-copy" data-lens="emp">A Montreal beauty brand, fully bilingual FR/EN campaigns and follow-up: 89 booked appointments in ~10 weeks (~40/month).</p>
         <p class="r-copy" data-lens="cli" hidden>For a Montreal beauty brand: 89 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 89 booked appointments figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>the client’s master tracking sheet, row by row.</dd>
@@ -709,7 +712,7 @@
         <p class="r-copy" data-lens="emp">The lead volume behind those bookings: 220+ leads from French and English campaigns run as two native campaigns, not one translated into the other.</p>
         <p class="r-copy" data-lens="cli" hidden>220+ leads from the same Montreal program — French and English each written natively, not translated.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 220+ bilingual leads figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>my own operating record. The ad account was lost at off-boarding, so this one carries the founder-attested badge rather than borrowing the tracker’s — the bookings above are corroborated, the lead count is my word.</dd>
@@ -726,7 +729,7 @@
         <p class="r-copy" data-lens="emp">I was the media buyer for the agency’s own growth too, selling agency services into the medspa/clinic market: 170+ leads from lead-form campaigns, and separately 215+ appointments scheduled straight through the site — two different paths, at ~$62 per scheduled appointment.</p>
         <p class="r-copy" data-lens="cli" hidden>We run our own acquisition the same way we’d run yours — 170+ leads from lead forms, plus 215+ appointments scheduled directly on the site.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the 215+ scheduled B2B appointments figure is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>platform pull; result type is “website appointments scheduled.”</dd>
@@ -739,32 +742,13 @@
       </article>
 
       <article class="receipt">
-        <span class="badge c">Corroborated</span>
-        <p class="r-num">1,300+</p>
-        <p class="r-unit">booked appointments and consults · 22 client sub-accounts</p>
-        <p class="r-copy" data-lens="emp">Counted across all 22 client sub-accounts in the CRM: 1,300+ appointments and consults booked — the ad-to-appointment chain working across the whole book of business, not a one-off. 830+ if you exclude recurring-service rebookings entirely.</p>
-        <p class="r-copy" data-lens="cli" hidden>1,300+ appointments and consults booked for clients — read out of the systems themselves, not estimated. The chain compounds across businesses.</p>
-        <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
-          <dl class="r-how-l">
-            <dt>Source</dt>
-            <dd>a census of every client sub-account in GoHighLevel, read directly off the platform before the estate was torn down (2026-08-07) — 1,301 counted.</dd>
-            <dt>Conservative floor</dt>
-            <dd>830+ excluding recurring-service rebookings and taking the largest account at its in-person figure — the number I’d defend in the most skeptical room.</dd>
-            <dt>Definition</dt>
-            <dd>booked = scheduled, not attended; consults are counted in the unit rather than relabeled as appointments; overlapping client windows counted once.</dd>
-          </dl>
-        </div>
-      </article>
-
-      <article class="receipt">
         <span class="badge a">Founder-attested</span>
         <p class="r-num">Six-figure</p>
         <p class="r-unit">e-commerce business, built through college</p>
         <p class="r-copy" data-lens="emp">Built and ran a six-figure Amazon/eBay business while in college full-time — self-funding tuition. Sourcing, inventory, fulfillment, CS, end to end. The operating instincts behind everything above.</p>
         <p class="r-copy" data-lens="cli" hidden>Founder DNA: I built a six-figure e-commerce business from scratch while in college — I run your campaigns like an operator, not a vendor.</p>
         <div class="r-how">
-          <h3 class="r-how-t">How it’s verified</h3>
+          <h3 class="r-how-t">How the six-figure e-commerce claim is verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
             <dd>my own operating history (2017–2021) — labeled founder-attested because platform records that old aren’t retrievable.</dd>

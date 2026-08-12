@@ -395,6 +395,35 @@
     background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237fd3a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
   }
 
+  /* ------------------------------------------------------------
+     SHORT-VIEWPORT HERO — the laptop case.
+
+     On a 1280x800 screen the hero measured 1031px tall, which put the
+     metric strip at y=1031: the six numbers that are the most shareable
+     frame on this site were entirely below the fold on the single most
+     common laptop viewport. Nobody scrolls to find out whether you have
+     receipts; they decide first and scroll second.
+
+     This compresses spacing and the type ramp on viewports that are wide
+     but SHORT, so the hero lands near 85vh and the metric strip breaks the
+     fold. Nothing is hidden and no copy changes — only rhythm. Tall
+     desktops and phones are untouched, which is why this is bounded on
+     BOTH axes rather than applied globally.
+     ------------------------------------------------------------ */
+  @media (min-width: 900px) and (max-height: 860px) {
+    .hero-inner {
+      padding-top: calc(var(--nav-h) + 16px);
+      padding-bottom: 26px;
+    }
+    .eyebrow { margin-bottom: 11px; padding: 6px 13px; }
+    .hero h1 { font-size: clamp(2.6rem, 3.9vw, 3.15rem); margin-bottom: 11px; }
+    .hero .headline { font-size: clamp(1.25rem, 1.85vw, 1.45rem); margin-bottom: 11px; }
+    .hero .value { font-size: 1.0625rem; line-height: 1.55; margin-bottom: 11px; }
+    .location { margin-bottom: 14px; }
+    .hero-links { margin-top: 8px; }
+    .hero-trust { margin-top: 14px; padding-top: 13px; gap: 7px 20px; }
+  }
+
   /* ============================================================
      METRIC STRIP
      ============================================================ */
@@ -586,6 +615,21 @@
   .view-link svg { width: 15px; height: 15px; transition: transform .2s var(--ease); }
   .view-link:hover { color: var(--navy); gap: 11px; }
   .card:hover .view-link svg { transform: translate(2px,-2px); }
+
+  /* These decks and animation samples live in Canva, which does not expose a
+     durable anonymous view URL — the short links rotate and the API-minted
+     ones land on a login wall. A link that asks a hiring manager to sign in
+     is worse than no link, so the work is described and offered rather than
+     linked. Deliberately NOT an <a>: it is a statement, not a target. */
+  .view-note {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-weight: 600; font-size: var(--fs-sm);
+    color: var(--muted); align-self: flex-start; margin-top: 2px;
+  }
+  .view-note::before {
+    content: ""; width: 14px; height: 2px; border-radius: 2px;
+    background: currentColor; opacity: .5; flex: 0 0 14px;
+  }
 
   .card.flagship-card {
     grid-column: 1 / -1; border: none; color: #fff;
@@ -812,11 +856,17 @@
     opacity: 1; transform: none; transition: none;
   }
 
-  /* the unconditional floor */
+  /* the unconditional floor.
+     `transition: none` is load-bearing, not tidiness: .metric et al declare
+     `transition: opacity .62s`, and a transition already RUNNING outranks an
+     !important end value — the element keeps animating toward the old target
+     and can sit at opacity 0 indefinitely. Observed in a persistently hidden
+     tab: six hero metric tiles plus 44 other elements stuck invisible after
+     the timer fired. Killing the transition is what makes the floor a floor. */
   html.settled .hero-inner > *,
   html.settled :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console),
   html.settled .gc-tile {
-    opacity: 1 !important; transform: none !important; animation: none !important;
+    opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important;
   }
   html.settled .duel .duel-fill { width: var(--w); }
   @media (prefers-reduced-motion: reduce) {
@@ -935,7 +985,7 @@
       <div class="metric"><div class="num">6,250+</div><div class="lbl">Qualified leads generated</div></div>
       <div class="metric"><div class="num">$4–22</div><div class="lbl">Cost per lead — quoted per campaign</div></div>
       <div class="metric"><div class="num">70</div><div class="lbl">Booked appointments in a 30-day window</div></div>
-      <div class="metric"><div class="num">1,300+</div><div class="lbl">Booked appointments &amp; consults · 22 client CRMs</div></div>
+      <div class="metric"><div class="num">~120</div><div class="lbl">Booked appointments in ~3 months</div></div>
       <div class="metric"><div class="num">$225K+</div><div class="lbl">Meta ad spend managed across 14+ accounts</div></div>
     </div>
   </div>
@@ -981,13 +1031,22 @@
   @media (max-width:640px){ .gc-grid.gc-assembly{grid-template-columns:minmax(0,300px);} }
 
   /* Static client creatives — square-ish paid-social ratio, quiet frame, work does the talking. */
-  .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;}
+  /* align-items:start so each figure hugs its creative's real height. Each of
+     these grids is ratio-homogeneous (the chiro set is 4:5, the med-spa set is
+     1:1), so rows still line up — they just line up at the ad's OWN ratio. */
+  .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;align-items:start;}
   .gc-shot{margin:0;border-radius:var(--r);overflow:hidden;background:#08121f;
     border:1px solid rgba(255,255,255,.12);box-shadow:var(--e2-d),var(--hi-d);
     transition:transform .35s var(--ease),border-color .35s ease,box-shadow .35s ease;}
   .gc-shot:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);
     box-shadow:var(--e3-d),var(--hi-d);}
-  .gc-shot img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;}
+  /* No forced ratio and no `cover`. This box used to be hard-set to 4:5 with
+     object-fit:cover, which silently cut ~20% off every 1:1 med-spa creative —
+     and the bottom is exactly where the offer and CTA live. On a page selling
+     ad creative, cropping the ad is the one crop we cannot afford. Intrinsic
+     width/height attributes are declared on every img, so height:auto still
+     reserves the right space and CLS stays 0. */
+  .gc-shot img{width:100%;height:auto;display:block;}
   @media (max-width:560px){ .gc-static-grid{grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:12px;} }
   @media (prefers-reduced-motion:reduce){ .gc-shot,.gc-shot:hover{transform:none;transition:none;} }
 
@@ -1030,11 +1089,16 @@
 
   /* The wider creative wall, merged in from what used to be its own section.
      Same argument, same evidence, one place. */
-  .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
+  .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; align-items: start; }
   /* dark placeholder, not white: the caption sits on it while the lazy image
      loads, and it makes the caption's contrast measurable either way */
-  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--e2-d), var(--hi-d); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
-  .wall-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
+  /* This wall is deliberately ratio-MIXED — 4:5 feed creative, a 1:1 square and
+     a 9:16 vertical animation. It used to force every one of them into a 4:5
+     box with object-fit:cover, which cut 20% off the square and 29.5% off the
+     vertical. The tile now takes its height from the creative, so each ad is
+     shown whole and the wall reads as the real mix of placements it is. */
+  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; box-shadow: var(--e2-d), var(--hi-d); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
+  .wall-tile img { width: 100%; height: auto; display: block; transition: transform .5s var(--ease); }
   .wall-tile:hover img { transform: scale(1.04); }
   .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .01em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
   @media (prefers-reduced-motion: reduce) { .wall-tile img, .wall-tile:hover img { transform: none; transition: none; } }
@@ -1044,11 +1108,12 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Generative AI · Ad Creative</div>
-      <h2 class="sec-title" id="gc-title">I make the ads. Then I run them.</h2>
-      <p class="gc-lede">Most performance marketers brief creative and wait. Most creatives never touch a
-        media buy. Since the algorithm took over targeting, <b>the creative <em>is</em> the lever</b> — so I
-        generate it myself, at volume, and test it the same week. Below is a live campaign for our own AI
-        receptionist offer, aimed at aesthetic clinics.</p>
+      <h2 class="sec-title" id="gc-title">Full ad production and media management.</h2>
+      <p class="gc-lede">Most performance marketers brief creative and wait on it; most creatives never touch
+        the media buy. That split made sense when targeting was the lever, but the algorithm handles targeting
+        now — <b>the creative <em>is</em> the lever</b>, which makes producing it and buying against it one job
+        rather than two. I generate the work myself, at volume, and have it in-market the same week. Below is a
+        live campaign for our own AI receptionist offer, aimed at aesthetic clinics.</p>
     </div>
 
     <hr class="gc-rule">
@@ -1059,14 +1124,14 @@
       person making the ads is also the person buying the media.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p01.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p02.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p03.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p04.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p05.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p06.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p07.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p08.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
     </div>
 
     <hr class="gc-rule">
@@ -1081,28 +1146,28 @@
       bought, not to win a design award. Client names and any identifying detail are stripped.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p01.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p02.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p03.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p04.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p01.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p02.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p03.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p04.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-nj-glp1_canva_creative_2026-08-06_p08.jpg" width="1080" height="1080" alt="Weight-loss programme offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" alt="Weight-loss programme offer creative"></figure>
     </div>
 
     <p class="gc-eyebrow-sub" style="margin:26px 0 14px">And a slice of the wider library — chiropractic, med spa, weight-loss and
       local-service brands, concept through hook through design. Clients anonymized.</p>
     <div class="wall-grid">
-      <div class="wall-tile"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · knee-pain</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · clearer skin</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · acne laser</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Weight-loss · animated</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · Meta variation</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · 3D animation</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · knee-pain</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Med spa · clearer skin</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="1080" height="1080" decoding="async" loading="lazy"><span class="wall-cap">Med spa · acne laser</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Weight-loss · animated</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Med spa · Meta variation</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="1080" height="1920" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · 3D animation</span></div>
     </div>
       </div>
     </details>
@@ -1639,14 +1704,6 @@
 
       <div class="receipt">
         <div class="r-label">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/><path d="M21 8v13"/></svg>
-          Whole book of business — ad-to-appointment chain
-        </div>
-        <div class="r-metric"><strong>1,300+ booked appointments and consults</strong>, counted across <strong>all 22 client sub-accounts</strong> in the CRM — a census read off the platform account by account before the estate was retired, not an estimate. <strong>830+</strong> on the most conservative read, excluding recurring-service rebookings entirely. Booked = scheduled, not attended.</div>
-      </div>
-
-      <div class="receipt">
-        <div class="r-label">
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
           US tattoo-removal studio
         </div>
@@ -1658,7 +1715,7 @@
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           Portfolio scale — Meta ad spend managed
         </div>
-        <div class="r-metric"><strong>$225K+ in Meta ad spend managed across 14+ accounts</strong> in the U.S., Canada and the U.K. — reconciled live against Meta's platform at ≈$229,100 USD-equivalent (a single managed account alone: $145K spend, 982 leads).</div>
+        <div class="r-metric"><strong>$225K+ in Meta ad spend managed across 14+ accounts</strong> in the U.S., Canada and the U.K. — reconciled live against Meta's platform at ≈$229,100 USD-equivalent (a single managed account accounts for $145K of that — ~63% of the total, much of it awareness objectives).</div>
       </div>
 
       <div class="receipt">
@@ -1764,8 +1821,8 @@
         <div class="gm-inputs">
           <div class="gm-field"><label>Monthly ad spend <span class="v" id="gm-spend-v">$5,000</span></label><input type="range" id="gm-spend" min="500" max="50000" step="500" value="5000" aria-label="Monthly ad spend"></div>
           <div class="gm-field"><label>Your current cost per lead <span class="v" id="gm-cpl-v">$40</span></label><input type="range" id="gm-cpl" min="5" max="200" step="1" value="40" aria-label="Current cost per lead"></div>
-          <div class="gm-field"><label>Lead → booked appointment <span class="v" id="gm-book-v">40%</span></label><input type="range" id="gm-book" min="5" max="100" step="1" value="40" aria-label="Lead to booked rate"></div>
-          <div class="gm-field"><label>Booked → paying customer <span class="v" id="gm-close-v">30%</span></label><input type="range" id="gm-close" min="5" max="100" step="1" value="30" aria-label="Booked to customer rate"></div>
+          <div class="gm-field"><label>Lead → booked appointment <span class="v" id="gm-book-v">40%</span></label><input type="range" id="gm-book" min="5" max="80" step="1" value="40" aria-label="Lead to booked rate"></div>
+          <div class="gm-field"><label>Booked → paying customer <span class="v" id="gm-close-v">30%</span></label><input type="range" id="gm-close" min="5" max="60" step="1" value="30" aria-label="Booked to customer rate"></div>
           <div class="gm-field"><label>Average customer value <span class="v" id="gm-val-v">$1,500</span></label><input type="range" id="gm-val" min="100" max="20000" step="100" value="1500" aria-label="Average customer value"></div>
         </div>
         <div class="gm-out">
@@ -1813,11 +1870,11 @@
      only ever written from inside a frame callback. */
   function anim(from,to){
     var el=$('gm-delta');
-    el.textContent=mk(to);
+    el.textContent=gapTxt(to);
     if(calm) return;
     if(raf)cancelAnimationFrame(raf);
     var s=null,d=650;
-    function step(t){ if(!s)s=t; var p=Math.min(1,(t-s)/d), e=1-Math.pow(1-p,3); el.textContent=mk(from+(to-from)*e); if(p<1)raf=requestAnimationFrame(step); else el.textContent=mk(to); }
+    function step(t){ if(!s)s=t; var p=Math.min(1,(t-s)/d), e=1-Math.pow(1-p,3); el.textContent=gapTxt(from+(to-from)*e); if(p<1)raf=requestAnimationFrame(step); else el.textContent=gapTxt(to); }
     raf=requestAnimationFrame(step);
   }
   /* ---- The model -------------------------------------------------------
@@ -1844,8 +1901,17 @@
              bLeads:bLeads, bCust:bCust, bRev:bRev, bRoas:bRev/spend,
              delta:Math.max(0,(bRev-rev)*12) };
   }
-  var num=function(n){return n<10?n.toFixed(1):Math.round(n).toLocaleString();};
+  /* Customers are people. "0.3 customers/mo" is not a smaller number, it is a
+     category error, and it was what the all-minimum slider position printed. */
+  var num=function(n){return Math.round(n).toLocaleString();};
   var roasTxt=function(r){return r>=ROAS_CAP ? ROAS_CAP+'x+' : r.toFixed(1)+'x';};
+  /* Same reasoning as ROAS_CAP, applied to the headline figure: at the extreme
+     end of the sliders the honest arithmetic printed "$485.5M per year", which
+     reads as a broken widget rather than a big number and discredits every
+     other figure on the page. The MODEL is never clamped — only the display —
+     so the monotonicity assertion below still sees the true values. */
+  var GAP_CAP = 1e7;
+  var gapTxt=function(n){ return n>=GAP_CAP ? '$10M+' : mk(n); };
   function compute(){
     var spend=+$('gm-spend').value, cpl=+$('gm-cpl').value, book=+$('gm-book').value, close=+$('gm-close').value, val=+$('gm-val').value;
     $('gm-spend-v').textContent=money(spend); $('gm-cpl-v').textContent=money(cpl);
@@ -1923,35 +1989,35 @@
             <span class="tag">AI Animation</span>
             <h3>3D AI Patient Animation</h3>
             <p>3D AI-generated patient animation produced for a weight-loss clinic ad — built to stop the scroll and explain the offer.</p>
-            <a class="view-link" href="https://canva.com/d/BHVzzpbKxeVG9ZI" target="_blank" rel="noopener">View<span class="sr-only"> — 3D AI patient animation for a weight-loss ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — 3D AI patient animation for a weight-loss ad</span></span>
           </div>
 
           <div class="card">
             <span class="tag">AI Animation</span>
             <h3>Chiropractic / Knee-Pain Ad</h3>
             <p>AI animation created for a chiropractic and knee-pain campaign — visualizing the problem and the relief in seconds.</p>
-            <a class="view-link" href="https://canva.com/d/14j-VlGsCj-DVsz" target="_blank" rel="noopener">View<span class="sr-only"> — AI animation for a chiropractic knee-pain ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — AI animation for a chiropractic knee-pain ad</span></span>
           </div>
 
           <div class="card">
             <span class="tag">AI Animation</span>
             <h3>"Weight Loss Is Not Just Willpower"</h3>
             <p>AI-animated direct-response ad reframing the weight-loss conversation — a concept-led creative built to convert.</p>
-            <a class="view-link" href="https://canva.com/d/Knd145hs3OpDbM1" target="_blank" rel="noopener">View<span class="sr-only"> — AI-animated weight-loss direct-response ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — AI-animated weight-loss direct-response ad</span></span>
           </div>
 
           <div class="card">
             <span class="tag">UGC Video</span>
             <h3>UGC-Style Explainer Video</h3>
             <p>UGC-style explainer video for weight-loss clinics — authentic, native-feeling creative engineered for paid social.</p>
-            <a class="view-link" href="https://canva.com/d/Bg5qRYtW9xCEsL9" target="_blank" rel="noopener">View<span class="sr-only"> — UGC-style explainer video for weight-loss clinics</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — UGC-style explainer video for weight-loss clinics</span></span>
           </div>
 
           <div class="card">
             <span class="tag">Product Demo</span>
             <h3>CareLineAI — Product-Demo Creatives</h3>
             <p>AI product-demo creatives for CareLineAI — showing the product in action with generative visuals and motion.</p>
-            <a class="view-link" href="https://canva.com/d/06ueuoh1zyVx2bP" target="_blank" rel="noopener">View<span class="sr-only"> — CareLineAI product-demo creatives</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — CareLineAI product-demo creatives</span></span>
           </div>
 
         </div>
@@ -1972,35 +2038,35 @@
             <span class="tag">Portfolio</span>
             <h3>Local Business Growth Portfolio</h3>
             <p>A walkthrough of local-business growth work — campaigns, offers, and the systems that turned spend into booked appointments.</p>
-            <a class="view-link" href="https://canva.com/d/vIza_7LRTkUZXBJ" target="_blank" rel="noopener">View<span class="sr-only"> — Local Business Growth portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — Local Business Growth portfolio deck</span></span>
           </div>
 
           <div class="card">
             <span class="tag">Paid Social</span>
             <h3>Meta Ads &amp; Paid Social Portfolio</h3>
             <p>Meta Ads and paid-social campaigns across clinics, medspas, and local services — creative, targeting, and CPL outcomes.</p>
-            <a class="view-link" href="https://canva.com/d/Kwl7hUAYXvy8rap" target="_blank" rel="noopener">View<span class="sr-only"> — Meta Ads and paid-social portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — Meta Ads and paid-social portfolio deck</span></span>
           </div>
 
           <div class="card">
             <span class="tag">Marketing Ops</span>
             <h3>GoHighLevel &amp; Backend Marketing Ops</h3>
             <p>The backend that makes ads pay off — GoHighLevel CRM automation, speed-to-lead, nurture sequences, and pipeline ops.</p>
-            <a class="view-link" href="https://canva.com/d/EjL-_xDDYPp0RnC" target="_blank" rel="noopener">View<span class="sr-only"> — GoHighLevel and backend marketing-ops deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — GoHighLevel and backend marketing-ops deck</span></span>
           </div>
 
           <div class="card">
             <span class="tag">Case Studies</span>
             <h3>Medspa Case Studies</h3>
             <p>Medspa and aesthetics case studies — campaign breakdowns, cost-per-lead turnarounds, and booked-appointment results.</p>
-            <a class="view-link" href="https://canva.com/d/KJ4SdRSN8UhYLeB" target="_blank" rel="noopener">View<span class="sr-only"> — Medspa case studies deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — Medspa case studies deck</span></span>
           </div>
 
           <div class="card">
             <span class="tag">eBook</span>
             <h3>Clinic Profit Playbook</h3>
             <p>An eBook packaging the playbook — how clinics turn paid traffic into booked, profitable appointments end to end.</p>
-            <a class="view-link" href="https://canva.com/d/I_lSXWiY0dvJDEx" target="_blank" rel="noopener">View<span class="sr-only"> — Clinic Profit Playbook eBook</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+            <span class="view-note">Available on request<span class="sr-only"> — Clinic Profit Playbook eBook</span></span>
           </div>
 
         </div>
