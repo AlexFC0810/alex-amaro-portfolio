@@ -1,74 +1,97 @@
 {
-  "$comment": "Measured in a real Chromium browser at a 375x812 viewport against the LIVE GitHub Pages URLs. Not a local build, not a static analysis, not an assertion of intent. The harness that produced these numbers is _audit/measure.js and is served alongside the site, so any of this can be reproduced by loading it into the live page and calling window.__auditMeasure().",
-  "measured_at": "2026-08-11T21:40:00Z",
-  "commit": "e4735bc",
+  "$comment": "Measured in a real headless Chromium against the LIVE GitHub Pages URLs. Not a local build, not a static analysis, not an assertion of intent. The harness that produced the accessibility numbers is _audit/measure.js and is served alongside the site, so any of this can be reproduced by loading it into the live page and calling window.__auditMeasure().",
+  "measured_at": "2026-08-12T18:58:00Z",
+  "commit": "6349b6a",
   "method": {
-    "browser": "Chromium via Playwright",
-    "viewport": { "width": 375, "height": 812 },
-    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie",
+    "browser": "headless Chromium via playwright-core",
+    "viewports": [{ "width": 375, "height": 812 }, { "width": 1280, "height": 900 }],
+    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie. This run caught that condition for real: an earlier attempt through a non-compositing browser pane reported innerWidth 0, a 62,572px document and a false horizontal overflow. Those numbers were discarded rather than recorded.",
     "page_prepared_by": "scrolling the full document height in 700px steps so every IntersectionObserver reveal had fired, then returning to the top and settling for 1.2s",
     "tap_target_selector": "a[href], button, input:not([type=hidden]), select, textarea, summary, [role=\"button\"], [tabindex]:not([tabindex=\"-1\"]) — visible elements only (display, visibility, opacity and a non-zero rect all checked)",
     "tap_target_threshold": "44x44 CSS px, failing if EITHER dimension is under 44",
     "contrast_threshold": "a flat 4.5:1 for every text element, with no large-text exemption claimed",
-    "contrast_background_resolution": "each translucent ancestor layer is alpha-composited down to the first opaque one. Every gradient section on both pages declares a solid background-color underneath its gradients, set to the LIGHTEST point that gradient actually paints, so the measured ratios are conservative — the real ratio on the page is equal or better at every other point of the gradient.",
-    "gradient_holes": "elements carrying a gradient with no solid ancestor to composite against would be reported separately; both pages report none"
+    "contrast_background_resolution": "each translucent ancestor layer is alpha-composited down to the first opaque one. Every gradient surface on both pages declares a solid background-color underneath its gradients, set to the LIGHTEST point that gradient actually paints, so the measured ratios are conservative — the real ratio elsewhere in the gradient is equal or better."
   },
 
   "results": {
     "index": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/",
-      "document_height_px": 31056,
+      "document_height_px": { "mobile_375": 22979, "desktop_1280": 14258, "mobile_375_all_disclosures_open": 33019 },
+      "height_note": "The default state is what a visitor lands on: 22,979px at 375px wide. Opening every disclosure reaches 33,019px, and no content was deleted to get the first number — four sections became one annex of <details>, and the secondary creative moved behind one.",
       "tap_targets": {
-        "checked": 46,
+        "checked": 56,
         "under_44x44": 0,
         "offenders": [],
-        "menu_open_state": { "checked": 47, "under_44x44": 0 }
+        "menu_open_state": { "checked": 56, "under_44x44": 0 },
+        "disclosures_open_state": { "checked": 56, "under_44x44": 0 },
+        "desktop_1280": { "checked": 53, "under_44x44": 0 }
       },
       "text_contrast": {
-        "elements_checked": 411,
+        "elements_checked": 428,
         "below_4_5_to_1": 0,
-        "offenders": []
+        "offenders": [],
+        "menu_open_state": { "below_4_5_to_1": 0 },
+        "disclosures_open_state": { "elements_checked": 428, "below_4_5_to_1": 0 }
       }
     },
     "proof": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/proof.html",
-      "document_height_px": 14053,
-      "server_rendered_claim_cards": 14,
+      "document_height_px": { "mobile_375": 14588, "desktop_1280": 7849 },
+      "server_rendered_claim_cards": 15,
+      "claim_card_note": "14 before this pass. The Montreal receipt carried one Corroborated badge across two differently evidenced facts, so it was split: 89 booked appointments (Corroborated — the client's master tracking sheet) and 220+ bilingual leads (Founder-attested — the ad account was lost at off-boarding). No claim was added; one was separated onto its correct evidence.",
       "tap_targets": {
-        "checked": 26,
+        "checked": 28,
         "under_44x44": 0,
         "offenders": [],
-        "business_owner_lens": { "under_44x44": 0 },
-        "menu_open_state": { "checked": 26, "under_44x44": 0 }
+        "business_owner_lens": { "checked": 28, "under_44x44": 0 },
+        "menu_open_state": { "checked": 28, "under_44x44": 0 },
+        "desktop_1280": { "checked": 23, "under_44x44": 0 }
       },
       "text_contrast": {
-        "elements_checked": 208,
+        "elements_checked": 227,
         "below_4_5_to_1": 0,
         "offenders": [],
-        "business_owner_lens": { "below_4_5_to_1": 0 }
+        "business_owner_lens": { "elements_checked": 227, "below_4_5_to_1": 0 }
       }
     }
   },
 
+  "design_system": {
+    "$comment": "The visual pass this commit records was a hierarchy fix, so the token counts are part of the measurement rather than a claim about it. All values read from getComputedStyle on the live pages.",
+    "section_heading_tiers": {
+      "tier_1_exhibit": "50.4px / 900 — one heading per page. index: 'Hard numbers from real accounts.' proof: 'Claims, with their verification status.'",
+      "tier_2_support": "34px / 800 — 6 headings on index, 1 on proof",
+      "tier_3_annex": "24px / 700 — 2 headings on index, 1 on proof",
+      "before": "all 14 h2 rendered at an identical 40.8px / 800"
+    },
+    "type_steps_desktop_1280": {
+      "index": [72, 50.4, 34, 28, 24, 21, 18, 16, 14, 13, 11],
+      "proof": [57.6, 50.4, 34, 24, 21, 16, 14, 13, 11],
+      "smallest_ratio_between_adjacent_steps": 1.1,
+      "before": "body ran 17.6 / 17.3 / 16 / 15 (four steps inside 2.6px) and small ran 13 / 12 / 11.8 / 11 / 10.1 (five inside 2.9px)"
+    },
+    "elevation_tokens": {
+      "count": 8,
+      "names": ["--e1", "--e2", "--e3", "--e2-d", "--e3-d", "--hi", "--hi-d", "--well"],
+      "distinct_computed_strings": { "index": 12, "proof": 8 },
+      "note": "The 12 and 8 are compositions of the 8 tokens (an elevation plus its inner top highlight), not independent families. The dominant dark-field treatment used to be a flat `0 12px 34px rgba(0,0,0,.42)` carrying 18 tiles; it is now the three-stop --e2-d tinted to the navy those sections actually paint. Zero pure-black shadows remain in either file.",
+      "before": "11 shadow families"
+    },
+    "radii": { "tokens": ["10px", "14px", "18px", "24px", "999px"], "plus": "50% on circles only", "before": "11 radii, including both 99px and 100px pills and 9/10/11/12/14px in parallel" },
+    "svg_stroke_weights": { "authored": [2], "before": [1, 1.8, 2, 2.4, 3] },
+    "emoji_or_dingbat_glyphs_in_ui": 0
+  },
+
   "navigation": {
-    "$comment": "Section anchors carried by the fixed header, and whether each target id exists in index.html. Verified with document.getElementById on the live page.",
-    "header_anchors_total": 18,
-    "section_ids_linked": ["top", "gen-creative", "voice", "systems", "proof", "growth-math", "creds", "contact"],
-    "section_ids_that_resolve_in_index_html": 8,
-    "requirement": ">= 6",
-    "detail": [
-      { "id": "top", "exists": true },
-      { "id": "gen-creative", "exists": true },
-      { "id": "voice", "exists": true },
-      { "id": "systems", "exists": true },
-      { "id": "proof", "exists": true },
-      { "id": "growth-math", "exists": true },
-      { "id": "creds", "exists": true },
-      { "id": "contact", "exists": true }
-    ],
+    "$comment": "Verified with document.getElementById on the live pages.",
+    "header_links": 8,
+    "index_section_ids_linked": ["gen-creative", "voice", "fullstack", "systems", "proof", "growth-math", "more", "creds"],
+    "unresolved_anchors": 0,
+    "sections_unreachable_from_nav": 0,
+    "before": "6 of 14 sections carried no nav link (#copywriting, #ai-work, #creatives, #decks, #sites, #fullstack)",
+    "active_section_indicator": "aria-current=\"true\" driven by an IntersectionObserver scroll-spy, painted in BOTH the desktop bar (weight change plus a 2px underline) and the phone menu (weight change plus a 3px inset left rule). Previously the phone menu had no indicator.",
     "proof_page_header": {
-      "$comment": "proof.html carries the same six index.html section anchors as cross-page links, plus its own three on-page sections",
-      "cross_page_index_section_ids": ["gen-creative", "voice", "systems", "proof", "growth-math", "creds"],
+      "cross_page_index_section_ids": ["gen-creative", "voice", "fullstack", "systems", "proof", "growth-math", "more", "creds"],
       "own_section_ids": ["claims", "not-claimed", "method"]
     }
   },
@@ -80,25 +103,32 @@
     "broken_images": 0,
     "images_total": 25,
     "images_lazy": 25,
-    "videos_preload_none": true,
-    "horizontal_overflow_at_375px": false,
+    "images_without_intrinsic_dimensions": 0,
+    "images_without_intrinsic_dimensions_before": 18,
+    "cumulative_layout_shift_after_full_scroll": 0,
+    "horizontal_overflow": { "at_375px": false, "at_1280px": false },
     "cold_deep_link": {
-      "url": "https://alexfc0810.github.io/alex-amaro-portfolio/index.html#growth-math",
+      "urls_tested": ["index.html#proof", "index.html#more", "index.html#growth-math"],
       "section_top_after_jump_px": 72,
       "fixed_header_height_px": 60,
-      "clears_header": true,
-      "gm_delta_rendered": "$630k",
-      "note": "this field rendered '$0' before, because it was only ever written from inside a requestAnimationFrame callback; verified separately by stubbing requestAnimationFrame to never fire, after which it still reported the correct figure"
-    }
+      "clears_header": true
+    },
+    "no_javascript": {
+      "index": { "elements_at_opacity_0": 0, "of_total_revealable": 49, "h2_rendered": 9, "disclosures_present": 5, "document_height_px": 22884 },
+      "proof": { "server_rendered_claim_cards": 15, "elements_at_opacity_0": 0 },
+      "note": "The four-layer fallback is intact. The new disclosures are plain <details> elements, so they open and close with scripting disabled — content behind them is in the DOM for crawlers, link previews and Ctrl-F either way."
+    },
+    "prefers_reduced_motion_reduce": { "elements_at_opacity_0": 0 }
   },
 
   "known_limits": {
     "$comment": "Stated plainly rather than left for someone else to find.",
     "items": [
       "Contrast is measured against each gradient's declared solid, which is that gradient's lightest painted point. This understates the true ratio elsewhere in the gradient; it never overstates it.",
+      "The harness reports two gradient holes on index.html: SPAN.wall-cap and the .gc-tile FIGCAPTION. Both are caption scrims — a translucent gradient over a photograph, which by definition cannot declare a solid without hiding the image. Both composite against their tile's opaque dark placeholder (#0c1626 / #08121f), which is what the reported ratios use. A previous revision of this file claimed both pages reported no gradient holes; that claim is retired rather than repeated, because it does not reproduce.",
       "Text sitting on photographic imagery (the creative wall captions and the video tile captions) is measured against the tile's opaque dark placeholder colour, not against per-pixel image content. The captions also carry their own dark scrim gradient.",
-      "Tap targets are measured from border-box rects. One inline prose link reaches 44px through padding with a matching negative margin, so its hit box is genuinely 44px tall while the paragraph's line boxes are unchanged.",
-      "Measurement covers the 375x812 viewport the bar specifies. Desktop and tablet were reviewed visually but are not enumerated here."
+      "Tap targets are measured from border-box rects. Two inline prose links reach 44px through padding with a matching negative margin, so their hit boxes are genuinely 44px tall while the paragraphs' line boxes are unchanged.",
+      "Load time is not re-measured here. The previous pass recorded 417ms; this commit adds no network requests — the new favicon is an inline SVG data URI, and the disclosures introduce no scripts."
     ]
   }
 }
