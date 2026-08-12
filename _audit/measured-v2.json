@@ -1,114 +1,173 @@
 {
-  "$comment": "Measured in a real headless Chromium against the LIVE GitHub Pages URLs. Not a local build, not a static analysis, not an assertion of intent. The harness that produced the accessibility numbers is _audit/measure.js and is served alongside the site, so any of this can be reproduced by loading it into the live page and calling window.__auditMeasure().",
-  "measured_at": "2026-08-12T19:24:00Z",
-  "commit": "2f4e78a",
+  "$comment": "Measured in real Chrome against the LIVE GitHub Pages URLs after deploy. Not a local build, not a static analysis, not an assertion of intent. The accessibility numbers are the output of _audit/measure.js, which is served alongside the site, so any of them can be reproduced by loading that file into the live page and calling window.__auditMeasure(). The hero-field numbers come from screenshotting the live page and reading its pixels, because a sibling <canvas> is invisible to a harness that walks CSS ancestors.",
+  "measured_at": "2026-08-12T21:05:00Z",
+  "commit": "d99aa61",
+  "previous_commit_measured_for_before_numbers": "2671a70",
+
   "method": {
-    "browser": "headless Chromium via puppeteer-core 25",
-    "viewports": [{ "width": 375, "height": 812 }, { "width": 1280, "height": 900 }, { "width": 1280, "height": 800 }],
-    "viewport_added_this_pass": "1280x800 was added because it is the ordinary laptop case and it is where the hero defect lived. Measuring only 1280x900 hid it.",
-    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie. A previous run caught that condition for real: a non-compositing browser pane reported innerWidth 0, a 62,572px document and a false horizontal overflow. Those numbers were discarded rather than recorded.",
-    "page_prepared_by": "scrolling the full document height in 700px steps so every IntersectionObserver reveal had fired, then returning to the top and settling for 1.2s",
-    "cache_busting": "every URL carried a unique query string, so these are the freshly deployed bytes and not a CDN copy of the previous commit",
+    "browser": "Google Chrome (stable channel) driven by Playwright — the real browser, not headless Chromium",
+    "viewports": [{ "width": 375, "height": 812 }, { "width": 1280, "height": 900 }, { "width": 1280, "height": 800 }, { "width": 1366, "height": 768 }],
+    "viewport_added_this_pass": "1366x768, the most common laptop width, alongside the three already tracked.",
+    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read, and the harness exits rather than reporting if it is zero. A hidden pane reports 0 and makes every layout number a lie.",
+    "states_measured": "Each page at each viewport was measured in FOUR states, not one: default, every <details> disclosure open, the nav menu open, and the nav in its light material (scrolled 45% down, data-light confirmed present). The single-state measurement in earlier passes could not have caught a contrast failure that only exists inside an open disclosure.",
+    "page_prepared_by": "scrolling the full document in 700px steps so every IntersectionObserver reveal fired, then returning to the top and settling 1.6s",
+    "cache_busting": "every URL carried a unique query string, and every run used a fresh browser context, so these are the freshly deployed bytes and a genuinely cold cache",
     "tap_target_selector": "a[href], button, input:not([type=hidden]), select, textarea, summary, [role=\"button\"], [tabindex]:not([tabindex=\"-1\"]) — visible elements only (display, visibility, opacity and a non-zero rect all checked)",
     "tap_target_threshold": "44x44 CSS px, failing if EITHER dimension is under 44",
     "contrast_threshold": "a flat 4.5:1 for every text element, with no large-text exemption claimed",
-    "contrast_background_resolution": "each translucent ancestor layer is alpha-composited down to the first opaque one. Every gradient surface on both pages declares a solid background-color underneath its gradients, set to the LIGHTEST point that gradient actually paints, so the measured ratios are conservative — the real ratio elsewhere in the gradient is equal or better."
+    "contrast_background_resolution": "each translucent ancestor layer is alpha-composited down to the first opaque one. Every gradient surface on both pages declares a solid background-color underneath its gradients, set to the lightest point that gradient actually paints, so the measured ratios are conservative — the real ratio elsewhere in the gradient is equal or better."
   },
 
   "results": {
     "index": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/",
-      "document_height_px": { "mobile_375": 22735, "desktop_1280": 14049, "laptop_1280x800": 13711 },
+      "document_height_px": { "mobile_375": 22735, "desktop_1280": 14049, "laptop_1280x800": 13711, "laptop_1366x768": 13852 },
       "tap_targets": {
-        "mobile_375": { "checked": 46, "under_44x44": 0, "offenders": [] },
-        "desktop_1280": { "checked": 43, "under_44x44": 0, "offenders": [] },
-        "laptop_1280x800": { "checked": 43, "under_44x44": 0, "offenders": [] }
+        "mobile_375": { "checked": 46, "under_44x44": 0 },
+        "desktop_1280": { "checked": 43, "under_44x44": 0 },
+        "laptop_1280x800": { "checked": 43, "under_44x44": 0 },
+        "laptop_1366x768": { "checked": 43, "under_44x44": 0 },
+        "all_four_states": "identical in default, disclosures-open, menu-open and nav-light. 0 offenders in all 16 measurements."
       },
       "text_contrast": {
-        "mobile_375": { "elements_checked": 423, "below_4_5_to_1": 0, "offenders": [] },
-        "desktop_1280": { "elements_checked": 422, "below_4_5_to_1": 0, "offenders": [] },
-        "laptop_1280x800": { "elements_checked": 422, "below_4_5_to_1": 0, "offenders": [] }
-      },
-      "hero_fold": {
-        "$comment": "The reason 1280x800 is now a measured viewport. The six metric numbers are the most shareable frame on the site and they were entirely below the fold on an ordinary laptop.",
-        "hero_height_px_1280x800": 693,
-        "hero_height_as_vh": "86.6vh",
-        "metric_grid_top_px_1280x800": 693,
-        "metric_strip_visible_above_fold_px": 107,
-        "before": "hero 1031px, metric grid top 1031px — nothing of the strip above the fold",
-        "unchanged_at_1280x900": "hero 1031px, because the compression is bounded to viewports under 860px tall"
+        "mobile_375": { "elements_checked": 423, "below_4_5_to_1": 0 },
+        "desktop_1280": { "elements_checked": 422, "below_4_5_to_1": 0 },
+        "laptop_1280x800": { "elements_checked": 422, "below_4_5_to_1": 0 },
+        "laptop_1366x768": { "elements_checked": 422, "below_4_5_to_1": 0 },
+        "all_four_states": "identical in default, disclosures-open, menu-open and nav-light. 0 offenders in all 16 measurements, 6,760 element-measurements in total."
       }
     },
     "proof": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/proof.html",
-      "document_height_px": { "mobile_375": 14023, "desktop_1280": 7673, "laptop_1280x800": 7673 },
+      "document_height_px": { "mobile_375": 14023, "desktop_1280": 7673, "laptop_1280x800": 7673, "laptop_1366x768": 7728 },
       "server_rendered_claim_cards": 14,
-      "claim_card_note": "15 before this pass, 14 before the one prior. The Montreal receipt was correctly split in two (89 booked appointments, Corroborated; 220+ bilingual leads, Founder-attested), taking 14 to 15. This pass removes the 1,300+ booked-appointments card, taking it back to 14. That card counted appointment ROWS across 22 GoHighLevel sub-accounts Alex built — a true census, but not the same claim as appointments his campaigns generated, which is what a reader infers. It crossed our own attribution boundary and the founder said he could not defend it, so it is gone rather than re-labeled. No replacement aggregate was invented.",
-      "verification_headings": {
-        "distinct": 14,
-        "before": "15 identical <h3>How it's verified</h3>, so a screen-reader user navigating by heading got 15 indistinguishable rows",
-        "now": "each names its own claim, e.g. 'How the 9.5x claim is verified'"
-      },
       "tap_targets": {
-        "mobile_375": { "checked": 28, "under_44x44": 0, "offenders": [] },
-        "desktop_1280": { "checked": 23, "under_44x44": 0, "offenders": [] },
-        "laptop_1280x800": { "checked": 23, "under_44x44": 0, "offenders": [] }
+        "mobile_375": { "checked": 28, "under_44x44": 0 },
+        "desktop_1280": { "checked": 23, "under_44x44": 0 },
+        "laptop_1280x800": { "checked": 23, "under_44x44": 0 },
+        "laptop_1366x768": { "checked": 23, "under_44x44": 0 }
       },
       "text_contrast": {
-        "mobile_375": { "elements_checked": 216, "below_4_5_to_1": 0, "offenders": [] },
-        "desktop_1280": { "elements_checked": 213, "below_4_5_to_1": 0, "offenders": [] },
-        "laptop_1280x800": { "elements_checked": 213, "below_4_5_to_1": 0, "offenders": [] }
+        "mobile_375": { "elements_checked": 216, "below_4_5_to_1": 0 },
+        "desktop_1280": { "elements_checked": 213, "below_4_5_to_1": 0 },
+        "laptop_1280x800": { "elements_checked": 213, "below_4_5_to_1": 0 },
+        "laptop_1366x768": { "elements_checked": 213, "below_4_5_to_1": 0 }
       }
     }
   },
 
-  "motion_floor": {
-    "$comment": "The defect an audit named the single most damaging flaw twice. html.settled is the unconditional floor that guarantees no element is left invisible, but it did not declare transition: none. Because .metric and .receipt declare `transition: opacity .62s`, and a RUNNING transition sits in a higher cascade origin than an !important author declaration, an element mid-transition ignored `opacity: 1 !important` and could stay at opacity 0 — the exact backgrounded-tab case the floor exists for.",
-    "measured_on_live": {
-      "before_commit_2f4e78a": { "index .metric": "transition-property: opacity, transform / 0.62s", "proof .receipt": "transition-property: opacity, transform / 0.62s" },
-      "after_commit_2f4e78a": { "index .metric": "transition-property: none / 0s", "proof .receipt": "transition-property: none / 0s" }
+  "hero_field": {
+    "$comment": "New this pass. A hand-written Canvas 2D layer behind the hero — drifting points that link when they come near each other and pass activation along those links. The founder asked for ambient motion that reads as AI; the constraint was that it must not cost a single contrast ratio.",
+
+    "the_contrast_invariant": {
+      "claim": "Every pixel the field paints is --field #1c3e65 at partial alpha. --field is the exact token _audit/measure.js resolves as the hero's effective background, and therefore the ground every published hero contrast number was computed against.",
+      "why_it_holds": "Source-over compositing is a per-channel linear interpolation between what is already on the canvas and the paint colour. A convex combination of a value and #1c3e65 can never exceed #1c3e65 on any channel, and relative luminance is monotonic in each channel — so no amount of overdraw, from any number of overlapping glows and links, can push a pixel past the value the page already promised. This is a property of the arithmetic, not of the tuning.",
+      "how_it_was_verified": "Not by trusting the argument. The live hero was screenshotted 16 times across the animation with the copy hidden, and for every text box the BRIGHTEST ground pixel that appeared inside it across all 16 frames was recorded, then each element's own translucent background chain was composited over that and contrast computed against the result."
     },
-    "note": "The fix is one declaration in each file. It is verified by what the browser computes under html.settled, not by whether a repro happened to trigger — the failure needs a transition already in flight, which is why it survived earlier passes."
+
+    "measured_live_before_and_after": {
+      "$comment": "before = commit 2671a70 (no canvas), after = commit d99aa61 (canvas running). Brightest ground pixel excludes the fixed header band, which overlays the hero but is not its ground.",
+      "1366x768": { "brightest_ground_pixel_before": "rgb(29, 63, 97) L=0.04679", "brightest_ground_pixel_after": "rgb(29, 63, 97) L=0.04679", "min_hero_contrast_before": 6.65, "min_hero_contrast_after": 6.65 },
+      "1280x800": { "brightest_ground_pixel_before": "rgb(30, 63, 97) L=0.04694", "brightest_ground_pixel_after": "rgb(30, 63, 97) L=0.04694", "min_hero_contrast_before": 6.72, "min_hero_contrast_after": 6.72 },
+      "1920x1080": { "brightest_ground_pixel_before": "rgb(30, 63, 97) L=0.04694", "brightest_ground_pixel_after": "rgb(30, 63, 97) L=0.04694", "min_hero_contrast_before": 7.5, "min_hero_contrast_after": 7.5 },
+      "768x1024": { "brightest_ground_pixel_before": "rgb(31, 61, 92) L=0.04402", "brightest_ground_pixel_after": "rgb(31, 61, 92) L=0.04402", "min_hero_contrast_before": 6.96, "min_hero_contrast_after": 6.91 },
+      "field_token_luminance": 0.04632,
+      "hero_text_elements_below_4_5_to_1": 0,
+      "reading": "The brightest pixel anywhere in the hero ground is byte-identical with the field running at all four viewports — it is a corner of the pre-existing gradient, not anything the canvas painted. The minimum hero contrast is unchanged at three viewports; at 768x1024 it moved 6.96 -> 6.91 because a point drifted behind the tightest element (the 11px eyebrow) during sampling.",
+      "stronger_check": "Across 76 hero text measurements at four viewports with the field running, ZERO elements fell below the ratio the page publishes for them (the same element measured against --field with the same background chain). Tightest margin +0.262, on 'Résumé (PDF)' at 768x1024: actual 8.49 against a published 8.23."
+    },
+
+    "cost": {
+      "$comment": "The page has three rAF users. These are the field's callback ONLY, bucketed by callback name, so they are its own cost rather than an upper bound that includes the nav progress bar and the metric count-up.",
+      "laptop_1366x768_dpr1": { "frames_sampled": 743, "p50_ms": 0.2, "p95_ms": 0.7, "p99_ms": 1.1, "max_ms": 2.1, "mean_ms": 0.274, "frames_over_1ms": "8 of 743 (1.1%)" },
+      "desktop_1920x1080_dpr2": { "frames_sampled": 743, "p50_ms": 0.2, "p95_ms": 0.8, "p99_ms": 1.1, "max_ms": 1.5, "mean_ms": 0.315, "frames_over_1ms": "9 of 743 (1.2%)" },
+      "honest_reading": "The ≤1ms/frame target holds at p95 but not absolutely — roughly 1% of frames land between 1 and 2ms. Those outliers appear at dpr 1 as well as dpr 2, so they are scheduling noise rather than a function of buffer size.",
+      "backing_store_clamp": "devicePixelRatio capped at 2, and total backing store capped at 4.2 megapixels on top of that. A 1920 hero at dpr 2 is an 8-megapixel clearRect every frame and measured 2.3ms worst case; capped to 2787x1507 it measures 0.3ms p50. A 1366x693 Retina hero is under the cap and keeps a full 2x.",
+      "one_offscreen_sprite": "the radial glow is rendered once to a 34px offscreen canvas and blitted per point. Building a gradient per point per frame is the difference between 0.2ms and single-digit milliseconds."
+    },
+
+    "lifecycle_verified_live": {
+      "hidden_tab": "0 frames executed while document.hidden was true, over a 1.9s window; 41 frames in the 0.8s after resuming",
+      "off_screen": "0 frames executed while the hero was scrolled out of view, over a 2.7s window; resumes on scroll back",
+      "prefers_reduced_motion_reduce": "canvas count 0 — the element is never created, so reduced-motion users get the still gradient rather than a frozen half-drawn canvas",
+      "below_480px": "canvas count 0 at 375x812; canvas count 1 at 520x900",
+      "javascript_disabled": "canvas count 0 — the element is created by script and does not exist in the served markup, so the no-JS fallback is untouched",
+      "canvas_backing_store_matches_css_box": "1366x693 into 1366x693, 1280x693 into 1280x693, 768x890 into 768x890, 1920x1038 into 1920x1038. A ResizeObserver on the hero keeps them equal; before it was added the webfont swap left the buffer 1px short and the layer rendered fractionally scaled."
+    },
+
+    "accessibility": {
+      "aria_hidden": "true",
+      "role": "presentation",
+      "tabIndex": -1,
+      "pointer_events": "none",
+      "z_order": "canvas z-index 0, .hero-inner z-index 1 — the field is behind every piece of copy, and it is the first child of .hero so it also paints under the grid overlay's own stacking position",
+      "colour_discipline": "the field does NOT use --green-bright. Mint is the verification colour on this site and a colour that also does decoration stops meaning anything; the field borrows the ground token instead."
+    }
   },
 
-  "creative_rendering": {
-    "$comment": "A portfolio selling ad creative was cropping the ads. The bottom of an ad is where the offer and the CTA live.",
-    "before": {
-      "gc-shot": "every creative forced into aspect-ratio 4/5 with object-fit: cover — the ten 1:1 med-spa creatives lost ~20% each",
-      "wall-tile": "every creative forced into aspect-ratio 4/5 with object-fit: cover — acne-laser.jpg (1080x1080) lost 20.2%, knee-animation.jpg (1080x1920) lost 29.5%",
-      "declared_dimensions": "all seven wall images declared width=800 height=1000, which was the true ratio for five of them and wrong for two"
+  "typeface": {
+    "$comment": "The previous revision of this file named two candidate fixes for the webfont CLS and declined to pick one, on the grounds that it changes cold-paint rendering and is a typography decision. Both were built and A/B'd against the live deploy this pass, so the decision is now made on measurements.",
+    "before": "six static Inter weights from fonts.gstatic.com, display=swap, behind two preconnects — four network hops before the first glyph",
+    "after": "one self-hosted variable file, 48,256 bytes, assets/fonts/inter-latin-var.woff2, preloaded, font-display: swap, with a metric-matched local fallback",
+    "subset": "Google's `latin` subset, byte-identical to the file the page was already downloading. U+2192 (→) and U+2248 (≈) fall outside that range and render from the system font — exactly as they did before, so this is not a regression, but it is worth knowing.",
+
+    "fallback_face_derivation": {
+      "$comment": "Not copied from a published table. Derived from the shipped file and from this page's own text.",
+      "ascent_override": "93.38% — Inter's typo ascender 1984 / unitsPerEm 2048 = 96.875%, divided by the size adjustment. OS/2 fsSelection has USE_TYPO_METRICS set, so those are the metrics the browser uses.",
+      "descent_override": "23.25% — descender 494 / 2048 = 24.121%, divided by the size adjustment",
+      "line_gap_override": "0% — Inter's line gap is 0",
+      "size_adjust": "103.74% — the ratio of Inter's advance width to Arial's, measured across all 433 real text runs on this page at the size and weight each actually renders. The published whole-font constant is 107.40%; this is tuned to the copy that is actually set here.",
+      "host": "local('Arial'), local('Helvetica') — both measured identically against Inter (103.74%). Where neither exists the face fails to load and the stack falls through to the system UI font, which is the behaviour the page had before."
     },
-    "after": {
-      "treatment": "no forced ratio and no object-fit: cover; each tile takes its height from the creative, so nothing is cut and nothing is letterboxed",
-      "declared_dimensions": "every img now declares its intrinsic pixel size",
-      "measured_render_1280": { "4:5 creatives": "193x241", "1:1 creative": "193x193", "9:16 creative": "193x343" }
+
+    "candidates_measured_on_the_live_deploy": {
+      "$comment": "All four were tested against the real deploy by rewriting the HTML response in flight — same CDN, same network, same bytes otherwise. index, 1280x900, six cold loads each. 'Inter renders' is read from .nav-links, which measures 634px in Inter and 603px in the fallback.",
+      "optional": { "inter_renders": "0/6", "cls": 0.0 },
+      "optional_plus_metric_fallback": { "inter_renders": "0/6", "cls": 0.0 },
+      "swap": { "inter_renders": "6/6", "cls": 0.001588 },
+      "swap_plus_metric_fallback": { "inter_renders": "6/6", "cls": 0.000336, "shipped": true },
+      "why_not_optional": "font-display: optional reaches CLS 0.000000 — by not showing Inter at all. Chrome gives the face a ~100ms block period and then refuses to swap for the rest of that page load. On the live deploy the font was arriving at ~400ms against a first contentful paint at ~530ms — present well before the page painted — and was still unused, 10 cold loads out of 10. Zero shift bought by rendering a design in the wrong typeface for every first-time visitor is the wrong trade for a portfolio.",
+      "shipped_build_verification": "Inter renders 10/10 cold loads and 10/10 warm loads. Document heights match the pre-change values exactly (index 14049 / 13711 / 22735), which is the independent confirmation that the page is rendering in the same face it always did."
     },
-    "images_total": 25,
-    "images_broken": 0,
-    "images_without_intrinsic_dimensions": 0,
-    "images_with_declared_dimensions_not_matching_intrinsic": 0
+
+    "side_effect": "both pages now make ZERO off-origin requests. index issues 7 requests and proof 2, all same-origin. The site is fully self-contained."
   },
 
-  "asset_naming": {
-    "$comment": "Internal governance vocabulary was leaking into public URLs — right-click, open image, and a hiring manager sees NOCLAIM and canva in the filename.",
-    "files_renamed": 20,
-    "references_rewritten": 18,
-    "pattern_before": "NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg",
-    "pattern_after": "medspa-laser-05.jpg",
-    "client_hint_removed": "the 'nj' in medspa-nj-glp1 named the client's state; the file is now medspa-weight-loss-01.jpg",
-    "live_404s_after_rename": 0,
-    "remaining_NOCLAIM_or_canva_strings_in_served_html": 0
-  },
-
-  "growth_calculator": {
-    "$comment": "Verified by driving the real sliders on the live page.",
-    "ceilings_added": { "lead_to_booked_max": "80%", "booked_to_customer_max": "60%", "before": "both 100%" },
-    "all_sliders_max": { "inputs": "spend=50000 cpl=200 book=80 close=60 val=20000", "annual_gap": "$10M+", "customers_per_mo": "120", "revenue_per_mo": "$2.40M", "before": "$485.5M per year, REVENUE/MO $5.00M" },
-    "all_sliders_min": { "inputs": "spend=500 cpl=5 book=5 close=5 val=100", "annual_gap": "$0", "customers_per_mo": "0", "before": "CUSTOMERS/MO 0.3" },
-    "preserved": {
-      "sub_22_behaviour": "CPL $15 still yields a $0 gap and the line 'your cost per lead is already inside my verified $4-$22 band. No gap to claim, so I don't invent one.'",
-      "monotonicity_self_test": "still armed and still passing on the live page — 0 console errors across the full slider sweep",
-      "model_is_never_clamped": "GAP_CAP is a display ceiling only, exactly as ROAS_CAP already was, so the assertion still sees true values"
+  "cumulative_layout_shift": {
+    "$comment": "Measured with the method this file already documents — full scroll in 700px steps, return to top, settle — in real Chrome, five cold contexts per configuration, on the live URLs before and after. Reported as the standard Web-Vitals CLS (largest 5s session window, 1s gap), which is also the naive sum here because there is only ever one shift.",
+    "before_commit": "2671a70",
+    "after_commit": "d99aa61",
+    "index": {
+      "mobile_375": { "before": 0.0, "after": 0.0 },
+      "desktop_1280x900": { "before": 0.001588, "after": 0.000336 },
+      "laptop_1280x800": { "before": 0.001786, "after": 0.000379 },
+      "desktop_1280_slow_3g": { "before": 0.117966, "after": 0.018585 }
+    },
+    "proof": {
+      "mobile_375": { "before": 0.0, "after": 0.0 },
+      "desktop_1280x900": { "before": 0.006662, "after": 0.0 },
+      "laptop_1280x800": { "before": 0.007494, "after": 0.0 },
+      "desktop_1280_slow_3g": { "before": 0.006662, "after": 0.001896 }
+    },
+    "reproduction_of_the_previous_file": "Four of the six numbers the previous revision recorded reproduced to five decimal places against the live site before this change: index 0.0015879/0.0017864 and proof 0.0066616/0.0074943. index mobile_375 also reproduced at 0. The sixth, proof mobile_375 0.019195, does NOT reproduce — five cold runs measure 0.000000, before and after. It is recorded here as not reproduced rather than repeated.",
+    "new_configuration_added": "a throttled desktop run (400 kbps, 400ms RTT) was added because a font swap is a network race and an unthrottled run hides it. That configuration is how index CLS 0.117966 was found — a number the previous passes never surfaced because they never throttled.",
+    "target": "The brief for this pass set 0.005. Every viewport the earlier passes document now measures at or below 0.000379, an order of magnitude inside it.",
+    "the_number_that_does_NOT_meet_the_target": {
+      "configuration": "index, 1280x900, throttled to 400 kbps / 400ms RTT",
+      "value": 0.018585,
+      "was": 0.117966,
+      "stated_plainly": "This is above the 0.005 target and is being reported as such rather than as a soft pass. It is an 84% reduction, not a fix.",
+      "cause": "measured, not guessed. The single shift entry lands at t=6029ms and its sources are the hero headline and body copy re-wrapping: text boxes widening 727->796px and 711->795px as Inter finally arrives on a saturated 400 kbps link. Metric matching equalises average advance width, so it removes the shift when the swap is early and the re-wrap is sub-word; it cannot help when a whole word moves between lines.",
+      "what_would_fix_it": "font-display: optional, which measures 0.000000 on this configuration. It was declined deliberately — see the typeface section. There is no configuration of this page that renders Inter AND shifts zero on a 400 kbps connection."
+    },
+    "a_second_shift_that_is_not_the_font": {
+      "$comment": "Found while isolating the above, and worth recording so it is not misattributed later.",
+      "observed": "serving these files UNCOMPRESSED over a throttled link produces a 0.006405 shift in which .nav-links moves x573 -> x322 at constant width, at ~1.5s",
+      "proof_it_is_not_typographic": "it reproduces byte-for-byte with every webfont request aborted",
+      "cause": ".nav-actions arriving late in the streamed HTML while .nav-mark's margin-right:auto holds .nav-links to the right",
+      "pre_existing": "the previous build shows the same shift, slightly larger, at 0.008653",
+      "not_visible_on_the_deploy": "GitHub Pages serves these files compressed (index 46,859 bytes on the wire against 167,953 raw), so the markup arrives fast enough that this never occurs live. It is recorded because it will reappear on any host that does not compress.",
+      "left_alone_deliberately": "the fixes are either to move the nav geometry or to divorce DOM order from visual order, which would put focus order at odds with reading order. Neither is worth 0.006 on an uncompressed 400 kbps response."
     }
   },
 
@@ -116,35 +175,40 @@
     "console_errors": 0,
     "console_warnings": 0,
     "resource_failures_4xx_5xx": 0,
-    "outbound_canva_links": 0,
-    "horizontal_overflow": { "at_375px": false, "at_1280px": false, "at_1280x800": false },
-    "og_and_canonical_tags_per_page": 4,
-    "og_image": { "http": 200, "bytes": 436065, "md5": "5ab6cb1b0f5f1608a5461f58ddd99b2f", "says": "14 claims", "matches_rendered_claim_count": true },
-    "cumulative_layout_shift_after_full_scroll": {
-      "index": { "mobile_375": 0, "desktop_1280": 0.0015879521052042643, "laptop_1280x800": 0.0017864461183547972 },
-      "proof": { "mobile_375": 0.019194873364030512, "desktop_1280": 0.006661584663391114, "laptop_1280x800": 0.0074942827463150025 },
-      "correction": "A previous revision of this file recorded CLS 0 flatly. That does not reproduce and is retired rather than repeated. The values above were measured identically on the live site BEFORE and AFTER this commit — byte-for-byte the same floats — so this pass introduced none of it.",
-      "attributed_cause": "the webfont swap. Inter is loaded from Google Fonts with display=swap; the shift entries land at ~217ms (index, DIV.nav-action reflowing 285.75px -> 290.45px) and ~636ms (proof, a text node moving 2px and gaining 1px of width) as the fallback face is replaced.",
-      "how_to_actually_reach_zero": "self-host Inter with a metric-matched fallback (size-adjust / ascent-override), or switch the stylesheet to display=optional. Both change how the page renders on a cold first paint, which is a typography decision rather than a bug fix, so neither was taken unilaterally."
+    "off_origin_requests": { "index": 0, "proof": 0, "note": "was 3 per page (two preconnects and a stylesheet to Google Fonts, then six font files from fonts.gstatic.com)" },
+    "horizontal_overflow": {
+      "$comment": "checked in three states at each of four viewports on both pages — at the top, with every disclosure open, and with the nav menu open",
+      "result": "false in all 24 measurements"
     },
+    "og_and_canonical_tags_per_page": { "og_core": 4, "canonical": 1, "og_total": 9, "note": "og:title, og:description, og:image and og:url are the four; unchanged by this pass" },
+    "innerHTML_in_served_javascript": { "count": 0, "note": "the string appears once in index.html, inside a comment that says there is none" },
     "no_javascript": {
-      "index": { "elements_at_opacity_0": 0, "h2_rendered": 9, "disclosures_present": 6, "document_height_px": 14040 },
-      "proof": { "server_rendered_claim_cards": 14, "elements_at_opacity_0": 0, "h2_rendered": 3, "document_height_px": 7673 },
-      "note": "The four-layer fallback is intact. The disclosures are plain <details>, so they open and close with scripting disabled — content behind them is in the DOM for crawlers, link previews and Ctrl-F either way."
+      "index": { "elements_at_opacity_0_or_hidden": 0, "h2_rendered": 9, "disclosures_present": 6, "hero_canvas": 0, "document_height_px": 14040 },
+      "proof": { "server_rendered_claim_cards": 14, "elements_at_opacity_0_or_hidden": 0, "h2_rendered": 3, "disclosures_present": 1, "hero_canvas": 0, "document_height_px": 7673 },
+      "note": "The four-layer fallback is intact and the hero field does not touch it: the canvas is created by script, so with scripting off the element does not exist in the document at all."
     },
-    "prefers_reduced_motion_reduce": { "index": { "elements_at_opacity_0": 0 }, "proof": { "elements_at_opacity_0": 0 } }
+    "prefers_reduced_motion_reduce": {
+      "index": { "elements_at_opacity_0": 0, "hero_canvas": 0, "html_class": "settled" },
+      "proof": { "elements_at_opacity_0": 0, "hero_canvas": 0, "html_class": "settled" }
+    },
+    "claims_lint": "node tools/claims-lint.mjs --config proof/greenlit.json index.html proof.html — clean, greenlit v1.6.0, exit 0"
   },
 
   "known_limits": {
     "$comment": "Stated plainly rather than left for someone else to find.",
     "items": [
-      "CLS is not zero. See the correction above. It is small, pre-existing, caused by the webfont swap, and unchanged by this commit — but it is not zero, and this file previously said it was.",
-      "Contrast is measured against each gradient's declared solid, which is that gradient's lightest painted point. This understates the true ratio elsewhere in the gradient; it never overstates it.",
+      "CLS is not zero everywhere. It is 0.000336 and 0.000379 on the two desktop viewports of index, 0.000000 on both desktop viewports of proof and on both pages at 375px, and 0.018585 on index over a throttled 400 kbps link. That last number misses the 0.005 target and is named as a miss above.",
+      "There is no configuration of this page that both renders Inter and shifts zero. The choice made was to render Inter. Anyone who would rather have the zero should set font-display: optional and accept that first-time visitors see the fallback face.",
+      "size-adjust, ascent-override and descent-override reached Safari in 17.0. On older Safari the fallback face still loads but without the overrides, so the pre-swap render is plain Arial rather than metric-matched Arial. Nothing breaks; the swap is simply less well concealed for that ~100ms.",
+      "The hero field's contrast was measured by sampling 16 animation frames per viewport. That is a sample, not a proof by exhaustion — the proof is the compositing argument, which holds for every frame. The sample is what confirms the argument was implemented correctly.",
+      "The field's frame cost exceeds 1ms on roughly 1% of frames. p50 is 0.2ms and p95 is 0.7-0.8ms.",
+      "All measurements are lab measurements in Chrome on one machine and one connection. No field data, no CrUX, no real-device testing, and no Safari or Firefox run. LCP and load time were not measured this pass.",
+      "Mobile viewports are Chrome device emulation, not physical hardware.",
+      "Contrast is measured against each gradient's declared solid, which is that gradient's lightest painted point. This understates the true ratio elsewhere in the gradient; it never overstates it. Measured directly this pass: the brightest pixel in the entire hero ground is L=0.04694 against the --field token's L=0.04632, so the token is accurate to within 1.3% and the small excess sits in a top corner where no text is placed.",
       "The harness reports two gradient holes on index.html: SPAN.wall-cap and the .gc-tile FIGCAPTION. Both are caption scrims — a translucent gradient over a photograph, which by definition cannot declare a solid without hiding the image. Both composite against their tile's opaque dark placeholder (#0c1626 / #08121f), which is what the reported ratios use.",
       "Text sitting on photographic imagery is measured against the tile's opaque dark placeholder colour, not against per-pixel image content.",
       "Tap targets are measured from border-box rects. Two inline prose links reach 44px through padding with a matching negative margin, so their hit boxes are genuinely 44px tall while the paragraphs' line boxes are unchanged.",
-      "The ten Canva deck and animation links were removed rather than repaired. They are not repairable read-only: the /d/ short tokens rotate (the API minted a different token for the same design on two consecutive calls) and every API-minted link redirects an anonymous visitor to a Canva login page. Restoring them requires setting link-sharing on designs that carry named clients and before/after imagery, which is the founder's decision.",
-      "Load time is not re-measured here."
+      "The ten Canva deck and animation links were removed rather than repaired, and that is still true. Restoring them requires setting link-sharing on designs that carry named clients, which is the founder's decision."
     ]
   }
 }
