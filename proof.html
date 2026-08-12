@@ -6,6 +6,7 @@
 <title>The Proof Room — Alex Amaro · every claim, evidenced</title>
 <meta name="description" content="Every results claim I use, with its verification status, source system, and method — including what I deliberately don't claim. Growth marketing with receipts.">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/proof.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316365C'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' fill='none' stroke='%237fd3a6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta name="author" content="Alex Amaro">
 <meta name="theme-color" content="#0d2440">
 <meta property="og:type" content="website">
@@ -18,6 +19,9 @@
 <meta name="twitter:title" content="The Proof Room — Alex Amaro">
 <meta name="twitter:description" content="Every number traces to a source system — and is labeled with how it's verified. Plus what I don't claim.">
 <meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-cover-proof.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Alex Amaro","jobTitle":"Growth & Lead-Generation Marketer · Agentic-AI Builder · Full-Funnel CRO","url":"https://alexfc0810.github.io/alex-amaro-portfolio/","mainEntityOfPage":"https://alexfc0810.github.io/alex-amaro-portfolio/proof.html","email":"jesusalexelamaro@gmail.com","telephone":"+1-920-251-7280","sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"],"knowsLanguage":["English","Spanish"],"knowsAbout":["Lead Generation","Paid Media","Meta Ads","GoHighLevel","Marketing Automation","Conversion Rate Optimization","AI Automation","Agentic AI","GTM Engineering","Marketing Operations","AI Receptionist"],"address":{"@type":"PostalAddress","addressLocality":"Fond du Lac","addressRegion":"WI","addressCountry":"US"}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -53,28 +57,39 @@
     --amber: #8a4f04; --amber-tint: #fdf3e4;
     --slate: #48586f; --slate-tint: #eef1f7;
 
-    --fs-h1:    clamp(2.2rem, 5.4vw, 3.6rem);
-    --fs-h2:    clamp(1.75rem, 3.4vw, 2.55rem);
-    --fs-h3:    1.1875rem;
-    --fs-lead:  clamp(1.0625rem, 1.35vw, 1.1875rem);
-    --fs-body:  1rem;
-    --fs-sm:    .9375rem;
-    --fs-xs:    .8125rem;
-    --fs-micro: .75rem;
+    --focus: #2c6aa8;
 
-    --sec-y: clamp(76px, 8.5vw, 122px);
+    /* type ramp — identical contract to index.html. Three section-heading
+       tiers with real jumps; prose 21/16/14; UI labels 13/11. */
+    --fs-h1:       clamp(2.2rem, 5.4vw, 3.6rem);
+    --fs-h2-hero:  clamp(2.1rem, 4.4vw, 3.15rem);      /* TIER 1  → 50.4 */
+    --fs-h2:       clamp(1.6rem, 2.9vw, 2.125rem);     /* TIER 2  → 34   */
+    --fs-h2-minor: clamp(1.25rem, 2.1vw, 1.5rem);      /* TIER 3  → 24   */
+    --fs-h3:       1.125rem;
+    --fs-lead:     clamp(1.125rem, 1.75vw, 1.3125rem);
+    --fs-body:     1rem;
+    --fs-sm:       .875rem;
+    --fs-xs:       .8125rem;
+    --fs-micro:    .6875rem;
+
+    --sec-y:       clamp(76px, 8.5vw, 122px);
+    --sec-y-act:   clamp(104px, 11.5vw, 168px);
+    --sec-y-tight: clamp(54px, 6vw, 84px);
     --nav-h: 62px;
 
     --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05);
     --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07);
     --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13);
+    --e2-d: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28);
+    --e3-d: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32);
     --hi:   inset 0 1px 0 rgba(255,255,255,.92);
     --hi-d: inset 0 1px 0 rgba(255,255,255,.07);
 
-    --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px;
+    --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px; --r-pill: 999px;
     --ease: cubic-bezier(.22,.61,.36,1);
     --maxw: 1140px;
   }
+  [data-nav-dark], .nav, .footer { --focus: #8fc0f0; }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
@@ -91,12 +106,12 @@
   /* [hidden] must beat any display rule — the lens panes are display:flex */
   [hidden] { display: none !important; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  :focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; border-radius: 4px; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--r-sm); }
   section[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
   .skip {
     position: absolute; left: 12px; top: -60px; z-index: 200;
     background: #fff; color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
-    padding: 12px 18px; border-radius: 10px; box-shadow: var(--e2);
+    padding: 12px 18px; border-radius: var(--r-sm); box-shadow: var(--e2);
     min-height: 44px; display: inline-flex; align-items: center; transition: top .2s var(--ease);
   }
   .skip:focus { top: 12px; }
@@ -125,7 +140,7 @@
   .nav[data-light] .nav-proof { color: #33455e; border-color: rgba(22,54,92,.18); }
   .nav[data-light] .nav-proof[aria-current="page"] { color: var(--navy); border-color: rgba(22,54,92,.3); background: rgba(22,54,92,.05); }
   .nav[data-light] .nav-proof .tick { color: var(--green); }
-  .nav[data-light] .nav-cta { background: var(--navy); color: #fff; box-shadow: 0 6px 18px rgba(22,54,92,.24); }
+  .nav[data-light] .nav-cta { background: var(--navy); color: #fff; box-shadow: var(--e2); }
   .nav[data-light] .nav-menu > summary { color: var(--navy); border-color: rgba(22,54,92,.18); }
 
   .nav-inner {
@@ -135,20 +150,21 @@
   }
   .nav-mark { display: flex; flex-direction: column; justify-content: center; min-height: 44px; margin-right: auto; color: inherit; }
   .nav-mark .nm-name { font-size: var(--fs-sm); font-weight: 700; color: #fff; letter-spacing: -.005em; line-height: 1.15; white-space: nowrap; }
-  .nav-mark .nm-role { font-size: 11px; font-weight: 600; color: var(--on-dark-3); letter-spacing: .1em; text-transform: uppercase; line-height: 1.3; }
+  .nav-mark .nm-role { font-size: var(--fs-micro); font-weight: 600; color: var(--on-dark-3); letter-spacing: .1em; text-transform: uppercase; line-height: 1.3; }
   .nav-links { display: flex; align-items: center; gap: 2px; }
   .nav-links a {
+    position: relative;
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; min-width: 44px; padding: 0 11px;
+    min-height: 44px; min-width: 44px; padding: 0 9px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
-    white-space: nowrap; border-radius: 9px;
+    white-space: nowrap; border-radius: var(--r-sm);
     transition: color .18s var(--ease), background .18s var(--ease);
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .nav-actions { display: flex; align-items: center; gap: 8px; }
   .nav-proof {
     display: inline-flex; align-items: center; gap: 7px;
-    min-height: 44px; padding: 0 13px; border-radius: 10px;
+    min-height: 44px; padding: 0 13px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 600; color: var(--on-dark-2);
     border: 1px solid rgba(255,255,255,.22); white-space: nowrap;
     transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
@@ -157,16 +173,16 @@
   .nav-proof .tick { width: 14px; height: 14px; flex: 0 0 14px; color: var(--green-bright); }
   .nav-cta {
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; padding: 0 17px; border-radius: 10px;
+    min-height: 44px; padding: 0 17px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 700; color: #0d2440; background: #fff;
-    white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    white-space: nowrap; box-shadow: var(--e2-d);
     transition: transform .18s var(--ease), box-shadow .18s var(--ease);
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3-d); }
   .nav-progress { height: 2px; background: transparent; margin-top: -1px; }
-  .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green-bright), #6fbdf0); transition: width .1s linear; }
+  .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #6fbdf0, #2c6aa8); transition: width .1s linear; }
   .nav-menu { position: relative; display: none; }
-  .nav-menu > summary { list-style: none; cursor: pointer; width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,.22); }
+  .nav-menu > summary { list-style: none; cursor: pointer; width: 44px; height: 44px; border-radius: var(--r-sm); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,.22); }
   .nav-menu > summary::-webkit-details-marker { display: none; }
   .nav-menu > summary svg { width: 19px; height: 19px; }
   .nav-menu > summary .x { display: none; }
@@ -175,14 +191,14 @@
   .nav-panel {
     position: absolute; right: -6px; top: calc(100% + 12px); width: min(78vw, 268px);
     background: #0b1a2e; border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg);
-    box-shadow: 0 22px 60px rgba(0,0,0,.55), var(--hi-d);
+    box-shadow: var(--e3-d), var(--hi-d);
     padding: 8px; display: flex; flex-direction: column; max-height: 76vh; overflow-y: auto;
   }
   @supports (backdrop-filter: blur(1px)) { .nav-panel { background: rgba(11,26,46,.94); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); } }
-  .nav-panel a { display: flex; align-items: center; min-height: 48px; padding: 0 14px; font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: 10px; }
+  .nav-panel a { display: flex; align-items: center; min-height: 48px; padding: 0 14px; font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: var(--r-sm); }
   .nav-panel a:hover, .nav-panel a:focus-visible { background: rgba(255,255,255,.09); color: #fff; }
   .nav-panel hr { border: 0; height: 1px; background: rgba(255,255,255,.12); margin: 6px 10px; }
-  @media (max-width: 1040px) { .nav-links { display: none; } .nav-menu { display: block; } .nav-proof { display: none; } }
+  @media (max-width: 1120px) { .nav-links { display: none; } .nav-menu { display: block; } .nav-proof { display: none; } }
   @media (max-width: 420px) { .nav-mark .nm-role { display: none; } }
 
   /* ============================================================
@@ -214,23 +230,23 @@
     display: inline-flex; align-items: center; gap: 9px;
     font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
     color: #c9dcf1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
-    padding: 8px 15px; border-radius: 100px; margin-bottom: 22px; box-shadow: var(--hi-d);
+    padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: 22px; box-shadow: var(--hi-d);
   }
-  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 10px var(--green-bright); flex: 0 0 7px; }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); flex: 0 0 7px; }
   .hero h1 { font-size: var(--fs-h1); font-weight: 900; letter-spacing: -.035em; line-height: .98; margin-bottom: 18px; }
   .hero .promise { max-width: 64ch; font-size: var(--fs-lead); color: var(--on-dark); text-wrap: pretty; }
   .hero .promise strong { color: #fff; font-weight: 600; }
 
   .lens-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 30px; }
   .lens-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-3); }
-  .lens { display: inline-flex; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 4px; box-shadow: var(--hi-d); }
+  .lens { display: inline-flex; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r-pill); padding: 4px; box-shadow: var(--hi-d); }
   .lens button {
     appearance: none; border: 0; background: transparent; color: var(--on-dark-2);
     font: inherit; font-weight: 600; font-size: var(--fs-xs);
-    min-height: 44px; padding: 0 18px; border-radius: 999px; cursor: pointer;
+    min-height: 44px; padding: 0 18px; border-radius: var(--r-pill); cursor: pointer;
     transition: background .2s var(--ease), color .2s var(--ease);
   }
-  .lens button[aria-pressed="true"] { background: #fff; color: var(--navy); font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+  .lens button[aria-pressed="true"] { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e1); }
 
   .doctrine { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
   .doc-chip { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r); padding: 16px 18px; font-size: var(--fs-xs); color: var(--on-dark-2); line-height: 1.55; box-shadow: var(--hi-d); }
@@ -241,11 +257,11 @@
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
     font-size: var(--fs-sm); font-weight: 600; min-height: 50px; padding: 0 22px;
-    border-radius: 12px; border: 1px solid transparent; text-decoration: none;
+    border-radius: var(--r); border: 1px solid transparent; text-decoration: none;
     transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
   }
-  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2-d); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3-d); }
   .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--hi-d); }
   .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); border-color: rgba(255,255,255,.5); }
   .btn-solid { background: var(--navy); color: #fff; font-weight: 700; box-shadow: var(--e2); }
@@ -258,15 +274,29 @@
      SECTION FURNITURE
      ============================================================ */
   .block { padding: var(--sec-y) 0; }
+  .block.act   { padding: var(--sec-y-act) 0; }
+  .block.minor { padding: var(--sec-y-tight) 0; }
   .block.tint { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  /* the exhibit ground — same token as index.html's receipts section, so the
+     two hero exhibits read as one continuous surface across the two pages */
+  .block.exhibit { background: var(--bg-tint); border-bottom: 1px solid #dbe7f4; box-shadow: var(--hi); }
   .sec-head { margin-bottom: clamp(34px, 4vw, 54px); max-width: 46rem; }
   .kicker {
     font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 11px;
   }
   .kicker::before { content: ""; width: 26px; height: 2px; background: currentColor; border-radius: 2px; opacity: .55; }
-  .sec-title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em; color: var(--navy); line-height: 1.06; text-wrap: balance; }
+
+  /* ---- SECTION HEADING TIERS — same contract as index.html --------- */
+  .sec-title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em; color: var(--navy); line-height: 1.08; text-wrap: balance; }
+  .sec-title.t1 { font-size: var(--fs-h2-hero); font-weight: 900; letter-spacing: -.036em; line-height: 1.0; }
+  .sec-head.t1 .kicker { color: var(--green); }
+  .sec-head.t1 .kicker::before { width: 34px; height: 3px; opacity: 1; }
+  .sec-title.t3 { font-size: var(--fs-h2-minor); font-weight: 700; letter-spacing: -.022em; }
+  .sec-head.t3 { margin-bottom: clamp(24px, 2.6vw, 34px); }
+  .sec-head.t3 .kicker { color: var(--muted); }
   .sec-head > p { margin-top: 16px; color: var(--muted); font-size: var(--fs-lead); max-width: 62ch; text-wrap: pretty; }
+  .sec-head.t3 > p { font-size: var(--fs-body); margin-top: 12px; }
 
   .legend { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 26px; }
   .legend-item { display: inline-flex; align-items: center; gap: 9px; font-size: var(--fs-xs); color: var(--muted); }
@@ -298,15 +328,15 @@
   .badge {
     display: inline-flex; align-items: center; gap: 7px; width: max-content;
     font-size: var(--fs-micro); font-weight: 800; letter-spacing: .09em; text-transform: uppercase;
-    border-radius: 999px; padding: 5px 11px; margin-bottom: 16px;
+    border-radius: var(--r-pill); padding: 5px 11px; margin-bottom: 16px;
   }
   .badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: 0 0 7px; }
   .badge.v { background: var(--green-tint); color: var(--green); } .badge.v::before { background: var(--green); }
   .badge.c { background: var(--amber-tint); color: var(--amber); } .badge.c::before { background: var(--amber); }
   .badge.a { background: var(--slate-tint); color: var(--slate); } .badge.a::before { background: var(--slate); }
 
-  .r-num { font-size: clamp(1.85rem, 3.2vw, 2.4rem); font-weight: 900; letter-spacing: -.04em; color: var(--navy); line-height: 1.02; font-variant-numeric: tabular-nums; }
-  .hero-r .r-num { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+  .r-num { font-size: var(--fs-h2); font-weight: 900; letter-spacing: -.04em; color: var(--navy); line-height: 1.02; font-variant-numeric: tabular-nums; }
+  .hero-r .r-num { font-size: var(--fs-h2-hero); }
   .r-unit { font-weight: 600; color: var(--accent); font-size: var(--fs-sm); margin-top: 6px; letter-spacing: -.008em; }
   .hero-r .r-unit { font-size: var(--fs-body); max-width: 44ch; }
   .r-copy { font-size: var(--fs-sm); color: var(--muted); margin-top: 14px; flex: 1; text-wrap: pretty; }
@@ -319,9 +349,9 @@
     color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 9px;
   }
   .r-how-t::before { content: ""; width: 16px; height: 2px; background: currentColor; border-radius: 2px; opacity: .5; }
-  .r-how-l dt { font-weight: 700; color: var(--ink); font-size: var(--fs-xs); margin-top: 11px; }
+  .r-how-l dt { font-weight: 700; color: var(--ink); font-size: var(--fs-sm); margin-top: 11px; }
   .r-how-l dt:first-of-type { margin-top: 0; }
-  .r-how-l dd { color: var(--muted); font-size: var(--fs-xs); line-height: 1.6; margin-top: 2px; }
+  .r-how-l dd { color: var(--muted); font-size: var(--fs-sm); line-height: 1.6; margin-top: 2px; }
 
   /* ============================================================
      WHAT I WON'T CLAIM / METHOD
@@ -353,7 +383,7 @@
   }
   .foot-inner { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: center; }
   .foot-links { display: flex; flex-wrap: wrap; gap: 4px; }
-  .foot-links a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; justify-content: center; padding: 0 12px; border-radius: 9px; color: var(--on-dark-2); }
+  .foot-links a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; justify-content: center; padding: 0 12px; border-radius: var(--r-sm); color: var(--on-dark-2); }
   .foot-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
 
   /* ============================================================
@@ -385,14 +415,16 @@
     <nav class="nav-links" aria-label="Portfolio sections">
       <a href="./index.html#gen-creative">Creative</a>
       <a href="./index.html#voice">Voice AI</a>
+      <a href="./index.html#fullstack">Full stack</a>
       <a href="./index.html#systems">Systems</a>
       <a href="./index.html#proof">Receipts</a>
       <a href="./index.html#growth-math">Growth math</a>
+      <a href="./index.html#more">More work</a>
       <a href="./index.html#creds">Credentials</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-proof" href="./proof.html" aria-current="page">
-        <svg class="tick" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <svg class="tick" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         Proof Room
       </a>
       <a class="nav-cta" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a call</a>
@@ -409,9 +441,11 @@
           <a href="./index.html">Back to the portfolio</a>
           <a href="./index.html#gen-creative">Creative</a>
           <a href="./index.html#voice">Voice AI</a>
+          <a href="./index.html#fullstack">Full stack</a>
           <a href="./index.html#systems">Systems</a>
           <a href="./index.html#proof">Receipts</a>
           <a href="./index.html#growth-math">Growth math</a>
+          <a href="./index.html#more">More work</a>
           <a href="./index.html#creds">Credentials</a>
           <hr>
           <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
@@ -455,12 +489,12 @@
   </div>
 </section>
 
-<section class="block" id="claims">
+<section class="block act exhibit" id="claims">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head t1">
       <div class="kicker">The receipts</div>
-      <h2 class="sec-title">Claims, with their verification status.</h2>
-      <p>Fourteen claims. Every one carries its status, its source system, and the arithmetic behind it — shown on the card, not hidden behind a click.</p>
+      <h2 class="sec-title t1">Claims, with their verification status.</h2>
+      <p>Fifteen claims. Every one carries its status, its source system, and the arithmetic behind it — shown on the card, not hidden behind a click.</p>
       <div class="legend">
         <span class="legend-item"><span class="badge v">Platform-verified</span> pulled from the live ad platform.</span>
         <span class="legend-item"><span class="badge c">Corroborated</span> double-sourced — CRM, client-tracker, or a second reconciling platform pull, with no retained export.</span>
@@ -645,19 +679,42 @@
         </div>
       </article>
 
+      <!-- Split from one card into two. The bookings are corroborated by the
+           client's tracking sheet; the lead volume is founder-attested because
+           the ad account was lost at off-boarding. One badge across both was
+           labelling the weaker fact with the stronger evidence. -->
       <article class="receipt">
         <span class="badge c">Corroborated</span>
-        <p class="r-num">220+</p>
-        <p class="r-unit">bilingual leads + 89 booked · Montreal</p>
-        <p class="r-copy" data-lens="emp">Fully bilingual FR/EN campaigns and follow-up for a Montreal beauty brand: 220+ leads and 89 booked appointments in ~10 weeks (~40/month).</p>
-        <p class="r-copy" data-lens="cli" hidden>For a Montreal beauty brand: 220+ leads and 89 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.</p>
+        <p class="r-num">89</p>
+        <p class="r-unit">booked appointments in ~10 weeks · Montreal</p>
+        <p class="r-copy" data-lens="emp">A Montreal beauty brand, fully bilingual FR/EN campaigns and follow-up: 89 booked appointments in ~10 weeks (~40/month).</p>
+        <p class="r-copy" data-lens="cli" hidden>For a Montreal beauty brand: 89 bookings in ~10 weeks — campaigns and follow-up run in-language, not translated.</p>
         <div class="r-how">
           <h3 class="r-how-t">How it’s verified</h3>
           <dl class="r-how-l">
             <dt>Source</dt>
-            <dd>bookings corroborated by the client’s master tracking sheet; lead volume founder-attested (ad account lost at off-boarding — which is also why the exact CPL is retired, see below).</dd>
+            <dd>the client’s master tracking sheet, row by row.</dd>
             <dt>Why 89 and not “~90”</dt>
             <dd>89 is the count of rows carrying an actual appointment date. A row without a date isn’t a booking, so it isn’t rounded up into one.</dd>
+            <dt>Definition</dt>
+            <dd>booked = scheduled, not attended.</dd>
+          </dl>
+        </div>
+      </article>
+
+      <article class="receipt">
+        <span class="badge a">Founder-attested</span>
+        <p class="r-num">220+</p>
+        <p class="r-unit">bilingual FR/EN leads · Montreal</p>
+        <p class="r-copy" data-lens="emp">The lead volume behind those bookings: 220+ leads from French and English campaigns run as two native campaigns, not one translated into the other.</p>
+        <p class="r-copy" data-lens="cli" hidden>220+ leads from the same Montreal program — French and English each written natively, not translated.</p>
+        <div class="r-how">
+          <h3 class="r-how-t">How it’s verified</h3>
+          <dl class="r-how-l">
+            <dt>Source</dt>
+            <dd>my own operating record. The ad account was lost at off-boarding, so this one carries the founder-attested badge rather than borrowing the tracker’s — the bookings above are corroborated, the lead count is my word.</dd>
+            <dt>Same reason the CPL is retired</dt>
+            <dd>the exact cost-per-lead lived in that account too, so it stays held in every form, including a rounded one — see the discard pile below.</dd>
           </dl>
         </div>
       </article>
@@ -731,7 +788,7 @@
     <div class="nots">
       <div class="not-card"><b>A famous "before → after" laser CPL pair</b><p>A med spa laser turnaround I ran is real — but the exact before/after figures lived in an ad account I no longer have access to. Until it's re-sourced, I say "cut CPL substantially" and cite the ~$16 laser CPL verified on an account I still hold.</p></div>
       <div class="not-card"><b>Client revenue &amp; ROAS</b><p>My job ended at the qualified, booked appointment plus the follow-up system. Closing was the client's. I had no reliable post-booking revenue visibility — so I don't claim their revenue. Ever.</p></div>
-      <div class="not-card"><b>An exact Montreal CPL</b><p>The campaign's lead volume and bookings are tracker-corroborated (220+ leads, 89 booked in ~10 weeks), but the exact CPL decimal lived in a lost account — so the decimal stays retired, in every form, including a rounded one.</p></div>
+      <div class="not-card"><b>An exact Montreal CPL</b><p>The 89 bookings are tracker-corroborated and the 220+ lead volume is founder-attested — two facts, two badges, listed separately above. The exact CPL decimal lived in that same lost ad account, so the decimal stays retired in every form, including a rounded one.</p></div>
       <div class="not-card"><b>Blended "average CPL"</b><p>$225K+ managed and 6,250+ leads are both true — but dividing one by the other creates a fake CPL that blends brand spend, B2C, and qualified B2B. I quote CPL per campaign or not at all.</p></div>
       <div class="not-card"><b>A shiny old e-commerce revenue figure</b><p>I built a six-figure Amazon/eBay business through college — founder-attested and I'll gladly talk through it. The precise lifetime figure predates retrievable records, so it stays out of the hard-claims column.</p></div>
       <div class="not-card"><b>Calling a scheduled appointment a held call</b><p>My own B2B campaigns drove 215+ website-scheduled appointments. The platform can't verify who actually showed — so I say "scheduled," never something stronger. Precision is the point.</p></div>
@@ -739,11 +796,11 @@
   </div>
 </section>
 
-<section class="block" id="method">
+<section class="block minor" id="method">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head t3">
       <div class="kicker">How this page stays honest</div>
-      <h2 class="sec-title">The verification system behind it.</h2>
+      <h2 class="sec-title t3">The verification system behind it.</h2>
       <p>This isn't a claims page with adjectives — it's the public face of a private, version-controlled evidence vault.</p>
     </div>
     <div class="method">

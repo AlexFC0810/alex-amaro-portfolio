@@ -6,6 +6,7 @@
 <title>Alex Amaro — Growth &amp; Lead-Gen Marketer · Agentic-AI Builder · Full-Funnel CRO</title>
 <meta name="description" content="Alex Amaro — a Growth and Lead-Generation marketer who builds the AI-native operating systems (AI employees) behind the funnel. $225K+ in Meta/IG spend across 14+ accounts, leads at $4–22 CPL per campaign, GoHighLevel automation, and full-funnel CRO. Bilingual EN/ES. Remote, United States.">
 <meta property="og:type" content="profile">
+<meta property="og:site_name" content="Alex Amaro — Portfolio">
 <meta property="og:title" content="Alex Amaro — Growth and Lead-Gen Marketer · Agentic-AI Builder">
 <meta property="og:description" content="A marketer who builds the AI-native operating systems behind the funnel — $225K+ Meta spend across 14+ accounts, leads at $4–22 CPL per campaign, GoHighLevel automation, full-funnel CRO.">
 <meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/">
@@ -19,6 +20,7 @@
 <meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-cover.png">
 <meta name="author" content="Alex Amaro">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316365C'/%3E%3Cpath d='M9 16.5l4.5 4.5L23 11' fill='none' stroke='%237fd3a6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#16365C">
 <script>
 /* Motion opt-in AND its own escape hatch, armed in the same statement so they
@@ -76,36 +78,67 @@
     --slate: #48586f;          /* founder-attested */
     --slate-tint: #eef1f7;
 
-    /* --- type ramp: real jumps, tracking tuned per size --- */
-    --fs-display: clamp(2.75rem, 6.2vw, 4.5rem);
-    --fs-h1:      clamp(2rem, 4.6vw, 3.15rem);
-    --fs-h2:      clamp(1.75rem, 3.4vw, 2.55rem);
-    --fs-h3:      1.1875rem;
-    --fs-lead:    clamp(1.0625rem, 1.35vw, 1.1875rem);
-    --fs-body:    1rem;
-    --fs-sm:      .9375rem;
-    --fs-xs:      .8125rem;
-    --fs-micro:   .75rem;
+    /* --- focus ring: a system affordance, so it gets its own colour rather
+           than borrowing the verification mint. Redefined on dark grounds
+           below so it clears 3:1 against whatever it actually sits on. --- */
+    --focus: #2c6aa8;
 
-    /* --- space --- */
+    /* --- TYPE RAMP ------------------------------------------------------
+       Three section-heading tiers with real jumps between them, because the
+       page has to say what matters before it says anything else:
+
+         TIER 1  50px / 900  the two exhibits — the head-to-head duel and
+                             the Proof Room. Nothing else gets this.
+         TIER 2  34px / 800  the supporting acts.
+         TIER 3  24px / 700  the annex.
+
+       Prose runs 21 / 16 / 14 and UI labels run 13 / 11. Every size below is
+       a token; no section may invent its own, which is how the old page
+       ended up with 17.6/17.3/16/15 and 13/12/11.8/11/10.1. --- */
+    --fs-display:  clamp(2.75rem, 6.2vw, 4.5rem);      /* hero h1 only        */
+    --fs-h1:       clamp(2rem, 4.6vw, 3.15rem);
+    --fs-h2-hero:  clamp(2.1rem, 4.4vw, 3.15rem);      /* TIER 1  → 50.4      */
+    --fs-h2:       clamp(1.6rem, 2.9vw, 2.125rem);     /* TIER 2  → 34        */
+    --fs-h2-minor: clamp(1.25rem, 2.1vw, 1.5rem);      /* TIER 3  → 24        */
+    --fs-h3:       1.125rem;                           /* 18  card title      */
+    --fs-lead:     clamp(1.125rem, 1.75vw, 1.3125rem); /* 18–21 section lede  */
+    --fs-body:     1rem;                               /* 16  body            */
+    --fs-sm:       .875rem;                            /* 14  secondary prose */
+    --fs-xs:       .8125rem;                           /* 13  UI affordances  */
+    --fs-micro:    .6875rem;                           /* 11  tracked caps    */
+
+    /* --- space ---
+       Three section rhythms, not one: an act break gets visibly more air
+       than a supporting section, and the annex gets visibly less. */
     --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
     --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
-    --sec-y: clamp(76px, 8.5vw, 122px);
+    --sec-y:       clamp(76px, 8.5vw, 122px);
+    --sec-y-act:   clamp(104px, 11.5vw, 168px);
+    --sec-y-tight: clamp(54px, 6vw, 84px);
     --nav-h: 62px;
 
     /* --- elevation: layered, tinted to the surface hue, never pure black,
-           plus a 1px inner top highlight so a raised surface reads as lit --- */
+           plus a 1px inner top highlight so a raised surface reads as lit.
+           The -d pair are the dark-field counterparts: same three-stop
+           falloff, tinted to the deep navy those sections actually paint,
+           replacing the flat `0 12px 34px rgba(0,0,0,.42)` that used to
+           carry every tile on the dark ground and read as mud. --- */
     --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05);
     --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07);
     --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13);
+    --e2-d: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28);
+    --e3-d: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32);
     --hi:   inset 0 1px 0 rgba(255,255,255,.92);
     --hi-d: inset 0 1px 0 rgba(255,255,255,.07);
+    --well: inset 0 1px 2px rgba(13,36,64,.06);
 
-    --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px;
-    --radius: 18px;
+    /* --- radii: five, and only five --- */
+    --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px; --r-pill: 999px;
     --ease: cubic-bezier(.22,.61,.36,1);
     --maxw: 1140px;
   }
+  /* the focus ring flips with the ground so it always clears 3:1 */
+  [data-nav-dark], #gen-creative, .nav, .gm, .footer { --focus: #8fc0f0; }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
@@ -125,13 +158,13 @@
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 4.5vw, 34px); }
   [hidden] { display: none !important; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-  :focus-visible { outline: 2px solid var(--green-bright); outline-offset: 3px; border-radius: 4px; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--r-sm); }
   section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 
   .skip {
     position: absolute; left: 12px; top: -60px; z-index: 200;
     background: #fff; color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
-    padding: 12px 18px; border-radius: 10px; box-shadow: var(--e2);
+    padding: 12px 18px; border-radius: var(--r-sm); box-shadow: var(--e2);
     min-height: 44px; display: inline-flex; align-items: center;
     transition: top .2s var(--ease);
   }
@@ -169,7 +202,7 @@
   .nav[data-light] .nav-proof { color: #33455e; border-color: rgba(22,54,92,.18); }
   .nav[data-light] .nav-proof:hover { color: var(--navy); border-color: rgba(22,54,92,.4); background: rgba(22,54,92,.05); }
   .nav[data-light] .nav-proof .tick { color: var(--green); }
-  .nav[data-light] .nav-cta { background: var(--navy); color: #fff; box-shadow: 0 6px 18px rgba(22,54,92,.24); }
+  .nav[data-light] .nav-cta { background: var(--navy); color: #fff; box-shadow: var(--e2); }
   .nav[data-light] .nav-menu > summary { color: var(--navy); border-color: rgba(22,54,92,.18); }
   .nav-inner {
     max-width: var(--maxw); margin: 0 auto;
@@ -183,28 +216,31 @@
     letter-spacing: -.005em; line-height: 1.15; white-space: nowrap;
   }
   .nav-mark .nm-role {
-    font-size: 11px; font-weight: 600; color: var(--on-dark-3);
+    font-size: var(--fs-micro); font-weight: 600; color: var(--on-dark-3);
     letter-spacing: .1em; text-transform: uppercase; line-height: 1.3;
   }
-  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 1px; }
   .nav-links a {
     position: relative;
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; min-width: 44px; padding: 0 11px;
+    min-height: 44px; min-width: 44px; padding: 0 9px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
-    letter-spacing: -.003em; white-space: nowrap; border-radius: 9px;
+    letter-spacing: -.003em; white-space: nowrap; border-radius: var(--r-sm);
     transition: color .18s var(--ease), background .18s var(--ease);
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
-  .nav-links a[aria-current="true"] { color: #fff; font-weight: 600; }
+  /* "You are here" — the answer to the one question a page this long can't
+     leave unanswered. Painted, not just announced: aria-current drives both
+     the weight change and the underline. */
+  .nav-links a[aria-current="true"] { color: #fff; font-weight: 700; background: rgba(255,255,255,.10); }
   .nav-links a[aria-current="true"]::after {
-    content: ""; position: absolute; left: 11px; right: 11px; bottom: 9px;
-    height: 2px; border-radius: 2px; background: var(--green-bright);
+    content: ""; position: absolute; left: 9px; right: 9px; bottom: 7px;
+    height: 2px; border-radius: 2px; background: currentColor;
   }
   .nav-actions { display: flex; align-items: center; gap: 8px; }
   .nav-proof {
     display: inline-flex; align-items: center; gap: 7px;
-    min-height: 44px; padding: 0 13px; border-radius: 10px;
+    min-height: 44px; padding: 0 13px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 600; color: var(--on-dark-2);
     border: 1px solid rgba(255,255,255,.22); white-space: nowrap;
     transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
@@ -213,22 +249,23 @@
   .nav-proof .tick { width: 14px; height: 14px; flex: 0 0 14px; color: var(--green-bright); }
   .nav-cta {
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; padding: 0 17px; border-radius: 10px;
+    min-height: 44px; padding: 0 16px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 700; color: #0d2440; background: #fff;
-    white-space: nowrap; box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    white-space: nowrap; box-shadow: var(--e2-d);
     transition: transform .18s var(--ease), box-shadow .18s var(--ease);
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,0,0,.3); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3-d); }
 
-  /* progress hairline — communicates position, nothing decorative */
+  /* progress hairline — communicates position, nothing decorative. Blue,
+     not mint: on this site green means "verified" and nothing else. */
   .nav-progress { height: 2px; background: transparent; margin-top: -1px; }
-  .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--green-bright), #6fbdf0); transition: width .1s linear; }
+  .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #6fbdf0, #2c6aa8); transition: width .1s linear; }
 
   /* mobile menu — a <details>, so it works with zero JS */
   .nav-menu { position: relative; display: none; }
   .nav-menu > summary {
     list-style: none; cursor: pointer;
-    width: 44px; height: 44px; border-radius: 10px;
+    width: 44px; height: 44px; border-radius: var(--r-sm);
     display: grid; place-items: center; color: #fff;
     border: 1px solid rgba(255,255,255,.22);
   }
@@ -243,17 +280,19 @@
     background: #0b1a2e;
     border: 1px solid rgba(255,255,255,.14);
     border-radius: var(--r-lg);
-    box-shadow: 0 22px 60px rgba(0,0,0,.55), var(--hi-d);
-    padding: 8px; display: flex; flex-direction: column;
+    box-shadow: var(--e3-d), var(--hi-d);
+    padding: 8px; display: flex; flex-direction: column; max-height: 78vh; overflow-y: auto;
   }
   @supports (backdrop-filter: blur(1px)) { .nav-panel { background: rgba(11,26,46,.94); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); } }
   .nav-panel a {
     display: flex; align-items: center; min-height: 48px; padding: 0 14px;
-    font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: 10px;
+    font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: var(--r-sm);
   }
   .nav-panel a:hover, .nav-panel a:focus-visible { background: rgba(255,255,255,.09); color: #fff; }
+  /* the same "you are here" answer inside the phone menu */
+  .nav-panel a[aria-current="true"] { color: #fff; font-weight: 700; background: rgba(255,255,255,.10); box-shadow: inset 3px 0 0 #6fbdf0; }
   .nav-panel hr { border: 0; height: 1px; background: rgba(255,255,255,.12); margin: 6px 10px; }
-  @media (max-width: 1040px) {
+  @media (max-width: 1120px) {
     .nav-links { display: none; }
     .nav-menu { display: block; }
     .nav-proof { display: none; }
@@ -288,16 +327,18 @@
     font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
     color: #c9dcf1; background: rgba(255,255,255,.08);
     border: 1px solid rgba(255,255,255,.16);
-    padding: 8px 15px; border-radius: 100px; margin-bottom: var(--sp-5);
+    padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: var(--sp-5);
     box-shadow: var(--hi-d);
   }
-  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 10px var(--green-bright); }
+  /* no glow: mint is the verification colour, and a colour that also does
+     decoration stops meaning anything */
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); flex: 0 0 7px; }
   .hero h1 {
     font-size: var(--fs-display); font-weight: 900;
     letter-spacing: -.035em; line-height: .96; margin-bottom: var(--sp-5);
   }
   .hero .headline {
-    font-size: clamp(1.3rem, 2.5vw, 1.85rem);
+    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
     font-weight: 500; line-height: 1.3; letter-spacing: -.018em;
     color: #b9d3ec; margin-bottom: var(--sp-5); max-width: 44ch;
     text-wrap: pretty;
@@ -322,13 +363,13 @@
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
     font-size: var(--fs-sm); font-weight: 600; letter-spacing: -.005em;
-    min-height: 50px; padding: 0 24px; border-radius: 12px;
+    min-height: 50px; padding: 0 24px; border-radius: var(--r);
     border: 1px solid transparent; cursor: pointer;
     transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
   }
   .btn svg { width: 17px; height: 17px; flex: 0 0 17px; }
-  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: 0 8px 24px rgba(0,0,0,.20); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,.28); }
+  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2-d); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3-d); }
   .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--hi-d); }
   .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); border-color: rgba(255,255,255,.5); }
 
@@ -336,7 +377,7 @@
   .hero-links { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: var(--sp-4); }
   .hero-links a {
     display: inline-flex; align-items: center; gap: 7px;
-    min-height: 44px; padding: 0 12px; border-radius: 9px;
+    min-height: 44px; padding: 0 12px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
     transition: color .18s var(--ease), background .18s var(--ease);
   }
@@ -350,8 +391,8 @@
   }
   .hero-trust span { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-3); }
   .hero-trust span::before {
-    content: ""; width: 14px; height: 14px; flex: 0 0 14px;
-    background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237fd3a6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    content: ""; width: 16px; height: 16px; flex: 0 0 16px;
+    background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237fd3a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
   }
 
   /* ============================================================
@@ -365,7 +406,7 @@
   }
   .metric:last-child { border-right: none; }
   .metric .num {
-    font-size: clamp(1.55rem, 2.4vw, 2.1rem); font-weight: 800;
+    font-size: var(--fs-h2); font-weight: 800;
     letter-spacing: -.03em; line-height: 1.02; color: #fff;
     font-variant-numeric: tabular-nums;
   }
@@ -379,17 +420,98 @@
      ============================================================ */
   section.block { padding: var(--sec-y) 0; }
   section.block.tint { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  /* an act break gets visibly more air than a supporting section; the annex
+     gets visibly less. Three rhythms, so the page paces itself. */
+  section.block.act   { padding: var(--sec-y-act) 0; }
+  section.block.minor { padding: var(--sec-y-tight) 0; }
   .sec-head { margin-bottom: clamp(34px, 4vw, 54px); max-width: 46rem; }
   .kicker {
     font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 11px;
   }
   .kicker::before { content: ""; width: 26px; height: 2px; background: currentColor; border-radius: 2px; opacity: .55; }
+
+  /* ---- SECTION HEADING TIERS ----------------------------------------
+     TIER 2 is the default — the supporting acts. */
   h2.sec-title {
     font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em;
-    color: var(--navy); line-height: 1.06; text-wrap: balance;
+    color: var(--navy); line-height: 1.08; text-wrap: balance;
   }
+  /* TIER 1 — reserved for the exhibits. On this page that is exactly one
+     heading (the head-to-head receipts) and its counterpart on proof.html.
+     Bigger, heavier, tighter, and lifted off the ground by a hairline rule
+     nothing else on the page carries. */
+  h2.sec-title.t1 {
+    font-size: var(--fs-h2-hero); font-weight: 900; letter-spacing: -.036em; line-height: 1.0;
+  }
+  .sec-head.t1 .kicker { color: var(--green); }
+  .sec-head.t1 .kicker::before { width: 34px; height: 3px; opacity: 1; }
+  /* TIER 3 — the annex. Present, findable, and visibly not competing. */
+  h2.sec-title.t3 { font-size: var(--fs-h2-minor); font-weight: 700; letter-spacing: -.022em; }
+  .sec-head.t3 { margin-bottom: clamp(24px, 2.6vw, 34px); }
+  .sec-head.t3 .kicker { color: var(--muted); }
+
   .sec-head p { margin-top: 16px; color: var(--muted); font-size: var(--fs-lead); max-width: 62ch; text-wrap: pretty; }
+  /* inline prose link: padding lifts the real hit box to 44px, the matching
+     negative margin cancels its effect on the line box */
+  .sec-head p a { color: var(--accent); font-weight: 600; display: inline-block; padding: 11px 5px; margin: -11px -5px; border-radius: var(--r-sm); text-decoration: underline; text-underline-offset: 3px; }
+  .sec-head p a:hover { background: rgba(44,106,168,.09); }
+  .sec-head.t3 p { font-size: var(--fs-body); margin-top: 12px; }
+
+  /* ---- DISCLOSURE ----------------------------------------------------
+     A plain <details>. It needs no JavaScript, so it cannot fail closed,
+     and its contents stay in the DOM for crawlers, link previews and
+     Ctrl-F. Work that used to compete with the receipts for attention is
+     one click away instead of gone. */
+  .fold {
+    border: 1px solid var(--hair); border-radius: var(--r-lg); background: #fff;
+    box-shadow: var(--e1), var(--hi); overflow: hidden;
+  }
+  .fold + .fold { margin-top: 14px; }
+  .fold > summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    min-height: 64px; padding: 13px 20px;
+    font-size: var(--fs-body); font-weight: 700; color: var(--navy); letter-spacing: -.015em;
+    transition: background .18s var(--ease);
+  }
+  .fold > summary::-webkit-details-marker { display: none; }
+  .fold > summary:hover { background: var(--bg-soft); }
+  .fold .fs-chev { width: 20px; height: 20px; flex: 0 0 20px; color: var(--accent-soft); transition: transform .25s var(--ease); }
+  .fold[open] > summary .fs-chev { transform: rotate(90deg); }
+  .fold .fs-sub { margin-left: auto; font-size: var(--fs-sm); font-weight: 500; color: var(--muted); }
+  .fold-body { padding: 22px 20px 24px; border-top: 1px solid var(--line); }
+  @media (prefers-reduced-motion: reduce) { .fold .fs-chev { transition: none; } }
+
+  /* the same component on a dark field */
+  .fold.on-dark { background: rgba(255,255,255,.045); border-color: rgba(255,255,255,.12); box-shadow: var(--e2-d), var(--hi-d); }
+  .fold.on-dark > summary { color: #fff; }
+  .fold.on-dark > summary:hover { background: rgba(255,255,255,.06); }
+  .fold.on-dark .fs-chev { color: var(--green-bright); }
+  .fold.on-dark .fs-sub { color: #b0c6dd; }
+  .fold.on-dark .fold-body { border-top-color: rgba(255,255,255,.12); }
+  .fold-lede { font-size: var(--fs-body); color: var(--muted); max-width: 68ch; text-wrap: pretty; margin-bottom: 22px; }
+  .fold-lede:last-child { margin-bottom: 0; }
+  .fold.on-dark .gc-eyebrow-sub { margin-bottom: 18px; }
+
+  /* ---- THE EXHIBIT ---------------------------------------------------
+     One section on this page IS the argument. It is the only one that gets
+     the act-break rhythm, the only one on this ground, and the only one
+     carrying a tier-1 heading. Everything else is support, and now looks
+     like it. Solid colour, not a gradient, so contrast is measured against
+     the exact value that paints. */
+  section.block.exhibit {
+    background: var(--bg-tint);
+    border-top: 1px solid #dbe7f4; border-bottom: 1px solid #dbe7f4;
+    box-shadow: var(--hi);
+  }
+
+  /* a heading INSIDE a section — below tier 3, above a card title */
+  .sub-head {
+    font-size: var(--fs-h2-minor); font-weight: 700; color: var(--navy);
+    letter-spacing: -.022em; line-height: 1.2;
+    margin: clamp(44px, 5vw, 66px) 0 22px;
+  }
   /* Scoped to light sections on purpose: unscoped, this painted near-black
      <strong> onto the navy voice section at 1.58:1. */
   .block:not([data-nav-dark]) .sec-head p strong { color: var(--ink); font-weight: 600; }
@@ -410,10 +532,10 @@
   }
   .combo-pill:hover { transform: translateY(-2px); box-shadow: var(--e2), var(--hi); }
   .combo-pill .pt { font-weight: 700; color: var(--navy); font-size: var(--fs-body); display: flex; align-items: center; gap: 11px; margin-bottom: 4px; letter-spacing: -.012em; }
-  .combo-pill .pt .ic { width: 30px; height: 30px; flex: 0 0 30px; border-radius: 9px; background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; }
+  .combo-pill .pt .ic { width: 30px; height: 30px; flex: 0 0 30px; border-radius: var(--r-sm); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; }
   .combo-pill .pt .ic svg { width: 16px; height: 16px; }
   .combo-pill .pd { color: var(--muted); font-size: var(--fs-sm); padding-left: 41px; }
-  .combo-plus { text-align: center; font-weight: 700; color: var(--accent-soft); font-size: 1rem; line-height: 1; opacity: .6; }
+  .combo-plus { text-align: center; font-weight: 700; color: var(--accent-soft); font-size: var(--fs-body); line-height: 1; opacity: .6; }
   .combo-equals {
     margin-top: 6px;
     background-color: var(--navy);
@@ -430,7 +552,7 @@
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .card {
     position: relative; background: #fff;
-    border: 1px solid var(--hair); border-radius: var(--radius);
+    border: 1px solid var(--hair); border-radius: var(--r-lg);
     padding: 26px 24px 24px; box-shadow: var(--e1), var(--hi);
     transition: transform .24s var(--ease), box-shadow .24s var(--ease);
     display: flex; flex-direction: column; overflow: hidden;
@@ -446,9 +568,12 @@
     display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
     font-size: var(--fs-micro); font-weight: 700; letter-spacing: .085em; text-transform: uppercase;
     color: var(--accent); background: var(--bg-tint);
-    padding: 6px 11px; border-radius: 100px; margin-bottom: 16px;
+    padding: 6px 11px; border-radius: var(--r-pill); margin-bottom: 16px;
   }
-  .card .tag.flagship { color: #fff; background: linear-gradient(120deg, var(--navy), var(--accent-soft)); }
+  /* background-COLOR declared under the gradient, set to the lightest point
+     the gradient paints, so this is measurable rather than a gradient hole */
+  .card .tag.flagship { color: #fff; background-color: var(--accent-soft); background-image: linear-gradient(120deg, var(--navy), var(--accent-soft)); }
+  .card .tag svg { width: 13px; height: 13px; flex: 0 0 13px; }
   .card h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); line-height: 1.28; letter-spacing: -.018em; margin-bottom: 10px; }
   .card p { color: var(--muted); font-size: var(--fs-sm); flex-grow: 1; margin-bottom: 18px; text-wrap: pretty; }
   .card p:last-child { margin-bottom: 0; }
@@ -473,14 +598,14 @@
   .flagship-inner { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
   .flagship-badge { width: 60px; height: 60px; border-radius: var(--r); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; flex: 0 0 60px; box-shadow: var(--hi-d); }
   .flagship-badge svg { width: 30px; height: 30px; color: #fff; }
-  .card.flagship-card h3 { color: #fff; font-size: clamp(1.25rem,2.2vw,1.5rem); margin-bottom: 8px; letter-spacing: -.024em; }
+  .card.flagship-card h3 { color: #fff; font-size: var(--fs-h2-minor); margin-bottom: 8px; letter-spacing: -.024em; }
   .card.flagship-card p { color: var(--on-dark); font-size: var(--fs-body); margin-bottom: 0; max-width: 74ch; }
   .card.flagship-card .tag.flagship { background: rgba(255,255,255,.16); color: #fff; margin-bottom: 12px; }
   .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .stack-chip {
     font-size: var(--fs-micro); font-weight: 600; letter-spacing: .01em;
     color: var(--accent); background: var(--bg-tint); border: 1px solid #d4e2f2;
-    padding: 6px 12px; border-radius: 100px;
+    padding: 6px 12px; border-radius: var(--r-pill);
   }
   .card.flagship-card .stack-chip { color: var(--on-dark); background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.18); }
 
@@ -490,7 +615,7 @@
   .receipts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .receipt {
     position: relative; background: #fff;
-    border: 1px solid var(--hair); border-radius: var(--radius);
+    border: 1px solid var(--hair); border-radius: var(--r-lg);
     padding: 26px 26px 24px; box-shadow: var(--e1), var(--hi);
     transition: transform .24s var(--ease), box-shadow .24s var(--ease);
     overflow: hidden;
@@ -515,52 +640,84 @@
   .receipt.r-hero .r-label svg { color: var(--green-bright); }
   .receipt.r-hero .r-metric { color: var(--on-dark); font-size: var(--fs-lead); }
   .receipt.r-hero .r-metric strong { color: #fff; font-weight: 700; }
-  .verify-note {
-    margin-top: 28px; font-size: var(--fs-sm); color: var(--muted);
-    display: flex; align-items: center; gap: 10px; justify-content: center; text-align: center;
+  /* ---- THE PROOF-ROOM DOOR -------------------------------------------
+     The other half of the exhibit. On the light exhibit ground a dark card
+     is the strongest focal treatment available, and it is used exactly
+     once. --field is declared under the gradient as the lightest point the
+     gradient actually paints, so the contrast measured here is conservative. */
+  .proof-cta {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    gap: clamp(18px, 2.4vw, 26px);
+    margin-top: clamp(30px, 3.4vw, 42px);
+    padding: clamp(24px, 3vw, 34px);
+    border-radius: var(--r-xl); color: #fff;
+    background-color: var(--field);
+    background-image: linear-gradient(135deg, #0d2440 0%, #1F4E79 100%);
+    box-shadow: var(--e3), var(--hi-d);
+    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
   }
-  .verify-note svg { width: 16px; height: 16px; color: var(--green); flex: 0 0 16px; }
+  .proof-cta:hover { transform: translateY(-3px); box-shadow: var(--e3), 0 44px 90px rgba(13,36,64,.16), var(--hi-d); }
+  .pc-badge {
+    width: 58px; height: 58px; flex: 0 0 58px; border-radius: var(--r);
+    background: rgba(127,211,166,.16); border: 1px solid rgba(127,211,166,.36);
+    display: grid; place-items: center; box-shadow: var(--hi-d);
+  }
+  .pc-badge svg { width: 28px; height: 28px; color: var(--green-bright); }
+  .pc-body { display: block; }
+  .pc-kicker { display: block; font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 8px; }
+  .pc-title { display: block; font-size: var(--fs-h2-minor); font-weight: 800; letter-spacing: -.024em; line-height: 1.15; margin-bottom: 8px; }
+  .pc-copy { display: block; font-size: var(--fs-sm); color: var(--on-dark); max-width: 72ch; text-wrap: pretty; }
+  .pc-go { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: transform .24s var(--ease), background .24s var(--ease); }
+  .pc-go svg { width: 20px; height: 20px; }
+  .proof-cta:hover .pc-go { background: rgba(255,255,255,.2); transform: translateX(3px); }
+  @media (max-width: 700px) {
+    .proof-cta { grid-template-columns: auto 1fr; }
+    .pc-go { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .proof-cta, .proof-cta:hover, .proof-cta:hover .pc-go { transform: none; transition: none; }
+  }
 
   /* ============================================================
      FULL-STACK CHAIN
      ============================================================ */
   .chain {
     display: grid; grid-template-columns: repeat(4, 1fr);
-    background: #fff; border: 1px solid var(--hair); border-radius: var(--radius);
+    background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg);
     overflow: hidden; box-shadow: var(--e2), var(--hi); margin-bottom: 28px;
   }
   .chain-step { padding: 26px 22px; border-right: 1px solid var(--line); }
   .chain-step:last-child { border-right: none; }
   .chain-step .cs-num { font-size: var(--fs-micro); font-weight: 800; color: var(--accent-soft); letter-spacing: .1em; margin-bottom: 12px; }
-  .chain-step .cs-ic { width: 38px; height: 38px; border-radius: 11px; background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
+  .chain-step .cs-ic { width: 38px; height: 38px; border-radius: var(--r-sm); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
   .chain-step .cs-ic svg { width: 19px; height: 19px; }
-  .chain-step h3 { font-size: var(--fs-body); font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: -.015em; }
+  .chain-step h4 { font-size: var(--fs-body); font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: -.015em; }
   .chain-step p { font-size: var(--fs-sm); color: var(--muted); line-height: 1.55; }
 
   /* ============================================================
      SKILLS / CREDS
      ============================================================ */
   .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .skill-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--radius); padding: 26px; box-shadow: var(--e1), var(--hi); transition: transform .22s var(--ease), box-shadow .22s var(--ease); }
+  .skill-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 26px; box-shadow: var(--e1), var(--hi); transition: transform .22s var(--ease), box-shadow .22s var(--ease); }
   .skill-card:hover { transform: translateY(-3px); box-shadow: var(--e2), var(--hi); }
   .skill-card .sh { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
-  .skill-card .sh .si { width: 42px; height: 42px; border-radius: 12px; background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; flex: 0 0 42px; }
+  .skill-card .sh .si { width: 42px; height: 42px; border-radius: var(--r); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; flex: 0 0 42px; }
   .skill-card .sh .si svg { width: 21px; height: 21px; }
   .skill-card .sh h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); letter-spacing: -.018em; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); background: var(--bg-soft); border: 1px solid var(--line); padding: 7px 13px; border-radius: 100px; }
+  .chip { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); background: var(--bg-soft); border: 1px solid var(--line); padding: 7px 13px; border-radius: var(--r-pill); }
 
   .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: stretch; }
-  .panel { background: #fff; border: 1px solid var(--hair); border-radius: var(--radius); padding: 30px; box-shadow: var(--e1), var(--hi); }
+  .panel { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 30px; box-shadow: var(--e1), var(--hi); }
   .panel h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 11px; letter-spacing: -.018em; }
   .panel h3 svg { width: 21px; height: 21px; color: var(--accent); }
   .cert-group { margin-bottom: 22px; }
   .cert-group:last-child { margin-bottom: 0; }
   .cert-group .cg-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 11px; }
   .cert-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .cert-item { font-size: var(--fs-xs); font-weight: 500; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); padding: 8px 13px; border-radius: 9px; }
+  .cert-item { font-size: var(--fs-xs); font-weight: 500; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); padding: 8px 13px; border-radius: var(--r-sm); }
   .lang-list { display: flex; flex-direction: column; gap: 12px; }
-  .lang-item { border-left: 3px solid var(--accent); background: var(--bg-soft); padding: 13px 16px; border-radius: 0 10px 10px 0; }
+  .lang-item { border-left: 3px solid var(--accent); background: var(--bg-soft); padding: 13px 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0; }
   .lang-item .ln { font-weight: 700; color: var(--navy); font-size: var(--fs-body); letter-spacing: -.015em; }
   .lang-item .ld { font-size: var(--fs-xs); color: var(--muted); }
   .lang-note { margin-top: 18px; font-size: var(--fs-sm); color: var(--muted); }
@@ -583,7 +740,7 @@
     font-size: var(--fs-sm); color: var(--on-dark);
     padding-top: 30px; border-top: 1px solid rgba(255,255,255,.14);
   }
-  .contact-line a { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 8px; border-radius: 9px; transition: color .18s var(--ease), background .18s var(--ease); }
+  .contact-line a { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 8px; border-radius: var(--r-sm); transition: color .18s var(--ease), background .18s var(--ease); }
   .contact-line a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .contact-line svg { width: 16px; height: 16px; opacity: .85; }
   .copyright { margin-top: 24px; font-size: var(--fs-xs); color: #bcd2e8; }
@@ -647,6 +804,14 @@
   html.motion :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console).rv-in {
     opacity: 1; transform: none;
   }
+  /* Content inside a disclosure is revealed by the disclosure itself. A
+     scroll observer can never fire on a display:none element, so anything
+     in a closed <details> would otherwise sit at opacity:0 until the
+     .settled timer bailed it out. The disclosure IS the interaction. */
+  html.motion .fold :is(.card,.skill-card,.wall-tile,.panel,.sec-head) {
+    opacity: 1; transform: none; transition: none;
+  }
+
   /* the unconditional floor */
   html.settled .hero-inner > *,
   html.settled :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console),
@@ -673,17 +838,21 @@
       <span class="nm-name">Alex Amaro</span>
       <span class="nm-role">Growth · Agentic AI</span>
     </a>
+    <!-- every section on the page is reachable from here; six of them used
+         to be unlinked, which on a page this long meant unreachable -->
     <nav class="nav-links" aria-label="Page sections">
       <a href="#gen-creative">Creative</a>
       <a href="#voice">Voice AI</a>
+      <a href="#fullstack">Full stack</a>
       <a href="#systems">Systems</a>
       <a href="#proof">Receipts</a>
       <a href="#growth-math">Growth math</a>
+      <a href="#more">More work</a>
       <a href="#creds">Credentials</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-proof" href="./proof.html">
-        <svg class="tick" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <svg class="tick" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         Proof Room
       </a>
       <a class="nav-cta" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a call</a>
@@ -695,9 +864,11 @@
         <div class="nav-panel">
           <a href="#gen-creative">Creative</a>
           <a href="#voice">Voice AI</a>
+          <a href="#fullstack">Full stack</a>
           <a href="#systems">Systems</a>
           <a href="#proof">Receipts</a>
           <a href="#growth-math">Growth math</a>
+          <a href="#more">More work</a>
           <a href="#creds">Credentials</a>
           <hr>
           <a href="./proof.html">The Proof Room</a>
@@ -750,7 +921,7 @@
     <div class="hero-trust">
       <span>Platform-verified &amp; CRM-corroborated — each claim labeled</span>
       <span>AI voice + chat agents I build</span>
-      <span>Native Spanish / Fluent English</span>
+      <span>Bilingual EN/ES — campaigns built and run in both</span>
       <span>7 Anthropic certifications</span>
     </div>
   </div>
@@ -795,8 +966,8 @@
 
   .gc-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
   .gc-pair{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
-    border-radius:18px;padding:18px 18px 16px;}
-  .gc-pair h4{margin:0 0 4px;font-size:1rem;color:#fff;letter-spacing:-.015em;}
+    border-radius:var(--r-lg);padding:18px 18px 16px;}
+  .gc-pair h4{margin:0 0 4px;font-size:var(--fs-body);color:#fff;letter-spacing:-.015em;}
   .gc-pair .gc-var{font-size:var(--fs-xs);color:#b0c6dd;margin:0 0 14px;}
   .gc-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
@@ -811,32 +982,32 @@
 
   /* Static client creatives — square-ish paid-social ratio, quiet frame, work does the talking. */
   .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;}
-  .gc-shot{margin:0;border-radius:14px;overflow:hidden;background:#08121f;
-    border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 34px rgba(0,0,0,.42);
-    transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s ease,box-shadow .35s ease;}
-  .gc-shot:hover{transform:translateY(-3px);border-color:rgba(127,211,166,.55);
-    box-shadow:0 18px 46px rgba(0,0,0,.55);}
+  .gc-shot{margin:0;border-radius:var(--r);overflow:hidden;background:#08121f;
+    border:1px solid rgba(255,255,255,.12);box-shadow:var(--e2-d),var(--hi-d);
+    transition:transform .35s var(--ease),border-color .35s ease,box-shadow .35s ease;}
+  .gc-shot:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);
+    box-shadow:var(--e3-d),var(--hi-d);}
   .gc-shot img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/5;}
   @media (max-width:560px){ .gc-static-grid{grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:12px;} }
   @media (prefers-reduced-motion:reduce){ .gc-shot,.gc-shot:hover{transform:none;transition:none;} }
 
   .gc-tile{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16;
     background:#08121f;border:1px solid rgba(255,255,255,.12);cursor:pointer;
-    box-shadow:0 12px 34px rgba(0,0,0,.42);
+    box-shadow:var(--e2-d),var(--hi-d);
     transition:opacity .7s var(--ease),transform .7s var(--ease),
                box-shadow .35s ease,border-color .35s ease;}
   /* gated on html.motion, which only JavaScript adds: with scripting off
      these tiles must never be the one thing on the page that stays invisible */
   html.motion .gc-tile{opacity:0;transform:translateY(22px);}
   .gc-tile.in{opacity:1;transform:none;}
-  .gc-tile:hover{box-shadow:0 18px 46px rgba(0,0,0,.55);border-color:rgba(127,211,166,.55);}
+  .gc-tile:hover{box-shadow:var(--e3-d),var(--hi-d);border-color:rgba(255,255,255,.34);}
   .gc-tile video,.gc-tile img{width:100%;height:100%;object-fit:cover;display:block;}
   .gc-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 11px 10px;
-    font-size:.74rem;font-weight:600;color:#fff;line-height:1.3;
+    font-size:var(--fs-xs);font-weight:600;color:#fff;line-height:1.3;
     background:linear-gradient(to top,rgba(4,12,22,.94),rgba(4,12,22,.55) 55%,transparent);}
-  .gc-model{display:inline-block;margin-top:5px;font-size:.63rem;font-weight:800;
+  .gc-model{display:inline-block;margin-top:5px;font-size:var(--fs-micro);font-weight:800;
     letter-spacing:.09em;text-transform:uppercase;color:#0a1a2e;background:#7fd3a6;
-    padding:2px 7px;border-radius:99px;}
+    padding:2px 7px;border-radius: var(--r-pill);}
   /* 44x44 target, single-stroke line icon — no emoji: emoji render
      differently on every platform and carry their own colour. */
   .gc-sound{position:absolute;top:8px;right:8px;z-index:2;width:44px;height:44px;border-radius:50%;
@@ -848,7 +1019,7 @@
   /* Inline link in running prose: padding lifts the real hit box to 44px,
      the matching negative margin cancels its effect on the line box, so the
      paragraph sets exactly as before. */
-  .gc-note a{color:var(--green-bright);display:inline-block;padding:12.5px 6px;margin:-12.5px -6px;border-radius:8px;}
+  .gc-note a{color:var(--green-bright);display:inline-block;padding:12.5px 6px;margin:-12.5px -6px;border-radius:var(--r-sm);}
   .gc-note a:hover{background:rgba(127,211,166,.12);}
   @media (max-width:560px){
     .gc-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
@@ -856,6 +1027,18 @@
   @media (prefers-reduced-motion:reduce){
     .gc-tile,html.motion .gc-tile{opacity:1;transform:none;transition:none;}
   }
+
+  /* The wider creative wall, merged in from what used to be its own section.
+     Same argument, same evidence, one place. */
+  .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
+  /* dark placeholder, not white: the caption sits on it while the lazy image
+     loads, and it makes the caption's contrast measurable either way */
+  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--e2-d), var(--hi-d); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
+  .wall-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
+  .wall-tile:hover img { transform: scale(1.04); }
+  .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .01em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
+  @media (prefers-reduced-motion: reduce) { .wall-tile img, .wall-tile:hover img { transform: none; transition: none; } }
+  @media (max-width: 560px) { .wall-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; } }
 </style>
 <section id="gen-creative" aria-labelledby="gc-title" data-nav-dark>
   <div class="wrap">
@@ -876,33 +1059,53 @@
       person making the ads is also the person buying the media.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p01.jpg" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p02.jpg" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p03.jpg" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p04.jpg" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p05.jpg" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p06.jpg" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p07.jpg" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p08.jpg" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p01.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p02.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p03.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p04.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p05.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p06.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p07.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_chiro-kneepain_canva_creative_2026-08-06_p08.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
     </div>
 
     <hr class="gc-rule">
-    <div class="gc-eyebrow">Across the verticals I actually buy media in</div>
+    <details class="fold on-dark" id="more-creative">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Across the verticals I actually buy media in
+        <span class="fs-sub">17 more creatives</span>
+      </summary>
+      <div class="fold-body">
     <p class="gc-eyebrow-sub">Body contouring, laser, weight loss — offer-led, written and designed to be
       bought, not to win a design award. Client names and any identifying detail are stripped.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p01.jpg" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p02.jpg" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p03.jpg" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p04.jpg" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p01.jpg" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p02.jpg" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p03.jpg" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p04.jpg" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-nj-glp1_canva_creative_2026-08-06_p08.jpg" alt="Weight-loss programme offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p01.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p02.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p03.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-bodycontour_canva_creative_2026-08-06_p04.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p01.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p02.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p03.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p04.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
+      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/NOCLAIM_medspa-nj-glp1_canva_creative_2026-08-06_p08.jpg" width="1080" height="1080" alt="Weight-loss programme offer creative"></figure>
     </div>
+
+    <p class="gc-eyebrow-sub" style="margin:26px 0 14px">And a slice of the wider library — chiropractic, med spa, weight-loss and
+      local-service brands, concept through hook through design. Clients anonymized.</p>
+    <div class="wall-grid">
+      <div class="wall-tile"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · knee-pain</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · clearer skin</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · acne laser</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Weight-loss · animated</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · Meta variation</span></div>
+      <div class="wall-tile"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · 3D animation</span></div>
+    </div>
+      </div>
+    </details>
 
     <hr class="gc-rule">
     <div class="gc-eyebrow">And now the same job, generated</div>
@@ -1041,16 +1244,20 @@
   #voice .sec-title { color:#fff; }
   #voice .sec-head p { color:var(--on-dark); }
   .vx-console { display:grid; grid-template-columns:1.15fr 1fr; gap:34px; align-items:center; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-xl); padding:clamp(24px,3.4vw,38px); margin-top:6px; box-shadow:var(--e3), var(--hi-d); }
-  .vx-left h3 { font-size:clamp(1.3rem,2.2vw,1.55rem); font-weight:800; margin-bottom:10px; letter-spacing:-.025em; }
+  .vx-left h3 { font-size:var(--fs-h2-minor); font-weight:800; margin-bottom:10px; letter-spacing:-.025em; }
   .vx-left p { color:var(--on-dark-2); font-size:var(--fs-body); margin-bottom:18px; max-width:52ch; }
   .vx-feats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .vx-feat { font-size:var(--fs-xs); font-weight:600; color:#c9dcf1; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:7px 13px; border-radius:99px; }
+  .vx-feat { font-size:var(--fs-xs); font-weight:600; color:#c9dcf1; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:7px 13px; border-radius: var(--r-pill); }
   .vx-right { display:flex; flex-direction:column; align-items:center; text-align:center; gap:15px; }
   .vx-orb { position:relative; width:130px; height:130px; }
-  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#33b487; background-image:linear-gradient(145deg,#6fe0a8,#33b487); color:#0b2038; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:800; font-size:var(--fs-xs); box-shadow:0 12px 34px rgba(55,185,138,.42); transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
-  .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:0 18px 46px rgba(55,185,138,.6); }
+  /* Was a mint-green orb with a mint glow. Mint is the verification colour on
+     this site, so a live-demo button borrowing it diluted the one signal that
+     has to stay unambiguous. It is the brand blue now, and the only green left
+     anywhere is a verification mark. */
+  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#3574b0; background-image:linear-gradient(145deg,#3574b0,#1f4e79); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:800; font-size:var(--fs-xs); box-shadow:var(--e2-d); transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
+  .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:var(--e3-d); }
   .vx-call svg { width:30px; height:30px; }
-  html.motion .vx-orb::before, html.motion .vx-orb::after { content:""; position:absolute; inset:0; border-radius:50%; background:rgba(111,224,168,.3); animation:vxPulse 2.6s ease-out infinite; z-index:1; }
+  html.motion .vx-orb::before, html.motion .vx-orb::after { content:""; position:absolute; inset:0; border-radius:50%; background:rgba(111,189,240,.30); animation:vxPulse 2.6s ease-out infinite; z-index:1; }
   html.motion .vx-orb::after { animation-delay:1.3s; }
   @keyframes vxPulse { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.85);opacity:0} }
   @media (prefers-reduced-motion:reduce){ html.motion .vx-orb::before, html.motion .vx-orb::after { animation:none; opacity:0; } }
@@ -1138,12 +1345,15 @@
 })();
 </script>
 
-<!-- ============ THE THREE-IN-ONE ============ -->
-<section class="block" id="combo">
+<!-- ============ ONE OPERATOR, WHOLE CHAIN ============
+     Merged from two sections that were making the same argument twice:
+     "three hires in one operator" and "I own the whole chain". One act. -->
+<section class="block" id="fullstack">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Three Hires, One Operator</div>
       <h2 class="sec-title">Most teams hire three people for this. I do all three.</h2>
+      <p>Built on CRM automation (GoHighLevel builds, HubSpot-certified RevOps), AI lead response, and attribution, so the system keeps converting after the click — not just the click itself.</p>
     </div>
     <div class="combo">
       <div class="combo-copy">
@@ -1166,16 +1376,97 @@
           <div class="pd">Direct-response copy, qualifying lead forms, and CRO that turn clicks into booked calls.</div>
         </div>
         <div class="combo-equals">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14M5 15h14"/></svg>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14M5 15h14"/></svg>
           One operator instead of three hires.
         </div>
       </div>
+    </div>
+
+    <h3 class="sub-head">And that's the whole chain — ad to booked appointment.</h3>
+    <div class="chain">
+      <div class="chain-step">
+        <div class="cs-num">01</div>
+        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        <h4>The Ad</h4>
+        <p>Meta / paid-social creative &amp; targeting that earns the cheap, qualified click.</p>
+      </div>
+      <div class="chain-step">
+        <div class="cs-num">02</div>
+        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM4 12h10v4H4zM4 18h16"/></svg></div>
+        <h4>Qualified Lead</h4>
+        <p>Direct-response copy &amp; qualifying lead forms that filter for real buyers.</p>
+      </div>
+      <div class="chain-step">
+        <div class="cs-num">03</div>
+        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3.5"/></svg></div>
+        <h4>GoHighLevel Follow-Up</h4>
+        <p>Speed-to-lead automation + AI lead response that work the lead 24/7.</p>
+      </div>
+      <div class="chain-step">
+        <div class="cs-num">04</div>
+        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></div>
+        <h4>Booked Appointment</h4>
+        <p>The metric that matters — booked calls + attribution back to source.</p>
+      </div>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><h3>Paid Media &amp; Lead Generation</h3></div>
+        <div class="chips">
+          <span class="chip">Meta Ads</span>
+          <span class="chip">Paid Social</span>
+          <span class="chip">CPL Optimization</span>
+          <span class="chip">Audience Targeting</span>
+          <span class="chip">Creative Testing</span>
+          <span class="chip">Reporting &amp; Attribution</span>
+          <span class="chip">Local + B2B Lead Gen</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Marketing Automation &amp; RevOps</h3></div>
+        <div class="chips">
+          <span class="chip">GoHighLevel</span>
+          <span class="chip">HubSpot (certified)</span>
+          <span class="chip">Make</span>
+          <span class="chip">Zapier</span>
+          <span class="chip">Pipedream</span>
+          <span class="chip">Speed-to-Lead</span>
+          <span class="chip">SMS / Email Nurture</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></span><h3>Direct-Response Copy &amp; Growth</h3></div>
+        <div class="chips">
+          <span class="chip">DR Copywriting</span>
+          <span class="chip">Qualifying Lead Forms</span>
+          <span class="chip">Funnels &amp; CRO</span>
+          <span class="chip">Landing Pages</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Local SEO / AEO · GBP</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01M16 16h.01"/></svg></span><h3>AI &amp; Generative</h3></div>
+        <div class="chips">
+          <span class="chip">Claude</span>
+          <span class="chip">Claude Code</span>
+          <span class="chip">AI Receptionist / Lead-Response</span>
+          <span class="chip">Custom AI Agent Stack</span>
+          <span class="chip">AI Content Workflows</span>
+          <span class="chip">Generative Video</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============ AI AUTOMATION & SYSTEMS ============ -->
-<section class="block" id="systems">
+<section class="block tint" id="systems">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">AI Automation &amp; GTM Engineering</div>
@@ -1205,7 +1496,29 @@
       <div class="card">
         <span class="tag">Marketing Automation</span>
         <h3>GoHighLevel Automation Engine</h3>
-        <p>End-to-end CRM automation across <strong>12+ client accounts</strong>: speed-to-lead, missed-call text-back, SMS / email / voicemail nurture, pipeline routing, and reactivation — the backend that turns paid leads into booked appointments.</p>
+        <p>End-to-end CRM automation built across <strong>22 client CRM sub-accounts</strong>: speed-to-lead, missed-call text-back, SMS / email / voicemail nurture, pipeline routing, and reactivation. The same numbered workflow architecture redeploys account to account — packaged as <strong>8 productised vertical snapshots</strong> (chiro, orthodontics, med spa, weight loss, wedding venue), not rebuilt by hand each time.</p>
+      </div>
+
+      <div class="card flagship-card">
+        <div class="flagship-inner">
+          <div class="flagship-badge">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+          </div>
+          <div>
+            <span class="tag flagship">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.6 6.9 18.5l1.2-5.6L4 9l5.6-.6L12 3z"/></svg>
+              AI App I Built · Flagship
+            </span>
+            <h3>Careline Command Center</h3>
+            <p>A production app I built that <strong>programmatically generates marketing videos</strong> — wiring a Next.js front end to Remotion for code-driven video rendering and Google Generative AI for content. Proof I don't just use AI tools; I engineer them into systems that ship creative at scale.</p>
+            <div class="stack-row">
+              <span class="stack-chip">Next.js</span>
+              <span class="stack-chip">Remotion</span>
+              <span class="stack-chip">Google Generative AI</span>
+              <span class="stack-chip">Programmatic video</span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1213,28 +1526,36 @@
 </section>
 
 <!-- ============ RECEIPTS / CASE STUDIES ============ -->
-<section class="block tint" id="proof">
+<section class="block act exhibit" id="proof">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Receipts / Case Studies</div>
-      <h2 class="sec-title">Hard numbers from real accounts.</h2>
+    <div class="sec-head t1">
+      <div class="kicker">The exhibit</div>
+      <h2 class="sec-title t1">Hard numbers from real accounts.</h2>
       <p>On the same chiropractic client account, head-to-head with the incumbent national agency: I produced 114 leads at <strong>$12.59 CPL</strong> while the incumbent's cost-per-lead on that account ran <strong>~$49.81, and $80+ on some campaigns</strong>. Roughly <strong>75% lower cost per lead</strong>, same account — and the five campaign rows behind it reconcile <strong>to the cent and to the lead</strong> against an independently pulled account total. Clients are anonymized to category labels, but every figure here traces to a <strong>live Meta ad account or CRM I personally operate</strong>, and each one is labeled with how it's verified in <a href="./proof.html">the Proof Room</a> — last full reconciliation June 2026.</p>
     </div>
 
     <!-- Head-to-head visual (the "smoking gun") -->
     <style>
-      .duel{background:#fff;border:1px solid var(--hair);border-radius:var(--radius);padding:clamp(22px,2.6vw,30px);box-shadow:var(--e2),var(--hi);margin-bottom:22px}
+      .duel{background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);box-shadow:var(--e1),var(--hi);margin-bottom:22px}
+      /* The head-to-head is the single focal point of the page. It gets the
+         deepest elevation in the system and a slightly larger radius —
+         nothing else on either page carries this combination. The CPL-by-
+         vertical card below it deliberately sits a stop lower, because two
+         equal focal points is the same as none. */
+      #duel{border-radius:var(--r-xl);box-shadow:var(--e3),var(--hi);padding:clamp(26px,3vw,38px);margin-bottom:26px;position:relative;overflow:hidden}
+      #duel::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),var(--accent-soft))}
       .duel-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
       .duel-top h3{font-size:var(--fs-h3);font-weight:800;color:var(--navy);letter-spacing:-.022em}
-      .duel-top .vtag{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);font-weight:700;letter-spacing:.04em;color:var(--green);background:var(--green-tint);border:1px solid #bfead2;padding:5px 11px;border-radius:99px}
+      #duel .duel-top h3{font-size:var(--fs-h2-minor);font-weight:900;letter-spacing:-.028em}
+      .duel-top .vtag{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);font-weight:700;letter-spacing:.04em;color:var(--green);background:var(--green-tint);border:1px solid #bfead2;padding:5px 11px;border-radius: var(--r-pill)}
       .duel-top .vtag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
       .duel-metric+.duel-metric{margin-top:24px}
       .duel-mlabel{font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between;gap:12px}
       .duel-mlabel .hint{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
       .duel-bar{display:flex;align-items:center;gap:12px;margin:8px 0}
       .duel-who{flex:0 0 132px;font-size:var(--fs-xs);font-weight:600;color:var(--ink)}
-      .duel-track{flex:1;background:var(--bg-tint);border-radius:99px;height:30px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(13,36,64,.06)}
-      .duel-fill{height:100%;width:0;border-radius:99px;transition:width 1.1s cubic-bezier(.16,.84,.44,1)}
+      .duel-track{flex:1;background:var(--bg-tint);border-radius: var(--r-pill);height:30px;overflow:hidden;box-shadow:var(--well)}
+      .duel-fill{height:100%;width:0;border-radius: var(--r-pill);transition:width 1.1s cubic-bezier(.16,.84,.44,1)}
       .duel-fill.them{background:linear-gradient(90deg,#9aacbe,#7d90a4)}
       .duel-fill.me{background:linear-gradient(90deg,#2c6aa8,#2fa87d)}
       .duel.in .duel-fill{width:var(--w)}
@@ -1381,10 +1702,21 @@
       </div>
 
     </div>
-    <div class="verify-note">
-      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9C7.5 19.5 4 17 4 12V6l8-3 8 3v6z"/></svg>
-      Every figure above traces to a source ad account or CRM / booking record. Anonymized for client privacy — and rather than ask you to take that on faith, <a href="./proof.html"><strong>open the Proof Room</strong></a>: all 14 claims, each with its verification status, its source system, and the arithmetic — plus the ones I deliberately don't make.
-    </div>
+    <!-- The second exhibit. This used to be a one-line footnote under the
+         receipts; the page's whole differentiator was set in 14px grey. -->
+    <a class="proof-cta" href="./proof.html">
+      <span class="pc-badge">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 5-3.5 7.5-8.5 9C7.5 19.5 4 17 4 12V6l8-3 8 3v6z"/></svg>
+      </span>
+      <span class="pc-body">
+        <span class="pc-kicker">Don't take any of it on faith</span>
+        <span class="pc-title">Open the Proof Room</span>
+        <span class="pc-copy">Every claim, its verification status, its source system and the arithmetic behind it — plus the ones I deliberately don't make. Every figure above traces to a source ad account or CRM / booking record; clients are anonymized for privacy.</span>
+      </span>
+      <span class="pc-go" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
@@ -1398,27 +1730,29 @@
   /* 44px tall hit area; the 6px rail is painted on the track pseudo-element
      so the control looks slim but is never a 6px tap target. */
   .gm-field input[type=range]{ -webkit-appearance:none; appearance:none; display:block; width:100%; height:44px; background:transparent; outline:none; cursor:pointer; margin:0; }
-  .gm-field input[type=range]::-webkit-slider-runnable-track{ height:6px; border-radius:99px; background:rgba(255,255,255,.24); }
-  .gm-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; margin-top:-8px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; box-shadow:0 2px 9px rgba(0,0,0,.35); cursor:pointer; }
-  .gm-field input[type=range]::-moz-range-track{ height:6px; border-radius:99px; background:rgba(255,255,255,.24); }
+  .gm-field input[type=range]::-webkit-slider-runnable-track{ height:6px; border-radius: var(--r-pill); background:rgba(255,255,255,.24); }
+  .gm-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; margin-top:-8px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; box-shadow:var(--e1); cursor:pointer; }
+  .gm-field input[type=range]::-moz-range-track{ height:6px; border-radius: var(--r-pill); background:rgba(255,255,255,.24); }
   .gm-field input[type=range]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; cursor:pointer; }
   .gm-out { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:var(--r-lg); padding:clamp(20px,2.4vw,26px); display:flex; flex-direction:column; box-shadow:var(--hi-d); }
   .gm-cap { font-size:var(--fs-micro); color:#c2d9f0; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
   .gm-row { display:grid; grid-template-columns:1fr 1fr; gap:14px 16px; margin-top:12px; }
   .gm-stat .k { font-size:var(--fs-micro); color:#c2d9f0; text-transform:uppercase; letter-spacing:.06em; }
-  .gm-stat .n { font-size:1.1rem; font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .gm-stat .n { font-size:var(--fs-body); font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
   .gm-hero { margin:22px 0 6px; text-align:center; }
   .gm-hero .lab { font-size:var(--fs-xs); color:#cfe0f3; font-weight:600; }
-  .gm-hero .big { font-size:clamp(2.3rem,5vw,3rem); font-weight:900; letter-spacing:-.04em; line-height:1.02; font-variant-numeric:tabular-nums; color:#fff; }
+  /* Capped BELOW the metric strip (33.6px): this is a hypothetical the visitor’s
+     own sliders produce, and it may never outrank a sourced number. */
+  .gm-hero .big { font-size:var(--fs-h2-minor); font-weight:800; letter-spacing:-.035em; line-height:1.05; font-variant-numeric:tabular-nums; color:#fff; }
   .gm-hero .sub { font-size:var(--fs-micro); color:#c2d9f0; margin-top:6px; }
   .gm-divider { height:1px; background:rgba(255,255,255,.14); margin:16px 0; }
   .gm-cta { margin-top:18px; }
-  .gm-cta a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; background:#fff; color:var(--navy); font-weight:700; padding:0 20px; border-radius:99px; text-decoration:none; font-size:var(--fs-sm); box-shadow:0 8px 22px rgba(0,0,0,.2); transition:transform .18s var(--ease); }
+  .gm-cta a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; background:#fff; color:var(--navy); font-weight:700; padding:0 20px; border-radius: var(--r-pill); text-decoration:none; font-size:var(--fs-sm); box-shadow:var(--e2-d); transition:transform .18s var(--ease); }
   .gm-cta a:hover { transform:translateY(-2px); }
   .gm-fine { font-size:var(--fs-micro); color:#c2d9f0; margin-top:16px; text-align:center; line-height:1.5; }
   @media (max-width:760px){ .gm-grid{ grid-template-columns:1fr; } }
 </style>
-<section class="block tint" id="growth-math">
+<section class="block" id="growth-math">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Interactive · Live</div>
@@ -1456,7 +1790,7 @@
             <div class="gm-stat"><div class="k">ROAS</div><div class="n" id="gm-b-roas">—</div></div>
           </div>
           <div class="gm-cta"><a href="mailto:jesusalexelamaro@gmail.com?subject=Let's%20close%20that%20gap">That gap is what I build. Let's talk
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           <div class="gm-fine">Illustrative. One lever moves: cost per lead, held at <strong>$22</strong> — the <em>top</em> of my verified $4–$22 per-campaign range, not the best campaign in it. Your booking rate, close rate and customer value are used exactly as you set them; nothing is uplifted. If your CPL is already under $22 the model shows $0, because that's the honest answer. A way to see the leverage, not a guarantee.</div>
         </div>
       </div>
@@ -1551,302 +1885,181 @@
 })();
 </script>
 
-<!-- ============ DIRECT-RESPONSE COPYWRITING ============ -->
-<section class="block" id="copywriting">
+<!-- ============ THE ANNEX ============
+     Four sections used to sit here at the same heading size as the receipts:
+     copywriting, generative-AI work, decks, and websites. They are real work
+     and none of it is deleted — it is one tier-3 section of disclosures now,
+     so it supports the argument instead of competing with it. -->
+<section class="block minor tint" id="more">
   <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Psychology-Based Advertising</div>
-      <h2 class="sec-title">The ad is only half the conversion.</h2>
-      <p>I write the psychology-based, direct-response copy that filters for buyers and books the call — and the edge isn't the writing alone — it's AI-augmented but human-directed, built on proven direct-response frameworks, so the output lands sharp and on-voice, not generic AI slop. Hooks, qualifying lead forms, landing pages, and follow-up that turn cold traffic into booked revenue.</p>
+    <div class="sec-head t3">
+      <div class="kicker">The rest of the work</div>
+      <h2 class="sec-title t3">Everything else, one click away.</h2>
+      <p>Copy, generative-AI work, campaign decks and the sites the ads point at. Open what you care about.</p>
     </div>
-  </div>
-</section>
 
-<!-- ============ GENERATIVE-AI WORK ============ -->
-<section class="block tint" id="ai-work">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Generative-AI Work</div>
-      <h2 class="sec-title">I built an app that writes its own marketing videos.</h2>
-      <p>AI-generated ad creative — 3D patient animations, UGC-style explainers, product demos — plus the <strong>video app I built</strong> (the Careline Command Center) that renders marketing video programmatically with Next.js + Remotion + Google GenAI.</p>
-    </div>
-    <div class="card-grid">
-
-      <div class="card">
-        <span class="tag">AI Animation</span>
-        <h3>3D AI Patient Animation</h3>
-        <p>3D AI-generated patient animation produced for a weight-loss clinic ad — built to stop the scroll and explain the offer.</p>
-        <a class="view-link" href="https://canva.com/d/BHVzzpbKxeVG9ZI" target="_blank" rel="noopener">View<span class="sr-only"> — 3D AI patient animation for a weight-loss ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    <details class="fold" id="copywriting">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Direct-response copywriting
+        <span class="fs-sub">The ad is only half the conversion</span>
+      </summary>
+      <div class="fold-body">
+        <p class="fold-lede">I write the psychology-based, direct-response copy that filters for buyers and books the call — and the edge isn't the writing alone — it's AI-augmented but human-directed, built on proven direct-response frameworks, so the output lands sharp and on-voice, not generic AI slop. Hooks, qualifying lead forms, landing pages, and follow-up that turn cold traffic into booked revenue.</p>
       </div>
+    </details>
 
-      <div class="card">
-        <span class="tag">AI Animation</span>
-        <h3>Chiropractic / Knee-Pain Ad</h3>
-        <p>AI animation created for a chiropractic and knee-pain campaign — visualizing the problem and the relief in seconds.</p>
-        <a class="view-link" href="https://canva.com/d/14j-VlGsCj-DVsz" target="_blank" rel="noopener">View<span class="sr-only"> — AI animation for a chiropractic knee-pain ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
+    <details class="fold" id="ai-work">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Generative-AI creative
+        <span class="fs-sub">5 pieces</span>
+      </summary>
+      <div class="fold-body">
+        <p class="fold-lede">AI-generated ad creative — 3D patient animations, UGC-style explainers and product demos. The app that renders them programmatically is above, in Systems.</p>
+        <div class="card-grid">
 
-      <div class="card">
-        <span class="tag">AI Animation</span>
-        <h3>"Weight Loss Is Not Just Willpower"</h3>
-        <p>AI-animated direct-response ad reframing the weight-loss conversation — a concept-led creative built to convert.</p>
-        <a class="view-link" href="https://canva.com/d/Knd145hs3OpDbM1" target="_blank" rel="noopener">View<span class="sr-only"> — AI-animated weight-loss direct-response ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">UGC Video</span>
-        <h3>UGC-Style Explainer Video</h3>
-        <p>UGC-style explainer video for weight-loss clinics — authentic, native-feeling creative engineered for paid social.</p>
-        <a class="view-link" href="https://canva.com/d/Bg5qRYtW9xCEsL9" target="_blank" rel="noopener">View<span class="sr-only"> — UGC-style explainer video for weight-loss clinics</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">Product Demo</span>
-        <h3>CareLineAI — Product-Demo Creatives</h3>
-        <p>AI product-demo creatives for CareLineAI — showing the product in action with generative visuals and motion.</p>
-        <a class="view-link" href="https://canva.com/d/06ueuoh1zyVx2bP" target="_blank" rel="noopener">View<span class="sr-only"> — CareLineAI product-demo creatives</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card flagship-card">
-        <div class="flagship-inner">
-          <div class="flagship-badge">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg>
+          <div class="card">
+            <span class="tag">AI Animation</span>
+            <h3>3D AI Patient Animation</h3>
+            <p>3D AI-generated patient animation produced for a weight-loss clinic ad — built to stop the scroll and explain the offer.</p>
+            <a class="view-link" href="https://canva.com/d/BHVzzpbKxeVG9ZI" target="_blank" rel="noopener">View<span class="sr-only"> — 3D AI patient animation for a weight-loss ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
           </div>
-          <div>
-            <span class="tag flagship">★ AI App I Built · Flagship</span>
-            <h3>Careline Command Center</h3>
-            <p>A production app I built that <strong>programmatically generates marketing videos</strong> — wiring a Next.js front end to Remotion for code-driven video rendering and Google Generative AI for content. Proof I don't just use AI tools; I engineer them into systems that ship creative at scale.</p>
+
+          <div class="card">
+            <span class="tag">AI Animation</span>
+            <h3>Chiropractic / Knee-Pain Ad</h3>
+            <p>AI animation created for a chiropractic and knee-pain campaign — visualizing the problem and the relief in seconds.</p>
+            <a class="view-link" href="https://canva.com/d/14j-VlGsCj-DVsz" target="_blank" rel="noopener">View<span class="sr-only"> — AI animation for a chiropractic knee-pain ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">AI Animation</span>
+            <h3>"Weight Loss Is Not Just Willpower"</h3>
+            <p>AI-animated direct-response ad reframing the weight-loss conversation — a concept-led creative built to convert.</p>
+            <a class="view-link" href="https://canva.com/d/Knd145hs3OpDbM1" target="_blank" rel="noopener">View<span class="sr-only"> — AI-animated weight-loss direct-response ad</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">UGC Video</span>
+            <h3>UGC-Style Explainer Video</h3>
+            <p>UGC-style explainer video for weight-loss clinics — authentic, native-feeling creative engineered for paid social.</p>
+            <a class="view-link" href="https://canva.com/d/Bg5qRYtW9xCEsL9" target="_blank" rel="noopener">View<span class="sr-only"> — UGC-style explainer video for weight-loss clinics</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">Product Demo</span>
+            <h3>CareLineAI — Product-Demo Creatives</h3>
+            <p>AI product-demo creatives for CareLineAI — showing the product in action with generative visuals and motion.</p>
+            <a class="view-link" href="https://canva.com/d/06ueuoh1zyVx2bP" target="_blank" rel="noopener">View<span class="sr-only"> — CareLineAI product-demo creatives</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <details class="fold" id="decks">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Campaign decks &amp; playbooks
+        <span class="fs-sub">5 walkthroughs</span>
+      </summary>
+      <div class="fold-body">
+        <p class="fold-lede">Deeper walkthroughs of the paid-media, automation, and case-study work behind the numbers above.</p>
+        <div class="card-grid">
+
+          <div class="card">
+            <span class="tag">Portfolio</span>
+            <h3>Local Business Growth Portfolio</h3>
+            <p>A walkthrough of local-business growth work — campaigns, offers, and the systems that turned spend into booked appointments.</p>
+            <a class="view-link" href="https://canva.com/d/vIza_7LRTkUZXBJ" target="_blank" rel="noopener">View<span class="sr-only"> — Local Business Growth portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">Paid Social</span>
+            <h3>Meta Ads &amp; Paid Social Portfolio</h3>
+            <p>Meta Ads and paid-social campaigns across clinics, medspas, and local services — creative, targeting, and CPL outcomes.</p>
+            <a class="view-link" href="https://canva.com/d/Kwl7hUAYXvy8rap" target="_blank" rel="noopener">View<span class="sr-only"> — Meta Ads and paid-social portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">Marketing Ops</span>
+            <h3>GoHighLevel &amp; Backend Marketing Ops</h3>
+            <p>The backend that makes ads pay off — GoHighLevel CRM automation, speed-to-lead, nurture sequences, and pipeline ops.</p>
+            <a class="view-link" href="https://canva.com/d/EjL-_xDDYPp0RnC" target="_blank" rel="noopener">View<span class="sr-only"> — GoHighLevel and backend marketing-ops deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">Case Studies</span>
+            <h3>Medspa Case Studies</h3>
+            <p>Medspa and aesthetics case studies — campaign breakdowns, cost-per-lead turnarounds, and booked-appointment results.</p>
+            <a class="view-link" href="https://canva.com/d/KJ4SdRSN8UhYLeB" target="_blank" rel="noopener">View<span class="sr-only"> — Medspa case studies deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">eBook</span>
+            <h3>Clinic Profit Playbook</h3>
+            <p>An eBook packaging the playbook — how clinics turn paid traffic into booked, profitable appointments end to end.</p>
+            <a class="view-link" href="https://canva.com/d/I_lSXWiY0dvJDEx" target="_blank" rel="noopener">View<span class="sr-only"> — Clinic Profit Playbook eBook</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+        </div>
+      </div>
+    </details>
+
+    <details class="fold" id="sites">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Websites &amp; funnels
+        <span class="fs-sub">Including one live site I built end to end</span>
+      </summary>
+      <div class="fold-body">
+        <p class="fold-lede">Brand, copy, and conversion-built websites and lead funnels — wired into the CRM so a click becomes a captured, followed-up lead. Built for local &amp; service businesses and optimized for conversion and for how AI answer-engines (AEO / GEO) and Google now surface them.</p>
+        <div class="card-grid">
+
+          <div class="card">
+            <span class="tag flagship">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.6 6.9 18.5l1.2-5.6L4 9l5.6-.6L12 3z"/></svg>
+              Website I Built · Live
+            </span>
+            <h3>Clarity Clean — brand, site &amp; lead funnel</h3>
+            <p>Designed and built end-to-end for a Wisconsin commercial-cleaning company: brand and positioning (locally &amp; family-owned, eco-friendly, licensed &amp; insured), a conversion-focused site, and a <strong>free-quote lead funnel wired into GoHighLevel</strong> with speed-to-lead follow-up, plus a phone-based AI receptionist that answers inbound calls — the same stack I run for paid-media clients, proven on a business I help operate.</p>
             <div class="stack-row">
-              <span class="stack-chip">Next.js</span>
-              <span class="stack-chip">Remotion</span>
-              <span class="stack-chip">Google Generative AI</span>
-              <span class="stack-chip">Programmatic video</span>
+              <span class="stack-chip">Brand &amp; identity</span>
+              <span class="stack-chip">GoHighLevel</span>
+              <span class="stack-chip">Lead-capture funnel</span>
+              <span class="stack-chip">CRO</span>
+              <span class="stack-chip">Local SEO / AEO</span>
+            </div>
+            <a class="view-link" href="https://claritycleanwi.com" target="_blank" rel="noopener">Visit the live site<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+          </div>
+
+          <div class="card">
+            <span class="tag">Service</span>
+            <h3>Conversion sites &amp; lead funnels</h3>
+            <p>Landing pages and full sites built to convert and wired into the CRM — GoHighLevel builds, lead-capture forms, speed-to-lead automation, and AEO / GEO / SEO so the page gets found <em>and</em> books the lead. The fastest lane from "I need leads" to a system that actually captures them.</p>
+            <div class="stack-row">
+              <span class="stack-chip">GoHighLevel</span>
+              <span class="stack-chip">Landing pages</span>
+              <span class="stack-chip">CRO</span>
+              <span class="stack-chip">AEO / SEO</span>
+              <span class="stack-chip">Speed-to-lead</span>
             </div>
           </div>
+
         </div>
       </div>
+    </details>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============ AD-CREATIVES WALL ============ -->
-<style>
-  .wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
-  /* dark placeholder, not white: the caption sits on it while the lazy image
-     loads, and it makes the caption's contrast measurable either way */
-  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; box-shadow: var(--e2); border: 1px solid var(--hair); background: #0c1626; }
-  .wall-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
-  .wall-tile:hover img { transform: scale(1.04); }
-  .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-micro); font-weight: 600; letter-spacing: .01em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
-  @media (prefers-reduced-motion: reduce) { .wall-tile img, .wall-tile:hover img { transform: none; transition: none; } }
-  @media (max-width: 560px) { .wall-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; } }
-</style>
-<section class="block" id="creatives">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Ad Creatives</div>
-      <h2 class="sec-title">The creative behind the cost-per-lead.</h2>
-      <p>A sample of the paid-social ad creatives I write and produce — concept, hook, and design built to stop the scroll and book the call — across chiropractic, med spa, weight-loss, and local-service brands. Clients anonymized; this is a slice of the full library.</p>
-    </div>
-    <div class="wall-grid">
-      <div class="wall-tile"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · knee-pain</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · clearer skin</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · acne laser</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Weight-loss · animated</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Med spa · Meta variation</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="800" height="1000" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · 3D animation</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PORTFOLIO DECKS ============ -->
-<section class="block" id="decks">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Walkthroughs</div>
-      <h2 class="sec-title">Campaign decks &amp; playbooks</h2>
-      <p>Deeper walkthroughs of the paid-media, automation, and case-study work behind the numbers above.</p>
-    </div>
-    <div class="card-grid">
-
-      <div class="card">
-        <span class="tag">Portfolio</span>
-        <h3>Local Business Growth Portfolio</h3>
-        <p>A walkthrough of local-business growth work — campaigns, offers, and the systems that turned spend into booked appointments.</p>
-        <a class="view-link" href="https://canva.com/d/vIza_7LRTkUZXBJ" target="_blank" rel="noopener">View<span class="sr-only"> — Local Business Growth portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">Paid Social</span>
-        <h3>Meta Ads &amp; Paid Social Portfolio</h3>
-        <p>Meta Ads and paid-social campaigns across clinics, medspas, and local services — creative, targeting, and CPL outcomes.</p>
-        <a class="view-link" href="https://canva.com/d/Kwl7hUAYXvy8rap" target="_blank" rel="noopener">View<span class="sr-only"> — Meta Ads and paid-social portfolio deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">Marketing Ops</span>
-        <h3>GoHighLevel &amp; Backend Marketing Ops</h3>
-        <p>The backend that makes ads pay off — GoHighLevel CRM automation, speed-to-lead, nurture sequences, and pipeline ops.</p>
-        <a class="view-link" href="https://canva.com/d/EjL-_xDDYPp0RnC" target="_blank" rel="noopener">View<span class="sr-only"> — GoHighLevel and backend marketing-ops deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">Case Studies</span>
-        <h3>Medspa Case Studies</h3>
-        <p>Medspa and aesthetics case studies — campaign breakdowns, cost-per-lead turnarounds, and booked-appointment results.</p>
-        <a class="view-link" href="https://canva.com/d/KJ4SdRSN8UhYLeB" target="_blank" rel="noopener">View<span class="sr-only"> — Medspa case studies deck</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">eBook</span>
-        <h3>Clinic Profit Playbook</h3>
-        <p>An eBook packaging the playbook — how clinics turn paid traffic into booked, profitable appointments end to end.</p>
-        <a class="view-link" href="https://canva.com/d/I_lSXWiY0dvJDEx" target="_blank" rel="noopener">View<span class="sr-only"> — Clinic Profit Playbook eBook</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ WEBSITES & FUNNELS ============ -->
-<section class="block" id="sites">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Websites &amp; Funnels</div>
-      <h2 class="sec-title">I build the site the ad sends traffic to.</h2>
-      <p>Brand, copy, and conversion-built websites and lead funnels — wired into the CRM so a click becomes a captured, followed-up lead. Built for local &amp; service businesses and optimized for conversion and for how AI answer-engines (AEO / GEO) and Google now surface them.</p>
-    </div>
-    <div class="card-grid">
-
-      <div class="card">
-        <span class="tag">★ Website I Built · Live</span>
-        <h3>Clarity Clean — brand, site &amp; lead funnel</h3>
-        <p>Designed and built end-to-end for a Wisconsin commercial-cleaning company: brand and positioning (locally &amp; family-owned, eco-friendly, licensed &amp; insured), a conversion-focused site, and a <strong>free-quote lead funnel wired into GoHighLevel</strong> with speed-to-lead follow-up, plus a phone-based AI receptionist that answers inbound calls — the same stack I run for paid-media clients, proven on a business I help operate.</p>
-        <div class="stack-row">
-          <span class="stack-chip">Brand &amp; identity</span>
-          <span class="stack-chip">GoHighLevel</span>
-          <span class="stack-chip">Lead-capture funnel</span>
-          <span class="stack-chip">CRO</span>
-          <span class="stack-chip">Local SEO / AEO</span>
-        </div>
-        <a class="view-link" href="https://claritycleanwi.com" target="_blank" rel="noopener">Visit the live site<svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
-      </div>
-
-      <div class="card">
-        <span class="tag">Service</span>
-        <h3>Conversion sites &amp; lead funnels</h3>
-        <p>Landing pages and full sites built to convert and wired into the CRM — GoHighLevel builds, lead-capture forms, speed-to-lead automation, and AEO / GEO / SEO so the page gets found <em>and</em> books the lead. The fastest lane from "I need leads" to a system that actually captures them.</p>
-        <div class="stack-row">
-          <span class="stack-chip">GoHighLevel</span>
-          <span class="stack-chip">Landing pages</span>
-          <span class="stack-chip">CRO</span>
-          <span class="stack-chip">AEO / SEO</span>
-          <span class="stack-chip">Speed-to-lead</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ FULL-STACK CHAIN ============ -->
-<section class="block tint" id="fullstack">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="kicker">Full-Stack (Paid + Automation + AI)</div>
-      <h2 class="sec-title">I own the whole chain — ad to booked appointment.</h2>
-      <p>Built on CRM automation (GoHighLevel builds, HubSpot-certified RevOps), AI lead response, and attribution, so the system keeps converting after the click — not just the click itself.</p>
-    </div>
-    <div class="chain">
-      <div class="chain-step">
-        <div class="cs-num">01</div>
-        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
-        <h3>The Ad</h3>
-        <p>Meta / paid-social creative &amp; targeting that earns the cheap, qualified click.</p>
-      </div>
-      <div class="chain-step">
-        <div class="cs-num">02</div>
-        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v4H4zM4 12h10v4H4zM4 18h16"/></svg></div>
-        <h3>Qualified Lead</h3>
-        <p>Direct-response copy &amp; qualifying lead forms that filter for real buyers.</p>
-      </div>
-      <div class="chain-step">
-        <div class="cs-num">03</div>
-        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3.5"/></svg></div>
-        <h3>GoHighLevel Follow-Up</h3>
-        <p>Speed-to-lead automation + AI lead response that work the lead 24/7.</p>
-      </div>
-      <div class="chain-step">
-        <div class="cs-num">04</div>
-        <div class="cs-ic"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></div>
-        <h3>Booked Appointment</h3>
-        <p>The metric that matters — booked calls + attribution back to source.</p>
-      </div>
-    </div>
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></span><h3>Paid Media &amp; Lead Generation</h3></div>
-        <div class="chips">
-          <span class="chip">Meta Ads</span>
-          <span class="chip">Paid Social</span>
-          <span class="chip">CPL Optimization</span>
-          <span class="chip">Audience Targeting</span>
-          <span class="chip">Creative Testing</span>
-          <span class="chip">Reporting &amp; Attribution</span>
-          <span class="chip">Local + B2B Lead Gen</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Marketing Automation &amp; RevOps</h3></div>
-        <div class="chips">
-          <span class="chip">GoHighLevel</span>
-          <span class="chip">HubSpot (certified)</span>
-          <span class="chip">Make</span>
-          <span class="chip">Zapier</span>
-          <span class="chip">Pipedream</span>
-          <span class="chip">Speed-to-Lead</span>
-          <span class="chip">SMS / Email Nurture</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></span><h3>Direct-Response Copy &amp; Growth</h3></div>
-        <div class="chips">
-          <span class="chip">DR Copywriting</span>
-          <span class="chip">Qualifying Lead Forms</span>
-          <span class="chip">Funnels &amp; CRO</span>
-          <span class="chip">Landing Pages</span>
-          <span class="chip">A/B Testing</span>
-          <span class="chip">Local SEO / AEO · GBP</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="sh"><span class="si"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><path d="M8 16h.01M16 16h.01"/></svg></span><h3>AI &amp; Generative</h3></div>
-        <div class="chips">
-          <span class="chip">Claude</span>
-          <span class="chip">Claude Code</span>
-          <span class="chip">AI Receptionist / Lead-Response</span>
-          <span class="chip">Custom AI Agent Stack</span>
-          <span class="chip">AI Content Workflows</span>
-          <span class="chip">Generative Video</span>
-        </div>
-      </div>
-
-    </div>
   </div>
 </section>
 
 <!-- ============ CERTIFICATIONS + LANGUAGES ============ -->
-<section class="block" id="creds">
+<section class="block minor" id="creds">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head t3">
       <div class="kicker">Credentials</div>
-      <h2 class="sec-title">Certifications &amp; Languages</h2>
+      <h2 class="sec-title t3">Certifications &amp; Languages</h2>
     </div>
     <div class="two-col">
 
@@ -1884,11 +2097,10 @@
           Languages
         </h3>
         <div class="lang-list">
-          <div class="lang-item"><div class="ln">Native Spanish</div></div>
-          <div class="lang-item"><div class="ln">Fluent English</div></div>
-          <div class="lang-item"><div class="ln">Conversational French</div></div>
+          <div class="lang-item"><div class="ln">Bilingual EN/ES</div><div class="ld">I build and run campaigns in both — not translations.</div></div>
+          <div class="lang-item"><div class="ln">Conversational French</div><div class="ld">Enough to run a bilingual FR/EN funnel in Montreal with in-language follow-up.</div></div>
         </div>
-        <p class="lang-note">Markets to both English- and Spanish-speaking audiences — including the under-served U.S. Hispanic market.</p>
+        <p class="lang-note">Ad copy, qualifying forms and follow-up sequences written natively in each language — including for the under-served U.S. Hispanic market, where a translated ad reads like one.</p>
       </div>
 
     </div>
@@ -1944,7 +2156,9 @@
   var nav = document.querySelector('.nav');
   if(!nav) return;
   var bar = document.getElementById('navProgress');
-  var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"]'));
+  // both the desktop bar and the phone menu get the "you are here" mark;
+  // byId only exists to derive the observed targets, so duplicate ids are fine
+  var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"], .nav-panel a[href^="#"]'));
   var menu = document.getElementById('navMenu');
 
   // close the mobile menu on navigate / outside click / Escape
