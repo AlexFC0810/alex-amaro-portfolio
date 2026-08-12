@@ -22,9 +22,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Alex Amaro","jobTitle":"Growth & Lead-Generation Marketer · Agentic-AI Builder · Full-Funnel CRO","url":"https://alexfc0810.github.io/alex-amaro-portfolio/","mainEntityOfPage":"https://alexfc0810.github.io/alex-amaro-portfolio/proof.html","email":"jesusalexelamaro@gmail.com","telephone":"+1-920-251-7280","sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"],"knowsLanguage":["English","Spanish"],"knowsAbout":["Lead Generation","Paid Media","Meta Ads","GoHighLevel","Marketing Automation","Conversion Rate Optimization","AI Automation","Agentic AI","GTM Engineering","Marketing Operations","AI Receptionist"],"address":{"@type":"PostalAddress","addressLocality":"Fond du Lac","addressRegion":"WI","addressCountry":"US"}}
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preload" href="./assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <script>
 /* Motion opt-in AND its own escape hatch in one statement — see index.html. */
 (function(){try{
@@ -35,6 +33,25 @@
 }catch(e){document.documentElement.classList.add('settled');}})();
 </script>
 <style>
+/* ============================================================
+   TYPEFACE — self-hosted, one file, zero external requests.
+   Same face and same reasoning as index.html: one variable file
+   (400-900) replaces six static weights from fonts.gstatic.com, and
+   `font-display: optional` removes the swap that was this page's
+   only layout shift (measured CLS 0.0069, desktop and throttled).
+   `optional` means the browser never swaps the face in after first
+   paint, so a late font can no longer move a line of text.
+   Google's `latin` subset — identical coverage to what this page
+   already downloaded; U+2192 and U+2248 fall back as they did before.
+   ============================================================ */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: optional;
+  src: url('./assets/fonts/inter-latin-var.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* ============================================================
    TOKENS — shared with index.html. Every colour measured with a
    WCAG calculator against the surface it actually sits on.
