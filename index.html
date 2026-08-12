@@ -2536,7 +2536,9 @@
        lie. A hidden pane reports 0 and we would size a canvas to nothing. */
     if(!window.innerWidth || r.width < MIN_W || r.height < 40){ teardown(); return false; }
 
-    w = Math.round(r.width); h = Math.round(r.height);
+    var nw = Math.round(r.width), nh = Math.round(r.height);
+    var big = Math.abs(nw - w) > 24 || Math.abs(nh - h) > 24;
+    w = nw; h = nh;
     var dpr = Math.min(2, window.devicePixelRatio || 1);
     /* and a budget on top of the 2x clamp. clearRect pays for every pixel of
        the backing store, and on a 1920 hero at dpr 2 that is 8 megapixels a
@@ -2563,7 +2565,10 @@
     cvs.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     glow = buildGlow(dpr);
-    seedNodes();
+    /* Only a real size change earns a reseed. The hero moves by a pixel when
+       the webfont swaps in, and reshuffling every point because a descender
+       got 0.6px taller would be a visible glitch for no reason. */
+    if(big || !nodes.length) seedNodes();
     return true;
   }
 
@@ -2682,14 +2687,23 @@
       if(document.hidden) stop(); else start();
     });
 
-    window.addEventListener('resize', function(){
+    /* Track the hero's real box, not just window resize. The hero changes
+       height for reasons the window never hears about — the webfont swapping
+       in reflows the headline, a phone's URL bar collapses — and a backing
+       store one pixel off its CSS box means the whole layer renders very
+       slightly scaled. ResizeObserver catches every cause; the window
+       listener stays for the browsers that lack it. */
+    function resync(){
       clearTimeout(rebuildT);
       rebuildT = setTimeout(function(){
         var wasOn = cvs && cvs.classList.contains('on');
+        var wasRunning = running;
         stop();
-        if(build()){ if(wasOn && cvs) cvs.classList.add('on'); start(); }
-      }, 200);
-    }, { passive: true });
+        if(build()){ if(wasOn && cvs) cvs.classList.add('on'); if(wasRunning || onScreen) start(); }
+      }, 180);
+    }
+    if(window.ResizeObserver) new ResizeObserver(resync).observe(hero);
+    else window.addEventListener('resize', resync, { passive: true });
   }catch(err){ teardown(); }
 })();
 </script>
