@@ -1,12 +1,14 @@
 {
   "$comment": "Measured in a real headless Chromium against the LIVE GitHub Pages URLs. Not a local build, not a static analysis, not an assertion of intent. The harness that produced the accessibility numbers is _audit/measure.js and is served alongside the site, so any of this can be reproduced by loading it into the live page and calling window.__auditMeasure().",
-  "measured_at": "2026-08-12T18:58:00Z",
-  "commit": "6349b6a",
+  "measured_at": "2026-08-12T19:24:00Z",
+  "commit": "2f4e78a",
   "method": {
-    "browser": "headless Chromium via playwright-core",
-    "viewports": [{ "width": 375, "height": 812 }, { "width": 1280, "height": 900 }],
-    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie. This run caught that condition for real: an earlier attempt through a non-compositing browser pane reported innerWidth 0, a 62,572px document and a false horizontal overflow. Those numbers were discarded rather than recorded.",
+    "browser": "headless Chromium via puppeteer-core 25",
+    "viewports": [{ "width": 375, "height": 812 }, { "width": 1280, "height": 900 }, { "width": 1280, "height": 800 }],
+    "viewport_added_this_pass": "1280x800 was added because it is the ordinary laptop case and it is where the hero defect lived. Measuring only 1280x900 hid it.",
+    "viewport_guard": "window.innerWidth confirmed non-zero before any rect was read; a hidden pane reports 0 and makes every layout number a lie. A previous run caught that condition for real: a non-compositing browser pane reported innerWidth 0, a 62,572px document and a false horizontal overflow. Those numbers were discarded rather than recorded.",
     "page_prepared_by": "scrolling the full document height in 700px steps so every IntersectionObserver reveal had fired, then returning to the top and settling for 1.2s",
+    "cache_busting": "every URL carried a unique query string, so these are the freshly deployed bytes and not a CDN copy of the previous commit",
     "tap_target_selector": "a[href], button, input:not([type=hidden]), select, textarea, summary, [role=\"button\"], [tabindex]:not([tabindex=\"-1\"]) — visible elements only (display, visibility, opacity and a non-zero rect all checked)",
     "tap_target_threshold": "44x44 CSS px, failing if EITHER dimension is under 44",
     "contrast_threshold": "a flat 4.5:1 for every text element, with no large-text exemption claimed",
@@ -16,83 +18,97 @@
   "results": {
     "index": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/",
-      "document_height_px": { "mobile_375": 22979, "desktop_1280": 14258, "mobile_375_all_disclosures_open": 33019 },
-      "height_note": "The default state is what a visitor lands on: 22,979px at 375px wide. Opening every disclosure reaches 33,019px, and no content was deleted to get the first number — four sections became one annex of <details>, and the secondary creative moved behind one.",
+      "document_height_px": { "mobile_375": 22735, "desktop_1280": 14049, "laptop_1280x800": 13711 },
       "tap_targets": {
-        "checked": 56,
-        "under_44x44": 0,
-        "offenders": [],
-        "menu_open_state": { "checked": 56, "under_44x44": 0 },
-        "disclosures_open_state": { "checked": 56, "under_44x44": 0 },
-        "desktop_1280": { "checked": 53, "under_44x44": 0 }
+        "mobile_375": { "checked": 46, "under_44x44": 0, "offenders": [] },
+        "desktop_1280": { "checked": 43, "under_44x44": 0, "offenders": [] },
+        "laptop_1280x800": { "checked": 43, "under_44x44": 0, "offenders": [] }
       },
       "text_contrast": {
-        "elements_checked": 428,
-        "below_4_5_to_1": 0,
-        "offenders": [],
-        "menu_open_state": { "below_4_5_to_1": 0 },
-        "disclosures_open_state": { "elements_checked": 428, "below_4_5_to_1": 0 }
+        "mobile_375": { "elements_checked": 423, "below_4_5_to_1": 0, "offenders": [] },
+        "desktop_1280": { "elements_checked": 422, "below_4_5_to_1": 0, "offenders": [] },
+        "laptop_1280x800": { "elements_checked": 422, "below_4_5_to_1": 0, "offenders": [] }
+      },
+      "hero_fold": {
+        "$comment": "The reason 1280x800 is now a measured viewport. The six metric numbers are the most shareable frame on the site and they were entirely below the fold on an ordinary laptop.",
+        "hero_height_px_1280x800": 693,
+        "hero_height_as_vh": "86.6vh",
+        "metric_grid_top_px_1280x800": 693,
+        "metric_strip_visible_above_fold_px": 107,
+        "before": "hero 1031px, metric grid top 1031px — nothing of the strip above the fold",
+        "unchanged_at_1280x900": "hero 1031px, because the compression is bounded to viewports under 860px tall"
       }
     },
     "proof": {
       "url": "https://alexfc0810.github.io/alex-amaro-portfolio/proof.html",
-      "document_height_px": { "mobile_375": 14588, "desktop_1280": 7849 },
-      "server_rendered_claim_cards": 15,
-      "claim_card_note": "14 before this pass. The Montreal receipt carried one Corroborated badge across two differently evidenced facts, so it was split: 89 booked appointments (Corroborated — the client's master tracking sheet) and 220+ bilingual leads (Founder-attested — the ad account was lost at off-boarding). No claim was added; one was separated onto its correct evidence.",
+      "document_height_px": { "mobile_375": 14023, "desktop_1280": 7673, "laptop_1280x800": 7673 },
+      "server_rendered_claim_cards": 14,
+      "claim_card_note": "15 before this pass, 14 before the one prior. The Montreal receipt was correctly split in two (89 booked appointments, Corroborated; 220+ bilingual leads, Founder-attested), taking 14 to 15. This pass removes the 1,300+ booked-appointments card, taking it back to 14. That card counted appointment ROWS across 22 GoHighLevel sub-accounts Alex built — a true census, but not the same claim as appointments his campaigns generated, which is what a reader infers. It crossed our own attribution boundary and the founder said he could not defend it, so it is gone rather than re-labeled. No replacement aggregate was invented.",
+      "verification_headings": {
+        "distinct": 14,
+        "before": "15 identical <h3>How it's verified</h3>, so a screen-reader user navigating by heading got 15 indistinguishable rows",
+        "now": "each names its own claim, e.g. 'How the 9.5x claim is verified'"
+      },
       "tap_targets": {
-        "checked": 28,
-        "under_44x44": 0,
-        "offenders": [],
-        "business_owner_lens": { "checked": 28, "under_44x44": 0 },
-        "menu_open_state": { "checked": 28, "under_44x44": 0 },
-        "desktop_1280": { "checked": 23, "under_44x44": 0 }
+        "mobile_375": { "checked": 28, "under_44x44": 0, "offenders": [] },
+        "desktop_1280": { "checked": 23, "under_44x44": 0, "offenders": [] },
+        "laptop_1280x800": { "checked": 23, "under_44x44": 0, "offenders": [] }
       },
       "text_contrast": {
-        "elements_checked": 227,
-        "below_4_5_to_1": 0,
-        "offenders": [],
-        "business_owner_lens": { "elements_checked": 227, "below_4_5_to_1": 0 }
+        "mobile_375": { "elements_checked": 216, "below_4_5_to_1": 0, "offenders": [] },
+        "desktop_1280": { "elements_checked": 213, "below_4_5_to_1": 0, "offenders": [] },
+        "laptop_1280x800": { "elements_checked": 213, "below_4_5_to_1": 0, "offenders": [] }
       }
     }
   },
 
-  "design_system": {
-    "$comment": "The visual pass this commit records was a hierarchy fix, so the token counts are part of the measurement rather than a claim about it. All values read from getComputedStyle on the live pages.",
-    "section_heading_tiers": {
-      "tier_1_exhibit": "50.4px / 900 — one heading per page. index: 'Hard numbers from real accounts.' proof: 'Claims, with their verification status.'",
-      "tier_2_support": "34px / 800 — 6 headings on index, 1 on proof",
-      "tier_3_annex": "24px / 700 — 2 headings on index, 1 on proof",
-      "before": "all 14 h2 rendered at an identical 40.8px / 800"
+  "motion_floor": {
+    "$comment": "The defect an audit named the single most damaging flaw twice. html.settled is the unconditional floor that guarantees no element is left invisible, but it did not declare transition: none. Because .metric and .receipt declare `transition: opacity .62s`, and a RUNNING transition sits in a higher cascade origin than an !important author declaration, an element mid-transition ignored `opacity: 1 !important` and could stay at opacity 0 — the exact backgrounded-tab case the floor exists for.",
+    "measured_on_live": {
+      "before_commit_2f4e78a": { "index .metric": "transition-property: opacity, transform / 0.62s", "proof .receipt": "transition-property: opacity, transform / 0.62s" },
+      "after_commit_2f4e78a": { "index .metric": "transition-property: none / 0s", "proof .receipt": "transition-property: none / 0s" }
     },
-    "type_steps_desktop_1280": {
-      "index": [72, 50.4, 34, 28, 24, 21, 18, 16, 14, 13, 11],
-      "proof": [57.6, 50.4, 34, 24, 21, 16, 14, 13, 11],
-      "smallest_ratio_between_adjacent_steps": 1.1,
-      "before": "body ran 17.6 / 17.3 / 16 / 15 (four steps inside 2.6px) and small ran 13 / 12 / 11.8 / 11 / 10.1 (five inside 2.9px)"
-    },
-    "elevation_tokens": {
-      "count": 8,
-      "names": ["--e1", "--e2", "--e3", "--e2-d", "--e3-d", "--hi", "--hi-d", "--well"],
-      "distinct_computed_strings": { "index": 12, "proof": 8 },
-      "note": "The 12 and 8 are compositions of the 8 tokens (an elevation plus its inner top highlight), not independent families. The dominant dark-field treatment used to be a flat `0 12px 34px rgba(0,0,0,.42)` carrying 18 tiles; it is now the three-stop --e2-d tinted to the navy those sections actually paint. Zero pure-black shadows remain in either file.",
-      "before": "11 shadow families"
-    },
-    "radii": { "tokens": ["10px", "14px", "18px", "24px", "999px"], "plus": "50% on circles only", "before": "11 radii, including both 99px and 100px pills and 9/10/11/12/14px in parallel" },
-    "svg_stroke_weights": { "authored": [2], "before": [1, 1.8, 2, 2.4, 3] },
-    "emoji_or_dingbat_glyphs_in_ui": 0
+    "note": "The fix is one declaration in each file. It is verified by what the browser computes under html.settled, not by whether a repro happened to trigger — the failure needs a transition already in flight, which is why it survived earlier passes."
   },
 
-  "navigation": {
-    "$comment": "Verified with document.getElementById on the live pages.",
-    "header_links": 8,
-    "index_section_ids_linked": ["gen-creative", "voice", "fullstack", "systems", "proof", "growth-math", "more", "creds"],
-    "unresolved_anchors": 0,
-    "sections_unreachable_from_nav": 0,
-    "before": "6 of 14 sections carried no nav link (#copywriting, #ai-work, #creatives, #decks, #sites, #fullstack)",
-    "active_section_indicator": "aria-current=\"true\" driven by an IntersectionObserver scroll-spy, painted in BOTH the desktop bar (weight change plus a 2px underline) and the phone menu (weight change plus a 3px inset left rule). Previously the phone menu had no indicator.",
-    "proof_page_header": {
-      "cross_page_index_section_ids": ["gen-creative", "voice", "fullstack", "systems", "proof", "growth-math", "more", "creds"],
-      "own_section_ids": ["claims", "not-claimed", "method"]
+  "creative_rendering": {
+    "$comment": "A portfolio selling ad creative was cropping the ads. The bottom of an ad is where the offer and the CTA live.",
+    "before": {
+      "gc-shot": "every creative forced into aspect-ratio 4/5 with object-fit: cover — the ten 1:1 med-spa creatives lost ~20% each",
+      "wall-tile": "every creative forced into aspect-ratio 4/5 with object-fit: cover — acne-laser.jpg (1080x1080) lost 20.2%, knee-animation.jpg (1080x1920) lost 29.5%",
+      "declared_dimensions": "all seven wall images declared width=800 height=1000, which was the true ratio for five of them and wrong for two"
+    },
+    "after": {
+      "treatment": "no forced ratio and no object-fit: cover; each tile takes its height from the creative, so nothing is cut and nothing is letterboxed",
+      "declared_dimensions": "every img now declares its intrinsic pixel size",
+      "measured_render_1280": { "4:5 creatives": "193x241", "1:1 creative": "193x193", "9:16 creative": "193x343" }
+    },
+    "images_total": 25,
+    "images_broken": 0,
+    "images_without_intrinsic_dimensions": 0,
+    "images_with_declared_dimensions_not_matching_intrinsic": 0
+  },
+
+  "asset_naming": {
+    "$comment": "Internal governance vocabulary was leaking into public URLs — right-click, open image, and a hiring manager sees NOCLAIM and canva in the filename.",
+    "files_renamed": 20,
+    "references_rewritten": 18,
+    "pattern_before": "NOCLAIM_medspa-laserhair_canva_creative_2026-08-06_p05.jpg",
+    "pattern_after": "medspa-laser-05.jpg",
+    "client_hint_removed": "the 'nj' in medspa-nj-glp1 named the client's state; the file is now medspa-weight-loss-01.jpg",
+    "live_404s_after_rename": 0,
+    "remaining_NOCLAIM_or_canva_strings_in_served_html": 0
+  },
+
+  "growth_calculator": {
+    "$comment": "Verified by driving the real sliders on the live page.",
+    "ceilings_added": { "lead_to_booked_max": "80%", "booked_to_customer_max": "60%", "before": "both 100%" },
+    "all_sliders_max": { "inputs": "spend=50000 cpl=200 book=80 close=60 val=20000", "annual_gap": "$10M+", "customers_per_mo": "120", "revenue_per_mo": "$2.40M", "before": "$485.5M per year, REVENUE/MO $5.00M" },
+    "all_sliders_min": { "inputs": "spend=500 cpl=5 book=5 close=5 val=100", "annual_gap": "$0", "customers_per_mo": "0", "before": "CUSTOMERS/MO 0.3" },
+    "preserved": {
+      "sub_22_behaviour": "CPL $15 still yields a $0 gap and the line 'your cost per lead is already inside my verified $4-$22 band. No gap to claim, so I don't invent one.'",
+      "monotonicity_self_test": "still armed and still passing on the live page — 0 console errors across the full slider sweep",
+      "model_is_never_clamped": "GAP_CAP is a display ceiling only, exactly as ROAS_CAP already was, so the assertion still sees true values"
     }
   },
 
@@ -100,35 +116,35 @@
     "console_errors": 0,
     "console_warnings": 0,
     "resource_failures_4xx_5xx": 0,
-    "broken_images": 0,
-    "images_total": 25,
-    "images_lazy": 25,
-    "images_without_intrinsic_dimensions": 0,
-    "images_without_intrinsic_dimensions_before": 18,
-    "cumulative_layout_shift_after_full_scroll": 0,
-    "horizontal_overflow": { "at_375px": false, "at_1280px": false },
-    "cold_deep_link": {
-      "urls_tested": ["index.html#proof", "index.html#more", "index.html#growth-math"],
-      "section_top_after_jump_px": 72,
-      "fixed_header_height_px": 60,
-      "clears_header": true
+    "outbound_canva_links": 0,
+    "horizontal_overflow": { "at_375px": false, "at_1280px": false, "at_1280x800": false },
+    "og_and_canonical_tags_per_page": 4,
+    "og_image": { "http": 200, "bytes": 436065, "md5": "5ab6cb1b0f5f1608a5461f58ddd99b2f", "says": "14 claims", "matches_rendered_claim_count": true },
+    "cumulative_layout_shift_after_full_scroll": {
+      "index": { "mobile_375": 0, "desktop_1280": 0.0015879521052042643, "laptop_1280x800": 0.0017864461183547972 },
+      "proof": { "mobile_375": 0.019194873364030512, "desktop_1280": 0.006661584663391114, "laptop_1280x800": 0.0074942827463150025 },
+      "correction": "A previous revision of this file recorded CLS 0 flatly. That does not reproduce and is retired rather than repeated. The values above were measured identically on the live site BEFORE and AFTER this commit — byte-for-byte the same floats — so this pass introduced none of it.",
+      "attributed_cause": "the webfont swap. Inter is loaded from Google Fonts with display=swap; the shift entries land at ~217ms (index, DIV.nav-action reflowing 285.75px -> 290.45px) and ~636ms (proof, a text node moving 2px and gaining 1px of width) as the fallback face is replaced.",
+      "how_to_actually_reach_zero": "self-host Inter with a metric-matched fallback (size-adjust / ascent-override), or switch the stylesheet to display=optional. Both change how the page renders on a cold first paint, which is a typography decision rather than a bug fix, so neither was taken unilaterally."
     },
     "no_javascript": {
-      "index": { "elements_at_opacity_0": 0, "of_total_revealable": 49, "h2_rendered": 9, "disclosures_present": 5, "document_height_px": 22884 },
-      "proof": { "server_rendered_claim_cards": 15, "elements_at_opacity_0": 0 },
-      "note": "The four-layer fallback is intact. The new disclosures are plain <details> elements, so they open and close with scripting disabled — content behind them is in the DOM for crawlers, link previews and Ctrl-F either way."
+      "index": { "elements_at_opacity_0": 0, "h2_rendered": 9, "disclosures_present": 6, "document_height_px": 14040 },
+      "proof": { "server_rendered_claim_cards": 14, "elements_at_opacity_0": 0, "h2_rendered": 3, "document_height_px": 7673 },
+      "note": "The four-layer fallback is intact. The disclosures are plain <details>, so they open and close with scripting disabled — content behind them is in the DOM for crawlers, link previews and Ctrl-F either way."
     },
-    "prefers_reduced_motion_reduce": { "elements_at_opacity_0": 0 }
+    "prefers_reduced_motion_reduce": { "index": { "elements_at_opacity_0": 0 }, "proof": { "elements_at_opacity_0": 0 } }
   },
 
   "known_limits": {
     "$comment": "Stated plainly rather than left for someone else to find.",
     "items": [
+      "CLS is not zero. See the correction above. It is small, pre-existing, caused by the webfont swap, and unchanged by this commit — but it is not zero, and this file previously said it was.",
       "Contrast is measured against each gradient's declared solid, which is that gradient's lightest painted point. This understates the true ratio elsewhere in the gradient; it never overstates it.",
-      "The harness reports two gradient holes on index.html: SPAN.wall-cap and the .gc-tile FIGCAPTION. Both are caption scrims — a translucent gradient over a photograph, which by definition cannot declare a solid without hiding the image. Both composite against their tile's opaque dark placeholder (#0c1626 / #08121f), which is what the reported ratios use. A previous revision of this file claimed both pages reported no gradient holes; that claim is retired rather than repeated, because it does not reproduce.",
-      "Text sitting on photographic imagery (the creative wall captions and the video tile captions) is measured against the tile's opaque dark placeholder colour, not against per-pixel image content. The captions also carry their own dark scrim gradient.",
+      "The harness reports two gradient holes on index.html: SPAN.wall-cap and the .gc-tile FIGCAPTION. Both are caption scrims — a translucent gradient over a photograph, which by definition cannot declare a solid without hiding the image. Both composite against their tile's opaque dark placeholder (#0c1626 / #08121f), which is what the reported ratios use.",
+      "Text sitting on photographic imagery is measured against the tile's opaque dark placeholder colour, not against per-pixel image content.",
       "Tap targets are measured from border-box rects. Two inline prose links reach 44px through padding with a matching negative margin, so their hit boxes are genuinely 44px tall while the paragraphs' line boxes are unchanged.",
-      "Load time is not re-measured here. The previous pass recorded 417ms; this commit adds no network requests — the new favicon is an inline SVG data URI, and the disclosures introduce no scripts."
+      "The ten Canva deck and animation links were removed rather than repaired. They are not repairable read-only: the /d/ short tokens rotate (the API minted a different token for the same design on two consecutive calls) and every API-minted link redirects an anonymous visitor to a Canva login page. Restoring them requires setting link-sharing on designs that carry named clients and before/after imagery, which is the founder's decision.",
+      "Load time is not re-measured here."
     ]
   }
 }
