@@ -88,7 +88,9 @@
     --focus: #2c6aa8;
 
     /* type ramp — identical contract to index.html. Three section-heading
-       tiers with real jumps; prose 21/16/14; UI labels 13/11. */
+       tiers with real jumps; prose 21/16/14; UI labels 14/11. The 13px step
+       is gone on both pages: 14 and 13 are a ratio of 1.077, which is not a
+       tier, and proof.html alone had 154 elements split across it. */
     --fs-h1:       clamp(2.2rem, 5.4vw, 3.6rem);
     --fs-h2-hero:  clamp(2.1rem, 4.4vw, 3.15rem);      /* TIER 1  → 50.4 */
     --fs-h2:       clamp(1.6rem, 2.9vw, 2.125rem);     /* TIER 2  → 34   */
@@ -97,27 +99,39 @@
     --fs-lead:     clamp(1.125rem, 1.75vw, 1.3125rem);
     --fs-body:     1rem;
     --fs-sm:       .875rem;
-    --fs-xs:       .8125rem;
+    --fs-xs:       var(--fs-sm);           /* 14 — the 13px step is retired */
     --fs-micro:    .6875rem;
 
-    --sec-y:       clamp(76px, 8.5vw, 122px);
-    --sec-y-act:   clamp(104px, 11.5vw, 168px);
-    --sec-y-tight: clamp(54px, 6vw, 84px);
+    /* identical floors to index.html — two pages that share a nav must not
+       breathe at two different rates on a phone */
+    --sec-y:       clamp(62px, 8.5vw, 122px);
+    --sec-y-act:   clamp(84px, 11.5vw, 168px);
+    --sec-y-tight: clamp(46px, 6vw, 84px);
     --nav-h: 62px;
 
-    --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05);
-    --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07);
-    --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13);
-    --e2-d: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28);
-    --e3-d: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32);
-    --hi:   inset 0 1px 0 rgba(255,255,255,.92);
-    --hi-d: inset 0 1px 0 rgba(255,255,255,.07);
+    /* Elevation: four steps, each carrying its own 1px lit top edge, and the
+       ground picks the values — same contract as index.html. */
+    --e0: inset 0 1px 0 rgba(255,255,255,.92);
+    --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05), inset 0 1px 0 rgba(255,255,255,.92);
+    --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07), inset 0 1px 0 rgba(255,255,255,.92);
+    --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13), inset 0 1px 0 rgba(255,255,255,.92);
+
+    /* Motion: three durations, and only three. */
+    --ease: cubic-bezier(.22,.61,.36,1);
+    --t-micro: .15s var(--ease);
+    --t-std: .25s var(--ease);
+    --t-narrative: 1.1s cubic-bezier(.16,.84,.44,1);
 
     --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px; --r-pill: 999px;
-    --ease: cubic-bezier(.22,.61,.36,1);
     --maxw: 1140px;
   }
-  [data-nav-dark], .nav, .footer { --focus: #8fc0f0; }
+  [data-nav-dark], .nav, .footer {
+    --focus: #8fc0f0;
+    --e0: inset 0 1px 0 rgba(255,255,255,.07);
+    --e1: 0 1px 2px rgba(3,10,20,.30), 0 2px 8px rgba(3,10,20,.26), inset 0 1px 0 rgba(255,255,255,.07);
+    --e2: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28), inset 0 1px 0 rgba(255,255,255,.07);
+    --e3: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32), inset 0 1px 0 rgba(255,255,255,.07);
+  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
@@ -140,7 +154,7 @@
     position: absolute; left: 12px; top: -60px; z-index: 200;
     background: #fff; color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
     padding: 12px 18px; border-radius: var(--r-sm); box-shadow: var(--e2);
-    min-height: 44px; display: inline-flex; align-items: center; transition: top .2s var(--ease);
+    min-height: 44px; display: inline-flex; align-items: center; transition: top var(--t-std);
   }
   .skip:focus { top: 12px; }
 
@@ -151,8 +165,8 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(9,22,40,.92);
     border-bottom: 1px solid rgba(255,255,255,.10);
-    box-shadow: var(--hi-d);
-    transition: background .35s var(--ease), border-color .35s var(--ease);
+    box-shadow: var(--e0);
+    transition: background var(--t-std), border-color var(--t-std);
   }
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .nav { background: rgba(9,22,40,.80); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%); }
@@ -186,7 +200,7 @@
     min-height: 44px; min-width: 44px; padding: 0 9px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
     white-space: nowrap; border-radius: var(--r-sm);
-    transition: color .18s var(--ease), background .18s var(--ease);
+    transition: color var(--t-micro), background var(--t-micro);
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .nav-actions { display: flex; align-items: center; gap: 8px; }
@@ -195,7 +209,7 @@
     min-height: 44px; padding: 0 13px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 600; color: var(--on-dark-2);
     border: 1px solid rgba(255,255,255,.22); white-space: nowrap;
-    transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    transition: color var(--t-micro), border-color var(--t-micro), background var(--t-micro);
   }
   .nav-proof[aria-current="page"] { color: #fff; border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.10); }
   .nav-proof .tick { width: 14px; height: 14px; flex: 0 0 14px; color: var(--green-bright); }
@@ -203,10 +217,10 @@
     display: inline-flex; align-items: center; justify-content: center;
     min-height: 44px; padding: 0 17px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 700; color: #0d2440; background: #fff;
-    white-space: nowrap; box-shadow: var(--e2-d);
-    transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+    white-space: nowrap; box-shadow: var(--e2);
+    transition: transform var(--t-micro), box-shadow var(--t-micro);
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3-d); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3); }
   .nav-progress { height: 2px; background: transparent; margin-top: -1px; }
   .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #6fbdf0, #2c6aa8); transition: width .1s linear; }
   .nav-menu { position: relative; display: none; }
@@ -219,7 +233,7 @@
   .nav-panel {
     position: absolute; right: -6px; top: calc(100% + 12px); width: min(78vw, 268px);
     background: #0b1a2e; border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg);
-    box-shadow: var(--e3-d), var(--hi-d);
+    box-shadow: var(--e3), var(--e0);
     padding: 8px; display: flex; flex-direction: column; max-height: 76vh; overflow-y: auto;
   }
   @supports (backdrop-filter: blur(1px)) { .nav-panel { background: rgba(11,26,46,.94); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); } }
@@ -257,8 +271,8 @@
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
     font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-    color: #c9dcf1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
-    padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: 22px; box-shadow: var(--hi-d);
+    color: var(--on-dark-2); background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+    padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: 22px; box-shadow: var(--e0);
   }
   .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); flex: 0 0 7px; }
   .hero h1 { font-size: var(--fs-h1); font-weight: 900; letter-spacing: -.035em; line-height: .98; margin-bottom: 18px; }
@@ -267,17 +281,17 @@
 
   .lens-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 30px; }
   .lens-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-3); }
-  .lens { display: inline-flex; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r-pill); padding: 4px; box-shadow: var(--hi-d); }
+  .lens { display: inline-flex; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); border-radius: var(--r-pill); padding: 4px; box-shadow: var(--e0); }
   .lens button {
     appearance: none; border: 0; background: transparent; color: var(--on-dark-2);
     font: inherit; font-weight: 600; font-size: var(--fs-xs);
     min-height: 44px; padding: 0 18px; border-radius: var(--r-pill); cursor: pointer;
-    transition: background .2s var(--ease), color .2s var(--ease);
+    transition: background var(--t-micro), color var(--t-micro);
   }
   .lens button[aria-pressed="true"] { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e1); }
 
   .doctrine { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 34px; }
-  .doc-chip { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r); padding: 16px 18px; font-size: var(--fs-xs); color: var(--on-dark-2); line-height: 1.55; box-shadow: var(--hi-d); }
+  .doc-chip { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r); padding: 16px 18px; font-size: var(--fs-xs); color: var(--on-dark-2); line-height: 1.55; box-shadow: var(--e0); }
   .doc-chip b { display: block; color: #fff; margin-bottom: 4px; font-weight: 700; }
   @media (max-width: 860px) { .doctrine { grid-template-columns: 1fr; } }
 
@@ -286,11 +300,11 @@
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
     font-size: var(--fs-sm); font-weight: 600; min-height: 50px; padding: 0 22px;
     border-radius: var(--r); border: 1px solid transparent; text-decoration: none;
-    transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+    transition: transform var(--t-micro), box-shadow var(--t-micro), background var(--t-micro), border-color var(--t-micro);
   }
-  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2-d); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3-d); }
-  .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--hi-d); }
+  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3); }
+  .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--e0); }
   .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); border-color: rgba(255,255,255,.5); }
   .btn-solid { background: var(--navy); color: #fff; font-weight: 700; box-shadow: var(--e2); }
   .btn-solid:hover { transform: translateY(-2px); box-shadow: var(--e3); }
@@ -307,7 +321,7 @@
   .block.tint { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   /* the exhibit ground — same token as index.html's receipts section, so the
      two hero exhibits read as one continuous surface across the two pages */
-  .block.exhibit { background: var(--bg-tint); border-bottom: 1px solid #dbe7f4; box-shadow: var(--hi); }
+  .block.exhibit { background: var(--bg-tint); border-bottom: 1px solid #dbe7f4; box-shadow: var(--e0); }
   .sec-head { margin-bottom: clamp(34px, 4vw, 54px); max-width: 46rem; }
   .kicker {
     font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
@@ -339,11 +353,11 @@
 
   .receipt {
     background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg);
-    padding: 26px 26px 24px; box-shadow: var(--e1), var(--hi);
+    padding: 26px 26px 24px; box-shadow: var(--e1);
     display: flex; flex-direction: column;
-    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
+    transition: transform var(--t-std), box-shadow var(--t-std);
   }
-  .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3), var(--hi); }
+  .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3); }
   .receipt.hero-r {
     grid-column: 1 / -1;
     /* solid declared under the gradient = the DARKER end, so the contrast
@@ -351,7 +365,7 @@
     background-color: #eef4fb;
     background-image: linear-gradient(135deg, #fbfdff, #eef4fb);
     border-color: #cfdff0;
-    box-shadow: var(--e2), var(--hi);
+    box-shadow: var(--e2);
   }
   .badge {
     display: inline-flex; align-items: center; gap: 7px; width: max-content;
@@ -388,14 +402,27 @@
   @media (max-width: 860px) { .nots { grid-template-columns: 1fr; } }
   .not-card {
     background: #fff; border: 1px solid var(--hair); border-left: 3px solid var(--slate);
-    border-radius: var(--r); padding: 20px 22px; box-shadow: var(--e1), var(--hi);
+    border-radius: var(--r); padding: 20px 22px; box-shadow: var(--e1);
   }
   .not-card b { display: block; margin-bottom: 6px; color: var(--navy); font-size: var(--fs-body); letter-spacing: -.015em; }
   .not-card p { font-size: var(--fs-sm); color: var(--muted); text-wrap: pretty; }
 
   .method { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   @media (max-width: 860px) { .method { grid-template-columns: 1fr; } }
-  .m-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r); padding: 22px; box-shadow: var(--e1), var(--hi); }
+  /* Phone density, matching index.html. Padding and gaps only — this page is
+     an itemized evidence document and its length is the point, so nothing
+     here hides, folds or shortens a single claim. */
+  @media (max-width: 640px) {
+    /* same 58px bar as index.html — two pages sharing a nav must not disagree
+       about how tall it is, and scroll-margin-top is derived from this */
+    :root { --nav-h: 58px; }
+    .receipt { padding: 20px 20px 18px; }
+    .not-card { padding: 16px 18px; }
+    .m-card { padding: 18px; }
+    .sec-head { margin-bottom: 24px; }
+    .kicker { margin-bottom: 10px; }
+  }
+  .m-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r); padding: 22px; box-shadow: var(--e1); }
   .m-card b { display: block; margin-bottom: 6px; color: var(--navy); font-size: var(--fs-body); letter-spacing: -.015em; }
   .m-card p { font-size: var(--fs-sm); color: var(--muted); text-wrap: pretty; }
 
@@ -420,7 +447,7 @@
      ============================================================ */
   html.motion :is(.sec-head,.receipt,.not-card,.m-card) {
     opacity: 0; transform: translateY(14px);
-    transition: opacity .62s var(--ease), transform .62s var(--ease);
+    transition: opacity var(--t-std), transform var(--t-std);
   }
   html.motion :is(.sec-head,.receipt,.not-card,.m-card).rv-in { opacity: 1; transform: none; }
   /* `transition: none` is load-bearing — a transition already running outranks
@@ -539,7 +566,7 @@
         <p class="r-num">9.5×</p>
         <p class="r-unit">an incumbent agency’s lead volume — at ~75% lower cost per lead, same account</p>
         <p class="r-copy" data-lens="emp">Took over a chiropractic account from an incumbent national agency: 114 leads at $12.59 vs. their 12 at $49.81 — on the very same account. Apples to apples, no excuses.</p>
-        <p class="r-copy" data-lens="cli" hidden>A clinic ran us head-to-head against their national agency on the same ad account. We delivered 9.5× the leads at ~75% lower cost per lead.</p>
+        <p class="r-copy" data-lens="cli" hidden>A clinic ran me head-to-head against their national agency on the same ad account. I delivered 9.5× the leads at ~75% lower cost per lead.</p>
         <div class="r-how">
           <h3 class="r-how-t">How the 9.5× claim is verified</h3>
           <dl class="r-how-l">
@@ -560,7 +587,7 @@
         <p class="r-num">$225K+</p>
         <p class="r-unit">Meta ad spend managed · 14+ accounts</p>
         <p class="r-copy" data-lens="emp">Managed/supported $225K+ in Meta spend across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiro, tattoo removal, weight loss, local service, B2B.</p>
-        <p class="r-copy" data-lens="cli" hidden>We’ve managed $225K+ in Meta spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.</p>
+        <p class="r-copy" data-lens="cli" hidden>I’ve managed $225K+ in Meta spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.</p>
         <div class="r-how">
           <h3 class="r-how-t">How the $225K+ spend figure is verified</h3>
           <dl class="r-how-l">
@@ -613,7 +640,7 @@
         <p class="r-num">70</p>
         <p class="r-unit">appointments booked in a 30-day window</p>
         <p class="r-copy" data-lens="emp">Weight-loss clinic grand opening: 70 booked in a 30-day window (61 of them inside the July calendar month) — ads + a GoHighLevel follow-up system working as one.</p>
-        <p class="r-copy" data-lens="cli" hidden>For a clinic’s grand opening we put 70 appointments on the calendar in 30 days — because we build the follow-up system, not just the ads.</p>
+        <p class="r-copy" data-lens="cli" hidden>For a clinic’s grand opening I put 70 appointments on the calendar in 30 days — because I build the follow-up system, not just the ads.</p>
         <div class="r-how">
           <h3 class="r-how-t">How the 70 booked appointments figure is verified</h3>
           <dl class="r-how-l">
@@ -649,7 +676,7 @@
         <p class="r-num">1,750+</p>
         <p class="r-unit">leads · one med-spa program</p>
         <p class="r-copy" data-lens="emp">One clinic, full program: weight-loss, Botox, laser, photofacial — 1,750+ leads, including 1,200+ weight-loss leads at ~$9 CPL.</p>
-        <p class="r-copy" data-lens="cli" hidden>For one med spa we ran the whole program — 1,750+ leads across four service lines.</p>
+        <p class="r-copy" data-lens="cli" hidden>For one med spa I ran the whole program — 1,750+ leads across four service lines.</p>
         <div class="r-how">
           <h3 class="r-how-t">How the 1,750+ med-spa leads figure is verified</h3>
           <dl class="r-how-l">
@@ -753,9 +780,9 @@
       <article class="receipt">
         <span class="badge v">Platform-verified</span>
         <p class="r-num">215+</p>
-        <p class="r-unit">scheduled B2B appointments (our own pipeline)</p>
+        <p class="r-unit">scheduled B2B appointments (the agency’s own pipeline)</p>
         <p class="r-copy" data-lens="emp">I was the media buyer for the agency’s own growth too, selling agency services into the medspa/clinic market: 170+ leads from lead-form campaigns, and separately 215+ appointments scheduled straight through the site — two different paths, at ~$62 per scheduled appointment.</p>
-        <p class="r-copy" data-lens="cli" hidden>We run our own acquisition the same way we’d run yours — 170+ leads from lead forms, plus 215+ appointments scheduled directly on the site.</p>
+        <p class="r-copy" data-lens="cli" hidden>I ran the agency’s own acquisition the same way I’d run yours — 170+ leads from lead forms, plus 215+ appointments scheduled directly on the site.</p>
         <div class="r-how">
           <h3 class="r-how-t">How the 215+ scheduled B2B appointments figure is verified</h3>
           <dl class="r-how-l">
@@ -798,7 +825,7 @@
       <p>Every marketer will show you their best numbers. Almost none will show you the ones they threw out. Here's my discard pile — and the rule that put each one there. Hold the section above to this standard, then hold anyone else's to it.</p>
     </div>
     <div class="nots">
-      <div class="not-card"><b>A famous "before → after" laser CPL pair</b><p>A med spa laser turnaround I ran is real — but the exact before/after figures lived in an ad account I no longer have access to. Until it's re-sourced, I say "cut CPL substantially" and cite the ~$16 laser CPL verified on an account I still hold.</p></div>
+      <div class="not-card"><b>A famous "before/after" laser CPL pair</b><p>A med spa laser turnaround I ran is real — but the exact before/after figures lived in an ad account I no longer have access to. Until it's re-sourced, I say "cut CPL substantially" and cite the ~$16 laser CPL verified on an account I still hold.</p></div>
       <div class="not-card"><b>Client revenue &amp; ROAS</b><p>My job ended at the qualified, booked appointment plus the follow-up system. Closing was the client's. I had no reliable post-booking revenue visibility — so I don't claim their revenue. Ever.</p></div>
       <div class="not-card"><b>An exact Montreal CPL</b><p>The 89 bookings are tracker-corroborated and the 220+ lead volume is founder-attested — two facts, two badges, listed separately above. The exact CPL decimal lived in that same lost ad account, so the decimal stays retired in every form, including a rounded one.</p></div>
       <div class="not-card"><b>Blended "average CPL"</b><p>$225K+ managed and 6,250+ leads are both true — but dividing one by the other creates a fake CPL that blends brand spend, B2C, and qualified B2B. I quote CPL per campaign or not at all.</p></div>

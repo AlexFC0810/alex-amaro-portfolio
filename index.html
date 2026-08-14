@@ -129,9 +129,16 @@
        actually paints, so contrast measured against it is conservative:
        real contrast on the page is always equal or better. */
     --field: #1c3e65;
-    --on-dark:   #dbe8f6;   /* lead / body on dark */
-    --on-dark-2: #cfe2f5;   /* secondary on dark */
-    --on-dark-3: #c2d9f0;   /* micro / fine print on dark */
+    /* THREE tints on dark, and only three. This was nine near-identical
+       light blues (#b8cbe0, #c6dcf0, #cfe0f3, #c9dcf1, #a9c0d8, #b9d3ec,
+       #b0c6dd, #bcd2e8, #cfe0f2) all doing one of these three jobs — a
+       palette wide enough to look accidental and too narrow to mean
+       anything. Every one of them was DARKER than the token that replaced
+       it, so this pass could only raise contrast: the worst of the retired
+       values measured 5.82:1 on --field, the tint that replaced it 7.52:1. */
+    --on-dark:   #dbe8f6;   /* lead / body on dark          8.77:1 on --field */
+    --on-dark-2: #cfe2f5;   /* secondary on dark            8.23:1 on --field */
+    --on-dark-3: #c2d9f0;   /* micro / fine print on dark   7.52:1 on --field */
 
     /* --- status system: one meaning per colour --- */
     --green: #0d6b45;          /* verified — text weight */
@@ -156,11 +163,19 @@
          TIER 2  34px / 800  the supporting acts.
          TIER 3  24px / 700  the annex.
 
-       Prose runs 21 / 16 / 14 and UI labels run 13 / 11. Every size below is
-       a token; no section may invent its own, which is how the old page
-       ended up with 17.6/17.3/16/15 and 13/12/11.8/11/10.1. --- */
-    --fs-display:  clamp(2.75rem, 6.2vw, 4.5rem);      /* hero h1 only        */
-    --fs-h1:       clamp(2rem, 4.6vw, 3.15rem);
+       Prose runs 21 / 16 / 14 and UI labels run 14 / 11.
+
+       THE 13px STEP IS GONE. It was the ramp's one indefensible step: 14px
+       and 13px are a ratio of 1.077, a difference no eye resolves, and the
+       live page split 209 elements across it (116 at 14, 93 at 13) — two
+       tiers of meaning that rendered as one. --fs-xs is now an alias of
+       --fs-sm rather than a deleted token, so nothing has to be hunted
+       down and no section can silently reintroduce a 13th size.
+
+       Every size below is a token; no section may invent its own, which is
+       how the old page ended up with 17.6/17.3/16/15 and 13/12/11.8/11/10.1. */
+    --fs-display:  clamp(2.75rem, 6.2vw, 4.5rem);      /* 72  hero stat only  */
+    --fs-h1:       clamp(2rem, 4.6vw, 3.15rem);        /* 50  hero claim      */
     --fs-h2-hero:  clamp(2.1rem, 4.4vw, 3.15rem);      /* TIER 1  → 50.4      */
     --fs-h2:       clamp(1.6rem, 2.9vw, 2.125rem);     /* TIER 2  → 34        */
     --fs-h2-minor: clamp(1.25rem, 2.1vw, 1.5rem);      /* TIER 3  → 24        */
@@ -168,7 +183,7 @@
     --fs-lead:     clamp(1.125rem, 1.75vw, 1.3125rem); /* 18–21 section lede  */
     --fs-body:     1rem;                               /* 16  body            */
     --fs-sm:       .875rem;                            /* 14  secondary prose */
-    --fs-xs:       .8125rem;                           /* 13  UI affordances  */
+    --fs-xs:       var(--fs-sm);                       /* 14  (was 13 — dead) */
     --fs-micro:    .6875rem;                           /* 11  tracked caps    */
 
     /* --- space ---
@@ -176,33 +191,77 @@
        than a supporting section, and the annex gets visibly less. */
     --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
     --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
-    --sec-y:       clamp(76px, 8.5vw, 122px);
-    --sec-y-act:   clamp(104px, 11.5vw, 168px);
-    --sec-y-tight: clamp(54px, 6vw, 84px);
+    /* The floors came down (76→62, 104→84, 54→46) and the ceilings did not.
+       At 375px a 76px floor is 20% of the viewport WIDTH spent on nothing,
+       nine times over — 250px of pure air on a page whose only real problem
+       was length. Desktop rhythm, where the air is doing proportional work,
+       is byte-identical. */
+    --sec-y:       clamp(62px, 8.5vw, 122px);
+    --sec-y-act:   clamp(84px, 11.5vw, 168px);
+    --sec-y-tight: clamp(46px, 6vw, 84px);
     --nav-h: 62px;
 
-    /* --- elevation: layered, tinted to the surface hue, never pure black,
-           plus a 1px inner top highlight so a raised surface reads as lit.
-           The -d pair are the dark-field counterparts: same three-stop
-           falloff, tinted to the deep navy those sections actually paint,
-           replacing the flat `0 12px 34px rgba(0,0,0,.42)` that used to
-           carry every tile on the dark ground and read as mud. --- */
-    --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05);
-    --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07);
-    --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13);
-    --e2-d: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28);
-    --e3-d: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32);
-    --hi:   inset 0 1px 0 rgba(255,255,255,.92);
-    --hi-d: inset 0 1px 0 rgba(255,255,255,.07);
+    /* --- ELEVATION — FOUR steps, and the ground picks the values ---------
+       Layered, tinted to the surface hue, never pure black, and each token
+       already carries its own 1px inner top highlight so a raised surface
+       reads as lit. That last part is why there are four tokens instead of
+       the eight there used to be: every call site used to compose two vars
+       (`var(--e2), var(--hi)`), and the light/dark split forced a parallel
+       `-d` set, so twelve distinct box-shadow values reached the browser
+       from what was meant to be one system.
+
+       Now a call site writes `box-shadow: var(--e2)` and nothing else, and
+       the dark-ground block below REDEFINES the same four names. An element
+       cannot be given the wrong pairing for the surface it sits on, because
+       it never names the surface at all.
+
+         --e0  flush   — no lift, just the lit top edge
+         --e1  resting — cards, chips, tiles
+         --e2  raised  — buttons, panels, the nav pill
+         --e3  focal   — the head-to-head, the Proof Room door, the modal-ish
+
+       --well is not an elevation. It is the one RECESS in the system (the
+       duel bar track), which is why it is named for what it is. */
+    --e0: inset 0 1px 0 rgba(255,255,255,.92);
+    --e1: 0 1px 2px rgba(13,36,64,.05), 0 2px 8px rgba(13,36,64,.05), inset 0 1px 0 rgba(255,255,255,.92);
+    --e2: 0 1px 2px rgba(13,36,64,.05), 0 6px 16px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.07), inset 0 1px 0 rgba(255,255,255,.92);
+    --e3: 0 2px 6px rgba(13,36,64,.06), 0 14px 34px rgba(13,36,64,.10), 0 34px 72px rgba(13,36,64,.13), inset 0 1px 0 rgba(255,255,255,.92);
     --well: inset 0 1px 2px rgba(13,36,64,.06);
+
+    /* --- MOTION — three durations, and only three ------------------------
+       Eighteen transition declarations used to name their own timing, which
+       is how a page ends up with .18s, .2s, .22s, .24s, .25s and .35s all
+       meaning "quick". Each token below has one job, and if a new animation
+       does not fit one of the three, that is the signal it is decorative:
+
+         --t-micro     150ms  hover, focus, colour — feedback, invisible
+         --t-std       250ms  lift, reveal, disclosure — a state change
+         --t-narrative 1.1s   the duel bars filling — the one animation on
+                              this page that is making an argument, so it is
+                              the one allowed to take its time.
+       The narrative curve is deliberately NOT --ease: it decelerates harder
+       so the bars land rather than drift. */
+    --ease: cubic-bezier(.22,.61,.36,1);
+    --t-micro: .15s var(--ease);
+    --t-std: .25s var(--ease);
+    --t-narrative: 1.1s cubic-bezier(.16,.84,.44,1);
 
     /* --- radii: five, and only five --- */
     --r-sm: 10px; --r: 14px; --r-lg: 18px; --r-xl: 24px; --r-pill: 999px;
-    --ease: cubic-bezier(.22,.61,.36,1);
     --maxw: 1140px;
   }
-  /* the focus ring flips with the ground so it always clears 3:1 */
-  [data-nav-dark], #gen-creative, .nav, .gm, .footer { --focus: #8fc0f0; }
+  /* The dark grounds redefine the same four elevation names, tinted to the
+     deep navy those sections actually paint — replacing the flat
+     `0 12px 34px rgba(0,0,0,.42)` that used to carry every tile on dark and
+     read as mud. The focus ring flips here too, so it always clears 3:1. */
+  [data-nav-dark], #gen-creative, .nav, .gm, .footer,
+  .card.flagship-card, .receipt.r-hero, .proof-cta, .combo-equals, .metrics, .hero-stat {
+    --focus: #8fc0f0;
+    --e0: inset 0 1px 0 rgba(255,255,255,.07);
+    --e1: 0 1px 2px rgba(3,10,20,.30), 0 2px 8px rgba(3,10,20,.26), inset 0 1px 0 rgba(255,255,255,.07);
+    --e2: 0 1px 2px rgba(3,10,20,.34), 0 6px 16px rgba(3,10,20,.30), 0 16px 40px rgba(3,10,20,.28), inset 0 1px 0 rgba(255,255,255,.07);
+    --e3: 0 2px 6px rgba(3,10,20,.38), 0 14px 34px rgba(3,10,20,.34), 0 34px 72px rgba(3,10,20,.32), inset 0 1px 0 rgba(255,255,255,.07);
+  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { -webkit-text-size-adjust: 100%; }
@@ -219,18 +278,26 @@
   }
   a { color: inherit; text-decoration: none; }
   img, video { max-width: 100%; }
+  /* <picture> is inline by default, which would give every creative tile a
+     descender's worth of stray whitespace under it and break the flush grid.
+     The intrinsic width/height stay on the inner <img>, so the aspect box is
+     still reserved before the bytes arrive and CLS stays at 0. */
+  picture { display: block; }
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(20px, 4.5vw, 34px); }
   [hidden] { display: none !important; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
   :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--r-sm); }
-  section[id], header[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
+  /* details[id] is here because the annex disclosures are real anchor targets
+     now — #creds used to be a whole section and anything that linked to it
+     must still land below the fixed bar, not under it. */
+  section[id], header[id], details[id] { scroll-margin-top: calc(var(--nav-h) + 14px); }
 
   .skip {
     position: absolute; left: 12px; top: -60px; z-index: 200;
     background: #fff; color: var(--navy); font-weight: 700; font-size: var(--fs-sm);
     padding: 12px 18px; border-radius: var(--r-sm); box-shadow: var(--e2);
     min-height: 44px; display: inline-flex; align-items: center;
-    transition: top .2s var(--ease);
+    transition: top var(--t-std);
   }
   .skip:focus { top: 12px; }
 
@@ -243,8 +310,8 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(9,22,40,.92);
     border-bottom: 1px solid rgba(255,255,255,.10);
-    box-shadow: var(--hi-d);
-    transition: background .35s var(--ease), border-color .35s var(--ease);
+    box-shadow: var(--e0);
+    transition: background var(--t-std), border-color var(--t-std);
   }
   @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
     .nav { background: rgba(9,22,40,.80); -webkit-backdrop-filter: blur(20px) saturate(170%); backdrop-filter: blur(20px) saturate(170%); }
@@ -258,7 +325,8 @@
     .nav[data-light] { background: rgba(247,250,253,.76); }
   }
   .nav[data-light] .nm-name { color: var(--navy); }
-  .nav[data-light] .nm-role { color: var(--muted); }
+  .nav[data-light] .nm-role, .nav[data-light] .nm-here { color: var(--muted); }
+  .nav[data-light] .nm-here::before { background: var(--accent-soft); }
   .nav[data-light] .nav-links a { color: #33455e; }
   .nav[data-light] .nav-links a:hover { color: var(--navy); background: rgba(22,54,92,.06); }
   .nav[data-light] .nav-links a[aria-current="true"] { color: var(--navy); }
@@ -279,9 +347,22 @@
     font-size: var(--fs-sm); font-weight: 700; color: #fff;
     letter-spacing: -.005em; line-height: 1.15; white-space: nowrap;
   }
-  .nav-mark .nm-role {
+  .nav-mark .nm-role, .nav-mark .nm-here {
     font-size: var(--fs-micro); font-weight: 600; color: var(--on-dark-3);
     letter-spacing: .1em; text-transform: uppercase; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46vw;
+  }
+  .nav-mark .nm-here { display: none; }
+  .nav-mark .nm-here::before {
+    content: ""; display: inline-block; vertical-align: middle;
+    width: 5px; height: 5px; border-radius: 50%; margin-right: 7px;
+    background: #6fbdf0;
+  }
+  /* Only where it is the only signal: below 1120px the nav link row — which
+     already paints "you are here" — is gone. */
+  @media (max-width: 1120px) {
+    .nav[data-here] .nm-role { display: none; }
+    .nav[data-here] .nm-here { display: block; }
   }
   .nav-links { display: flex; align-items: center; gap: 1px; }
   .nav-links a {
@@ -290,7 +371,7 @@
     min-height: 44px; min-width: 44px; padding: 0 9px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
     letter-spacing: -.003em; white-space: nowrap; border-radius: var(--r-sm);
-    transition: color .18s var(--ease), background .18s var(--ease);
+    transition: color var(--t-micro), background var(--t-micro);
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
   /* "You are here" — the answer to the one question a page this long can't
@@ -307,7 +388,7 @@
     min-height: 44px; padding: 0 13px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 600; color: var(--on-dark-2);
     border: 1px solid rgba(255,255,255,.22); white-space: nowrap;
-    transition: color .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    transition: color var(--t-micro), border-color var(--t-micro), background var(--t-micro);
   }
   .nav-proof:hover { color: #fff; border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.08); }
   .nav-proof .tick { width: 14px; height: 14px; flex: 0 0 14px; color: var(--green-bright); }
@@ -315,14 +396,19 @@
     display: inline-flex; align-items: center; justify-content: center;
     min-height: 44px; padding: 0 16px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 700; color: #0d2440; background: #fff;
-    white-space: nowrap; box-shadow: var(--e2-d);
-    transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+    white-space: nowrap; box-shadow: var(--e2);
+    transition: transform var(--t-micro), box-shadow var(--t-micro);
   }
-  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3-d); }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--e3); }
 
   /* progress hairline — communicates position, nothing decorative. Blue,
      not mint: on this site green means "verified" and nothing else. */
   .nav-progress { height: 2px; background: transparent; margin-top: -1px; }
+  /* The one duration deliberately outside the three motion tokens, because
+     it is not a state change: this bar tracks a continuous input (scroll
+     position) frame by frame, and a 150ms eased transition on a value that
+     is re-written every frame reads as lag, not as polish. Linear and short
+     is what makes it feel welded to the scroll. */
   .nav-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #6fbdf0, #2c6aa8); transition: width .1s linear; }
 
   /* mobile menu — a <details>, so it works with zero JS */
@@ -344,7 +430,7 @@
     background: #0b1a2e;
     border: 1px solid rgba(255,255,255,.14);
     border-radius: var(--r-lg);
-    box-shadow: var(--e3-d), var(--hi-d);
+    box-shadow: var(--e3);
     padding: 8px; display: flex; flex-direction: column; max-height: 78vh; overflow-y: auto;
   }
   @supports (backdrop-filter: blur(1px)) { .nav-panel { background: rgba(11,26,46,.94); -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%); } }
@@ -413,7 +499,7 @@
     position: absolute; inset: 0; z-index: 0;
     display: block; width: 100%; height: 100%;
     pointer-events: none;
-    opacity: 0; transition: opacity 1.1s var(--ease);
+    opacity: 0; transition: opacity var(--t-narrative);
   }
   .hero-fx.on { opacity: 1; }
 
@@ -423,30 +509,101 @@
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
     font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-    color: #c9dcf1; background: rgba(255,255,255,.08);
+    color: var(--on-dark-2); background: rgba(255,255,255,.08);
     border: 1px solid rgba(255,255,255,.16);
     padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: var(--sp-5);
-    box-shadow: var(--hi-d);
+    box-shadow: var(--e0);
   }
   /* no glow: mint is the verification colour, and a colour that also does
      decoration stops meaning anything */
   .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); flex: 0 0 7px; }
-  .hero h1 {
-    font-size: var(--fs-display); font-weight: 900;
-    letter-spacing: -.035em; line-height: .96; margin-bottom: var(--sp-5);
+  /* ---- THE H1 ---------------------------------------------------------
+     This used to be "Alex Amaro" set at 72px/900 — the largest element in
+     the first viewport was a NAME, and the largest visual MASS was a
+     61-word, 393-character paragraph rendering 356px tall, eight times the
+     h1's area. A visitor's eye landed on a text wall and the argument
+     never got made.
+
+     The name is still the first text inside the h1 — it is a portfolio,
+     the document is about a person, and search and screen readers both
+     need that — but it is set at label scale. The CLAIM is what gets the
+     50px, because the claim is what the page is for. Nothing is hidden and
+     nothing moved off-screen; the size ramp simply now agrees with the
+     information hierarchy instead of contradicting it. */
+  .hero h1 { margin-bottom: var(--sp-5); }
+  .hero .h1-name {
+    display: block; font-size: var(--fs-micro); font-weight: 700;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--on-dark-3); margin-bottom: 14px;
   }
-  .hero .headline {
-    font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-    font-weight: 500; line-height: 1.3; letter-spacing: -.018em;
-    color: #b9d3ec; margin-bottom: var(--sp-5); max-width: 44ch;
-    text-wrap: pretty;
+  .hero .h1-claim {
+    display: block; font-size: var(--fs-h1); font-weight: 800;
+    letter-spacing: -.032em; line-height: 1.04; color: var(--on-dark);
+    max-width: 19ch; text-wrap: balance;
   }
   /* Hierarchy by value, not by gradient trick: the three verbs go white
      and heavy, everything around them recedes. */
-  .hero .headline .hl { color: #fff; font-weight: 700; }
+  .hero .h1-claim .hl { color: #fff; font-weight: 900; }
+
+  /* ---- THE HERO STAT --------------------------------------------------
+     The strongest and most defensible number on the site, promoted out of
+     the exhibit 12,000px down the page and into the first four seconds.
+
+     It is the ONE focal point of the hero: the only 72px figure on either
+     page, in the only colour this site allows to mean "verified". Every
+     other number up here is smaller than it on purpose — two equal focal
+     points is the same as none.
+
+     CONTRAST, measured not eyeballed. The card is rgba(255,255,255,.06)
+     over --field #1c3e65, which composites to rgb(42,74,110). Against that
+     ground: mint #7fd3a6 = 5.11:1, --on-dark = 7.33:1, --on-dark-3 =
+     6.29:1, #fff = 9.12:1. The floor is 4.5:1 with no large-text
+     exemption claimed, so the 72px figure clears it as if it were body
+     copy. Lightening the card any further is what would break it — at .12
+     the mint falls to 4.31:1. */
+  .hero-stat {
+    display: grid; grid-template-columns: auto 1fr; align-items: center;
+    gap: clamp(18px, 2.6vw, 30px);
+    margin-bottom: var(--sp-5); max-width: 46rem;
+    padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.4vw, 28px);
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.17);
+    border-radius: var(--r-lg); box-shadow: var(--e2);
+    transition: transform var(--t-std), box-shadow var(--t-std), border-color var(--t-std);
+  }
+  .hero-stat:hover { transform: translateY(-2px); box-shadow: var(--e3); border-color: rgba(127,211,166,.42); }
+  .hs-fig { display: block; text-align: center; }
+  .hs-num {
+    display: block; font-size: var(--fs-display); font-weight: 900;
+    letter-spacing: -.045em; line-height: .88; color: var(--green-bright);
+    font-variant-numeric: tabular-nums;
+  }
+  .hs-unit {
+    display: block; margin-top: 6px;
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--on-dark-3);
+  }
+  .hs-body { display: block; }
+  .hs-line { display: block; font-size: var(--fs-sm); color: var(--on-dark); line-height: 1.55; text-wrap: pretty; }
+  .hs-line strong { color: #fff; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .hs-cue {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
+    font-size: var(--fs-xs); font-weight: 700; color: var(--green-bright);
+  }
+  .hs-cue svg { width: 15px; height: 15px; flex: 0 0 15px; transition: transform var(--t-micro); }
+  .hero-stat:hover .hs-cue svg { transform: translateX(3px); }
+  @media (max-width: 560px) {
+    .hero-stat { grid-template-columns: 1fr; gap: 12px; }
+    .hs-fig { text-align: left; display: flex; align-items: baseline; gap: 12px; }
+    .hs-unit { margin-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-stat, .hero-stat:hover, .hero-stat:hover .hs-cue svg { transform: none; transition: none; }
+  }
+
   .hero .value {
-    font-size: var(--fs-lead); color: var(--on-dark);
-    max-width: 60ch; margin-bottom: var(--sp-5); font-weight: 400;
+    font-size: var(--fs-lead); color: var(--on-dark-2);
+    max-width: 46ch; margin-bottom: var(--sp-5); font-weight: 400;
     text-wrap: pretty;
   }
   .hero .value strong { color: #fff; font-weight: 600; }
@@ -463,12 +620,12 @@
     font-size: var(--fs-sm); font-weight: 600; letter-spacing: -.005em;
     min-height: 50px; padding: 0 24px; border-radius: var(--r);
     border: 1px solid transparent; cursor: pointer;
-    transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+    transition: transform var(--t-micro), box-shadow var(--t-micro), background var(--t-micro), border-color var(--t-micro);
   }
   .btn svg { width: 17px; height: 17px; flex: 0 0 17px; }
-  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2-d); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3-d); }
-  .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--hi-d); }
+  .btn-primary { background: #fff; color: var(--navy); font-weight: 700; box-shadow: var(--e2); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--e3); }
+  .btn-ghost { background: rgba(255,255,255,.07); color: #fff; border-color: rgba(255,255,255,.28); box-shadow: var(--e0); }
   .btn-ghost:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); border-color: rgba(255,255,255,.5); }
 
   /* secondary hero links — present, but not competing with the CTA */
@@ -477,7 +634,7 @@
     display: inline-flex; align-items: center; gap: 7px;
     min-height: 44px; padding: 0 12px; border-radius: var(--r-sm);
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
-    transition: color .18s var(--ease), background .18s var(--ease);
+    transition: color var(--t-micro), background var(--t-micro);
   }
   .hero-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .hero-links svg { width: 15px; height: 15px; flex: 0 0 15px; opacity: .8; }
@@ -514,8 +671,11 @@
       padding-bottom: 26px;
     }
     .eyebrow { margin-bottom: 11px; padding: 6px 13px; }
-    .hero h1 { font-size: clamp(2.6rem, 3.9vw, 3.15rem); margin-bottom: 11px; }
-    .hero .headline { font-size: clamp(1.25rem, 1.85vw, 1.45rem); margin-bottom: 11px; }
+    .hero h1 { margin-bottom: 13px; }
+    .hero .h1-name { margin-bottom: 9px; }
+    .hero .h1-claim { font-size: clamp(1.85rem, 2.9vw, 2.35rem); max-width: 30ch; }
+    .hero-stat { margin-bottom: 13px; padding: 14px 20px; gap: 20px; }
+    .hs-num { font-size: clamp(2.4rem, 3.4vw, 3rem); }
     .hero .value { font-size: 1.0625rem; line-height: 1.55; margin-bottom: 11px; }
     .location { margin-bottom: 14px; }
     .hero-links { margin-top: 8px; }
@@ -525,20 +685,30 @@
   /* ============================================================
      METRIC STRIP
      ============================================================ */
-  .metrics { background: var(--navy); box-shadow: var(--hi-d); }
-  .metric-grid { display: grid; grid-template-columns: repeat(6, 1fr); }
+  .metrics { background: var(--navy); box-shadow: var(--e0); }
+  .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
   .metric {
+    position: relative;
     padding: clamp(26px, 3vw, 36px) 16px; text-align: center; color: #fff;
     border-right: 1px solid rgba(255,255,255,.12);
   }
   .metric:last-child { border-right: none; }
+  /* Primacy by treatment, not by size: a lit ground and the verification
+     mint on its top edge. Size is not available as a lever here — the hero
+     stat above is the page's one focal point, and a second 50px number
+     would put two of them on the same screen. */
+  .metric.primary { background: rgba(255,255,255,.07); }
+  .metric.primary::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: var(--green-bright);
+  }
   .metric .num {
     font-size: var(--fs-h2); font-weight: 800;
     letter-spacing: -.03em; line-height: 1.02; color: #fff;
     font-variant-numeric: tabular-nums;
   }
   .metric .lbl {
-    font-size: var(--fs-xs); color: #c6dcf0; margin-top: 10px;
+    font-size: var(--fs-xs); color: var(--on-dark-3); margin-top: 10px;
     font-weight: 500; line-height: 1.4; letter-spacing: -.002em;
   }
 
@@ -592,7 +762,7 @@
      one click away instead of gone. */
   .fold {
     border: 1px solid var(--hair); border-radius: var(--r-lg); background: #fff;
-    box-shadow: var(--e1), var(--hi); overflow: hidden;
+    box-shadow: var(--e1); overflow: hidden;
   }
   .fold + .fold { margin-top: 14px; }
   .fold > summary {
@@ -600,22 +770,22 @@
     display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
     min-height: 64px; padding: 13px 20px;
     font-size: var(--fs-body); font-weight: 700; color: var(--navy); letter-spacing: -.015em;
-    transition: background .18s var(--ease);
+    transition: background var(--t-micro);
   }
   .fold > summary::-webkit-details-marker { display: none; }
   .fold > summary:hover { background: var(--bg-soft); }
-  .fold .fs-chev { width: 20px; height: 20px; flex: 0 0 20px; color: var(--accent-soft); transition: transform .25s var(--ease); }
+  .fold .fs-chev { width: 20px; height: 20px; flex: 0 0 20px; color: var(--accent-soft); transition: transform var(--t-std); }
   .fold[open] > summary .fs-chev { transform: rotate(90deg); }
   .fold .fs-sub { margin-left: auto; font-size: var(--fs-sm); font-weight: 500; color: var(--muted); }
   .fold-body { padding: 22px 20px 24px; border-top: 1px solid var(--line); }
   @media (prefers-reduced-motion: reduce) { .fold .fs-chev { transition: none; } }
 
   /* the same component on a dark field */
-  .fold.on-dark { background: rgba(255,255,255,.045); border-color: rgba(255,255,255,.12); box-shadow: var(--e2-d), var(--hi-d); }
+  .fold.on-dark { background: rgba(255,255,255,.045); border-color: rgba(255,255,255,.12); box-shadow: var(--e2); }
   .fold.on-dark > summary { color: #fff; }
   .fold.on-dark > summary:hover { background: rgba(255,255,255,.06); }
   .fold.on-dark .fs-chev { color: var(--green-bright); }
-  .fold.on-dark .fs-sub { color: #b0c6dd; }
+  .fold.on-dark .fs-sub { color: var(--on-dark-3); }
   .fold.on-dark .fold-body { border-top-color: rgba(255,255,255,.12); }
   .fold-lede { font-size: var(--fs-body); color: var(--muted); max-width: 68ch; text-wrap: pretty; margin-bottom: 22px; }
   .fold-lede:last-child { margin-bottom: 0; }
@@ -630,7 +800,7 @@
   section.block.exhibit {
     background: var(--bg-tint);
     border-top: 1px solid #dbe7f4; border-bottom: 1px solid #dbe7f4;
-    box-shadow: var(--hi);
+    box-shadow: var(--e0);
   }
 
   /* a heading INSIDE a section — below tier 3, above a card title */
@@ -654,10 +824,10 @@
   .combo-visual { display: flex; flex-direction: column; gap: 10px; }
   .combo-pill {
     background: #fff; border: 1px solid var(--hair); border-radius: var(--r);
-    padding: 18px 20px; box-shadow: var(--e1), var(--hi);
-    transition: transform .22s var(--ease), box-shadow .22s var(--ease);
+    padding: 18px 20px; box-shadow: var(--e1);
+    transition: transform var(--t-std), box-shadow var(--t-std);
   }
-  .combo-pill:hover { transform: translateY(-2px); box-shadow: var(--e2), var(--hi); }
+  .combo-pill:hover { transform: translateY(-2px); box-shadow: var(--e2); }
   .combo-pill .pt { font-weight: 700; color: var(--navy); font-size: var(--fs-body); display: flex; align-items: center; gap: 11px; margin-bottom: 4px; letter-spacing: -.012em; }
   .combo-pill .pt .ic { width: 30px; height: 30px; flex: 0 0 30px; border-radius: var(--r-sm); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; }
   .combo-pill .pt .ic svg { width: 16px; height: 16px; }
@@ -669,7 +839,7 @@
     background-image: linear-gradient(120deg, var(--navy), var(--accent-soft));
     color: #fff; border-radius: var(--r); padding: 17px 20px;
     font-weight: 700; font-size: var(--fs-body); letter-spacing: -.012em;
-    display: flex; align-items: center; gap: 11px; box-shadow: var(--e2), var(--hi-d);
+    display: flex; align-items: center; gap: 11px; box-shadow: var(--e2);
   }
   .combo-equals svg { width: 18px; height: 18px; flex: 0 0 18px; }
 
@@ -680,16 +850,16 @@
   .card {
     position: relative; background: #fff;
     border: 1px solid var(--hair); border-radius: var(--r-lg);
-    padding: 26px 24px 24px; box-shadow: var(--e1), var(--hi);
-    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
+    padding: 26px 24px 24px; box-shadow: var(--e1);
+    transition: transform var(--t-std), box-shadow var(--t-std);
     display: flex; flex-direction: column; overflow: hidden;
   }
   .card::before {
     content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--accent), var(--accent-soft));
-    transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+    transform: scaleX(0); transform-origin: left; transition: transform var(--t-std);
   }
-  .card:hover { transform: translateY(-4px); box-shadow: var(--e3), var(--hi); }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--e3); }
   .card:hover::before { transform: scaleX(1); }
   .card .tag {
     display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
@@ -708,9 +878,9 @@
     display: inline-flex; align-items: center; gap: 7px;
     min-height: 44px; font-weight: 600; font-size: var(--fs-sm);
     color: var(--accent); align-self: flex-start;
-    transition: gap .2s var(--ease), color .2s var(--ease);
+    transition: gap var(--t-micro), color var(--t-micro);
   }
-  .view-link svg { width: 15px; height: 15px; transition: transform .2s var(--ease); }
+  .view-link svg { width: 15px; height: 15px; transition: transform var(--t-micro); }
   .view-link:hover { color: var(--navy); gap: 11px; }
   .card:hover .view-link svg { transform: translate(2px,-2px); }
 
@@ -733,12 +903,12 @@
     grid-column: 1 / -1; border: none; color: #fff;
     background-color: var(--field);
     background-image: linear-gradient(135deg, #0d2440 0%, #1F4E79 100%);
-    box-shadow: var(--e2), var(--hi-d);
+    box-shadow: var(--e2);
   }
   .card.flagship-card::before { display: none; }
-  .card.flagship-card:hover { transform: translateY(-3px); box-shadow: var(--e3), var(--hi-d); }
+  .card.flagship-card:hover { transform: translateY(-3px); box-shadow: var(--e3); }
   .flagship-inner { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-  .flagship-badge { width: 60px; height: 60px; border-radius: var(--r); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; flex: 0 0 60px; box-shadow: var(--hi-d); }
+  .flagship-badge { width: 60px; height: 60px; border-radius: var(--r); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; flex: 0 0 60px; box-shadow: var(--e0); }
   .flagship-badge svg { width: 30px; height: 30px; color: #fff; }
   .card.flagship-card h3 { color: #fff; font-size: var(--fs-h2-minor); margin-bottom: 8px; letter-spacing: -.024em; }
   .card.flagship-card p { color: var(--on-dark); font-size: var(--fs-body); margin-bottom: 0; max-width: 74ch; }
@@ -758,12 +928,12 @@
   .receipt {
     position: relative; background: #fff;
     border: 1px solid var(--hair); border-radius: var(--r-lg);
-    padding: 26px 26px 24px; box-shadow: var(--e1), var(--hi);
-    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
+    padding: 26px 26px 24px; box-shadow: var(--e1);
+    transition: transform var(--t-std), box-shadow var(--t-std);
     overflow: hidden;
   }
   .receipt::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent-soft)); }
-  .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3), var(--hi); }
+  .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3); }
   .receipt .r-label {
     font-size: var(--fs-micro); font-weight: 700; letter-spacing: .085em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 12px; display: flex; align-items: flex-start; gap: 9px; line-height: 1.45;
@@ -775,7 +945,7 @@
     grid-column: 1 / -1; border: none; color: #fff;
     background-color: var(--field);
     background-image: linear-gradient(135deg, #0d2440 0%, #1F4E79 100%);
-    box-shadow: var(--e2), var(--hi-d);
+    box-shadow: var(--e2);
   }
   .receipt.r-hero::after { background: var(--green-bright); width: 3px; }
   .receipt.r-hero .r-label { color: var(--green-bright); }
@@ -795,21 +965,21 @@
     border-radius: var(--r-xl); color: #fff;
     background-color: var(--field);
     background-image: linear-gradient(135deg, #0d2440 0%, #1F4E79 100%);
-    box-shadow: var(--e3), var(--hi-d);
-    transition: transform .24s var(--ease), box-shadow .24s var(--ease);
+    box-shadow: var(--e3);
+    transition: transform var(--t-std), box-shadow var(--t-std);
   }
-  .proof-cta:hover { transform: translateY(-3px); box-shadow: var(--e3), 0 44px 90px rgba(13,36,64,.16), var(--hi-d); }
+  .proof-cta:hover { transform: translateY(-3px); box-shadow: var(--e3), 0 44px 90px rgba(13,36,64,.16); }
   .pc-badge {
     width: 58px; height: 58px; flex: 0 0 58px; border-radius: var(--r);
     background: rgba(127,211,166,.16); border: 1px solid rgba(127,211,166,.36);
-    display: grid; place-items: center; box-shadow: var(--hi-d);
+    display: grid; place-items: center; box-shadow: var(--e0);
   }
   .pc-badge svg { width: 28px; height: 28px; color: var(--green-bright); }
   .pc-body { display: block; }
   .pc-kicker { display: block; font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 8px; }
   .pc-title { display: block; font-size: var(--fs-h2-minor); font-weight: 800; letter-spacing: -.024em; line-height: 1.15; margin-bottom: 8px; }
   .pc-copy { display: block; font-size: var(--fs-sm); color: var(--on-dark); max-width: 72ch; text-wrap: pretty; }
-  .pc-go { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: transform .24s var(--ease), background .24s var(--ease); }
+  .pc-go { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: transform var(--t-std), background var(--t-std); }
   .pc-go svg { width: 20px; height: 20px; }
   .proof-cta:hover .pc-go { background: rgba(255,255,255,.2); transform: translateX(3px); }
   @media (max-width: 700px) {
@@ -826,7 +996,7 @@
   .chain {
     display: grid; grid-template-columns: repeat(4, 1fr);
     background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg);
-    overflow: hidden; box-shadow: var(--e2), var(--hi); margin-bottom: 28px;
+    overflow: hidden; box-shadow: var(--e2); margin-bottom: 28px;
   }
   .chain-step { padding: 26px 22px; border-right: 1px solid var(--line); }
   .chain-step:last-child { border-right: none; }
@@ -840,8 +1010,8 @@
      SKILLS / CREDS
      ============================================================ */
   .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .skill-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 26px; box-shadow: var(--e1), var(--hi); transition: transform .22s var(--ease), box-shadow .22s var(--ease); }
-  .skill-card:hover { transform: translateY(-3px); box-shadow: var(--e2), var(--hi); }
+  .skill-card { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 26px; box-shadow: var(--e1); transition: transform var(--t-std), box-shadow var(--t-std); }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: var(--e2); }
   .skill-card .sh { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
   .skill-card .sh .si { width: 42px; height: 42px; border-radius: var(--r); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; flex: 0 0 42px; }
   .skill-card .sh .si svg { width: 21px; height: 21px; }
@@ -850,7 +1020,7 @@
   .chip { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); background: var(--bg-soft); border: 1px solid var(--line); padding: 7px 13px; border-radius: var(--r-pill); }
 
   .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: stretch; }
-  .panel { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 30px; box-shadow: var(--e1), var(--hi); }
+  .panel { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 30px; box-shadow: var(--e1); }
   .panel h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 11px; letter-spacing: -.018em; }
   .panel h3 svg { width: 21px; height: 21px; color: var(--accent); }
   .cert-group { margin-bottom: 22px; }
@@ -872,7 +1042,10 @@
     background-image:
       radial-gradient(900px 520px at 82% -25%, rgba(47,110,178,.38), transparent 62%),
       linear-gradient(150deg, #081726 0%, #0d2440 52%, #123153 100%);
-    color: #fff; padding: clamp(70px,8vw,104px) 0 44px; text-align: center;
+    /* 70/44 was an asymmetry nothing asked for — the footer sat off the
+       page's own vertical rhythm at both ends. Symmetric, and snapped to the
+       76px base step. */
+    color: #fff; padding: clamp(76px,8vw,104px) 0; text-align: center;
   }
   .footer h2 { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em; line-height: 1.06; margin-bottom: 16px; text-wrap: balance; }
   .footer .sub { color: var(--on-dark); font-size: var(--fs-lead); margin: 0 auto 32px; max-width: 58ch; text-wrap: pretty; }
@@ -882,18 +1055,19 @@
     font-size: var(--fs-sm); color: var(--on-dark);
     padding-top: 30px; border-top: 1px solid rgba(255,255,255,.14);
   }
-  .contact-line a { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 8px; border-radius: var(--r-sm); transition: color .18s var(--ease), background .18s var(--ease); }
+  .contact-line a { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; padding: 0 8px; border-radius: var(--r-sm); transition: color var(--t-micro), background var(--t-micro); }
   .contact-line a:hover { color: #fff; background: rgba(255,255,255,.08); }
   .contact-line svg { width: 16px; height: 16px; opacity: .85; }
-  .copyright { margin-top: 24px; font-size: var(--fs-xs); color: #bcd2e8; }
+  .copyright { margin-top: 24px; font-size: var(--fs-xs); color: var(--on-dark-3); }
 
   /* ============================================================
      RESPONSIVE
      ============================================================ */
   @media (max-width: 940px) {
-    .metric-grid { grid-template-columns: repeat(3, 1fr); }
-    .metric:nth-child(3n) { border-right: none; }
-    .metric:nth-child(-n+3) { border-bottom: 1px solid rgba(255,255,255,.12); }
+    /* two, not three: four tiles in three columns leaves an orphan row */
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric:nth-child(2n) { border-right: none; }
+    .metric:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.12); }
     .combo { grid-template-columns: 1fr; gap: 32px; }
     .card-grid { grid-template-columns: repeat(2, 1fr); }
     .chain { grid-template-columns: repeat(2, 1fr); }
@@ -903,20 +1077,66 @@
   }
   @media (max-width: 640px) {
     :root { --nav-h: 58px; }
-    .hero .headline { max-width: none; }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); }
-    .metric { border-right: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
-    .metric:nth-child(2n) { border-right: none; }
-    .metric:nth-child(n) { border-bottom: 1px solid rgba(255,255,255,.12); }
+    .hero .h1-claim { max-width: none; }
+    .hero .value { max-width: none; }
+    .metric { padding: 24px 14px; }
     .card-grid { grid-template-columns: 1fr; }
     .receipts-grid { grid-template-columns: 1fr; }
+    /* The stepper used to stack as four 211px blocks — 845px of phone to say
+       four short things, with a 38px icon and a big number each getting their
+       own line. Same four steps, same copy, laid out as rows instead of
+       cards: the icon spans the row on the left and the sequence number sits
+       inline above the title. No width math, so it cannot collapse. */
     .chain { grid-template-columns: 1fr; }
-    .chain-step { border-right: none; border-bottom: 1px solid var(--line); }
+    .chain-step {
+      border-right: none; border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 38px 1fr; gap: 3px 14px;
+      padding: 16px 18px;
+    }
     .chain-step:last-child { border-bottom: none; }
+    .chain-step .cs-ic { grid-column: 1; grid-row: 1 / span 3; margin-bottom: 0; }
+    .chain-step .cs-num { grid-column: 2; margin-bottom: 0; }
+    .chain-step h4 { grid-column: 2; margin-bottom: 0; }
+    .chain-step p { grid-column: 2; }
     .skills-grid { grid-template-columns: 1fr; }
     .flagship-inner { grid-template-columns: 1fr; }
     .cta-row .btn { flex: 1 1 auto; }
     .panel { padding: 24px 20px; }
+
+    /* ---- PHONE DENSITY --------------------------------------------------
+       Nothing here hides, moves or shortens content. It is padding and gaps
+       only — the components were spaced for a 1140px canvas and were being
+       served, unchanged, to a 375px one, where the same 26-30px of interior
+       air reads as a component that will not end. */
+    .hero-inner { padding-top: calc(var(--nav-h) + 34px); padding-bottom: 48px; }
+    .hero h1 { margin-bottom: 18px; }
+    .hero .h1-name { margin-bottom: 10px; }
+    .hero-stat { margin-bottom: 18px; padding: 16px 18px; }
+    .hero .value { margin-bottom: 18px; }
+    .location { margin-bottom: 20px; }
+    .hero-trust { margin-top: 22px; padding-top: 18px; gap: 8px 20px; }
+    .combo-pill { padding: 14px 16px; }
+    .combo-pill .pd { padding-left: 0; }
+    .receipt { padding: 20px 20px 18px; }
+    .card { padding: 20px 18px 18px; }
+    .skill-card { padding: 20px 18px; }
+    .fold > summary { padding: 12px 16px; min-height: 60px; }
+    .fold-body { padding: 18px 16px 20px; }
+    .sub-head { margin: 30px 0 16px; }
+    .sec-head { margin-bottom: 24px; }
+    .sec-head.t3 { margin-bottom: 18px; }
+    .kicker { margin-bottom: 10px; }
+    .sec-head p { margin-top: 12px; }
+    .combo { gap: 24px; }
+    .combo-visual { gap: 8px; }
+    .receipts-grid { gap: 14px; }
+    .card-grid { gap: 14px; }
+    .skills-grid { gap: 14px; }
+    .duel { padding: 18px 16px; margin-bottom: 16px; }
+    #duel { padding: 20px 17px; margin-bottom: 18px; }
+    .proof-cta { padding: 20px 18px; }
+    .footer-cta { margin-bottom: 28px; }
+    .contact-line { padding-top: 22px; }
   }
 
   /* ============================================================
@@ -941,7 +1161,7 @@
 
   html.motion :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console) {
     opacity: 0; transform: translateY(14px);
-    transition: opacity .62s var(--ease), transform .62s var(--ease);
+    transition: opacity var(--t-std), transform var(--t-std);
   }
   html.motion :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console).rv-in {
     opacity: 1; transform: none;
@@ -949,14 +1169,23 @@
   /* Content inside a disclosure is revealed by the disclosure itself. A
      scroll observer can never fire on a display:none element, so anything
      in a closed <details> would otherwise sit at opacity:0 until the
-     .settled timer bailed it out. The disclosure IS the interaction. */
-  html.motion .fold :is(.card,.skill-card,.wall-tile,.panel,.sec-head) {
+     .settled timer bailed it out. The disclosure IS the interaction.
+
+     This list must stay a superset of the reveal selector below it. It used
+     to name five classes while the reveal named twelve, which was harmless
+     only because no .receipt, .duel or .combo-pill had ever been put inside
+     a fold. This pass puts six receipts and a duel in one, so the mismatch
+     would have shipped seven invisible elements that only a 2.6s timer
+     rescued. Kept literally identical to the reveal list instead. */
+  html.motion .fold :is(.sec-head,.metric,.card,.receipt,.combo-pill,.chain-step,.skill-card,.wall-tile,.panel,.duel,.gm,.vx-console) {
     opacity: 1; transform: none; transition: none;
   }
+  /* the duel bars are handled at their own declaration site, where the real
+     width is now the default and only the animation is opt-in */
 
   /* the unconditional floor.
      `transition: none` is load-bearing, not tidiness: .metric et al declare
-     `transition: opacity .62s`, and a transition already RUNNING outranks an
+     `transition: opacity var(--t-std)`, and a transition already RUNNING outranks an
      !important end value — the element keeps animating toward the old target
      and can sit at opacity 0 indefinitely. Observed in a persistently hidden
      tab: six hero metric tiles plus 44 other elements stuck invisible after
@@ -985,6 +1214,15 @@
     <a class="nav-mark" href="#top" aria-label="Alex Amaro — back to top">
       <span class="nm-name">Alex Amaro</span>
       <span class="nm-role">Growth · Agentic AI</span>
+      <!-- Phone wayfinding. On a page this long the 2px progress hairline was
+           the ONLY signal of where you were once the desktop nav row
+           collapsed into a hamburger — it tells you how far, never what.
+           This says what. aria-hidden because the semantic answer is already
+           carried by aria-current on the menu links, and announcing a
+           section name on every scroll tick is noise, not help. Empty and
+           display:none until the spy fills it, so if the script never runs
+           the role line simply stays where it is. -->
+      <span class="nm-here" aria-hidden="true"></span>
     </a>
     <!-- every section on the page is reachable from here; six of them used
          to be unlinked, which on a page this long meant unreachable -->
@@ -996,7 +1234,6 @@
       <a href="#proof">Receipts</a>
       <a href="#growth-math">Growth math</a>
       <a href="#more">More work</a>
-      <a href="#creds">Credentials</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-proof" href="./proof.html">
@@ -1017,7 +1254,6 @@
           <a href="#proof">Receipts</a>
           <a href="#growth-math">Growth math</a>
           <a href="#more">More work</a>
-          <a href="#creds">Credentials</a>
           <hr>
           <a href="./proof.html">The Proof Room</a>
           <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
@@ -1035,9 +1271,24 @@
 <section class="hero" id="top" data-nav-dark>
   <div class="wrap hero-inner">
     <span class="eyebrow"><span class="dot"></span>Growth &amp; Lead-Gen Marketer · Agentic-AI Builder · Full-Funnel CRO</span>
-    <h1>Alex Amaro<span class="sr-only"> — Lead-Gen Marketer who builds the agentic-AI systems behind the funnel</span></h1>
-    <div class="headline">I <span class="hl">run the ads</span>, build the <span class="hl">agentic-AI systems</span> that scale them, and own the <span class="hl">full funnel</span> that converts — all three, in one operator.</div>
-    <p class="value">Growth marketer and agentic-AI builder. <strong>$225K+ in Meta/IG spend across 14+ accounts</strong>, leads at <strong>$4–22 CPL per campaign</strong>, and the GoHighLevel automations, AI receptionists, and full-funnel conversion work — copy, lead forms, CRO — that turn those leads into booked appointments. Most teams hire three people for this. I'm the one who does all three — <strong>bilingual EN/ES, remote-US, receipts attached.</strong></p>
+    <h1>
+      <span class="h1-name">Alex Amaro</span>
+      <span class="h1-claim">I <span class="hl">run the ads</span>, build the <span class="hl">agentic-AI systems</span> that scale them, and own the <span class="hl">full funnel</span>.</span>
+    </h1>
+    <a class="hero-stat" href="#proof">
+      <span class="hs-fig">
+        <span class="hs-num">9.5&times;</span>
+        <span class="hs-unit">the leads</span>
+      </span>
+      <span class="hs-body">
+        <span class="hs-line">Same client, same ad account, head-to-head against the incumbent national agency:
+          <strong>114 leads at $12.59</strong> against their <strong>12 at $49.81</strong>.</span>
+        <span class="hs-cue">See the head-to-head
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </span>
+    </a>
+    <p class="value"><strong>$225K+ in Meta spend across 14+ accounts</strong>, at <strong>$4–22 CPL per campaign</strong>. Most teams hire three people for this — I'm the one who does all three.</p>
     <div class="location">
       <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Remote · United States
@@ -1078,13 +1329,17 @@
 <!-- ============ METRIC STRIP ============ -->
 <section class="metrics" aria-label="Impact metrics">
   <div class="wrap">
+    <!-- Six tiles of identical weight meant none of them won. Four now, one
+         of them primary — and nothing was deleted from the page: the ~75%
+         head-to-head moved UP into the hero stat (and still anchors the
+         exhibit), and the ~120-in-3-months figure still carries its own
+         receipt below. This strip is the portfolio-SCALE evidence, which
+         is the one thing the hero does not already say. -->
     <div class="metric-grid">
-      <div class="metric"><div class="num">~75%</div><div class="lbl">Lower CPL vs incumbent agency — same account</div></div>
-      <div class="metric"><div class="num">6,250+</div><div class="lbl">Qualified leads generated</div></div>
+      <div class="metric primary"><div class="num">6,250+</div><div class="lbl">Qualified leads generated — counted account by account</div></div>
+      <div class="metric"><div class="num">$225K+</div><div class="lbl">Meta ad spend managed across 14+ accounts</div></div>
       <div class="metric"><div class="num">$4–22</div><div class="lbl">Cost per lead — quoted per campaign</div></div>
       <div class="metric"><div class="num">70</div><div class="lbl">Booked appointments in a 30-day window</div></div>
-      <div class="metric"><div class="num">~120</div><div class="lbl">Booked appointments in ~3 months</div></div>
-      <div class="metric"><div class="num">$225K+</div><div class="lbl">Meta ad spend managed across 14+ accounts</div></div>
     </div>
   </div>
 </section>
@@ -1100,23 +1355,23 @@
       radial-gradient(900px 480px at 82% -10%, rgba(31,78,121,.55), transparent 62%),
       radial-gradient(700px 420px at 8% 110%, rgba(26,143,95,.20), transparent 60%),
       linear-gradient(168deg,#0a1a2e 0%,#0d2440 55%,#0a1a2e 100%);
-    color:#eaf2fb; overflow:hidden;
+    color:var(--on-dark); overflow:hidden;
   }
   #gen-creative .kicker{color:var(--green-bright);}
   #gen-creative .sec-title{color:#fff;}
-  #gen-creative .sec-head p{color:#b8cbe0;}
+  #gen-creative .sec-head p{color:var(--on-dark-2);}
   .gc-lede{max-width:62ch;}
   .gc-rule{height:1px;border:0;margin:clamp(36px,4vw,54px) 0 30px;
     background:linear-gradient(90deg,rgba(255,255,255,.22),rgba(255,255,255,.02));}
   .gc-eyebrow{font-size:var(--fs-micro);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
     color:var(--green-bright);margin-bottom:8px;}
-  .gc-eyebrow-sub{font-size:var(--fs-sm);color:#b8cbe0;margin:0 0 22px;max-width:64ch;}
+  .gc-eyebrow-sub{font-size:var(--fs-sm);color:var(--on-dark-2);margin:0 0 22px;max-width:64ch;}
 
   .gc-pairs{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
   .gc-pair{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
     border-radius:var(--r-lg);padding:18px 18px 16px;}
   .gc-pair h4{margin:0 0 4px;font-size:var(--fs-body);color:#fff;letter-spacing:-.015em;}
-  .gc-pair .gc-var{font-size:var(--fs-xs);color:#b0c6dd;margin:0 0 14px;}
+  .gc-pair .gc-var{font-size:var(--fs-xs);color:var(--on-dark-3);margin:0 0 14px;}
   .gc-duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
   .gc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;}
@@ -1126,7 +1381,11 @@
      Doubled class so the narrow-screen .gc-grid rule below can't shrink these to
      two cramped columns; stacked full-width reads better than side-by-side thumbs. */
   .gc-grid.gc-assembly{grid-template-columns:repeat(2,minmax(0,268px));}
-  @media (max-width:640px){ .gc-grid.gc-assembly{grid-template-columns:minmax(0,300px);} }
+  /* 232px, not 300px: a 9:16 tile at 300px stands 533px tall, so the pair
+     alone cost 1,079px of phone — more than the whole hero. At 232px each
+     tile is 412px, still a full-bleed vertical video on a 375px screen, and
+     the pair reads as a pair without a scroll between them. */
+  @media (max-width:640px){ .gc-grid.gc-assembly{grid-template-columns:minmax(0,232px);} }
 
   /* Static client creatives — square-ish paid-social ratio, quiet frame, work does the talking. */
   /* align-items:start so each figure hugs its creative's real height. Each of
@@ -1134,10 +1393,10 @@
      1:1), so rows still line up — they just line up at the ad's OWN ratio. */
   .gc-static-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:16px;align-items:start;}
   .gc-shot{margin:0;border-radius:var(--r);overflow:hidden;background:#08121f;
-    border:1px solid rgba(255,255,255,.12);box-shadow:var(--e2-d),var(--hi-d);
-    transition:transform .35s var(--ease),border-color .35s ease,box-shadow .35s ease;}
+    border:1px solid rgba(255,255,255,.12);box-shadow:var(--e2);
+    transition:transform var(--t-std),border-color var(--t-std),box-shadow var(--t-std);}
   .gc-shot:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.34);
-    box-shadow:var(--e3-d),var(--hi-d);}
+    box-shadow:var(--e3);}
   /* No forced ratio and no `cover`. This box used to be hard-set to 4:5 with
      object-fit:cover, which silently cut ~20% off every 1:1 med-spa creative —
      and the bottom is exactly where the offer and CTA live. On a page selling
@@ -1146,18 +1405,25 @@
      reserves the right space and CLS stays 0. */
   .gc-shot img{width:100%;height:auto;display:block;}
   @media (max-width:560px){ .gc-static-grid{grid-template-columns:repeat(auto-fill,minmax(146px,1fr));gap:12px;} }
+  /* The eight-hook matrix goes to three columns on a phone. The claim this
+     grid makes is "one offer, eight ways in, one design system" — and that
+     claim is legible at thumbnail scale, which is also the scale a media
+     buyer actually reviews a test matrix at. Two columns cost 842px to say
+     it. Nothing is cropped: the tiles keep their own 4:5 ratio, and the
+     desktop review size is untouched. */
+  @media (max-width:430px){ .gc-static-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;} }
   @media (prefers-reduced-motion:reduce){ .gc-shot,.gc-shot:hover{transform:none;transition:none;} }
 
   .gc-tile{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:9/16;
     background:#08121f;border:1px solid rgba(255,255,255,.12);cursor:pointer;
-    box-shadow:var(--e2-d),var(--hi-d);
-    transition:opacity .7s var(--ease),transform .7s var(--ease),
+    box-shadow:var(--e2);
+    transition:opacity var(--t-std),transform var(--t-std),
                box-shadow .35s ease,border-color .35s ease;}
   /* gated on html.motion, which only JavaScript adds: with scripting off
      these tiles must never be the one thing on the page that stays invisible */
   html.motion .gc-tile{opacity:0;transform:translateY(22px);}
   .gc-tile.in{opacity:1;transform:none;}
-  .gc-tile:hover{box-shadow:var(--e3-d),var(--hi-d);border-color:rgba(255,255,255,.34);}
+  .gc-tile:hover{box-shadow:var(--e3);border-color:rgba(255,255,255,.34);}
   .gc-tile video,.gc-tile img{width:100%;height:100%;object-fit:cover;display:block;}
   .gc-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 11px 10px;
     font-size:var(--fs-xs);font-weight:600;color:#fff;line-height:1.3;
@@ -1171,12 +1437,14 @@
     display:grid;place-items:center;background:rgba(4,12,22,.68);border:1px solid rgba(255,255,255,.26);
     color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);}
   .gc-sound svg{width:18px;height:18px;}
-  .gc-note{margin-top:30px;font-size:var(--fs-sm);color:#a9c0d8;max-width:74ch;}
-  .gc-note b{color:#cfe0f2;}
+  .gc-note{margin-top:30px;font-size:var(--fs-sm);color:var(--on-dark-3);max-width:74ch;}
+  .gc-note b{color:var(--on-dark);}
   /* Inline link in running prose: padding lifts the real hit box to 44px,
      the matching negative margin cancels its effect on the line box, so the
      paragraph sets exactly as before. */
-  .gc-note a{color:var(--green-bright);display:inline-block;padding:12.5px 6px;margin:-12.5px -6px;border-radius:var(--r-sm);}
+  /* underlined, not colour-only: an inline link in running prose has to be
+     distinguishable without relying on hue */
+  .gc-note a{color:var(--green-bright);display:inline-block;padding:12.5px 6px;margin:-12.5px -6px;border-radius:var(--r-sm);text-decoration:underline;text-underline-offset:3px;}
   .gc-note a:hover{background:rgba(127,211,166,.12);}
   @media (max-width:560px){
     .gc-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
@@ -1195,8 +1463,8 @@
      box with object-fit:cover, which cut 20% off the square and 29.5% off the
      vertical. The tile now takes its height from the creative, so each ad is
      shown whole and the wall reads as the real mix of placements it is. */
-  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; box-shadow: var(--e2-d), var(--hi-d); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
-  .wall-tile img { width: 100%; height: auto; display: block; transition: transform .5s var(--ease); }
+  .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; box-shadow: var(--e2); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
+  .wall-tile img { width: 100%; height: auto; display: block; transition: transform var(--t-std); }
   .wall-tile:hover img { transform: scale(1.04); }
   .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .01em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
   @media (prefers-reduced-motion: reduce) { .wall-tile img, .wall-tile:hover img { transform: none; transition: none; } }
@@ -1207,29 +1475,25 @@
     <div class="sec-head">
       <div class="kicker">Generative AI · Ad Creative</div>
       <h2 class="sec-title" id="gc-title">Full ad production and media management.</h2>
-      <p class="gc-lede">Most performance marketers brief creative and wait on it; most creatives never touch
-        the media buy. That split made sense when targeting was the lever, but the algorithm handles targeting
-        now — <b>the creative <em>is</em> the lever</b>, which makes producing it and buying against it one job
-        rather than two. I generate the work myself, at volume, and have it in-market the same week. Below is a
-        live campaign for our own AI receptionist offer, aimed at aesthetic clinics.</p>
+      <p class="gc-lede">Targeting used to be the lever; the algorithm handles that now — <b>the creative <em>is</em> the
+        lever</b>, which makes producing it and buying against it one job rather than two. I generate the work
+        myself, at volume, and have it in-market the same week.</p>
     </div>
 
     <hr class="gc-rule">
     <div class="gc-eyebrow">One offer, eight hooks — a real test matrix</div>
-    <p class="gc-eyebrow-sub">A $49 screening offer for a chiropractic client, built as eight competing hooks
-      against one landing offer. Same promise, same design system, eight different ways in — so the winner is
-      decided by the market instead of by my taste. This is what creative testing actually looks like when the
-      person making the ads is also the person buying the media.</p>
+    <p class="gc-eyebrow-sub">A $49 screening offer for a chiropractic client: same promise, same design system,
+      eight different ways in — so the winner is decided by the market instead of by my taste.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 1"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 2"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 3"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 4"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 5"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 6"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 7"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 8"></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-01-320.webp 320w, ./assets/creative-static/chiro-knee-pain-01-480.webp 480w, ./assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 1"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-02-320.webp 320w, ./assets/creative-static/chiro-knee-pain-02-480.webp 480w, ./assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 2"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-03-320.webp 320w, ./assets/creative-static/chiro-knee-pain-03-480.webp 480w, ./assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 3"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-04-320.webp 320w, ./assets/creative-static/chiro-knee-pain-04-480.webp 480w, ./assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 4"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-05-320.webp 320w, ./assets/creative-static/chiro-knee-pain-05-480.webp 480w, ./assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 5"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-06-320.webp 320w, ./assets/creative-static/chiro-knee-pain-06-480.webp 480w, ./assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 6"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-07-320.webp 320w, ./assets/creative-static/chiro-knee-pain-07-480.webp 480w, ./assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 7"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-08-320.webp 320w, ./assets/creative-static/chiro-knee-pain-08-480.webp 480w, ./assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" alt="Chiropractic knee-pain screening offer, hook variant 8"></picture></figure>
     </div>
 
     <hr class="gc-rule">
@@ -1244,38 +1508,37 @@
       bought, not to win a design award. Client names and any identifying detail are stripped.</p>
 
     <div class="gc-static-grid">
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></figure>
-      <figure class="gc-shot"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" alt="Weight-loss programme offer creative"></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-body-contouring-01-320.webp 320w, ./assets/creative-static/medspa-body-contouring-01-480.webp 480w, ./assets/creative-static/medspa-body-contouring-01-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-body-contouring-02-320.webp 320w, ./assets/creative-static/medspa-body-contouring-02-480.webp 480w, ./assets/creative-static/medspa-body-contouring-02-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-body-contouring-03-320.webp 320w, ./assets/creative-static/medspa-body-contouring-03-480.webp 480w, ./assets/creative-static/medspa-body-contouring-03-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-body-contouring-04-320.webp 320w, ./assets/creative-static/medspa-body-contouring-04-480.webp 480w, ./assets/creative-static/medspa-body-contouring-04-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" alt="Body-contouring offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-laser-01-320.webp 320w, ./assets/creative-static/medspa-laser-01-480.webp 480w, ./assets/creative-static/medspa-laser-01-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-laser-02-320.webp 320w, ./assets/creative-static/medspa-laser-02-480.webp 480w, ./assets/creative-static/medspa-laser-02-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-laser-03-320.webp 320w, ./assets/creative-static/medspa-laser-03-480.webp 480w, ./assets/creative-static/medspa-laser-03-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-laser-04-320.webp 320w, ./assets/creative-static/medspa-laser-04-480.webp 480w, ./assets/creative-static/medspa-laser-04-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-laser-05-320.webp 320w, ./assets/creative-static/medspa-laser-05-480.webp 480w, ./assets/creative-static/medspa-laser-05-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" alt="Laser treatment offer creative"></picture></figure>
+      <figure class="gc-shot"><picture><source type="image/webp" srcset="./assets/creative-static/medspa-weight-loss-01-320.webp 320w, ./assets/creative-static/medspa-weight-loss-01-480.webp 480w, ./assets/creative-static/medspa-weight-loss-01-720.webp 720w" sizes="(max-width: 640px) 33vw, 210px"><img loading="lazy" decoding="async" src="./assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" alt="Weight-loss programme offer creative"></picture></figure>
     </div>
 
     <p class="gc-eyebrow-sub" style="margin:26px 0 14px">And a slice of the wider library — chiropractic, med spa, weight-loss and
       local-service brands, concept through hook through design. Clients anonymized.</p>
     <div class="wall-grid">
-      <div class="wall-tile"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · knee-pain</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Med spa · clearer skin</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="1080" height="1080" decoding="async" loading="lazy"><span class="wall-cap">Med spa · acne laser</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Weight-loss · animated</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="1080" height="1350" decoding="async" loading="lazy"><span class="wall-cap">Med spa · Meta variation</span></div>
-      <div class="wall-tile"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="1080" height="1920" decoding="async" loading="lazy"><span class="wall-cap">Chiropractic · 3D animation</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/careline-320.webp 320w, ./assets/creatives/careline-480.webp 480w, ./assets/creatives/careline-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/careline.jpg" alt="CareLine AI auto-styling ad creative" width="1080" height="1350" decoding="async" loading="lazy"></picture><span class="wall-cap">CareLine AI · auto-styling (own brand)</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/knee-pain-320.webp 320w, ./assets/creatives/knee-pain-480.webp 480w, ./assets/creatives/knee-pain-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/knee-pain.jpg" alt="Chiropractic knee-pain Meta ad creative" width="1080" height="1350" decoding="async" loading="lazy"></picture><span class="wall-cap">Chiropractic · knee-pain</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/clearer-skin-320.webp 320w, ./assets/creatives/clearer-skin-480.webp 480w, ./assets/creatives/clearer-skin-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/clearer-skin.jpg" alt="Med spa skin treatment ad creative" width="1080" height="1350" decoding="async" loading="lazy"></picture><span class="wall-cap">Med spa · clearer skin</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/acne-laser-320.webp 320w, ./assets/creatives/acne-laser-480.webp 480w, ./assets/creatives/acne-laser-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/acne-laser.jpg" alt="Med spa acne laser ad creative" width="1080" height="1080" decoding="async" loading="lazy"></picture><span class="wall-cap">Med spa · acne laser</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/weight-loss-320.webp 320w, ./assets/creatives/weight-loss-480.webp 480w, ./assets/creatives/weight-loss-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/weight-loss.jpg" alt="Weight-loss animated ad creative" width="1080" height="1350" decoding="async" loading="lazy"></picture><span class="wall-cap">Weight-loss · animated</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/meta-variation-320.webp 320w, ./assets/creatives/meta-variation-480.webp 480w, ./assets/creatives/meta-variation-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/meta-variation.jpg" alt="Med spa Meta ad variation" width="1080" height="1350" decoding="async" loading="lazy"></picture><span class="wall-cap">Med spa · Meta variation</span></div>
+      <div class="wall-tile"><picture><source type="image/webp" srcset="./assets/creatives/knee-animation-320.webp 320w, ./assets/creatives/knee-animation-480.webp 480w, ./assets/creatives/knee-animation-720.webp 720w" sizes="(max-width: 560px) 43vw, 175px"><img src="./assets/creatives/knee-animation.jpg" alt="Chiropractic 3D animation ad" width="1080" height="1920" decoding="async" loading="lazy"></picture><span class="wall-cap">Chiropractic · 3D animation</span></div>
     </div>
       </div>
     </details>
 
     <hr class="gc-rule">
     <div class="gc-eyebrow">And now the same job, generated</div>
-    <p class="gc-eyebrow-sub">The newest addition to the stack: UGC-style ads generated and directed rather
-      than filmed. A hook on its own is a <em>component</em> — it stops the scroll and then asks for nothing.
-      A direct-response ad is that hook plus the end card that carries the promise and the CTA. So here is
-      the component, and here is the finished unit it builds into.</p>
+    <p class="gc-eyebrow-sub">UGC-style ads generated and directed rather than filmed. A hook on its own is a
+      <em>component</em>; a direct-response ad is that hook plus the end card carrying the promise and the CTA.
+      Here is the component, and here is the finished unit it builds into.</p>
 
     <div class="gc-grid gc-assembly">
       <figure class="gc-tile" data-src="./assets/creative/ai-01-frontdesk-walk.mp4" data-poster="./assets/creative/ai-01-frontdesk-walk.jpg">
@@ -1287,17 +1550,11 @@
     </div>
 
     <p class="gc-note" style="margin-top:18px"><b>The end card is deliberately claim-free.</b> Brand, promise,
-      CTA — and not one number, because a figure printed into an ad has to trace to a sourced figure before it
-      runs, and that sourcing is a separate job from the craft. The hook is the cut I signed off on; the card
-      is my own build, standing in until the designer's final art lands.</p>
-
-    <p class="gc-note"><b>Craft, not a performance claim.</b> These are shown as creative work — you won't
-      find a CPL or a ROAS bolted onto any of them here, because a creative isn't a result. The numbers I've
-      earned live in <a href="./proof.html" style="color:#7fd3a6;text-decoration:underline">The Proof Room</a>,
-      where every one names its source and its verification status.
-      <br><br><b>And nothing identifying ships.</b> Creatives carrying staff faces, name badges, clinic
-      signage or client logos are held back — no client here signed a release for my portfolio, so they don't
-      appear in it.</p>
+      CTA — no number, because a figure printed into an ad has to trace to a sourced figure before it runs.
+      <b>Craft, not a performance claim:</b> no CPL or ROAS is bolted onto any creative here, because a
+      creative isn't a result — the numbers live in
+      <a href="./proof.html">The Proof Room</a>. <b>And nothing identifying ships</b> — staff faces, name
+      badges, clinic signage and client logos are held back, because no client here signed a release.</p>
   </div>
 </section>
 <script>
@@ -1406,36 +1663,45 @@
   #voice .kicker { color:var(--green-bright); }
   #voice .sec-title { color:#fff; }
   #voice .sec-head p { color:var(--on-dark); }
-  .vx-console { display:grid; grid-template-columns:1.15fr 1fr; gap:34px; align-items:center; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-xl); padding:clamp(24px,3.4vw,38px); margin-top:6px; box-shadow:var(--e3), var(--hi-d); }
+  .vx-console { display:grid; grid-template-columns:1.15fr 1fr; gap:34px; align-items:center; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-xl); padding:clamp(24px,3.4vw,38px); margin-top:6px; box-shadow:var(--e3); }
   .vx-left h3 { font-size:var(--fs-h2-minor); font-weight:800; margin-bottom:10px; letter-spacing:-.025em; }
   .vx-left p { color:var(--on-dark-2); font-size:var(--fs-body); margin-bottom:18px; max-width:52ch; }
   .vx-feats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .vx-feat { font-size:var(--fs-xs); font-weight:600; color:#c9dcf1; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:7px 13px; border-radius: var(--r-pill); }
+  .vx-feat { font-size:var(--fs-xs); font-weight:600; color:var(--on-dark-2); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:7px 13px; border-radius: var(--r-pill); }
   .vx-right { display:flex; flex-direction:column; align-items:center; text-align:center; gap:15px; }
   .vx-orb { position:relative; width:130px; height:130px; }
   /* Was a mint-green orb with a mint glow. Mint is the verification colour on
      this site, so a live-demo button borrowing it diluted the one signal that
      has to stay unambiguous. It is the brand blue now, and the only green left
      anywhere is a verification mark. */
-  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#3574b0; background-image:linear-gradient(145deg,#3574b0,#1f4e79); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:800; font-size:var(--fs-xs); box-shadow:var(--e2-d); transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
-  .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:var(--e3-d); }
+  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#3574b0; background-image:linear-gradient(145deg,#3574b0,#1f4e79); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:800; font-size:var(--fs-xs); box-shadow:var(--e2); transition:transform var(--t-std), box-shadow var(--t-std); }
+  .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:var(--e3); }
   .vx-call svg { width:30px; height:30px; }
   html.motion .vx-orb::before, html.motion .vx-orb::after { content:""; position:absolute; inset:0; border-radius:50%; background:rgba(111,189,240,.30); animation:vxPulse 2.6s ease-out infinite; z-index:1; }
   html.motion .vx-orb::after { animation-delay:1.3s; }
   @keyframes vxPulse { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.85);opacity:0} }
   @media (prefers-reduced-motion:reduce){ html.motion .vx-orb::before, html.motion .vx-orb::after { animation:none; opacity:0; } }
   .vx-sub { font-size:var(--fs-sm); color:var(--on-dark-2); }
-  .vx-sub a { display:inline-flex; align-items:center; min-height:44px; color:#fff; font-weight:700; border-bottom:1px solid rgba(255,255,255,.4); }
+  .vx-sub a { display:inline-flex; align-items:center; gap:7px; min-height:44px; color:#fff; font-weight:700; border-bottom:1px solid rgba(255,255,255,.4); }
   .vx-note { font-size:var(--fs-micro); color:var(--on-dark-3); max-width:290px; line-height:1.55; }
   #vx-widget:not(:empty) { margin-top:6px; }
   @media (max-width:760px){ .vx-console{ grid-template-columns:1fr; gap:26px; text-align:center; } .vx-feats{ justify-content:center; } .vx-left p{ margin-left:auto; margin-right:auto; max-width:520px; } }
+  @media (max-width:640px){
+    .vx-console{ padding:20px 16px; gap:20px; }
+    .vx-left p{ margin-bottom:14px; }
+    .vx-feats{ margin-bottom:0; }
+    /* 108px still clears the 44px floor by 2.5x */
+    .vx-orb, .vx-call{ width:108px; height:108px; }
+    .vx-call svg{ width:26px; height:26px; }
+    .vx-right{ gap:12px; }
+  }
 </style>
 <section class="block" id="voice" data-nav-dark>
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Live Demo · Voice AI</div>
       <h2 class="sec-title">Hear an AI agent I built take a real call.</h2>
-      <p>The same <strong>AI voice receptionist</strong> I build and run paid campaigns for — it answers the phone, qualifies the lead, handles the questions, and books the appointment, 24/7. Grab a slot and I'll put it on a live call with you, unscripted. You ask it whatever you'd ask a receptionist.</p>
+      <p>The same <strong>AI voice receptionist</strong> I build and run paid campaigns for — it answers, qualifies the lead, and books the appointment, 24/7. Grab a slot and I'll put it on a live, unscripted call with you.</p>
     </div>
     <div class="vx-console">
       <div class="vx-left">
@@ -1477,23 +1743,47 @@
   var CAL='https://calendly.com/alexelamaro/clarity-session';
   var hasWidget = !!(VOICE.provider && VOICE.publicKey && VOICE.assistantId);
   var hasPhone = !!VOICE.phone;
-  function mkLink(href, text, blank){ var a=document.createElement('a'); a.href=href; a.textContent=text; if(blank){ a.target='_blank'; a.rel='noopener'; } return a; }
+  /* The last text arrows on the page. U+2192 sits outside the Inter subset
+     this site ships, so every "→" rendered from whatever the system font
+     happened to be — a different weight, a different baseline and a
+     different width on every platform, inside the one element that is
+     asking for the click. Built as the same 24x24 stroke-2 chevron the
+     other 54 icons use, with DOM methods only (no innerHTML anywhere). */
+  var SVGNS='http://www.w3.org/2000/svg';
+  function chevron(){
+    var s=document.createElementNS(SVGNS,'svg');
+    s.setAttribute('viewBox','0 0 24 24'); s.setAttribute('fill','none');
+    s.setAttribute('stroke','currentColor'); s.setAttribute('stroke-width','2');
+    s.setAttribute('stroke-linecap','round'); s.setAttribute('stroke-linejoin','round');
+    s.setAttribute('width','15'); s.setAttribute('height','15');
+    s.setAttribute('aria-hidden','true'); s.setAttribute('focusable','false');
+    var p=document.createElementNS(SVGNS,'path');
+    p.setAttribute('d','M5 12h14M13 6l6 6-6 6');
+    s.appendChild(p);
+    return s;
+  }
+  function mkLink(href, text, blank){
+    var a=document.createElement('a'); a.href=href; a.textContent=text;
+    a.appendChild(chevron());
+    if(blank){ a.target='_blank'; a.rel='noopener'; }
+    return a;
+  }
   function txt(t){ return document.createTextNode(t); }
 
   if(hasWidget){
     label.textContent='Tap to talk';
     var started=false;
     btn.addEventListener('click', function(){ if(started) return; started=true; label.textContent='Connecting…'; loadWidget(VOICE); });
-    if(hasPhone){ sub.appendChild(txt('Prefer the phone? ')); sub.appendChild(mkLink('tel:'+VOICE.phone,'Call it directly →',false)); }
+    if(hasPhone){ sub.appendChild(txt('Prefer the phone? ')); sub.appendChild(mkLink('tel:'+VOICE.phone,'Call it directly',false)); }
   } else if(hasPhone){
     label.textContent='Call it now';
     btn.addEventListener('click', function(){ window.location.href='tel:'+VOICE.phone; });
-    sub.appendChild(mkLink('tel:'+VOICE.phone,'Call the agent →',false)); sub.appendChild(txt(' — it answers instantly.'));
+    sub.appendChild(mkLink('tel:'+VOICE.phone,'Call the agent',false)); sub.appendChild(txt(' — it answers instantly.'));
   } else {
     // Not configured yet — live-safe graceful state (a real working CTA, no dead button)
     label.textContent='Hear it live';
     btn.addEventListener('click', function(){ window.open(CAL,'_blank','noopener'); });
-    sub.appendChild(mkLink(CAL,'Book a 15-min call →',true));
+    sub.appendChild(mkLink(CAL,'Book a 15-min call',true));
     note.textContent='Demoed live on the call, not in the browser — these agents already answer real calls for the businesses I build them for.';
   }
 
@@ -1520,8 +1810,7 @@
     </div>
     <div class="combo">
       <div class="combo-copy">
-        <p>Media buying, systems engineering, and copywriting usually live in three different people — with three sets of hand-offs and three things that break. They live in <strong>one operator</strong> here.</p>
-        <p>I run the paid-media campaigns that book revenue, <strong>build</strong> the GoHighLevel automations and AI lead-response that make that revenue compound, <strong>and</strong> write the direct-response copy — hooks, lead forms, follow-up sequences — that filters for buyers and books the call. Fewer hand-offs, faster iteration, and a system that keeps converting after the click.</p>
+        <p>Media buying, systems engineering, and copywriting usually live in three different people — three sets of hand-offs, three things that break. They live in <strong>one operator</strong> here: fewer hand-offs, faster iteration, and a system that keeps converting after the click.</p>
       </div>
       <div class="combo-visual">
         <div class="combo-pill">
@@ -1572,6 +1861,18 @@
         <p>The metric that matters — booked calls + attribution back to source.</p>
       </div>
     </div>
+    <!-- The full stack list, one click away. It is a keyword inventory — the
+         thing a recruiter Ctrl-Fs and nobody reads — and at 1,391px of phone
+         it was the single tallest block on the page that made no argument.
+         Still in the DOM, still findable, no longer the price of admission
+         to the receipts below. -->
+    <details class="fold" id="stack">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        The full stack, tool by tool
+        <span class="fs-sub">26 across 4 disciplines</span>
+      </summary>
+      <div class="fold-body">
     <div class="skills-grid">
 
       <div class="skill-card">
@@ -1625,6 +1926,8 @@
       </div>
 
     </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -1634,27 +1937,9 @@
     <div class="sec-head">
       <div class="kicker">AI Automation &amp; GTM Engineering</div>
       <h2 class="sec-title">I build on the bleeding edge of agentic AI.</h2>
-      <p>The hardest thing to fake: production AI systems that actually ship. I build <strong>AI-native operating systems — "AI employees"</strong> that run the work: agents that generate and qualify leads, multi-agent operations, AI voice + message follow-up, and CRM automation — all engineered around <strong>Claude Code</strong> (+ <strong>7 Anthropic certifications</strong>). I'm not a developer who picked up marketing — I'm a <strong>marketer who builds the AI workforce</strong> behind the results. (The operator instinct isn't new: I built and ran a <strong>six-figure Amazon/eBay business through college</strong>, self-funding tuition.)</p>
+      <p>The hardest thing to fake: production AI systems that actually ship. I build the <strong>"AI employees"</strong> that run the work — lead-gen agents, multi-agent operations, AI voice and message follow-up, CRM automation — engineered around <strong>Claude Code</strong> (<strong>7 Anthropic certifications</strong>). A <strong>marketer who builds the AI workforce</strong>, not a developer who picked up marketing. That operator instinct isn't new: I built and ran a <strong>six-figure Amazon/eBay business through college</strong>, self-funding tuition.</p>
     </div>
     <div class="card-grid">
-
-      <div class="card">
-        <span class="tag">Autonomous Agent</span>
-        <h3>Autonomous Opportunity Radar</h3>
-        <p>An autonomous agent I built end-to-end: it ingests live alerts, parses and <strong>scores every opportunity against a custom rubric</strong>, and surfaces the best-fit matches with full context to Slack in real time. TypeScript, 14/14 tests, GitHub Actions cron — a deployable opportunity-detection engine.</p>
-      </div>
-
-      <div class="card">
-        <span class="tag">Agentic Systems</span>
-        <h3>Multi-Agent Operations OS</h3>
-        <p>I run my entire operation on a <strong>multi-agent system</strong> I architected and operate — built on Claude Code + MCP, the same agentic patterns enterprises are racing to adopt.</p>
-      </div>
-
-      <div class="card">
-        <span class="tag">Voice + Message AI</span>
-        <h3>AI Receptionist — Voice &amp; Message-Based</h3>
-        <p><strong>Voice AI and message-based AI</strong> (SMS / chat) that answer missed calls, reply to inbound texts, and <strong>book appointments 24/7</strong> for local businesses — turning the calls and messages that usually hit voicemail into booked revenue, wired straight into the CRM.</p>
-      </div>
 
       <div class="card">
         <span class="tag">Marketing Automation</span>
@@ -1685,6 +1970,37 @@
       </div>
 
     </div>
+
+    <!-- Two more systems, one click away. The AI-receptionist card in
+         particular restated the live Voice AI section two screens up; the
+         multi-agent OS is real work that is not what a hiring manager came
+         here to decide on. Nothing deleted — both still in the DOM. -->
+    <details class="fold" id="more-systems" style="margin-top:20px">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Three more systems I run
+        <span class="fs-sub">Autonomous agent · multi-agent ops · voice &amp; message AI</span>
+      </summary>
+      <div class="fold-body">
+        <div class="card-grid">
+          <div class="card">
+            <span class="tag">Autonomous Agent</span>
+            <h3>Autonomous Opportunity Radar</h3>
+            <p>An autonomous agent I built end-to-end: it ingests live alerts, parses and <strong>scores every opportunity against a custom rubric</strong>, and surfaces the best-fit matches with full context to Slack in real time. TypeScript, 14/14 tests, GitHub Actions cron — a deployable opportunity-detection engine.</p>
+          </div>
+          <div class="card">
+            <span class="tag">Agentic Systems</span>
+            <h3>Multi-Agent Operations OS</h3>
+            <p>I run my entire operation on a <strong>multi-agent system</strong> I architected and operate — built on Claude Code + MCP, the same agentic patterns enterprises are racing to adopt.</p>
+          </div>
+          <div class="card">
+            <span class="tag">Voice + Message AI</span>
+            <h3>AI Receptionist — Voice &amp; Message-Based</h3>
+            <p><strong>Voice AI and message-based AI</strong> (SMS / chat) that answer missed calls, reply to inbound texts, and <strong>book appointments 24/7</strong> for local businesses — turning the calls and messages that usually hit voicemail into booked revenue, wired straight into the CRM.</p>
+          </div>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -1694,18 +2010,18 @@
     <div class="sec-head t1">
       <div class="kicker">The exhibit</div>
       <h2 class="sec-title t1">Hard numbers from real accounts.</h2>
-      <p>On the same chiropractic client account, head-to-head with the incumbent national agency: I produced 114 leads at <strong>$12.59 CPL</strong> while the incumbent's cost-per-lead on that account ran <strong>~$49.81, and $80+ on some campaigns</strong>. Roughly <strong>75% lower cost per lead</strong>, same account — and the five campaign rows behind it reconcile <strong>to the cent and to the lead</strong> against an independently pulled account total. Clients are anonymized to category labels, but every figure here traces to a <strong>live Meta ad account or CRM I personally operate</strong>, and each one is labeled with how it's verified in <a href="./proof.html">the Proof Room</a> — last full reconciliation June 2026.</p>
+      <p>The head-to-head from the top of the page, and everything underneath it. Its five campaign rows reconcile <strong>to the cent and to the lead</strong> against an independently pulled account total — <strong>~75% lower cost per lead</strong>, same account. Clients are anonymized to category labels; every figure traces to a <strong>live Meta ad account or CRM I personally operate</strong> and is labeled with how it's verified in <a href="./proof.html">the Proof Room</a>. Last full reconciliation June 2026.</p>
     </div>
 
     <!-- Head-to-head visual (the "smoking gun") -->
     <style>
-      .duel{background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);box-shadow:var(--e1),var(--hi);margin-bottom:22px}
+      .duel{background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);padding:clamp(22px,2.6vw,30px);box-shadow:var(--e1);margin-bottom:22px}
       /* The head-to-head is the single focal point of the page. It gets the
          deepest elevation in the system and a slightly larger radius —
          nothing else on either page carries this combination. The CPL-by-
          vertical card below it deliberately sits a stop lower, because two
          equal focal points is the same as none. */
-      #duel{border-radius:var(--r-xl);box-shadow:var(--e3),var(--hi);padding:clamp(26px,3vw,38px);margin-bottom:26px;position:relative;overflow:hidden}
+      #duel{border-radius:var(--r-xl);box-shadow:var(--e3);padding:clamp(26px,3vw,38px);margin-bottom:26px;position:relative;overflow:hidden}
       #duel::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),var(--accent-soft))}
       .duel-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
       .duel-top h3{font-size:var(--fs-h3);font-weight:800;color:var(--navy);letter-spacing:-.022em}
@@ -1718,15 +2034,33 @@
       .duel-bar{display:flex;align-items:center;gap:12px;margin:8px 0}
       .duel-who{flex:0 0 132px;font-size:var(--fs-xs);font-weight:600;color:var(--ink)}
       .duel-track{flex:1;background:var(--bg-tint);border-radius: var(--r-pill);height:30px;overflow:hidden;box-shadow:var(--well)}
-      .duel-fill{height:100%;width:0;border-radius: var(--r-pill);transition:width 1.1s cubic-bezier(.16,.84,.44,1)}
+      /* ---- THE BARS ARE DATA, NOT AN ANIMATION -------------------------
+         These used to be declared `width:0` and grown to `var(--w)` by a
+         class an IntersectionObserver adds. With scripting off, nothing
+         ever added it — so the single strongest exhibit on the site, the
+         head-to-head, rendered as four EMPTY tracks with numbers floating
+         beside them. Not a missing flourish: a chart that reads as "no
+         data" next to the claim it exists to prove.
+
+         Inverted. The real width is the default and the animation is what
+         is opt-in, gated on html.motion, which only JavaScript adds. No JS,
+         reduced motion, a throttled tab, an observer that never fires
+         because the duel sits inside a closed disclosure — every one of
+         those paths now lands on painted bars. The count-up is decoration;
+         the number is not. */
+      .duel-fill{height:100%;width:var(--w);border-radius: var(--r-pill)}
       .duel-fill.them{background:linear-gradient(90deg,#9aacbe,#7d90a4)}
       .duel-fill.me{background:linear-gradient(90deg,#2c6aa8,#2fa87d)}
-      .duel.in .duel-fill{width:var(--w)}
-      @media (prefers-reduced-motion:reduce){.duel .duel-fill{width:var(--w);transition:none}}
+      html.motion .duel-fill{width:0;transition:width var(--t-narrative)}
+      html.motion .duel.in .duel-fill{width:var(--w)}
+      /* an observer cannot fire on a duel inside a closed disclosure */
+      html.motion .fold .duel .duel-fill{width:var(--w);transition:none}
+      @media (prefers-reduced-motion:reduce){.duel .duel-fill,html.motion .duel .duel-fill{width:var(--w);transition:none}}
       .duel-val{flex:0 0 64px;text-align:right;font-weight:800;color:var(--navy);font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
       .duel-val.win{color:var(--green)}
       .duel-take{font-size:var(--fs-sm);color:var(--muted);margin-top:11px;padding-left:144px}
       .duel-take strong{color:var(--navy);font-weight:700}
+      @media (max-width:640px){.duel{padding:18px 16px;margin-bottom:16px}#duel{padding:20px 17px;margin-bottom:18px}}
       @media (max-width:560px){.duel-who{flex-basis:88px;font-size:var(--fs-micro)}.duel-val{flex-basis:56px;font-size:var(--fs-xs)}.duel-take{padding-left:0}}
     </style>
     <div class="duel" id="duel">
@@ -1749,22 +2083,6 @@
     </div>
     <script>(function(){var el=document.getElementById('duel');if(!el)return;if(!('IntersectionObserver'in window)){el.classList.add('in');return;}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){el.classList.add('in');o.disconnect();}},{threshold:.3});o.observe(el);})();</script>
 
-    <!-- CPL by vertical (verified) -->
-    <div class="duel" id="cplc">
-      <div class="duel-top">
-        <h3>Cost per lead, by vertical</h3>
-        <span class="vtag">All verified vs. live Meta Ads</span>
-      </div>
-      <div class="duel-metric">
-        <div class="duel-bar"><div class="duel-who">UK refrigeration · B2B</div><div class="duel-track"><div class="duel-fill me" style="--w:8.5%"></div></div><div class="duel-val win">$1.88</div></div>
-        <div class="duel-bar"><div class="duel-who">Weight-loss</div><div class="duel-track"><div class="duel-fill me" style="--w:40.9%"></div></div><div class="duel-val win">~$9</div></div>
-        <div class="duel-bar"><div class="duel-who">Med spa · blended</div><div class="duel-track"><div class="duel-fill me" style="--w:53.7%"></div></div><div class="duel-val win">$11.82</div></div>
-        <div class="duel-bar"><div class="duel-who">Chiropractic</div><div class="duel-track"><div class="duel-fill me" style="--w:57.2%"></div></div><div class="duel-val win">$12.59</div></div>
-        <div class="duel-bar"><div class="duel-who">Tattoo removal</div><div class="duel-track"><div class="duel-fill me" style="--w:95.5%"></div></div><div class="duel-val win">$21</div></div>
-        <div class="duel-take">Lower is better. For a first-party benchmark rather than an industry rumour: on the one account where I ran head-to-head against an incumbent national agency, <strong>their</strong> cost per lead was <strong>$49.81</strong> &mdash; and <strong>$84&ndash;$87</strong> on two of their campaigns. Same client, same account, same period.</div>
-      </div>
-    </div>
-    <script>(function(){var el=document.getElementById('cplc');if(!el)return;if(!('IntersectionObserver'in window)){el.classList.add('in');return;}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){el.classList.add('in');o.disconnect();}},{threshold:.25});o.observe(el);})();</script>
 
     <div class="receipts-grid">
 
@@ -1786,26 +2104,10 @@
 
       <div class="receipt">
         <div class="r-label">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
-          US med spa — full lead-gen program
-        </div>
-        <div class="r-metric"><strong>1,781 leads at a $11.82 blended CPL</strong> across weight-loss, Botox, laser &amp; photofacial — including 1,200+ weight-loss leads at ~$9 (as low as $3.18); $21K managed — verified live from Meta.</div>
-      </div>
-
-      <div class="receipt">
-        <div class="r-label">
           <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
           Florida weight-loss clinic — appointment engine
         </div>
         <div class="r-metric"><strong>70 appointments booked in a 30-day window</strong> via paid ads + a GoHighLevel follow-up system (2025-06-24 to 07-23; 61 of them inside the July calendar month, cleaned/deduped).</div>
-      </div>
-
-      <div class="receipt">
-        <div class="r-label">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
-          US tattoo-removal studio
-        </div>
-        <div class="r-metric"><strong>730+ leads at ~$19–$21 CPL</strong> (737 verified; flagship campaign 526 leads @ $19 CPL); $15.5K managed; backed by a first-party client video testimonial.</div>
       </div>
 
       <div class="receipt">
@@ -1822,6 +2124,61 @@
           Portfolio scale — total leads generated
         </div>
         <div class="r-metric"><strong>6,250+ qualified leads generated</strong> (an itemized floor — 6,295 counted account by account; lead-form / lead-action campaigns only, excludes awareness/traffic) across medspa, aesthetics, tattoo removal, chiro, weight-loss and B2B.</div>
+      </div>
+
+    </div>
+
+    <!-- The rest of the exhibit, one click away: the CPL-by-vertical spread
+         and six more receipts. All of it is still in the DOM — still
+         Ctrl-F-able, still linted, still measured in the disclosure-open
+         state — the page simply stops asking a visitor to read two duel
+         charts and eleven cards to reach the Proof Room door.
+
+         The vertical spread in particular was a second duel component
+         directly beneath the real one, which is the exact failure this
+         sheet warns about three hundred lines up: two equal focal points
+         is the same as none. There is one duel above the fold of this
+         section now, and it is the one that wins the room. -->
+    <details class="fold" id="more-receipts" style="margin-top:18px">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Cost per lead across five verticals, and six more receipts
+        <span class="fs-sub">Refrigeration · weight-loss · med spa · chiro · tattoo removal</span>
+      </summary>
+      <div class="fold-body">
+<!-- CPL by vertical (verified) -->
+<div class="duel" id="cplc">
+  <div class="duel-top">
+    <h3>Cost per lead, by vertical</h3>
+    <span class="vtag">All verified vs. live Meta Ads</span>
+  </div>
+  <div class="duel-metric">
+    <div class="duel-bar"><div class="duel-who">UK refrigeration · B2B</div><div class="duel-track"><div class="duel-fill me" style="--w:8.5%"></div></div><div class="duel-val win">$1.88</div></div>
+    <div class="duel-bar"><div class="duel-who">Weight-loss</div><div class="duel-track"><div class="duel-fill me" style="--w:40.9%"></div></div><div class="duel-val win">~$9</div></div>
+    <div class="duel-bar"><div class="duel-who">Med spa · blended</div><div class="duel-track"><div class="duel-fill me" style="--w:53.7%"></div></div><div class="duel-val win">$11.82</div></div>
+    <div class="duel-bar"><div class="duel-who">Chiropractic</div><div class="duel-track"><div class="duel-fill me" style="--w:57.2%"></div></div><div class="duel-val win">$12.59</div></div>
+    <div class="duel-bar"><div class="duel-who">Tattoo removal</div><div class="duel-track"><div class="duel-fill me" style="--w:95.5%"></div></div><div class="duel-val win">$21</div></div>
+    <div class="duel-take">Lower is better. For a first-party benchmark rather than an industry rumour: on the one account where I ran head-to-head against an incumbent national agency, <strong>their</strong> cost per lead was <strong>$49.81</strong> &mdash; and <strong>$84&ndash;$87</strong> on two of their campaigns. Same client, same account, same period.</div>
+  </div>
+</div>
+<script>(function(){var el=document.getElementById('cplc');if(!el)return;if(!('IntersectionObserver'in window)){el.classList.add('in');return;}var o=new IntersectionObserver(function(e){if(e[0].isIntersecting){el.classList.add('in');o.disconnect();}},{threshold:.25});o.observe(el);})();</script>
+
+        <div class="receipts-grid">
+
+      <div class="receipt">
+        <div class="r-label">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3zM6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          US med spa — full lead-gen program
+        </div>
+        <div class="r-metric"><strong>1,781 leads at a $11.82 blended CPL</strong> across weight-loss, Botox, laser &amp; photofacial — including 1,200+ weight-loss leads at ~$9 (as low as $3.18); $21K managed — verified live from Meta.</div>
+      </div>
+
+      <div class="receipt">
+        <div class="r-label">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+          US tattoo-removal studio
+        </div>
+        <div class="r-metric"><strong>730+ leads at ~$19–$21 CPL</strong> (737 verified; flagship campaign 526 leads @ $19 CPL); $15.5K managed; backed by a first-party client video testimonial.</div>
       </div>
 
       <div class="receipt">
@@ -1856,7 +2213,9 @@
         <div class="r-metric"><strong>220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month)</strong> via in-language (French/English) follow-up.</div>
       </div>
 
-    </div>
+        </div>
+      </div>
+    </details>
     <!-- The second exhibit. This used to be a one-line footnote under the
          receipts; the page's whole differentiator was set in 14px grey. -->
     <a class="proof-cta" href="./proof.html">
@@ -1877,10 +2236,10 @@
 
 <!-- ============ INTERACTIVE GROWTH-MATH ENGINE ============ -->
 <style>
-  .gm { background-color:var(--field); background-image: radial-gradient(900px 500px at 15% -20%, rgba(47,110,178,.42), transparent 60%), linear-gradient(140deg, #0a1e35 0%, #16365C 58%, #1F4E79 100%); color:#fff; border-radius: var(--r-xl); padding: clamp(24px,3.4vw,38px); box-shadow: var(--e3), var(--hi-d); position:relative; overflow:hidden; }
+  .gm { background-color:var(--field); background-image: radial-gradient(900px 500px at 15% -20%, rgba(47,110,178,.42), transparent 60%), linear-gradient(140deg, #0a1e35 0%, #16365C 58%, #1F4E79 100%); color:#fff; border-radius: var(--r-xl); padding: clamp(24px,3.4vw,38px); box-shadow: var(--e3); position:relative; overflow:hidden; }
   .gm-grid { display:grid; grid-template-columns: 1fr 1.08fr; gap: clamp(24px,3vw,36px); }
   .gm-inputs { display:flex; flex-direction:column; gap:6px; }
-  .gm-field label { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:var(--fs-xs); font-weight:600; color:#cfe0f3; letter-spacing:-.002em; }
+  .gm-field label { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:var(--fs-xs); font-weight:600; color:var(--on-dark-2); letter-spacing:-.002em; }
   .gm-field label .v { color:#fff; font-weight:800; font-size:var(--fs-sm); font-variant-numeric:tabular-nums; }
   /* 44px tall hit area; the 6px rail is painted on the track pseudo-element
      so the control looks slim but is never a 6px tap target. */
@@ -1889,38 +2248,47 @@
   .gm-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:22px; height:22px; margin-top:-8px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; box-shadow:var(--e1); cursor:pointer; }
   .gm-field input[type=range]::-moz-range-track{ height:6px; border-radius: var(--r-pill); background:rgba(255,255,255,.24); }
   .gm-field input[type=range]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; cursor:pointer; }
-  .gm-out { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:var(--r-lg); padding:clamp(20px,2.4vw,26px); display:flex; flex-direction:column; box-shadow:var(--hi-d); }
-  .gm-cap { font-size:var(--fs-micro); color:#c2d9f0; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
+  .gm-out { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:var(--r-lg); padding:clamp(20px,2.4vw,26px); display:flex; flex-direction:column; box-shadow:var(--e0); }
+  .gm-cap { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
   .gm-row { display:grid; grid-template-columns:1fr 1fr; gap:14px 16px; margin-top:12px; }
-  .gm-stat .k { font-size:var(--fs-micro); color:#c2d9f0; text-transform:uppercase; letter-spacing:.06em; }
+  .gm-stat .k { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.06em; }
   .gm-stat .n { font-size:var(--fs-body); font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
   .gm-hero { margin:22px 0 6px; text-align:center; }
-  .gm-hero .lab { font-size:var(--fs-xs); color:#cfe0f3; font-weight:600; }
+  .gm-hero .lab { font-size:var(--fs-xs); color:var(--on-dark-2); font-weight:600; }
   /* Capped BELOW the metric strip (33.6px): this is a hypothetical the visitor’s
      own sliders produce, and it may never outrank a sourced number. */
   .gm-hero .big { font-size:var(--fs-h2-minor); font-weight:800; letter-spacing:-.035em; line-height:1.05; font-variant-numeric:tabular-nums; color:#fff; }
-  .gm-hero .sub { font-size:var(--fs-micro); color:#c2d9f0; margin-top:6px; }
+  .gm-hero .sub { font-size:var(--fs-micro); color:var(--on-dark-3); margin-top:6px; }
   .gm-divider { height:1px; background:rgba(255,255,255,.14); margin:16px 0; }
   .gm-cta { margin-top:18px; }
-  .gm-cta a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; background:#fff; color:var(--navy); font-weight:700; padding:0 20px; border-radius: var(--r-pill); text-decoration:none; font-size:var(--fs-sm); box-shadow:var(--e2-d); transition:transform .18s var(--ease); }
+  .gm-cta a { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; background:#fff; color:var(--navy); font-weight:700; padding:0 20px; border-radius: var(--r-pill); text-decoration:none; font-size:var(--fs-sm); box-shadow:var(--e2); transition:transform var(--t-micro); }
   .gm-cta a:hover { transform:translateY(-2px); }
-  .gm-fine { font-size:var(--fs-micro); color:#c2d9f0; margin-top:16px; text-align:center; line-height:1.5; }
+  .gm-fine { font-size:var(--fs-micro); color:var(--on-dark-3); margin-top:16px; text-align:center; line-height:1.5; }
   @media (max-width:760px){ .gm-grid{ grid-template-columns:1fr; } }
+  /* the phone-density pass, declared here rather than in the main sheet
+     because .gm and .gm-out are defined in this block and would otherwise
+     win on source order */
+  @media (max-width:640px){
+    .gm{ padding:18px 15px; }
+    .gm-out{ padding:18px 15px; }
+    .gm-hero{ margin:16px 0 4px; }
+    .gm-fine{ margin-top:12px; }
+  }
 </style>
 <section class="block" id="growth-math">
   <div class="wrap">
     <div class="sec-head">
       <div class="kicker">Interactive · Live</div>
       <h2 class="sec-title">Don't take my word for it — run the math on your business.</h2>
-      <p>Most marketers show you their wins. Drag the sliders and I'll show you <strong>yours</strong> — your funnel's economics today, and what dialing it to my real benchmarks does to your revenue. Live, no email required.</p>
+      <p>Drag the sliders and I'll show you <strong>your</strong> funnel's economics — and what dialing cost per lead to my verified benchmark does to it. Live, no email required.</p>
     </div>
     <div class="gm">
       <div class="gm-grid">
         <div class="gm-inputs">
           <div class="gm-field"><label>Monthly ad spend <span class="v" id="gm-spend-v">$5,000</span></label><input type="range" id="gm-spend" min="500" max="50000" step="500" value="5000" aria-label="Monthly ad spend"></div>
           <div class="gm-field"><label>Your current cost per lead <span class="v" id="gm-cpl-v">$40</span></label><input type="range" id="gm-cpl" min="5" max="200" step="1" value="40" aria-label="Current cost per lead"></div>
-          <div class="gm-field"><label>Lead → booked appointment <span class="v" id="gm-book-v">40%</span></label><input type="range" id="gm-book" min="5" max="80" step="1" value="40" aria-label="Lead to booked rate"></div>
-          <div class="gm-field"><label>Booked → paying customer <span class="v" id="gm-close-v">30%</span></label><input type="range" id="gm-close" min="5" max="60" step="1" value="30" aria-label="Booked to customer rate"></div>
+          <div class="gm-field"><label>Lead to booked appointment <span class="v" id="gm-book-v">40%</span></label><input type="range" id="gm-book" min="5" max="80" step="1" value="40" aria-label="Lead to booked rate"></div>
+          <div class="gm-field"><label>Booked to paying customer <span class="v" id="gm-close-v">30%</span></label><input type="range" id="gm-close" min="5" max="60" step="1" value="30" aria-label="Booked to customer rate"></div>
           <div class="gm-field"><label>Average customer value <span class="v" id="gm-val-v">$1,500</span></label><input type="range" id="gm-val" min="100" max="20000" step="100" value="1500" aria-label="Average customer value"></div>
         </div>
         <div class="gm-out">
@@ -2059,7 +2427,7 @@
     <div class="sec-head t3">
       <div class="kicker">The rest of the work</div>
       <h2 class="sec-title t3">Everything else, one click away.</h2>
-      <p>Copy, generative-AI work, campaign decks and the sites the ads point at. Open what you care about.</p>
+      <p>Copy, generative-AI work, campaign decks, the sites the ads point at, and the credentials. Open what you care about.</p>
     </div>
 
     <details class="fold" id="copywriting">
@@ -2215,16 +2583,17 @@
       </div>
     </details>
 
-  </div>
-</section>
-
-<!-- ============ CERTIFICATIONS + LANGUAGES ============ -->
-<section class="block minor" id="creds">
-  <div class="wrap">
-    <div class="sec-head t3">
-      <div class="kicker">Credentials</div>
-      <h2 class="sec-title t3">Certifications &amp; Languages</h2>
-    </div>
+    <!-- Certifications and languages were their own full section, 1,279px of
+         phone for a list nobody reads before they have decided you can do the
+         work. Same content, same #creds anchor so existing links still land,
+         now the fifth disclosure in the annex where it belongs. -->
+    <details class="fold" id="creds">
+      <summary>
+        <svg class="fs-chev" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        Certifications &amp; languages
+        <span class="fs-sub">7 Anthropic · 4 HubSpot · EN/ES/FR</span>
+      </summary>
+      <div class="fold-body">
     <div class="two-col">
 
       <div class="panel">
@@ -2268,6 +2637,9 @@
       </div>
 
     </div>
+      </div>
+    </details>
+
   </div>
 </section>
 
@@ -2277,7 +2649,7 @@
 <footer class="footer" id="contact" data-nav-dark>
   <div class="wrap">
     <h2>Run the media. Build the machine. Write the words.</h2>
-    <p class="sub">If you need one operator instead of three hires, let's talk — the receipts are on the page and the rest is a conversation away. Available for remote U.S. roles and freelance / contract projects.</p>
+    <p class="sub">One operator instead of three hires. Available for remote U.S. roles and freelance / contract projects.</p>
     <div class="footer-cta">
       <a class="btn btn-primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">
         <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -2324,6 +2696,7 @@
   // byId only exists to derive the observed targets, so duplicate ids are fine
   var links = [].slice.call(document.querySelectorAll('.nav-links a[href^="#"], .nav-panel a[href^="#"]'));
   var menu = document.getElementById('navMenu');
+  var here = nav.querySelector('.nm-here');
 
   // close the mobile menu on navigate / outside click / Escape
   if(menu){
@@ -2383,6 +2756,15 @@
         var on = best && a.getAttribute('href') === '#' + best;
         if(on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current');
       });
+      /* Mirror the same answer into the collapsed bar. The label is read off
+         the nav link itself rather than a second hard-coded map, so it can
+         never drift out of sync with the menu. Cleared at the top of the
+         page — "you are here: the top" is not information. */
+      if(here){
+        var label = best && best !== 'top' && byId[best] ? byId[best].textContent.trim() : '';
+        if(label){ here.textContent = label; nav.setAttribute('data-here',''); }
+        else { here.textContent = ''; nav.removeAttribute('data-here'); }
+      }
     }, {rootMargin: '-20% 0px -55% 0px', threshold: [0, .25, .5, 1]});
     targets.forEach(function(t){ spy.observe(t); });
   }
