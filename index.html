@@ -345,11 +345,11 @@
   .nav-mark { display: flex; flex-direction: column; justify-content: center; min-height: 44px; margin-right: auto; }
   .nav-mark .nm-name {
     font-size: var(--fs-sm); font-weight: 700; color: #fff;
-    letter-spacing: -.005em; line-height: 1.15; white-space: nowrap;
+    letter-spacing:0; line-height: 1.15; white-space: nowrap;
   }
   .nav-mark .nm-role, .nav-mark .nm-here {
     font-size: var(--fs-micro); font-weight: 600; color: var(--on-dark-3);
-    letter-spacing: .1em; text-transform: uppercase; line-height: 1.3;
+    letter-spacing:.09em; text-transform: uppercase; line-height: 1.3;
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46vw;
   }
   .nav-mark .nm-here { display: none; }
@@ -370,7 +370,7 @@
     display: inline-flex; align-items: center; justify-content: center;
     min-height: 44px; min-width: 44px; padding: 0 9px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
-    letter-spacing: -.003em; white-space: nowrap; border-radius: var(--r-sm);
+    letter-spacing:0; white-space: nowrap; border-radius: var(--r-sm);
     transition: color var(--t-micro), background var(--t-micro);
   }
   .nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
@@ -508,7 +508,7 @@
   .hero-inner { position: relative; z-index: 1; padding-top: calc(var(--nav-h) + clamp(48px, 6vw, 84px)); padding-bottom: clamp(64px, 8vw, 100px); }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
-    font-size: var(--fs-micro); font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    font-size: var(--fs-micro); font-weight: 600; letter-spacing:.14em; text-transform: uppercase;
     color: var(--on-dark-2); background: rgba(255,255,255,.08);
     border: 1px solid rgba(255,255,255,.16);
     padding: 8px 15px; border-radius: var(--r-pill); margin-bottom: var(--sp-5);
@@ -533,17 +533,17 @@
   .hero h1 { margin-bottom: var(--sp-5); }
   .hero .h1-name {
     display: block; font-size: var(--fs-micro); font-weight: 700;
-    letter-spacing: .16em; text-transform: uppercase;
+    letter-spacing:.14em; text-transform: uppercase;
     color: var(--on-dark-3); margin-bottom: 14px;
   }
   .hero .h1-claim {
-    display: block; font-size: var(--fs-h1); font-weight: 800;
+    display: block; font-size: var(--fs-h1); font-weight: 700;
     letter-spacing: -.032em; line-height: 1.04; color: var(--on-dark);
     max-width: 19ch; text-wrap: balance;
   }
   /* Hierarchy by value, not by gradient trick: the three verbs go white
      and heavy, everything around them recedes. */
-  .hero .h1-claim .hl { color: #fff; font-weight: 900; }
+  .hero .h1-claim .hl { color: #fff; font-weight: 700; }
 
   /* ---- THE HERO STAT --------------------------------------------------
      The strongest and most defensible number on the site, promoted out of
@@ -574,13 +574,13 @@
   .hero-stat:hover { transform: translateY(-2px); box-shadow: var(--e3); border-color: rgba(127,211,166,.42); }
   .hs-fig { display: block; text-align: center; }
   .hs-num {
-    display: block; font-size: var(--fs-display); font-weight: 900;
+    display: block; font-size: var(--fs-display); font-weight: 700;
     letter-spacing: -.045em; line-height: .88; color: var(--green-bright);
     font-variant-numeric: tabular-nums;
   }
   .hs-unit {
     display: block; margin-top: 6px;
-    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .12em;
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing:.14em;
     text-transform: uppercase; color: var(--on-dark-3);
   }
   .hs-body { display: block; }
@@ -617,7 +617,7 @@
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-    font-size: var(--fs-sm); font-weight: 600; letter-spacing: -.005em;
+    font-size: var(--fs-sm); font-weight: 600; letter-spacing:0;
     min-height: 50px; padding: 0 24px; border-radius: var(--r);
     border: 1px solid transparent; cursor: pointer;
     transition: transform var(--t-micro), box-shadow var(--t-micro), background var(--t-micro), border-color var(--t-micro);
@@ -648,6 +648,50 @@
   .hero-trust span::before {
     content: ""; width: 16px; height: 16px; flex: 0 0 16px;
     background: no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237fd3a6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  }
+
+  /* ------------------------------------------------------------
+     CREDENTIAL STRIP — the signal, not the list.
+
+     Certifications used to be a full section: 1,279px of phone for a list
+     nobody reads before they have decided you can do the work. Collapsing it
+     into the annex was right about the LIST and wrong about the SIGNAL —
+     a real business owner told Alex the portfolio's quality was what spoke
+     first, and a credential buried at the bottom cannot do that.
+
+     So the count comes up top and the list stays down there. Costs ~104px
+     instead of 1,279, and #creds still holds the detail one tap away.
+
+     Numerals are large and LIGHT (weight 400). That pairing is the whole
+     lesson from the reference pass: at display size, world-class systems get
+     presence from size and tracking, never from weight. Vercel sets hero type
+     at 400-450; Linear caps its entire band at 590. Heavy display type is the
+     single most reliable tell of a machine-made page.
+     ------------------------------------------------------------ */
+  .creds-strip { background: var(--bg); border-bottom: 1px solid var(--line); }
+  .creds-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--sp-8);
+    margin: 0; padding: var(--sp-5) 0; list-style: none;
+  }
+  .creds-row li { display: flex; align-items: baseline; gap: 10px; padding: 6px 0; }
+  .cs-n {
+    font-size: 2rem; font-weight: 400; line-height: 1;
+    letter-spacing: -.045em; color: var(--navy); font-variant-numeric: tabular-nums;
+  }
+  .cs-l { font-size: var(--fs-sm); font-weight: 500; line-height: 1.35; color: var(--muted); }
+  .cs-l b { display: block; font-weight: 600; color: var(--ink); }
+  .creds-row .cs-more { margin-left: auto; }
+  .creds-row .cs-more a {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: var(--fs-sm); font-weight: 600; color: var(--accent);
+    text-decoration: none; border-bottom: 1px solid transparent;
+    padding: 10px 2px; transition: border-color var(--t-std);
+  }
+  .creds-row .cs-more a:hover { border-bottom-color: var(--accent); }
+  @media (max-width: 720px) {
+    .creds-row { gap: 0 var(--sp-6); padding: var(--sp-4) 0; }
+    .cs-n { font-size: 1.625rem; }
+    .creds-row .cs-more { margin-left: 0; width: 100%; }
   }
 
   /* ------------------------------------------------------------
@@ -703,13 +747,13 @@
     background: var(--green-bright);
   }
   .metric .num {
-    font-size: var(--fs-h2); font-weight: 800;
-    letter-spacing: -.03em; line-height: 1.02; color: #fff;
+    font-size: var(--fs-h2); font-weight: 700;
+    letter-spacing:-.032em; line-height: 1.02; color: #fff;
     font-variant-numeric: tabular-nums;
   }
   .metric .lbl {
     font-size: var(--fs-xs); color: var(--on-dark-3); margin-top: 10px;
-    font-weight: 500; line-height: 1.4; letter-spacing: -.002em;
+    font-weight: 500; line-height: 1.4; letter-spacing:0;
   }
 
   /* ============================================================
@@ -731,7 +775,7 @@
   /* ---- SECTION HEADING TIERS ----------------------------------------
      TIER 2 is the default — the supporting acts. */
   h2.sec-title {
-    font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em;
+    font-size: var(--fs-h2); font-weight: 700; letter-spacing:-.032em;
     color: var(--navy); line-height: 1.08; text-wrap: balance;
   }
   /* TIER 1 — reserved for the exhibits. On this page that is exactly one
@@ -739,7 +783,7 @@
      Bigger, heavier, tighter, and lifted off the ground by a hairline rule
      nothing else on the page carries. */
   h2.sec-title.t1 {
-    font-size: var(--fs-h2-hero); font-weight: 900; letter-spacing: -.036em; line-height: 1.0;
+    font-size: var(--fs-h2-hero); font-weight: 700; letter-spacing:-.032em; line-height: 1.0;
   }
   .sec-head.t1 .kicker { color: var(--green); }
   .sec-head.t1 .kicker::before { width: 34px; height: 3px; opacity: 1; }
@@ -828,7 +872,7 @@
     transition: transform var(--t-std), box-shadow var(--t-std);
   }
   .combo-pill:hover { transform: translateY(-2px); box-shadow: var(--e2); }
-  .combo-pill .pt { font-weight: 700; color: var(--navy); font-size: var(--fs-body); display: flex; align-items: center; gap: 11px; margin-bottom: 4px; letter-spacing: -.012em; }
+  .combo-pill .pt { font-weight: 700; color: var(--navy); font-size: var(--fs-body); display: flex; align-items: center; gap: 11px; margin-bottom: 4px; letter-spacing:-.015em; }
   .combo-pill .pt .ic { width: 30px; height: 30px; flex: 0 0 30px; border-radius: var(--r-sm); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; }
   .combo-pill .pt .ic svg { width: 16px; height: 16px; }
   .combo-pill .pd { color: var(--muted); font-size: var(--fs-sm); padding-left: 41px; }
@@ -838,7 +882,7 @@
     background-color: var(--navy);
     background-image: linear-gradient(120deg, var(--navy), var(--accent-soft));
     color: #fff; border-radius: var(--r); padding: 17px 20px;
-    font-weight: 700; font-size: var(--fs-body); letter-spacing: -.012em;
+    font-weight: 700; font-size: var(--fs-body); letter-spacing:-.015em;
     display: flex; align-items: center; gap: 11px; box-shadow: var(--e2);
   }
   .combo-equals svg { width: 18px; height: 18px; flex: 0 0 18px; }
@@ -863,7 +907,7 @@
   .card:hover::before { transform: scaleX(1); }
   .card .tag {
     display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
-    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .085em; text-transform: uppercase;
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing:.09em; text-transform: uppercase;
     color: var(--accent); background: var(--bg-tint);
     padding: 6px 11px; border-radius: var(--r-pill); margin-bottom: 16px;
   }
@@ -871,7 +915,7 @@
      the gradient paints, so this is measurable rather than a gradient hole */
   .card .tag.flagship { color: #fff; background-color: var(--accent-soft); background-image: linear-gradient(120deg, var(--navy), var(--accent-soft)); }
   .card .tag svg { width: 13px; height: 13px; flex: 0 0 13px; }
-  .card h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); line-height: 1.28; letter-spacing: -.018em; margin-bottom: 10px; }
+  .card h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); line-height: 1.28; letter-spacing:-.015em; margin-bottom: 10px; }
   .card p { color: var(--muted); font-size: var(--fs-sm); flex-grow: 1; margin-bottom: 18px; text-wrap: pretty; }
   .card p:last-child { margin-bottom: 0; }
   .view-link {
@@ -910,12 +954,12 @@
   .flagship-inner { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
   .flagship-badge { width: 60px; height: 60px; border-radius: var(--r); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; flex: 0 0 60px; box-shadow: var(--e0); }
   .flagship-badge svg { width: 30px; height: 30px; color: #fff; }
-  .card.flagship-card h3 { color: #fff; font-size: var(--fs-h2-minor); margin-bottom: 8px; letter-spacing: -.024em; }
+  .card.flagship-card h3 { color: #fff; font-size: var(--fs-h2-minor); margin-bottom: 8px; letter-spacing:-.022em; }
   .card.flagship-card p { color: var(--on-dark); font-size: var(--fs-body); margin-bottom: 0; max-width: 74ch; }
   .card.flagship-card .tag.flagship { background: rgba(255,255,255,.16); color: #fff; margin-bottom: 12px; }
   .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .stack-chip {
-    font-size: var(--fs-micro); font-weight: 600; letter-spacing: .01em;
+    font-size: var(--fs-micro); font-weight: 600; letter-spacing:.02em;
     color: var(--accent); background: var(--bg-tint); border: 1px solid #d4e2f2;
     padding: 6px 12px; border-radius: var(--r-pill);
   }
@@ -935,7 +979,7 @@
   .receipt::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent-soft)); }
   .receipt:hover { transform: translateY(-3px); box-shadow: var(--e3); }
   .receipt .r-label {
-    font-size: var(--fs-micro); font-weight: 700; letter-spacing: .085em; text-transform: uppercase;
+    font-size: var(--fs-micro); font-weight: 700; letter-spacing:.09em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 12px; display: flex; align-items: flex-start; gap: 9px; line-height: 1.45;
   }
   .receipt .r-label svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 2px; color: var(--accent-soft); }
@@ -977,7 +1021,7 @@
   .pc-badge svg { width: 28px; height: 28px; color: var(--green-bright); }
   .pc-body { display: block; }
   .pc-kicker { display: block; font-size: var(--fs-micro); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 8px; }
-  .pc-title { display: block; font-size: var(--fs-h2-minor); font-weight: 800; letter-spacing: -.024em; line-height: 1.15; margin-bottom: 8px; }
+  .pc-title { display: block; font-size: var(--fs-h2-minor); font-weight: 700; letter-spacing:-.022em; line-height: 1.15; margin-bottom: 8px; }
   .pc-copy { display: block; font-size: var(--fs-sm); color: var(--on-dark); max-width: 72ch; text-wrap: pretty; }
   .pc-go { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); transition: transform var(--t-std), background var(--t-std); }
   .pc-go svg { width: 20px; height: 20px; }
@@ -1000,7 +1044,7 @@
   }
   .chain-step { padding: 26px 22px; border-right: 1px solid var(--line); }
   .chain-step:last-child { border-right: none; }
-  .chain-step .cs-num { font-size: var(--fs-micro); font-weight: 800; color: var(--accent-soft); letter-spacing: .1em; margin-bottom: 12px; }
+  .chain-step .cs-num { font-size: var(--fs-micro); font-weight: 700; color: var(--accent-soft); letter-spacing:.09em; margin-bottom: 12px; }
   .chain-step .cs-ic { width: 38px; height: 38px; border-radius: var(--r-sm); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; margin-bottom: 14px; }
   .chain-step .cs-ic svg { width: 19px; height: 19px; }
   .chain-step h4 { font-size: var(--fs-body); font-weight: 700; color: var(--navy); margin-bottom: 6px; letter-spacing: -.015em; }
@@ -1015,17 +1059,17 @@
   .skill-card .sh { display: flex; align-items: center; gap: 13px; margin-bottom: 16px; }
   .skill-card .sh .si { width: 42px; height: 42px; border-radius: var(--r); background: var(--bg-tint); color: var(--accent); display: grid; place-items: center; flex: 0 0 42px; }
   .skill-card .sh .si svg { width: 21px; height: 21px; }
-  .skill-card .sh h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); letter-spacing: -.018em; }
+  .skill-card .sh h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); letter-spacing:-.015em; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); background: var(--bg-soft); border: 1px solid var(--line); padding: 7px 13px; border-radius: var(--r-pill); }
 
   .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 22px; align-items: stretch; }
   .panel { background: #fff; border: 1px solid var(--hair); border-radius: var(--r-lg); padding: 30px; box-shadow: var(--e1); }
-  .panel h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 11px; letter-spacing: -.018em; }
+  .panel h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--navy); margin-bottom: 20px; display: flex; align-items: center; gap: 11px; letter-spacing:-.015em; }
   .panel h3 svg { width: 21px; height: 21px; color: var(--accent); }
   .cert-group { margin-bottom: 22px; }
   .cert-group:last-child { margin-bottom: 0; }
-  .cert-group .cg-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-bottom: 11px; }
+  .cert-group .cg-label { font-size: var(--fs-micro); font-weight: 700; letter-spacing:.09em; text-transform: uppercase; color: var(--accent); margin-bottom: 11px; }
   .cert-list { display: flex; flex-wrap: wrap; gap: 8px; }
   .cert-item { font-size: var(--fs-xs); font-weight: 500; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--line); padding: 8px 13px; border-radius: var(--r-sm); }
   .lang-list { display: flex; flex-direction: column; gap: 12px; }
@@ -1047,7 +1091,7 @@
        76px base step. */
     color: #fff; padding: clamp(76px,8vw,104px) 0; text-align: center;
   }
-  .footer h2 { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -.028em; line-height: 1.06; margin-bottom: 16px; text-wrap: balance; }
+  .footer h2 { font-size: var(--fs-h2); font-weight: 700; letter-spacing:-.032em; line-height: 1.06; margin-bottom: 16px; text-wrap: balance; }
   .footer .sub { color: var(--on-dark); font-size: var(--fs-lead); margin: 0 auto 32px; max-width: 58ch; text-wrap: pretty; }
   .footer-cta { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 40px; }
   .contact-line {
@@ -1326,6 +1370,20 @@
   </div>
 </section>
 
+<!-- ============ CREDENTIAL STRIP ============ -->
+<section class="creds-strip" aria-label="Credentials">
+  <div class="wrap">
+    <ul class="creds-row">
+      <li><span class="cs-n">7</span><span class="cs-l"><b>Anthropic</b>certifications</span></li>
+      <li><span class="cs-n">4</span><span class="cs-l"><b>HubSpot Academy</b>certifications</span></li>
+      <li><span class="cs-n">3</span><span class="cs-l"><b>Languages</b>EN/ES bilingual &middot; FR conversational</span></li>
+      <li class="cs-more"><a href="#creds">See every credential
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ============ METRIC STRIP ============ -->
 <section class="metrics" aria-label="Impact metrics">
   <div class="wrap">
@@ -1428,7 +1486,7 @@
   .gc-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 11px 10px;
     font-size:var(--fs-xs);font-weight:600;color:#fff;line-height:1.3;
     background:linear-gradient(to top,rgba(4,12,22,.94),rgba(4,12,22,.55) 55%,transparent);}
-  .gc-model{display:inline-block;margin-top:5px;font-size:var(--fs-micro);font-weight:800;
+  .gc-model{display:inline-block;margin-top:5px;font-size:var(--fs-micro);font-weight: 700;
     letter-spacing:.09em;text-transform:uppercase;color:#0a1a2e;background:#7fd3a6;
     padding:2px 7px;border-radius: var(--r-pill);}
   /* 44x44 target, single-stroke line icon — no emoji: emoji render
@@ -1466,7 +1524,7 @@
   .wall-tile { position: relative; display: block; border-radius: var(--r); overflow: hidden; box-shadow: var(--e2); border: 1px solid rgba(255,255,255,.12); background: #0c1626; }
   .wall-tile img { width: 100%; height: auto; display: block; transition: transform var(--t-std); }
   .wall-tile:hover img { transform: scale(1.04); }
-  .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-xs); font-weight: 600; letter-spacing: .01em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
+  .wall-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 12px 10px; font-size: var(--fs-xs); font-weight: 600; letter-spacing:.02em; color: #fff; background: linear-gradient(to top, rgba(6,14,26,.92), rgba(6,14,26,.55) 55%, transparent); }
   @media (prefers-reduced-motion: reduce) { .wall-tile img, .wall-tile:hover img { transform: none; transition: none; } }
   @media (max-width: 560px) { .wall-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 10px; } }
 </style>
@@ -1664,7 +1722,7 @@
   #voice .sec-title { color:#fff; }
   #voice .sec-head p { color:var(--on-dark); }
   .vx-console { display:grid; grid-template-columns:1.15fr 1fr; gap:34px; align-items:center; background:rgba(255,255,255,.055); border:1px solid rgba(255,255,255,.14); border-radius:var(--r-xl); padding:clamp(24px,3.4vw,38px); margin-top:6px; box-shadow:var(--e3); }
-  .vx-left h3 { font-size:var(--fs-h2-minor); font-weight:800; margin-bottom:10px; letter-spacing:-.025em; }
+  .vx-left h3 { font-size:var(--fs-h2-minor); font-weight: 700; margin-bottom:10px; letter-spacing:-.022em; }
   .vx-left p { color:var(--on-dark-2); font-size:var(--fs-body); margin-bottom:18px; max-width:52ch; }
   .vx-feats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
   .vx-feat { font-size:var(--fs-xs); font-weight:600; color:var(--on-dark-2); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:7px 13px; border-radius: var(--r-pill); }
@@ -1674,7 +1732,7 @@
      this site, so a live-demo button borrowing it diluted the one signal that
      has to stay unambiguous. It is the brand blue now, and the only green left
      anywhere is a verification mark. */
-  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#3574b0; background-image:linear-gradient(145deg,#3574b0,#1f4e79); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight:800; font-size:var(--fs-xs); box-shadow:var(--e2); transition:transform var(--t-std), box-shadow var(--t-std); }
+  .vx-call { position:relative; z-index:2; width:130px; height:130px; border-radius:50%; border:none; cursor:pointer; background-color:#3574b0; background-image:linear-gradient(145deg,#3574b0,#1f4e79); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; font-weight: 700; font-size:var(--fs-xs); box-shadow:var(--e2); transition:transform var(--t-std), box-shadow var(--t-std); }
   .vx-call:hover { transform:translateY(-3px) scale(1.03); box-shadow:var(--e3); }
   .vx-call svg { width:30px; height:30px; }
   html.motion .vx-orb::before, html.motion .vx-orb::after { content:""; position:absolute; inset:0; border-radius:50%; background:rgba(111,189,240,.30); animation:vxPulse 2.6s ease-out infinite; z-index:1; }
@@ -2024,12 +2082,12 @@
       #duel{border-radius:var(--r-xl);box-shadow:var(--e3);padding:clamp(26px,3vw,38px);margin-bottom:26px;position:relative;overflow:hidden}
       #duel::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),var(--accent-soft))}
       .duel-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 14px;margin-bottom:20px}
-      .duel-top h3{font-size:var(--fs-h3);font-weight:800;color:var(--navy);letter-spacing:-.022em}
-      #duel .duel-top h3{font-size:var(--fs-h2-minor);font-weight:900;letter-spacing:-.028em}
-      .duel-top .vtag{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);font-weight:700;letter-spacing:.04em;color:var(--green);background:var(--green-tint);border:1px solid #bfead2;padding:5px 11px;border-radius: var(--r-pill)}
+      .duel-top h3{font-size:var(--fs-h3);font-weight: 700;color:var(--navy);letter-spacing:-.022em}
+      #duel .duel-top h3{font-size:var(--fs-h2-minor);font-weight: 700;letter-spacing:-.032em}
+      .duel-top .vtag{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-micro);font-weight:700;letter-spacing:.05em;color:var(--green);background:var(--green-tint);border:1px solid #bfead2;padding:5px 11px;border-radius: var(--r-pill)}
       .duel-top .vtag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
       .duel-metric+.duel-metric{margin-top:24px}
-      .duel-mlabel{font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between;gap:12px}
+      .duel-mlabel{font-size:var(--fs-micro);font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between;gap:12px}
       .duel-mlabel .hint{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
       .duel-bar{display:flex;align-items:center;gap:12px;margin:8px 0}
       .duel-who{flex:0 0 132px;font-size:var(--fs-xs);font-weight:600;color:var(--ink)}
@@ -2056,7 +2114,7 @@
       /* an observer cannot fire on a duel inside a closed disclosure */
       html.motion .fold .duel .duel-fill{width:var(--w);transition:none}
       @media (prefers-reduced-motion:reduce){.duel .duel-fill,html.motion .duel .duel-fill{width:var(--w);transition:none}}
-      .duel-val{flex:0 0 64px;text-align:right;font-weight:800;color:var(--navy);font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
+      .duel-val{flex:0 0 64px;text-align:right;font-weight: 700;color:var(--navy);font-size:var(--fs-sm);font-variant-numeric:tabular-nums}
       .duel-val.win{color:var(--green)}
       .duel-take{font-size:var(--fs-sm);color:var(--muted);margin-top:11px;padding-left:144px}
       .duel-take strong{color:var(--navy);font-weight:700}
@@ -2239,8 +2297,8 @@
   .gm { background-color:var(--field); background-image: radial-gradient(900px 500px at 15% -20%, rgba(47,110,178,.42), transparent 60%), linear-gradient(140deg, #0a1e35 0%, #16365C 58%, #1F4E79 100%); color:#fff; border-radius: var(--r-xl); padding: clamp(24px,3.4vw,38px); box-shadow: var(--e3); position:relative; overflow:hidden; }
   .gm-grid { display:grid; grid-template-columns: 1fr 1.08fr; gap: clamp(24px,3vw,36px); }
   .gm-inputs { display:flex; flex-direction:column; gap:6px; }
-  .gm-field label { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:var(--fs-xs); font-weight:600; color:var(--on-dark-2); letter-spacing:-.002em; }
-  .gm-field label .v { color:#fff; font-weight:800; font-size:var(--fs-sm); font-variant-numeric:tabular-nums; }
+  .gm-field label { display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:var(--fs-xs); font-weight:600; color:var(--on-dark-2); letter-spacing:0; }
+  .gm-field label .v { color:#fff; font-weight: 700; font-size:var(--fs-sm); font-variant-numeric:tabular-nums; }
   /* 44px tall hit area; the 6px rail is painted on the track pseudo-element
      so the control looks slim but is never a 6px tap target. */
   .gm-field input[type=range]{ -webkit-appearance:none; appearance:none; display:block; width:100%; height:44px; background:transparent; outline:none; cursor:pointer; margin:0; }
@@ -2249,15 +2307,15 @@
   .gm-field input[type=range]::-moz-range-track{ height:6px; border-radius: var(--r-pill); background:rgba(255,255,255,.24); }
   .gm-field input[type=range]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:#fff; border:3px solid #8fc0f0; cursor:pointer; }
   .gm-out { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:var(--r-lg); padding:clamp(20px,2.4vw,26px); display:flex; flex-direction:column; box-shadow:var(--e0); }
-  .gm-cap { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
+  .gm-cap { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.14em; font-weight:700; }
   .gm-row { display:grid; grid-template-columns:1fr 1fr; gap:14px 16px; margin-top:12px; }
-  .gm-stat .k { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.06em; }
-  .gm-stat .n { font-size:var(--fs-body); font-weight:800; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .gm-stat .k { font-size:var(--fs-micro); color:var(--on-dark-3); text-transform:uppercase; letter-spacing:.05em; }
+  .gm-stat .n { font-size:var(--fs-body); font-weight: 700; font-variant-numeric:tabular-nums; letter-spacing:-.022em; }
   .gm-hero { margin:22px 0 6px; text-align:center; }
   .gm-hero .lab { font-size:var(--fs-xs); color:var(--on-dark-2); font-weight:600; }
   /* Capped BELOW the metric strip (33.6px): this is a hypothetical the visitor’s
      own sliders produce, and it may never outrank a sourced number. */
-  .gm-hero .big { font-size:var(--fs-h2-minor); font-weight:800; letter-spacing:-.035em; line-height:1.05; font-variant-numeric:tabular-nums; color:#fff; }
+  .gm-hero .big { font-size:var(--fs-h2-minor); font-weight: 700; letter-spacing:-.032em; line-height:1.05; font-variant-numeric:tabular-nums; color:#fff; }
   .gm-hero .sub { font-size:var(--fs-micro); color:var(--on-dark-3); margin-top:6px; }
   .gm-divider { height:1px; background:rgba(255,255,255,.14); margin:16px 0; }
   .gm-cta { margin-top:18px; }
