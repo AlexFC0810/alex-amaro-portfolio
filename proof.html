@@ -193,11 +193,11 @@
   .nav-mark { display: flex; flex-direction: column; justify-content: center; min-height: 44px; margin-right: auto; color: inherit; }
   .nav-mark .nm-name { font-size: var(--fs-sm); font-weight: 700; color: #fff; letter-spacing: -.005em; line-height: 1.15; white-space: nowrap; }
   .nav-mark .nm-role { font-size: var(--fs-micro); font-weight: 600; color: var(--on-dark-3); letter-spacing: .1em; text-transform: uppercase; line-height: 1.3; }
-  .nav-links { display: flex; align-items: center; gap: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 1px; }
   .nav-links a {
     position: relative;
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; min-width: 44px; padding: 0 9px;
+    min-height: 44px; min-width: 44px; padding: 0 8px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
     white-space: nowrap; border-radius: var(--r-sm);
     transition: color var(--t-micro), background var(--t-micro);
@@ -240,7 +240,10 @@
   .nav-panel a { display: flex; align-items: center; min-height: 48px; padding: 0 14px; font-size: var(--fs-sm); font-weight: 500; color: var(--on-dark-2); border-radius: var(--r-sm); }
   .nav-panel a:hover, .nav-panel a:focus-visible { background: rgba(255,255,255,.09); color: #fff; }
   .nav-panel hr { border: 0; height: 1px; background: rgba(255,255,255,.12); margin: 6px 10px; }
-  @media (max-width: 1120px) { .nav-links { display: none; } .nav-menu { display: block; } .nav-proof { display: none; } }
+  /* 1160, not the 1120 the other pages use: this nav carries one link more
+     than they do (Credentials), so it runs out of row 40px earlier. Measured
+     at the pixel before collapse rather than assumed. */
+  @media (max-width: 1160px) { .nav-links { display: none; } .nav-menu { display: block; } .nav-proof { display: none; } }
   @media (max-width: 420px) { .nav-mark .nm-role { display: none; } }
 
   /* ============================================================
@@ -479,6 +482,7 @@
       <a href="./index.html#growth-math">Growth math</a>
       <a href="./index.html#more">More work</a>
       <a href="./index.html#creds">Credentials</a>
+      <a href="./work.html">Work</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-proof" href="./proof.html" aria-current="page">
@@ -496,6 +500,7 @@
           <a href="#not-claimed">What I won’t claim</a>
           <a href="#method">The verification system</a>
           <hr>
+          <a href="./work.html">Case studies</a>
           <a href="./index.html">Back to the portfolio</a>
           <a href="./index.html#gen-creative">Creative</a>
           <a href="./index.html#voice">Voice AI</a>

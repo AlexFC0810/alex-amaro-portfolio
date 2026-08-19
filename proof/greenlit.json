@@ -1,7 +1,7 @@
 {
   "$schema": "./GREENLIT.md",
-  "version": "1.6.0",
-  "updated": "2026-08-07",
+  "version": "1.9.0",
+  "updated": "2026-08-18",
   "source_of_truth": "AlexFC0810/proof — CLAIMS_LEDGER.md (scorecard 2026-06-25) + shareable/master-positioning.md",
   "doctrine": {
     "name": "Alex Amaro",
@@ -94,19 +94,19 @@
       "label": "Body-sculpting / contouring leads",
       "status": "partial",
       "headline": {
-        "value": "~$4–$16",
-        "unit": "CPL",
-        "qualifier": "~1,200 body-contouring leads + 80 booked appointments (tracker) on one account"
+        "value": "~$3–$12",
+        "unit": "CPL (USD)",
+        "qualifier": "~1,200 body-contouring leads + 80 booked appointments (tracker) on one account. Account currency is CAD (CA$4–$16); USD conversion at ~0.73, rounded up so the published range stays conservative."
       },
       "wording": {
-        "resume": "Produced body-sculpting/contouring leads in the ~$4–$16 range (~1,200 leads and 80 booked appointments on one account).",
-        "linkedin": "Body-sculpting/contouring leads in the ~$4–$16 range.",
-        "portfolio_employer": "~1,200 body-contouring leads at $4–$16 CPL on a single account, with 80 booked appointments tracked.",
-        "portfolio_client": "For body-contouring clinics: ~1,200 leads on one account at $4–$16 per lead — with 80 appointments booked.",
-        "one_liner": "~1,200 body-contouring leads @ $4–$16 CPL (+80 booked)"
+        "resume": "Produced body-sculpting/contouring leads at ~$3–$12 USD (CA$4–$16 on a Canadian account) — ~1,200 leads and 80 booked appointments on one account.",
+        "linkedin": "Body-sculpting/contouring leads at ~$3–$12 USD — CA$4–$16 on a Canadian account.",
+        "portfolio_employer": "~1,200 body-contouring leads at ~$3–$12 USD CPL (CA$4–$16, Canadian account) on a single account, with 80 booked appointments tracked.",
+        "portfolio_client": "For body-contouring clinics: ~1,200 leads on one account at ~$3–$12 USD per lead (CA$4–$16 local) — with 80 appointments booked.",
+        "one_liner": "~1,200 body-contouring leads @ ~$3–$12 USD CPL (+80 booked)"
       },
       "evidence_path": "evidence/meta-ads/body-contouring-pearls.md",
-      "notes": "Exact '$13.51' belongs to the lost MD Body account — do not use. 80 booked from 2026-06-25 Drive tracker pull."
+      "notes": "Exact '$13.51' belongs to the lost MD Body account — do not use. 80 booked from 2026-06-25 Drive tracker pull. 2026-08-18: currency corrected. The account bills in CAD (evidence/meta-ads/ad-account-inventory.md) and the claim published unmarked '$4–$16', which a US reader reads as USD — overstating Alex's cost by ~27% on a metric where lower wins. Both currencies are now named so the figure is precise in either reading. Exact '$13.51' stays retired regardless."
     },
     {
       "id": "C6",
@@ -151,19 +151,19 @@
       "label": "Montreal bilingual campaign",
       "status": "partial",
       "headline": {
-        "value": "220+",
+        "value": "350+",
         "unit": "bilingual leads",
-        "qualifier": "220+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks (~40/month), Montreal beauty brand — tracker-corroborated; exact CPL permanently retired (ad account revoked at off-boarding)"
+        "qualifier": "350+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks (~40/month), Montreal location of a national laser & wax franchise — roughly one booked appointment per four leads. Floor sits under a photographed, DOM-verified CRM total of 384. Exact CPL permanently retired (ad account revoked at off-boarding)."
       },
       "wording": {
-        "resume": "Generated 220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — campaigns and follow-up run in-language, not translated.",
-        "linkedin": "220+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — built and run in-language.",
-        "portfolio_employer": "220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand.",
-        "portfolio_client": "For a Montreal brand: 220+ bilingual leads and 89 booked appointments in about ten weeks — campaigns run in-language.",
-        "one_liner": "220+ bilingual leads, 89 booked in ~10 weeks"
+        "resume": "Generated 350+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — roughly one booking per four leads, campaigns and follow-up run in-language, not translated.",
+        "linkedin": "350+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — built and run in-language, about one booking for every four leads.",
+        "portfolio_employer": "350+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — roughly one booked appointment per four leads.",
+        "portfolio_client": "For a Montreal brand: 350+ bilingual leads and 89 booked appointments in about ten weeks — roughly one booking for every four leads, campaigns run in-language.",
+        "one_liner": "350+ bilingual leads, 89 booked in ~10 weeks (~1 in 4)"
       },
       "evidence_path": "case-studies/montreal-bilingual-acquisition/README.md",
-      "notes": "Leads founder-attested; ~90 booked tracker-corroborated (Drive Master Sheet). Exact '$22.14 CPL' and '41 booked/referral' remain held (lost Meta account). 2026-08-06: booked count is exactly 89 dated rows (not ~90, not 91 — a row without an appointment date is not a booking). CPL is retired in EVERY form including \"~$22\": the account was revoked and GHL retains no spend for off-boarded clients, so nobody can check it."
+      "notes": "Leads founder-attested; ~90 booked tracker-corroborated (Drive Master Sheet). Exact '$22.14 CPL' and '41 booked/referral' remain held (lost Meta account). 2026-08-06: booked count is exactly 89 dated rows (not ~90, not 91 — a row without an appointment date is not a booking). CPL is retired in EVERY form including \"~$22\": the account was revoked and GHL retains no spend for off-boarded clients, so nobody can check it. 2026-08-18: leads raised 220+ -> 350+ on Alex's approval. 220 was a per-campaign row mistaken for the account total; the dedicated sub-account (created 27 Feb 2025, no imported list, client bookings lived in Zenoti so organic never landed here) was photographed at 384 contacts and DOM-verified. The floor is deliberately set BELOW the measured total. Side effect: the implied booking rate drops from an implausible 40.5% to a defensible ~25%."
     },
     {
       "id": "C9",
@@ -189,19 +189,19 @@
       "label": "E-commerce (2017–2021)",
       "status": "attested",
       "headline": {
-        "value": "six-figure",
+        "value": "multi-six-figure",
         "unit": "e-commerce business",
         "qualifier": "built through college, self-funding tuition (founder-attested)"
       },
       "wording": {
-        "resume": "Built and ran a six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
-        "linkedin": "Built and ran a six-figure online retail business while in college full-time — how I paid tuition.",
-        "portfolio_employer": "Built a six-figure Amazon/eBay business from scratch while in college full-time — the operating instincts behind how I build marketing systems.",
-        "portfolio_client": "Founder DNA: built a six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
-        "one_liner": "Six-figure e-commerce business built through college"
+        "resume": "Built and ran a multi-multi-six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
+        "linkedin": "Built and ran a multi-multi-six-figure online retail business while in college full-time — how I paid tuition.",
+        "portfolio_employer": "Built a multi-multi-six-figure Amazon/eBay business from scratch while in college full-time — the operating instincts behind how I build marketing systems.",
+        "portfolio_client": "Founder DNA: built a multi-multi-six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
+        "one_liner": "Multi-multi-six-figure e-commerce business built through college"
       },
       "evidence_path": "case-studies/ecommerce-college-venture/README.md",
-      "notes": "Founder-attested grit story. Never '$350K' or '4.9-star' (unverifiable)."
+      "notes": "Founder-attested grit story. Never '$350K' or '4.9-star' (unverifiable). 2026-08-18: 'six-figure' -> 'multi-six-figure' per the 2026-08-06 under-claim audit and Alex's approval. Still founder-attested with no checkable number, so evidence weight is unchanged — this is truer to the testimony, not a stronger sourcing claim. Never '$350K' or '4.9-star'."
     },
     {
       "id": "B1",
@@ -320,21 +320,21 @@
     {
       "id": "B7",
       "label": "Booked appointments across clients",
-      "status": "partial",
+      "status": "hold",
       "headline": {
-        "value": "1,300+",
-        "unit": "booked appointments and consults",
-        "qualifier": "DOM-verified across all 22 client sub-accounts in GoHighLevel (pre-teardown census, 2026-08-07). Conservative paid-acquisition floor: 830+, excluding recurring-service rebookings and taking the largest account at its in-person figure."
+        "value": "RETIRED",
+        "unit": "",
+        "qualifier": "No portfolio-wide appointment aggregate is claimed. Use the per-client, campaign-attributable figures instead: 70 in a 30-day window (C6), ~120 in ~3 months (C7), 89 for Montreal (C8), 80 for body contouring (C5)."
       },
       "wording": {
-        "resume": "Drove 1,300+ booked appointments and consults across 22 client CRM sub-accounts — every figure read from the platform, not estimated.",
-        "linkedin": "1,300+ booked appointments and consults across 22 client sub-accounts, counted from the CRM itself.",
-        "portfolio_employer": "1,300+ booked appointments and consults, counted across all 22 client sub-accounts in the CRM (830+ excluding recurring-service rebookings).",
-        "portfolio_client": "1,300+ appointments and consults booked for clients — counted from the systems themselves, not estimated.",
-        "one_liner": "1,300+ booked appointments and consults (22 accounts)"
+        "resume": "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)",
+        "linkedin": "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)",
+        "portfolio_employer": "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)",
+        "portfolio_client": "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)",
+        "one_liner": "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)"
       },
       "evidence_path": "evidence/gohighlevel/drive-appointment-trackers.md",
-      "notes": "Booked ≠ attended. Amiyah overlaps C7 (same client) — not additive with C7; safe as the cross-client total. Raised from \"~290+\" 2026-08-05: the seven trackers sum to 341 and the origin of ~290+ was never recorded, so the vault was understating itself by ~50. Velvet's 12 are CONSULTS not appointments: inclusive total 341, strict-booked 329 - both clear 290, so the raise holds either way, but the unit says \"appointments and consults\" rather than picking the flattering noun. Amiyah 113 is counted ONCE here and must NEVER be added on top of C7 (~120) - same client, same window. RAISED 2026-08-06: an eighth tracker (Gratitude, 112) was never counted. 340+ understated by ~33%. RAISED 2026-08-07 from 450+ after a full pre-teardown census of every client sub-account: 1,301 DOM-verified. Prior figures were drawn from Drive trackers covering a fraction of the estate. Quote 830+ when the room will challenge recurring bookings; quote 1,300+ when the platform census is the point. NEVER quote ChiroVirginia workflow enrolments (30,497 on New Lead Alert vs 17,796 contacts) - that is re-enrolment of imported lists, not leads."
+      "notes": "RETIRED 2026-08-11 on Alex's own review: \"I am not sure that I booked 1,300 appointments — that sounds like a lot.\" When the founder cannot defend a number in the room, it is a liability, not an asset — he is the one who has to answer for it. The substance backs him: the census counted appointment ROWS PRESENT in 22 GHL sub-accounts he built, which is NOT the same as appointments his campaigns generated, and that is what a reader infers. Evidence in the vault says so plainly — ChiroVirginia 17,796 contacts vs 26 appointments (GHL was never their booking system); Clarity Cleaning 304 appointments from 163 contacts (his own cleaning business, recurring rebookings); South Jersey carries a workflow titled \"(Lauren or in-clinic handling)\". Real as a census, wrong as an attribution claim, and it crosses our own attribution boundary. The census remains valuable EVIDENCE (evidence/gohighlevel/ghl-preteardown-capture.md) — it is simply not a claim. Do NOT resurrect a replacement aggregate (450+, 830+, 1,300+): if it is not campaign-attributable, we do not total it."
     },
     {
       "id": "B8",
@@ -358,59 +358,300 @@
   ],
   "do_not_say": [
     {
-      "pattern": "\\$350\\s?K|350K\\+|4\\.9[\\s–-]?★|4\\.9[\\s–-]?star",
+      "pattern": "(?<![\\d,.])\\$\\s?350\\s?[Kk](?![a-jl-z])|(?<![\\d,.])\\$\\s?350[,.]?000\\b|(?<![\\d,.])350\\s?(?:[Kk]|thousand)\\b(?=[^\\n]{0,40}?\\b(?:sales|revenue|profit|GMV|business|store|storefront|selling|sold|Amazon|eBay|e-?commerce)\\b)|(?<=\\b(?:sales|revenue|profit|GMV|selling|sold|did|grossed|cleared)\\b[^\\n]{0,25})(?<![\\d,.])350\\s?(?:[Kk]|thousand)\\b|(?<![\\d,.])\\$\\s?(?:300|80)\\s?[Kk]\\b(?=[^\\n]{0,40}?\\b(?:sales|revenue|profit|GMV)\\b)|(?<=\\b(?:sales|revenue|profit|GMV|sold|grossed|cleared|did)\\b[^\\n]{0,25})(?<![\\d,.])\\$\\s?(?:300|80)\\s?[Kk]\\b|(?<![\\d.])4\\.9\\s*(?:[-–—]\\s*)?(?:★|\\bstars?\\b|\\brating\\b|\\brated\\b)|(?<![\\d.])4\\.9\\s*(?:\\/|\\s*out\\s+of\\s+)\\s*5\\b",
       "reason": "C10 unverifiable (Amazon/eBay history gone)",
-      "replacement": "six-figure Amazon/eBay business built through college (founder-attested)"
+      "replacement": "six-figure Amazon/eBay business built through college (founder-attested)",
+      "catches": [
+        "\"$350K+ … 4.9★\" e-commerce",
+        "Grew the store to $350,000 in lifetime sales",
+        "Scaled an eBay storefront past 350K in sales",
+        "4.9/5 average review score on eBay",
+        "Carried a 4.9 rating as a top-rated seller",
+        "~$300K in sales / ~$80K profit in 3–5 months"
+      ],
+      "must_not_catch": [
+        "Built and ran a six-figure Amazon/eBay business while attending college full-time",
+        "$225K+ in Meta ad spend managed across 14+ accounts",
+        "$300K+ in Meta ad spend managed across 16 accounts in the U.S., Canada and the U.K.",
+        "4.9 million impressions delivered"
+      ]
     },
     {
-      "pattern": "\\$87\\s*(→|->|to)\\s*~?\\$?1[01](\\.\\d+)?|\\$10\\.92",
+      "pattern": "\\$\\s?87\\b(?!\\.\\d)[^\\n]{0,25}?(?<!\\d)\\$\\s?~?1[01](?:\\.\\d{1,2})?(?!\\d)|(?<![\\d.])\\$?\\s?87(?:\\.\\d{1,2})?\\s*(?:→|-+>|=+>|[–—-]|\\bdown\\s+to\\b|\\bto\\b)\\s*(?:just\\s+|under\\s+|about\\s+|~)?\\$?\\s?(?<!\\d)1[01](?:\\.\\d{1,2})?(?!\\d)|\\$\\s?~?1[01](?:\\.\\d{1,2})?\\b[^\\n]{0,25}?\\$\\s?87\\b(?!\\.\\d)|\\$\\s?10\\.92\\b",
       "reason": "C4 laser turnaround — lost account, unsourced",
-      "replacement": "Optimized a med spa laser campaign, cutting CPL substantially (verified laser ~$16 CPL on accessible account)"
+      "replacement": "Optimized a med spa laser campaign, cutting CPL substantially (verified laser ~$16 CPL on accessible account)",
+      "catches": [
+        "an **$87 → $11 CPL turnaround**",
+        "cut a laser campaign ~$87 → ~$11/$10.92",
+        "Dropped laser cost per lead from $87 down to $11",
+        "Reduced cost per lead from $87.00 to $11.00",
+        "$87 => $11 cost per lead",
+        "Laser leads now $11, down from $87"
+      ],
+      "must_not_catch": [
+        "Ran daily budgets from $87 to $110 across the account set.",
+        "Tested creative budgets of $87 to $100 per day.",
+        "Optimized a med spa laser campaign, cutting cost-per-lead substantially.",
+        "ran medspa laser lead-gen (Aerolase) at ~$16 CPL"
+      ]
     },
     {
-      "pattern": "\\$13\\.51",
+      "pattern": "(?<![\\d.,])\\$\\s?~?13\\.5[01]?(?![\\dKkMmBb]|\\s*%)|(?<![\\d.,])~?13\\.51(?![\\dKkMmBb]|\\s*%)",
       "reason": "C5 exact figure from lost MD Body account",
-      "replacement": "body-contouring leads in the ~$4–$16 range"
+      "replacement": "body-contouring leads in the ~$4–$16 range",
+      "catches": [
+        "Delivered body-contouring leads at 13.51 per lead",
+        "Cost per lead: $ 13.51",
+        "USD 13.51 per body-contouring lead",
+        "Body-contouring leads at ~$13.50 CPL",
+        "Body-contouring CPL of about $13.5"
+      ],
+      "must_not_catch": [
+        "$13.5K spend, ~$62 cost-per-scheduled-appointment",
+        "~1,200 body-contouring leads at $4–$16 CPL, with 80 booked appointments tracked",
+        "13.5% show rate on booked appointments"
+      ]
     },
     {
-      "pattern": "\\$22\\.14",
+      "pattern": "\\b22[.,]14\\b(?!\\s*%)|~\\s*\\$\\s*22\\b(?![.,]\\d)|(?<!(?:[-–—]|to|and|through|under|below|less than)\\s{0,3}\\$?)(?<!\\$\\s?(?:4|10)[^\\d\\n][^\\n]{0,12})\\$\\s?22\\b(?![.,]\\d)(?![-–—]\\s?\\$?\\d)(?=[^.\\n]{0,30}(?:CPL|cost[-\\s]?per[-\\s]?lead|per[-\\s]lead|\\/lead|a lead|each|per bilingual lead))|(?:CPL|cost[-\\s]?per[-\\s]?lead)[^.\\n]{0,15}?(?<!(?:[-–—]|to|and|through|under|below|less than)\\s{0,3}\\$?)(?<!\\$\\s?(?:4|10)[^\\d\\n][^\\n]{0,12})\\$\\s?22\\b(?![.,]\\d)(?![-–—]\\s?\\$?\\d)",
       "reason": "C8 exact CPL unrecoverable (lost Foxy Box Meta account)",
-      "replacement": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks"
+      "replacement": "220+ bilingual (FR/EN) leads and ~90 booked appointments in ~10 weeks",
+      "catches": [
+        "\"Montreal 220 leads @ $22.14 CPL\"",
+        "Bilingual leads at ~$22 CPL for a Montreal beauty brand.",
+        "Montreal cost per lead: $22.",
+        "FR/EN leads at $22 per lead in Montreal.",
+        "CPL bilingue Montreal: 22,14 $ par lead.",
+        "Bilingual FR/EN leads at roughly $22 each."
+      ],
+      "must_not_catch": [
+        "Strong lead campaigns at $4–22 cost-per-lead per campaign (as low as ~$4).",
+        "220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks",
+        "Cost per lead as low as ~$4, with strong campaigns commonly $4–$22 — quoted per campaign",
+        "generating 6,000+ qualified leads at $4\" + EN + \"$22 cost-per-lead on strong campaigns"
+      ]
     },
     {
-      "pattern": "consistently\\s+(deliver|delivering|landing)?\\s*\\$?\\d",
+      "pattern": "\\bconsistent(?:ly)?\\b(?!\\s+with\\b)(?:[^.\\n]|\\.\\d){0,30}?(?:\\$\\s?\\d{1,2}(?![\\d.,])|CPL|cost[-\\s]?per[-\\s]?lead|per[-\\s]lead|\\/lead)",
       "reason": "CPL range is per-campaign, not consistent/blanket",
-      "replacement": "strong lead-gen campaigns commonly $4–$22 per campaign (as low as ~$4)"
+      "replacement": "strong lead-gen campaigns commonly $4–$22 per campaign (as low as ~$4)",
+      "catches": [
+        "and consistently delivered **$10–$22 cost-per-lead**",
+        "consistently landing **$4–22 cost-per-lead**",
+        "consistently delivering **$10–$22 cost-per-lead (as low as ~$4 in strong campaigns)**",
+        "Consistently under $10 cost per lead.",
+        "Consistent $12 CPL across every account.",
+        "Consistently below $5 per lead."
+      ],
+      "must_not_catch": [
+        "Strong lead-gen campaigns commonly $4–$22 per campaign (as low as ~$4)",
+        "Consistent with our attribution boundary, we claim leads and booked appointments.",
+        "Follow-up runs consistently — speed-to-lead, missed-call text-back, nurture."
+      ]
     },
     {
-      "pattern": "120\\+\\s*(booked|appointments|appts)?\\s*(in|/)\\s*90",
+      "pattern": "(?:(?<![\\d,.])(?<!\\d\\s?[-–—]\\s?)\\b120\\s*\\+|\\b(?:over|more than|north of|upwards of)\\s+120\\b)(?:[^.\\n]{0,40}?\\b(?:book|appointment|appt|consult)|[^.\\n]{0,20}?(?:\\b(?:in|over|within|across)\\b|\\/)\\s*~?\\s*(?:90|3\\s*months|three\\s*months))",
       "reason": "C7 verified at exactly 120 booked, low show rate",
-      "replacement": "~120 booked appointments in ~3 months"
+      "replacement": "~120 booked appointments in ~3 months",
+      "catches": [
+        "\"120+ booked appointments in 90 days\"",
+        "**120+ Booked Appts/90 Days**",
+        "120+ booked appointments in 90 days for an aesthetic clinic.",
+        "Over 120 booked appointments in 90 days.",
+        "Generated 120+ booked appts in ~90 days.",
+        "120+ appointments in three months."
+      ],
+      "must_not_catch": [
+        "~120 appointments booked in ~3 months for an aesthetic clinic.",
+        "Booked ~120 appointments in ~3 months (double-sourced: CRM + tracker).",
+        "70 booked appointments in a 30-day window (61 within the calendar month)",
+        "1,200+ weight-loss leads at ~$9 CPL"
+      ]
     },
     {
-      "pattern": "B\\.?S\\.?\\s*(in\\s*)?Marketing[^.\\n]{0,40}(in\\s*progress)",
+      "pattern": "(?<!(?<![A-Za-z])(?:never|not|avoid|n[’']t)(?![A-Za-z])[^\\n]{0,30})\\b(?:B\\.?\\s?S\\.?|Bachelor(?:'s|’s)?(?:\\s+of\\s+Science)?)[,\\s]*(?:degree\\s+)?(?:in\\s+)?Marketing\\b|\\b(?:B\\.?\\s?S\\.?|Bachelor|degree|WGU|Western\\s+Governors)[^\\n]{0,70}?(?<!(?<![A-Za-z])(?:never|not|avoid|n[’']t)(?![A-Za-z])[^\\n]{0,30})\\b(?:in[-\\s]*progress|in\\s+evaluation|currently\\s+(?:enrolled|pursuing|studying)|enrolled\\s+at|matriculat\\w*)\\b|(?<!(?<![A-Za-z])(?:never|not|avoid|n[’']t)(?![A-Za-z])[^\\n]{0,30})\\b(?:in[-\\s]*progress|in\\s+evaluation|currently\\s+enrolled)\\b[^\\n]{0,70}?\\b(?:B\\.?\\s?S\\.?|Bachelor|WGU|Western\\s+Governors)\\b",
       "reason": "Not yet enrolled at WGU; wrong program name",
-      "replacement": "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)"
+      "replacement": "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)",
+      "catches": [
+        "degree: \"B.S. Marketing — WGU (in progress)\"",
+        "B.S. Business Administration, Marketing — WGU (in progress)",
+        "B.S. Marketing at W.G.U. — in progress",
+        "Bachelor of Science in Marketing (in progress)",
+        "Currently enrolled at Western Governors University — B.S. Marketing",
+        "Bachelor’s Degree Path — In Evaluation",
+        "B.S. Business Administration, Marketing — Western Governors University, in progress"
+      ],
+      "must_not_catch": [
+        "B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit)",
+        "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)",
+        "Associate's — University of Wisconsin–Oshkosh (conferred)",
+        "HubSpot-certified (transferable); builds are GoHighLevel-only",
+        "B.S. Business Administration, Marketing — WGU (expected ~2027; transferring credit)** — never \"in progress\"",
+        "Western Governors University · **expected ~2027 (transferring credit)** — _never \"in progress\"_",
+        "Western Governors University (expected ~2027; transferring credit — never \"in progress\")",
+        "Do NOT say the degree is in progress — he is not enrolled.",
+        "Never say \"B.S. Marketing in progress\"."
+      ]
     },
     {
-      "pattern": "41\\s*booked\\s*/?\\s*referral",
+      "pattern": "(?<![\\d$.,–—-])41\\+?\\s*(?:booked|bookings?|appointments?|appts?|consults?|referrals?)\\b|\\b(?:booked|scheduled)\\s+41\\b|\\bforty[-\\s]?one\\s+(?:booked|bookings?|appointments?|appts?|referrals?)\\b",
       "reason": "C8 old booked-outcomes figure superseded (and unsourced)",
-      "replacement": "~90 booked appointments in ~10 weeks (tracker-corroborated)"
+      "replacement": "~90 booked appointments in ~10 weeks (tracker-corroborated)",
+      "catches": [
+        "41 booked/referral outcomes",
+        "41 booked appointments in ~10 weeks for a Montreal beauty brand",
+        "41 bookings/referrals from the bilingual campaign",
+        "Booked 41 appointments for a Montreal beauty brand",
+        "forty-one booked/referral outcomes",
+        "41+ booked/referral outcomes"
+      ],
+      "must_not_catch": [
+        "89 booked appointments in ~10 weeks for a Montreal beauty brand",
+        "80 booked appointments tracked on the body-contouring account",
+        "215+ scheduled appointments at ~$62 each"
+      ]
     },
     {
-      "pattern": "booked\\s+sales\\s+calls",
+      "pattern": "(?<!\\b(?:not|never|avoid|instead of|rather than)\\b[^\\n]{0,20})(?:\\bbooked[\\s-]+(?:[^\\s.,;]+[\\s-]+){0,2}calls\\b|\\bbooked[\\s-]+(?:sales|discovery|strategy|consult\\w*|intro|closing|qualified)[\\s-]+calls?\\b|\\bcalls\\s+booked\\b)",
       "reason": "B4 corrected 2026-06-24: Meta result = website appointments scheduled, not verified booked/held calls",
-      "replacement": "scheduled appointments (from B2B client-acquisition campaigns)"
+      "replacement": "scheduled appointments (from B2B client-acquisition campaigns)",
+      "catches": [
+        "215+ booked sales calls",
+        "215+ booked calls at ~$62 each",
+        "215 sales calls booked with clinic owners",
+        "170+ leads and 215+ booked discovery calls",
+        "Booked sales call volume from our own B2B pipeline",
+        "Booked-sales-calls: 215+"
+      ],
+      "must_not_catch": [
+        "215+ scheduled appointments from our own B2B client-acquisition campaigns",
+        "170+ leads and 215+ scheduled appointments at ~$62 per scheduled appointment",
+        "Do **not** say \"booked sales calls.\" Don't contrast 218 \"booked\" vs 174 \"leads\"",
+        "Say **scheduled appointments**, never \"booked sales calls.\""
+      ]
     },
     {
-      "pattern": "financing\\s+(was\\s+)?approv",
+      "pattern": "(?<!\\b(?:not|never|no|avoid|don't|do not|instead of)\\b[^\\n]{0,25})(?:financ\\w*[\\s:—–-]{0,3}(?:\\b(?:was|is|were|got|then|came\\s+back)\\b\\s*){0,2}(?:pre[\\s-]?)?approv|(?:pre[\\s-]?)?approv\\w*[\\s:—–-]{0,3}(?:\\b(?:for|through|of|on|with)\\b\\s*){0,2}(?:a\\s+|the\\s+|their\\s+)?(?:financ\\w*|payment\\s+plan|credit)|\\bcredit[\\s-]?approv|(?<![\\d,])\\d{1,3}\\+?\\s*approvals\\b(?![^.\\n]{0,30}\\b(?:ad|ads|creative|campaign|policy|account)\\b)|\\bfinanced\\s+(?:the\\s+|a\\s+|their\\s+|his\\s+|her\\s+)?(?:install|installation|purchase|package|treatment|job|unit)\\b)",
       "reason": "Disproven claim — the financing case was the refrigeration client and it was DECLINED",
-      "replacement": "(remove — do not cite financing approvals as proof)"
+      "replacement": "(remove — do not cite financing approvals as proof)",
+      "catches": [
+        "12 leads approved for financing within 48 hours.",
+        "The buyer was approved for financing on the spot.",
+        "The financing came back approved.",
+        "financing: approved",
+        "Credit-approved buyers from the campaign.",
+        "10+ approvals on high-ticket packages."
+      ],
+      "must_not_catch": [
+        "Downstream closes are lead-quality evidence only (attribution boundary).",
+        "Do NOT cite 'financing approvals' — that claim was disproven.",
+        "12 ad approvals cleared Meta review this week",
+        "Meta approved the campaign creative after review",
+        "**No credit- or finance-approval claim.**"
+      ]
     },
     {
       "pattern": "30,?497",
       "reason": "ChiroVirginia workflow re-enrolment count, not leads - imported lists re-entering a workflow. Quoting it as lead volume would collapse instantly.",
-      "replacement": "Do not cite workflow enrolment counts as lead volume. ChiroVirginia is evidenced by the head-to-head campaign data (114 @ $12.59 vs 12 @ $49.81)."
+      "replacement": "Do not cite workflow enrolment counts as lead volume. ChiroVirginia is evidenced by the head-to-head campaign data (114 @ $12.59 vs 12 @ $49.81).",
+      "catches": [
+        "30,497 leads generated for the chiropractic account",
+        "30497 leads from ChiroVirginia",
+        "Generated 30,497 leads"
+      ],
+      "must_not_catch": [
+        "114 leads at $12.59 vs. their 12 at $49.81",
+        "6,250+ qualified leads across paid social"
+      ]
+    },
+    {
+      "pattern": "(?<![\\d,.$])(?:29[01]|32[89]|34[01]|44[01]|45[03]|830|1,?000|1,?30[01]|1[.,]3\\s?[Kk])(?!\\d)(?:\\s*\\+)?(?=[^.\\n]{0,80}?(?:appointments?|appts?|consults?|bookings?|booked|census))|(?<=(?:appointments?|appts?|consults?|bookings?|booked|census)[^.\\n]{0,80}?)(?<![\\d,.$])(?:29[01]|32[89]|34[01]|44[01]|45[03]|830|1,?000|1,?30[01]|1[.,]3\\s?[Kk])(?!\\d)(?:\\s*\\+)?|\\b(?:booked|scheduled)\\s+appointments?\\s+and\\s+consults?|\\bappointments?\\s+and\\s+consults?\\s+booked\\b|(?:thirteen|eight[\\s-]?hundred[\\s-]?(?:and[\\s-]?)?thirty|three[\\s-]?hundred[\\s-]?(?:and[\\s-]?)?forty|four[\\s-]?hundred[\\s-]?(?:and[\\s-]?)?fifty|one[\\s-]?thousand)[\\s-]?(?:hundred)?\\s+(?:booked\\s+)?(?:appointments?|appts?|consults?|bookings?)",
+      "reason": "Portfolio-wide appointment aggregate, retired 2026-08-11 — at ANY size. Counted appointments present in client CRMs, not appointments the campaigns generated; crosses the attribution boundary and Alex cannot defend it in a room. B7 also bans the replacement aggregates by name (340+, 450+, 830+, 1,300+), so trimming the number is not a fix.",
+      "replacement": "Quote the per-client, campaign-attributable figures: 70 booked in a 30-day window, ~120 in ~3 months, 89 for the Montreal brand.",
+      "catches": [
+        "1,300+ booked appointments across clients.",
+        "1,300+ appointments and consults booked for clients — counted from the systems themselves, not estimated.",
+        "Built ad-to-appointment systems that booked 1,300+ appointments and consults across 22 client sub-accounts",
+        "1,301 appointments tracked in client CRMs.",
+        "~1,300 appointments booked across the portfolio.",
+        "Thirteen hundred appointments booked across clients.",
+        "Drove 1,300+ booked appointments and consults across 22 client CRM sub-accounts — every figure read from the platform, not estimated.",
+        "1,300+ booked appointments and consults across 22 client sub-accounts, counted from the CRM itself.",
+        "1,300+ booked appointments and consults, counted across all 22 client sub-accounts in the CRM (830+ excluding recurring-service rebookings).",
+        "1,300+ booked appointments and consults (22 accounts)",
+        "Built ad-to-appointment systems that booked 1,300+ appointments and consults across 22 client sub-accounts — 70 in a 30-day window and ~120 in ~3 months for clinics.",
+        "Cross-client bookings (B7): \"1,300+ booked appointments and consults\", counted across all 22 client sub-accounts in the CRM (830+ excluding recurring-service rebookings).",
+        "Conservative paid-acquisition floor: 830+, excluding recurring-service rebookings and taking the largest account at its in-person figure.",
+        "RAISED 2026-08-07 from 450+ after a full pre-teardown census of every client sub-account: 1,301 DOM-verified.",
+        "Across seven client trackers the same engine has produced 340+ booked appointments.",
+        "340+ booked appointments across these trackers (B7, evidence/gohighlevel/drive-appointment-trackers.md).",
+        "340+ booked appointments and consults across clients | Seven-client tracker roll-up",
+        "Drove 340+ booked appointments and consults across client trackers via paid ads + GoHighLevel follow-up systems.",
+        "60+ booked appointments in one month · ~120 booked appointments in ~3 months · 340+ booked appointments across clients",
+        "1300 booked appointments across client CRMs.",
+        "1,300 appointments booked across the portfolio.",
+        "Booked 1,300+ appointments for clients.",
+        "Over 1,300 booked appointments across 22 sub-accounts.",
+        "More than 1,300 appointments booked for clients.",
+        "1,300+ appts across 22 client sub-accounts.",
+        "1,300+ consults booked across the client base.",
+        "830+ booked appointments across client sub-accounts.",
+        "450+ booked appointments across clients.",
+        "340+ booked appointments across clients.",
+        "Booked 340 appointments across seven client trackers.",
+        "Drove 830+ appointments and consults across the client estate.",
+        "RAISED 2026-08-07 from 450+ after a full pre-teardown census of every client sub-account: 1,301 DOM-verified appointments.",
+        "1,300+ bookings across 22 client sub-accounts.",
+        "Quote 830+ when the room will challenge recurring bookings; quote 1,300+ when the census itself is the point.",
+        "Output: 1,300+ booked appointments and consults across 22 client sub-accounts (830+ excluding recurring-service rebookings), incl. 70 booked appointments in a 30-day window.",
+        "Across seven client trackers the appointment total is 341 — inclusive total 341, strict-booked 329.",
+        "The seven trackers sum to 341 booked appointments and outcomes across clients.",
+        "~290+ booked appointments and consults across clients.",
+        "1,000+ appointments booked across 22 client CRM sub-accounts, counted from the platform.",
+        "1.3K booked appointments across client sub-accounts.",
+        "Our 830+ appointment engine spans 22 client CRM sub-accounts.",
+        "A 1,300-appointment portfolio census, read straight off the platform.",
+        "Booked appointments and consults across clients: 340+ (seven-client tracker roll-up).",
+        "Eight hundred and thirty booked appointments across client sub-accounts.",
+        "Drove 1 300 booked appointments and consults across 22 client CRM sub-accounts.",
+        "830-plus booked appointments across client sub-accounts, excluding recurring-service rebookings.",
+        "Conservative paid-acquisition floor: 830+ excluding recurring-service rebookings.",
+        "453 across eight client reporting sheets — 113, 112, 89, 80, 24, 12, 12, 11 — booked, not attended.",
+        "440+ booked appointments and consults across eight client appointment trackers."
+      ],
+      "must_not_catch": [
+        "70 booked appointments in a 30-day window (61 within the calendar month)",
+        "1,750+ leads across weight-loss, Botox, laser and photofacial",
+        "~120 appointments booked in ~3 months for an aesthetic clinic",
+        "Booked 70 appointments in a 30-day window for a weight-loss clinic grand opening (61 within the calendar month), via paid ads and an integrated GoHighLevel follow-up system.",
+        "70 booked appointments in 30 days",
+        "~120 appointments booked in ~3 months for an aesthetic clinic (double-sourced: CRM + tracker).",
+        "220+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — campaigns and follow-up run in-language, not translated.",
+        "~1,200 body-contouring leads at $4–$16 CPL on a single account, with 80 booked appointments tracked.",
+        "Generated 6,250+ qualified leads across paid-social campaigns — cost per lead quoted per campaign, never blended.",
+        "Managed/supported $225K+ in Meta ad spend across 14+ clinic, medspa, weight-loss, tattoo-removal, local-service and B2B accounts in the U.S., Canada and the U.K.",
+        "Ran a full med spa lead-gen program for one clinic — 1,750+ leads across weight-loss, Botox, laser and photofacial, including 1,200+ weight-loss leads at ~$9 CPL.",
+        "Ran the agency’s own B2B client-acquisition — 170+ leads and 215+ scheduled appointments at ~$62 per scheduled appointment.",
+        "Generated 730+ tattoo-removal leads at ~$19–$21 CPL in a saturated NYC market — flagship campaign 526 leads at $19.",
+        "Generated 817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.",
+        "Outperformed an incumbent national chiropractic agency on the same client account: 114 leads at $12.59 CPL vs. their 12 at $49.81 — 9.5x the lead volume at ~75% lower cost per lead.",
+        "Cost per lead as low as ~$4, with strong campaigns commonly $4–$22 — quoted per campaign, never blended.",
+        "Built and ran a six-figure Amazon/eBay business while attending college full-time — self-funding tuition.",
+        "Ads are half the job. We build the follow-up system — speed-to-lead, missed-call text-back, nurture — that turns your leads into booked appointments.",
+        "B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit). Associate’s — University of Wisconsin–Oshkosh (conferred).",
+        "(retired — quote the per-client appointment claims instead: 70 in a 30-day window, ~120 in ~3 months, 89 Montreal.)",
+        "Led a four-person delivery team for ~10 months — call center, media buyer, ad-creative specialist and GoHighLevel specialist.",
+        "Ad → qualified lead → booked appointment, one system.",
+        "70 booked appointments in a 30-day window (61 within the calendar month), plus 80 booked appointments tracked on the body-contouring account.",
+        "89 booked appointments in ~10 weeks (~40/month) from 220+ bilingual FR/EN leads for a Montreal beauty brand.",
+        "215+ scheduled appointments at ~$62 each from the agency's own B2B pipeline — 170+ leads.",
+        "1,200+ weight-loss leads at ~$9 CPL inside a 1,750+ lead medspa program, feeding the booked-appointment engine.",
+        "$225K+ in Meta ad spend across 14+ accounts and 6,250+ qualified leads — cost per lead quoted per campaign, never blended.",
+        "9.5x the lead volume at ~75% lower CPL — 114 leads at $12.59 vs the incumbent's 12 at $49.81, same account.",
+        "~120 booked appointments in ~3 months for an aesthetic clinic; 70 in a 30-day window for a weight-loss clinic grand opening; 89 in ~10 weeks in Montreal.",
+        "817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.",
+        "730+ tattoo-removal leads at ~$19–$21 CPL — flagship campaign 526 leads at $19, and the follow-up system that turns them into booked appointments."
+      ]
     }
   ],
   "proximity_rules": [

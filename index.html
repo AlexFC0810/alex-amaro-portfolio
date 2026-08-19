@@ -368,7 +368,7 @@
   .nav-links a {
     position: relative;
     display: inline-flex; align-items: center; justify-content: center;
-    min-height: 44px; min-width: 44px; padding: 0 9px;
+    min-height: 44px; min-width: 44px; padding: 0 8px;
     font-size: var(--fs-xs); font-weight: 500; color: var(--on-dark-2);
     letter-spacing:0; white-space: nowrap; border-radius: var(--r-sm);
     transition: color var(--t-micro), background var(--t-micro);
@@ -1278,6 +1278,9 @@
       <a href="#proof">Receipts</a>
       <a href="#growth-math">Growth math</a>
       <a href="#more">More work</a>
+      <!-- Not a hash link, so the scrollspy — which binds a[href^="#"] only —
+           never sees it, and nothing about the "you are here" logic changes. -->
+      <a href="./work.html">Work</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-proof" href="./proof.html">
@@ -1299,6 +1302,7 @@
           <a href="#growth-math">Growth math</a>
           <a href="#more">More work</a>
           <hr>
+          <a href="./work.html">Case studies</a>
           <a href="./proof.html">The Proof Room</a>
           <a href="./Alex-Amaro-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
           <a href="#contact">Contact</a>
@@ -2274,6 +2278,24 @@
         </div>
       </div>
     </details>
+    <!-- The receipts above are the numbers. This is the door to the engagements
+         behind them — the answer to "show me your work", which the page could
+         previously only answer with a list of figures. Same component as the
+         Proof Room door below it, one stop lower in the reading order because
+         the verification story is still the differentiator. -->
+    <a class="proof-cta" href="./work.html">
+      <span class="pc-badge">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+      </span>
+      <span class="pc-body">
+        <span class="pc-kicker">The engagements behind the numbers</span>
+        <span class="pc-title">Read the case studies</span>
+        <span class="pc-copy">Eighteen client engagements across clinical, aesthetics, B2B and my own ventures — each one written to the same four beats: the problem, the mechanism I built, the result with its source system, and what the case deliberately does not claim.</span>
+      </span>
+      <span class="pc-go" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
     <!-- The second exhibit. This used to be a one-line footnote under the
          receipts; the page's whole differentiator was set in 14px grey. -->
     <a class="proof-cta" href="./proof.html">

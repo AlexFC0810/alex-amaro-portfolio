@@ -1,0 +1,1369 @@
+{
+  "_README": [
+    "SOURCE OF TRUTH for work.html and every work/*.html. Rendered by tools/build-case-studies.mjs.",
+    "",
+    "TWO RULES GOVERN THIS FILE, AND THE BUILDER ENFORCES BOTH:",
+    "",
+    "1. NO FIGURE APPEARS HERE THAT IS NOT IN THE CLAIMS CONTRACT. Every entry names a",
+    "   claim id; the builder collects that claim's approved wording out of proof/greenlit.json",
+    "   and refuses to build if any number in this file's prose is absent from it. An entry with",
+    "   claim:null may carry no figures at all — the build fails on the first digit.",
+    "   That is why the capability entries read the way they do: the mechanism is portfolio-portable",
+    "   as written, the numbers are not yet contracted, and the guard is mechanical rather than a",
+    "   habit someone has to remember.",
+    "",
+    "2. THIS FILE IS PUBLIC. GitHub Pages serves the whole repository, so /tools/case-studies.json",
+    "   is fetchable by anyone. Nothing may be parked here 'until it is approved' — an un-green-lit",
+    "   number in this file is published the moment it is committed, whether or not a page renders it.",
+    "",
+    "Client identities, ad-account ids and Drive ids live in the fenced 'Internal only' block at the",
+    "foot of each proof-os source file and are stripped on the way in. They must never reach this file.",
+    "",
+    "Regenerate:  node tools/build-case-studies.mjs",
+    "Drift-check: node tools/build-case-studies.mjs --check   (re-hashes each source, reports staleness)"
+  ],
+  "contract": "proof/greenlit.json",
+  "sourceRepo": "../proof-os/case-studies",
+  "sourceHashes": {
+    "chiro-head-to-head-vs-incumbent-agency": "264efaff9b93",
+    "weight-loss-clinic-launch": "dec3bb7e8b1d",
+    "spine-clinic-lead-gen": "b77757d1c64d",
+    "eye-care-center-device-launch": "28f8fabec8ec",
+    "medspa-full-program": "b6e534d413eb",
+    "tattoo-removal-studio": "5e5e22beb848",
+    "montreal-bilingual-acquisition": "f8a5d79c0fe4",
+    "aesthetic-clinic-appointment-volume": "b7983eee379a",
+    "body-sculpting-cpl": "73952067d4bc",
+    "medspa-laser-cpl-drop": "3ab0b3dfc01a",
+    "pmu-clinic": "e4a9815e1345",
+    "aesthetics-group-multi-location": "b6468cbefe96",
+    "b2b-refrigeration-cpl": "4397b600fdba",
+    "agency-own-b2b-pipeline": "06c9bc1b7c97",
+    "recruitment-lead-gen": "9e89cd2e5274",
+    "wedding-venue-b2b": "c111e018ec8b",
+    "home-services-rebooking": "775035fec4f7",
+    "ecommerce-college-venture": "8e7ccb9783b0",
+    "insurance-iul-funnel": "fe16f6d24158",
+    "booked-appointment-engine": "b04c9fd87e80"
+  },
+  "groups": [
+    {
+      "id": "clinical",
+      "name": "Clinical and medical",
+      "blurb": "Practices where the buyer is in pain or in treatment, and the front desk is the bottleneck."
+    },
+    {
+      "id": "aesthetics",
+      "name": "Aesthetics and med spa",
+      "blurb": "Elective, discretionary, offer-led. The category where a named priced offer does most of the work."
+    },
+    {
+      "id": "b2b",
+      "name": "B2B and specialist",
+      "blurb": "Thin audiences, long consideration, and a human's time as the expensive resource."
+    },
+    {
+      "id": "own",
+      "name": "My own ventures",
+      "blurb": "Businesses I owned outright. No attribution boundary — the whole chain is mine."
+    }
+  ],
+  "cases": [
+    {
+      "slug": "chiro-head-to-head",
+      "source": "chiro-head-to-head-vs-incumbent-agency",
+      "group": "clinical",
+      "claim": "C3",
+      "order": 1,
+      "title": "Head-to-head against an incumbent national agency, on the same ad account",
+      "vertical": "Chiropractic",
+      "client": "A U.S. chiropractic practice",
+      "region": "United States",
+      "window": "Takeover comparison inside one lifetime account pull",
+      "figure": {
+        "value": "9.5×",
+        "unit": "the leads, at ~75% lower cost per lead — same account",
+        "note": "114 leads at $12.59 against the incumbent’s 12 at $49.81. Their best campaign, not their worst — the comparison most favourable to them."
+      },
+      "cardCopy": "An established national agency was already running this account. The counterfactual is inside the same ad account, for the same practice, selling the same service.",
+      "lede": "Almost every marketing case study is uncontrolled — different budget, different market, different season, no counterfactual. This one has one, and it is unusually clean.",
+      "problem": [
+        "A chiropractic practice was already paying an incumbent <strong>national</strong> agency — not a freelancer, an established multi-client shop with a category specialism — to run its Meta patient acquisition. The account was not producing.",
+        "Their best-performing campaign was returning leads at $49.81. Their two website-conversion campaigns were worse. For a local clinic, that is the difference between a paid-acquisition channel and an expense line: before any show rate, before any conversion to a paying patient, the arithmetic does not close.",
+        "Alex took the account over. Their campaigns and his now sit side by side in the same ad account, under the same client, in the same currency, in one lifetime pull — which removes almost every variable a skeptic would reach for."
+      ],
+      "built": [
+        {
+          "t": "Changed the objective, and stopped paying for a conversion the account could not learn",
+          "b": "The incumbent had split budget across a lead-generation campaign and two website-conversions campaigns — an optimisation target with too little conversion volume to ever train, burning budget on a learning phase it could not exit. Alex consolidated acquisition into a single Meta instant lead-form campaign. The change is visible in the campaign names in the account itself."
+        },
+        {
+          "t": "Rebuilt the offer around a named clinical modality, not “chiropractic care”",
+          "b": "The winning campaign is built on a specific, differentiated, non-surgical treatment the practice actually owned — rather than the generic adjust-and-wellness pitch every competing clinic in the market was also running. Category-generic offers are what push a local cost per lead toward $49.81."
+        },
+        {
+          "t": "Wrote and produced the creative himself",
+          "b": "Direct-response static built to the offer: pain-state hook, plain-language explanation of the modality, consultation call to action. The finished ad set is retained and independently corroborates the campaign name — the creative and the platform label were produced in two different systems and agree."
+        },
+        {
+          "t": "Built a second funnel layer instead of one flat campaign",
+          "b": "Alongside the prospecting lead-form campaign he ran retargeting against warm traffic — the cheapest lead source in the account, cheaper than his own prospecting."
+        },
+        {
+          "t": "Qualified the form rather than maximising raw submissions",
+          "b": "Qualifying questions ahead of volume, so what arrives at the front desk is sales-ready rather than merely numerous. Founder-attested method; the cost-per-lead figures do not depend on it."
+        }
+      ],
+      "results": [
+        {
+          "v": "114 leads at $12.59",
+          "d": "Alex’s lead-form campaign — more spend than the incumbent’s best campaign, less than they had burned across all three.",
+          "s": "Meta Ads platform pull, campaign level, date_preset=maximum",
+          "badge": "v"
+        },
+        {
+          "v": "12 leads at $49.81",
+          "d": "The incumbent’s best-performing campaign, in the same account.",
+          "s": "Same platform pull",
+          "badge": "v"
+        },
+        {
+          "v": "9.5× volume, ~75% lower CPL",
+          "d": "The headline comparison, stated against their best campaign rather than their worst.",
+          "s": "Arithmetic on the platform figures above",
+          "badge": "v"
+        },
+        {
+          "v": "Exact reconciliation",
+          "d": "An independent account-level re-pull nineteen days later reconciled to the cent and to the lead against the campaign table.",
+          "s": "Second independent platform pull",
+          "badge": "v"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "No revenue, no return on ad spend, no patient value",
+          "b": "He claims the leads and the cost per lead. He had no post-booking visibility into this practice’s schedule, close rate or case value, and closing is client-side. Any revenue figure attached to this case would be someone else’s number."
+        },
+        {
+          "t": "No booked-appointment count for this account",
+          "b": "The vault holds hard booked-appointment trackers for other clients. It does not hold an opened, verified one for this practice. The claim stops at leads and cost per lead."
+        },
+        {
+          "t": "Not a simultaneous split test",
+          "b": "“Head-to-head” means same account, same client, same service — not the same calendar weeks under a controlled split. This is a takeover comparison inside one lifetime pull. Anyone framing it as a live A/B is over-reading it."
+        },
+        {
+          "t": "No account-blended cost per lead",
+          "b": "Cost per lead is quoted per campaign, always. The account totals exist to reconcile two independent pulls, not to be divided into a headline number."
+        }
+      ]
+    },
+    {
+      "slug": "weight-loss-clinic-launch",
+      "source": "weight-loss-clinic-launch",
+      "group": "clinical",
+      "claim": "C6",
+      "order": 2,
+      "title": "A weight-loss clinic opening, filling a calendar from zero",
+      "vertical": "Medical weight loss",
+      "client": "A medically supervised weight-loss clinic",
+      "region": "United States",
+      "window": "Measured across the launch window",
+      "figure": {
+        "value": "70",
+        "unit": "booked appointments in a 30-day window",
+        "note": "61 of them inside the July calendar month. Booked means scheduled — never attended, held or showed."
+      },
+      "cardCopy": "A launch is the unforgiving version of the acquisition problem: no retargeting pool, no past-patient list, no reviews, no word of mouth.",
+      "lede": "Everything had to come from cold traffic and survive a follow-up process the clinic had never run, staffed by people who had never run it.",
+      "problem": [
+        "A new clinic opened with no patient list, no reputation in the market, and a calendar that had to fill in weeks rather than quarters.",
+        "The product makes it harder. Medically supervised weight loss is a programme sold to someone who has usually already tried and failed at several other things — and cheap leads in the category are close to worthless.",
+        "So the build had to do two things at once: bring in people who would actually buy a programme, and move them onto a calendar fast enough that they were still interested when the phone rang."
+      ],
+      "built": [
+        {
+          "t": "A priced entry offer as the qualifying mechanism",
+          "b": "A weekly price point stated in the offer itself filters out free-consultation shoppers before they reach the calendar. The follow-up sequence is named for the offer it serves, so the channel, the offer and the price are recorded in text chosen at build time."
+        },
+        {
+          "t": "Two calendars matched to how the clinic actually operates",
+          "b": "A pre-pay path and a first-visit path, kept as separate booking objects rather than collapsed into one — because they are two different commitments and behave differently."
+        },
+        {
+          "t": "A rebuilt automation architecture, deployed as a system",
+          "b": "Generation two of a productised delivery system — lifecycle, follow-up and recovery engines — later rolled out to three more accounts. Not automations improvised per client."
+        },
+        {
+          "t": "Booking, confirmation and internal alerting as separate instrumented steps",
+          "b": "Confirmation raises a task in the delivery team’s project tool and posts to Slack, so a booking is visible to a human rather than only to a database."
+        },
+        {
+          "t": "A cancellation recovery loop",
+          "b": "Fall-outs are pulled back into sequence instead of leaking. Spam-removal hygiene ships as a standard build component."
+        },
+        {
+          "t": "Measurement on a versioned reporting template",
+          "b": "A live instance of the reusable client reporting master sheet, not a one-off spreadsheet. The claim exists because the reporting existed first."
+        }
+      ],
+      "results": [
+        {
+          "v": "70 booked appointments",
+          "d": "The best rolling 30-day window of the engagement.",
+          "s": "Client tracker, counted and de-duplicated",
+          "badge": "v"
+        },
+        {
+          "v": "61 in the calendar month",
+          "d": "The same window expressed on calendar boundaries, which is the more conservative read.",
+          "s": "Same tracker",
+          "badge": "v"
+        },
+        {
+          "v": "Counted down, not up",
+          "d": "Duplicate rows were removed before the figure was stated. The number went down in the cleaning, which is why it survives scrutiny.",
+          "s": "Tracker counting methodology",
+          "badge": "v"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "“Booked” means scheduled",
+          "b": "Never attended, never held, never showed. No show rate is stated for this account because the tracker’s status column was not extracted — so the honest answer is that it is not known, not that it was good."
+        },
+        {
+          "t": "No revenue and no return on ad spend",
+          "b": "A source document written during the engagement carries a return-on-spend headline. It is never repeated, because it is the client’s number and not his."
+        },
+        {
+          "t": "No cost per lead and no cost per appointment",
+          "b": "The ads ran on a Meta account outside current access. No acquisition-cost figure is claimed for this engagement at all."
+        },
+        {
+          "t": "The grand-opening framing is founder-attested",
+          "b": "It is Alex’s account of the engagement rather than a field in a system, and it is labelled that way rather than presented as data."
+        }
+      ]
+    },
+    {
+      "slug": "spine-clinic",
+      "source": "spine-clinic-lead-gen",
+      "group": "clinical",
+      "claim": null,
+      "order": 3,
+      "title": "A priced new-patient offer, bilingual campaigns, and an AI voice agent in the booking flow",
+      "vertical": "Chiropractic and spine",
+      "client": "A U.S. chiropractic and spine clinic",
+      "region": "United States",
+      "window": "Multi-year engagement, re-architected in flight",
+      "capability": "Test → scale, run bilingually, with voice AI in the booking flow",
+      "cardCopy": "The account where the newer automation platform was retrofitted onto an existing client build rather than deployed fresh — the harder version of the job.",
+      "lede": "Chiropractic is one of the hardest local verticals to run paid acquisition in, for a reason that has nothing to do with media buying: the buyer is in pain and shopping for relief, not for a practice.",
+      "problem": [
+        "Generic “chiropractic care” advertising competes with every other clinic in the catchment on the same promise, and the cost per lead climbs until the channel stops paying for itself.",
+        "There was also a market fact the clinic was under-serving: a significant Spanish-speaking local population — a segment most local clinics ignore, because their agency cannot service it.",
+        "So the work was to make the offer specific enough to be worth responding to, run it in both languages, and then keep the follow-up layer running long enough to matter."
+      ],
+      "built": [
+        {
+          "t": "A priced, named new-patient offer, with the account built around it",
+          "b": "Every tagged campaign in the account is built on the same construct, visible in the campaign names themselves: a priced new-patient special run through a Meta instant lead form. A priced entry consultation is a qualifying mechanism — it filters out the curious traffic that makes lead volume look good and the front desk’s day useless."
+        },
+        {
+          "t": "Test and scale kept as separate campaigns",
+          "b": "The tagged campaigns are labelled for their stage — a documented progression from validation to budget, with each stage keeping its own cost signal rather than being folded into one rolling campaign."
+        },
+        {
+          "t": "Spanish-language acquisition, run in-language",
+          "b": "The account holds a Spanish click-to-call campaign and Spanish-language video creative. Alongside the French and English work on the Montréal engagement, this is bilingual delivery as an operating capability rather than a line on a CV."
+        },
+        {
+          "t": "A real CRM pipeline with in-CRM channel attribution",
+          "b": "Named pipeline stages from new lead through to treatment plan, with opportunity cards carrying a paid-social source field — the CRM itself attributing the pipeline back to the channel."
+        },
+        {
+          "t": "An AI voice agent shipped into a live client booking flow",
+          "b": "Published voice workflows sit in this client’s account: an AI call that books an appointment, one that routes to support, and a booking trigger behind them. This is a deployment, stated as a deployment — not a volume story."
+        },
+        {
+          "t": "A system re-architecture retrofitted onto an older build",
+          "b": "The newer named-engine architecture was fitted alongside the original folders rather than replacing them. This is the only account in the estate where that was done on an existing client, which is the harder version of the job."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No results figures are published for this account",
+          "b": "The platform record supports the mechanism described above, and the account carries figures. They are not in the claims contract, so they are not stated here — the page describes what was built and stops there."
+        },
+        {
+          "t": "The voice work is a deployment, not a volume claim",
+          "b": "An AI voice agent ran in a live client booking flow. Nothing is claimed about how many calls it handled."
+        },
+        {
+          "t": "No revenue, no return on ad spend, no patient count",
+          "b": "Closing is client-side and there was no post-booking visibility."
+        }
+      ]
+    },
+    {
+      "slug": "eye-care-device-launch",
+      "source": "eye-care-center-device-launch",
+      "group": "clinical",
+      "claim": null,
+      "order": 4,
+      "title": "Launching a new aesthetic device inside an existing medical practice",
+      "vertical": "Medical and aesthetic crossover",
+      "client": "A U.S. eye-care centre",
+      "region": "United States",
+      "window": "Device launch window",
+      "capability": "Awareness and lead spend, deliberately kept apart",
+      "cardCopy": "An established medical practice adding an aesthetic line has a brand that actively works against the association. Two jobs, not one.",
+      "lede": "The existing patient base came for medical care and does not think of the practice as an aesthetics provider. The new device had no local awareness, no reviews and no referral pathway.",
+      "problem": [
+        "So the job was two jobs: create local awareness for a device nobody had heard of, and generate enquiries for a treatment that had to be explained before it could be sold.",
+        "Those two jobs have different objectives, different creative and different economics — and averaging them produces a number that describes neither.",
+        "The account was structured so that the awareness spend could never contaminate the cost of a lead."
+      ],
+      "built": [
+        {
+          "t": "Separated the launch-awareness spend from the lead spend",
+          "b": "A dedicated launch campaign ran on an engagement objective and bought local awareness cheaply — and is deliberately excluded from every cost-per-lead figure for this account. The anti-blending doctrine, applied inside one small account."
+        },
+        {
+          "t": "Named the device in the campaign, and ran the offer as a dated test pair",
+          "b": "Two lead campaigns, both explicitly labelled for the device and dated, run roughly a month apart. Same construct, two dated builds — the test-then-repeat cadence visible across his accounts."
+        },
+        {
+          "t": "Ran click-to-call as a separate, small experiment",
+          "b": "Two small campaigns, recorded here because a case study that only lists the things that worked is a brochure."
+        },
+        {
+          "t": "Deployed a CRM sub-account with the standard follow-up stack",
+          "b": "Lead capture, nurture and alerting on the same numbered architecture used across the client book, with bookings reported on the versioned client reporting master sheet."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No results figures are published for this account",
+          "b": "The account carries lead and cost figures. They are not in the claims contract, so this page describes the structure and the reasoning and states no numbers."
+        },
+        {
+          "t": "The cheaper counted actions are not treated as leads",
+          "b": "This account produced a set of lower-cost platform-counted “conversions” that Alex declines to count as enquiries, because they are not the same unit as a device lead."
+        },
+        {
+          "t": "No revenue and no return on ad spend",
+          "b": "Device sales and treatment revenue are the practice’s outcome, not his."
+        }
+      ]
+    },
+    {
+      "slug": "medspa-full-program",
+      "source": "medspa-full-program",
+      "group": "aesthetics",
+      "claim": "B2",
+      "order": 5,
+      "title": "A full med spa programme across four service lines",
+      "vertical": "Med spa",
+      "client": "A multi-service U.S. med spa",
+      "region": "United States",
+      "window": "Account lifetime, verified twice from independent pulls",
+      "figure": {
+        "value": "1,750+",
+        "unit": "leads across four service lines",
+        "note": "Including 1,200+ weight-loss leads at ~$9 cost per lead. Platform-verified twice, sixteen days apart."
+      },
+      "cardCopy": "Four buyers, four price points, four objections, four sets of economics. Most operators pick the easiest line, run it, and call that a programme.",
+      "lede": "A med spa selling medical weight loss, Botox, laser and photofacial is not one advertiser. It is four — and the calendar can fill with people who will never buy the high-ticket protocol.",
+      "problem": [
+        "The clinic sold four very different things to four very different buyers. Volume in a category where the cheap lead and the qualified lead are not the same lead.",
+        "The failure mode is picking the easiest service line, running it, and presenting that as a programme — which leaves three quarters of the business unserved and the account’s real economics unknown.",
+        "It needed to be built as a programme: every line funded, every line measured separately, and the winners scaled without letting cost drift."
+      ],
+      "built": [
+        {
+          "t": "Built as a programme, not a campaign",
+          "b": "Twenty campaigns across five service lines, the majority of them weight-loss builds — each line carrying its own cost signal rather than being averaged into one account number."
+        },
+        {
+          "t": "A legible, auditable naming convention",
+          "b": "Date and budget stamps plus an agency prefix, separating his work from anyone else’s in the same account. This is what makes an account re-auditable two years later."
+        },
+        {
+          "t": "Iterated on a visible dated cadence, and scaled winners without drift",
+          "b": "The biggest campaigns were also among the cheapest — which is the inverse of the usual pattern and the thing that is hard to do."
+        },
+        {
+          "t": "Killed losers small",
+          "b": "Four weight-loss tests stayed small and stayed expensive, and were stopped. Winners and losers are both left in the record."
+        },
+        {
+          "t": "Tested lead-capture mechanics and kept the counter-intuitive finding",
+          "b": "Two routes were run against each other on the same service line, and the native instant form turned out to be the more expensive one. The finding was kept rather than quietly dropped."
+        },
+        {
+          "t": "Produced the creative and designed the offers",
+          "b": "Including a priced voucher used as a qualifying mechanism rather than a discount, and qualification at the form on which service and how soon."
+        },
+        {
+          "t": "Built the CRM follow-up layer as one system",
+          "b": "An evergreen new-lead workflow, a named offer sequence, appointment reminders, reply-intent routing and a custom reporting dashboard."
+        }
+      ],
+      "results": [
+        {
+          "v": "1,781 leads platform-verified",
+          "d": "Account-level figure on an independent re-pull; the published claim of 1,750+ sits underneath it.",
+          "s": "Meta Ads platform pull, account level",
+          "badge": "v"
+        },
+        {
+          "v": "1,200+ weight-loss leads at ~$9",
+          "d": "The largest service line, roughly seven tenths of programme volume.",
+          "s": "Platform pull, campaign level",
+          "badge": "v"
+        },
+        {
+          "v": "Verified twice, sixteen days apart",
+          "d": "Two independent pulls returned figures that agree. The published number is the lower of the two.",
+          "s": "Two platform pulls",
+          "badge": "v"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "No revenue, no return on ad spend, no package sales",
+          "b": "Closing is client-side. No patient count and no treatment revenue is attached to this account."
+        },
+        {
+          "t": "No show rate and no consult outcome",
+          "b": "The CRM’s appointment records may be quoted as appointment records — never as consults, never as a show rate, never as a filled calendar."
+        },
+        {
+          "t": "No blended cost per lead",
+          "b": "Cost per lead is quoted per campaign and per service line. Dividing programme spend by programme leads would blend four different buyers into one meaningless number."
+        },
+        {
+          "t": "On-image social proof in the creative is the client’s claim",
+          "b": "Customer counts, star ratings and endorsements that appear inside the ad artwork are the clinic’s statements, not his."
+        }
+      ]
+    },
+    {
+      "slug": "tattoo-removal-studio",
+      "source": "tattoo-removal-studio",
+      "group": "aesthetics",
+      "claim": "B3",
+      "order": 6,
+      "title": "Tattoo removal in the most expensive consumer market in America",
+      "vertical": "Laser aesthetics",
+      "client": "A laser tattoo-removal studio",
+      "region": "Brooklyn / New York City",
+      "window": "The longest-tenured relationship in the book",
+      "figure": {
+        "value": "730+",
+        "unit": "leads at ~$19–$21 cost per lead",
+        "note": "Flagship campaign 526 leads at $19. The account average is ~$21 — a total is never quoted at a single campaign’s price."
+      },
+      "cardCopy": "An expensive, slow, painful multi-session commitment, sold to someone undoing a decision they already paid for, in the country’s most expensive media auction.",
+      "lede": "The interesting question on this account was never month-one leads. It was whether it could keep producing across two years — and what happens to the several hundred people who enquire and do not book immediately.",
+      "problem": [
+        "Tattoo removal in New York City is close to the worst-case consumer acquisition problem: a saturated market of competing studios and med spas bolting removal onto an existing menu, inside the country’s most expensive consumer media auction.",
+        "The second problem was durability. As the longest-running relationship in the book, the question was never whether a first month could work.",
+        "It was whether the account could keep producing over years, and whether the people who enquired and did not book were being worked or quietly lost."
+      ],
+      "built": [
+        {
+          "t": "A prospecting and retargeting split, funded properly on both sides",
+          "b": "A flagship lead-form prospecting campaign and a dedicated mid-and-bottom-funnel retargeting campaign, each with real budget rather than a token retargeting line."
+        },
+        {
+          "t": "A priced first-session offer as the qualifying mechanism",
+          "b": "Channel, offer and price recorded together in the CRM workflow titles, chosen at build time — which is what makes the attribution survive the ad platform."
+        },
+        {
+          "t": "Seasonal offers tested as separate tracked entry points",
+          "b": "Event and seasonal variants run against a constant core offer, so a seasonal spike never contaminates the baseline."
+        },
+        {
+          "t": "Segmentation a real operator would recognise",
+          "b": "Saved smart lists for warm leads, aged contacts and a dated cohort — the difference between a worked database and a raw dump."
+        },
+        {
+          "t": "Alerting so nothing sat",
+          "b": "SMS, task and Slack new-lead alerts putting every inbound enquiry in front of a human."
+        },
+        {
+          "t": "A reactivation campaign two years after the account opened",
+          "b": "Aged contacts re-worked with a fresh offer. The system outlived the campaign that filled it."
+        }
+      ],
+      "results": [
+        {
+          "v": "737 leads, ~$21 blended",
+          "d": "The account total across every campaign, at the account average rather than the flagship price.",
+          "s": "Platform pull plus an independent account-level re-pull",
+          "badge": "v"
+        },
+        {
+          "v": "526 leads at $19",
+          "d": "The flagship lead-form prospecting campaign.",
+          "s": "Platform pull, campaign level",
+          "badge": "v"
+        },
+        {
+          "v": "Still running two years on",
+          "d": "The follow-up system was still being updated and still reactivating aged contacts long after launch.",
+          "s": "CRM record, photographed and DOM-verified",
+          "badge": "c"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "The account total is never quoted at the flagship price",
+          "b": "737 leads averaged ~$21, not $19. Attaching a single campaign’s price to a whole account is the exact over-claim this portfolio corrected on itself."
+        },
+        {
+          "t": "No revenue, no return on ad spend, no package-sales total",
+          "b": "Downstream closes are cited only as evidence the lead flow was sales-ready — never as revenue he generated."
+        },
+        {
+          "t": "The logged consult outcomes are not a close rate",
+          "b": "A small logged sample from one tracker over one period is a sample, not a rate, and is stated with its size or not at all."
+        },
+        {
+          "t": "The CRM’s appointment records are not the studio’s booking volume",
+          "b": "The studio booked in its own system of record. The CRM count is not a proxy for it."
+        }
+      ]
+    },
+    {
+      "slug": "montreal-bilingual",
+      "source": "montreal-bilingual-acquisition",
+      "group": "aesthetics",
+      "claim": "C8",
+      "order": 7,
+      "title": "Bilingual acquisition in Montréal, held in-language all the way to the calendar",
+      "vertical": "Aesthetics, FR/EN",
+      "client": "The Montréal location of a national laser and wax franchise",
+      "region": "Canada",
+      "window": "~10 weeks",
+      "figure": {
+        "value": "350+",
+        "unit": "bilingual FR/EN leads, and 89 booked appointments in ~10 weeks",
+        "note": "Roughly one booked appointment for every four leads. The claim floor sits under a photographed CRM total of 384."
+      },
+      "cardCopy": "Montréal is not an English market with French subtitles. A prospect can opt in from a French ad and go cold because the confirmation text arrives in English.",
+      "lede": "The conversion risk in this account sat after the click, in the follow-up layer — which is precisely the layer most media buyers hand back to the client.",
+      "problem": [
+        "Two service lines with opposite buyer psychology inside one clinic. One is price-led, high-consideration and sold as a sequence of visits; the other is trust-led, lower volume, higher ticket and gated by a clinical consult. Averaging them into one campaign and one cost target would have produced a number that described neither.",
+        "Underneath that sat the harder problem: language. A lead can opt in from a French ad and go cold because the confirmation text arrives in English, or the reverse.",
+        "The clinic also had a practice-management platform it was not going to abandon. Whatever got built had to generate and work the leads without trying to replace the system of record."
+      ],
+      "built": [
+        {
+          "t": "Split the account by service line, not by budget",
+          "b": "Two distinct lead-gen campaigns with separate creative, separate economics and separate cost signals — because a laser lead and an injectables lead are not the same unit."
+        },
+        {
+          "t": "Built the offer, not just the media buy",
+          "b": "A structural qualifying offer on the higher-volume line that selects for people ready to start a treatment sequence and hands the clinic a natural first-visit conversation. A second offer track ran on the other service line, with its own named follow-up sequence."
+        },
+        {
+          "t": "Ran prospecting and retargeting as separate jobs",
+          "b": "A dated prospecting set, a static set, and a dedicated review-carousel retargeting set — social proof deployed where it converts rather than burned on cold traffic."
+        },
+        {
+          "t": "Ran acquisition and follow-up in-language",
+          "b": "This is visible in the data rather than asserted: the lead records carry French-Canadian names and .fr addresses, and the tracker’s own operational status notes are written in French. The bilingual layer was operational, not cosmetic."
+        },
+        {
+          "t": "Worked with the client’s system of record rather than against it",
+          "b": "One workflow is literally titled to record that appointment reminders were removed because the clinic’s own platform already sent them. That integration decision is why the CRM calendar under-counts — a fact worth volunteering, because it explains a discrepancy an auditor would otherwise find first."
+        },
+        {
+          "t": "Instrumented every lead",
+          "b": "Each tracker row carries the campaign that produced it, the confirmation method, and a show / no-show / rescheduled / cancelled status. Ad to lead to follow-up to booked appointment, logged per lead."
+        }
+      ],
+      "results": [
+        {
+          "v": "350+ bilingual FR/EN leads",
+          "d": "The published floor. It sits under a photographed, DOM-verified CRM total of 384.",
+          "s": "Founder-attested, corroborated by the client CRM",
+          "badge": "c"
+        },
+        {
+          "v": "89 booked appointments",
+          "d": "Exactly 89 dated rows. A row without an appointment date is not a booking, so it was not counted as one.",
+          "s": "Client master tracker, corroborated four ways",
+          "badge": "c"
+        },
+        {
+          "v": "Roughly one booking per four leads",
+          "d": "The rate is the point of this account, not the volume.",
+          "s": "Arithmetic on the two figures above",
+          "badge": "c"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "The cost per lead is permanently retired",
+          "b": "The ad account was revoked at off-boarding and the exact figure is unrecoverable. It is not estimated, not reconstructed, and not quoted — on any surface, in any form."
+        },
+        {
+          "t": "“Booked” means scheduled",
+          "b": "Not attended, not held. Outcome splits are quoted only where they were actually logged."
+        },
+        {
+          "t": "No client revenue and no return on ad spend",
+          "b": "The franchise’s treatment revenue is its own. Closing is client-side."
+        },
+        {
+          "t": "The lead figure is founder-attested at its floor",
+          "b": "It is corroborated by a photographed CRM total that is higher. The lower number is the one published."
+        }
+      ]
+    },
+    {
+      "slug": "aesthetic-clinic-bookings",
+      "source": "aesthetic-clinic-appointment-volume",
+      "group": "aesthetics",
+      "claim": "C7",
+      "order": 8,
+      "title": "The leaky middle: turning leads a clinic already paid for into consultations",
+      "vertical": "Aesthetic laser",
+      "client": "An established aesthetic laser clinic",
+      "region": "Canada",
+      "window": "~3 months",
+      "figure": {
+        "value": "~120",
+        "unit": "appointments booked in ~3 months",
+        "note": "Double-sourced: the client tracker and the CRM independently, with the lower of the two published."
+      },
+      "cardCopy": "This clinic did not need more leads. It needed the leads it was already paying for to turn into consultations on a calendar.",
+      "lede": "The most common failure in local paid media is almost never a media problem. The ads work. The five minutes after the ad works is where the money dies.",
+      "problem": [
+        "This was not a clinic that needed to discover paid social. It was an established practice with spend already moving and a leaky middle: leads arrived, and then not enough happened to them fast enough.",
+        "The lead is handed to a front desk that is already busy with the patient physically standing in front of them. That is the whole failure, and it is an operations problem wearing a marketing costume.",
+        "There was a second, harder problem underneath it, and this case states it up front because the data does: this clinic had a no-show problem. Once the system was running, booking was not the bottleneck. Attendance was."
+      ],
+      "built": [
+        {
+          "t": "Deployed the full client automation stack in one sitting",
+          "b": "The complete numbered folder architecture — new-lead automation, appointment workflows, follow-up sequences, alerting, dialler, reporting — all created in a single session. The same architecture appears in client accounts across three countries. A productised delivery system being deployed, not automations being improvised."
+        },
+        {
+          "t": "Built the offer and named it",
+          "b": "A priced entry voucher on a single named treatment, with the live workflows named for it. A priced voucher is a qualifying mechanism, not a discount: it filters browsers out before they reach the calendar and gives the consult a defined starting point."
+        },
+        {
+          "t": "Wired the lead form directly into the CRM, by name",
+          "b": "For an account whose ad-platform side has since been revoked, the workflow title is the surviving attribution — the channel, the offer and the volume, in text chosen at build time."
+        },
+        {
+          "t": "Ran speed-to-lead as a stack, not a single text",
+          "b": "One step fires the SMS, drops the contact into a dialler queue and creates a pipeline opportunity; a second closes the loop on calls that did not connect. A human seat sat on top of the automation."
+        },
+        {
+          "t": "Instrumented booking back into the reporting sheet",
+          "b": "One workflow reminds the patient, advances the pipeline stage and writes the booking into the client’s reporting sheet. The reporting was not reconstructed afterwards to support a claim — the claim exists because the reporting existed first."
+        },
+        {
+          "t": "Two intake paths, not one",
+          "b": "A self-booking calendar alongside a human callback queue — the same standardised two-path design deployed across six client accounts."
+        }
+      ],
+      "results": [
+        {
+          "v": "~120 appointments booked",
+          "d": "Across roughly three months, on a four-figure lead base.",
+          "s": "Double-sourced: client tracker and CRM, independently",
+          "badge": "c"
+        },
+        {
+          "v": "Two independent sources agree",
+          "d": "The tracker and the CRM were counted separately and landed within a few appointments of each other. The lower figure is the published one.",
+          "s": "Client tracker + CRM",
+          "badge": "c"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "“Booked” means scheduled, and the show rate on this account was weak",
+          "b": "He says so rather than leaving it to be discovered. This is the account where he learned that booking and attendance are two different problems — and the fix he field-tested afterwards was taking a small deposit at the point of booking: you book slightly fewer and keep materially more."
+        },
+        {
+          "t": "Never stated as a 90-day figure",
+          "b": "The claim is ~120 in roughly three months. The tighter framing is blocked in the claims contract because it overstates the pace."
+        },
+        {
+          "t": "No revenue and no return on ad spend",
+          "b": "Treatment revenue is the clinic’s. Closing is client-side."
+        }
+      ]
+    },
+    {
+      "slug": "body-contouring",
+      "source": "body-sculpting-cpl",
+      "group": "aesthetics",
+      "claim": "C5",
+      "order": 9,
+      "title": "A sustained monthly offer cycle in a small Canadian catchment",
+      "vertical": "Body contouring",
+      "client": "A Canadian body-contouring clinic",
+      "region": "Canada",
+      "window": "A sustained monthly offer cadence",
+      "figure": {
+        "value": "~$3–$12",
+        "unit": "USD per lead (CA$4–$16 on a Canadian account)",
+        "note": "~1,200 body-contouring leads and 80 booked appointments on one account. The account bills in Canadian dollars, so the currency is stated every time — quoting the local figure unmarked would read as roughly 27% more expensive than it was."
+      },
+      "cardCopy": "A smaller auction, a smaller catchment, and the same local audience seeing the same ads again within weeks. This market needs a cadence, not a hero campaign.",
+      "lede": "Non-surgical body contouring is a category where the offer does almost all the work. Nobody searches for the device name — they respond to a described outcome on a named body area at a stated price.",
+      "problem": [
+        "The failure mode here is not expensive leads. It is an offer too broad to convert: “body contouring” as a category pitch, run at everyone, producing cheap enquiries from people who wanted a different treatment entirely.",
+        "The second problem was Canadian and specific: a smaller auction and a smaller catchment, where the same local audience sees the same ads again within weeks.",
+        "That clinic needed a repeatable monthly offer cycle rather than one hero campaign — which is a much harder operating discipline than a single good launch."
+      ],
+      "built": [
+        {
+          "t": "One named body area per campaign, not “body contouring”",
+          "b": "Campaigns split by treatment and by structure, including two builds run as a deliberate budget-architecture test a fortnight apart. Same offer family, two different structures, each with its own cost signal — which is how you learn something from a market this size rather than just spending in it."
+        },
+        {
+          "t": "A sustained monthly offer cycle",
+          "b": "Read the campaigns in name order and the operating rhythm is legible straight off the platform record: a fresh named offer roughly every month, in a catchment small enough that the same people see every one of them. A structural test is a competence signal; a sustained monthly cycle is an operating system, and it is the larger of the two claims."
+        },
+        {
+          "t": "A priced entry voucher as the qualifying mechanism",
+          "b": "A voucher on a named treatment, with the follow-up sequence named for it, filtering browsers before they reach the calendar."
+        },
+        {
+          "t": "Speed-to-lead as a single compound step",
+          "b": "One action texts the lead, queues the call and creates the pipeline record — rather than three workflows that can each fail separately."
+        },
+        {
+          "t": "The standard automation stack, deployed on day one and then extended",
+          "b": "The full numbered architecture on the first day, with a further lead-routing folder added months later. That second date matters: it is the template being extended in flight for this client’s needs, not cloned and left."
+        },
+        {
+          "t": "Lead-temperature segmentation",
+          "b": "A fresh / warm / aged tag scheme plus client-specific tags — the discipline that distinguishes a worked database from a raw dump."
+        }
+      ],
+      "results": [
+        {
+          "v": "~1,200 leads at ~$3–$12 USD",
+          "d": "CA$4–$16 on the local account. The currency is part of the claim, not a footnote to it.",
+          "s": "Meta Ads platform pull, per campaign",
+          "badge": "c"
+        },
+        {
+          "v": "80 booked appointments",
+          "d": "Read from the client tracker rather than estimated from lead volume.",
+          "s": "Client tracker, Drive pull",
+          "badge": "c"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "The currency is always stated",
+          "b": "This account bills in Canadian dollars. The claim previously published the local range unmarked, which a U.S. reader reads as U.S. dollars — making Alex look roughly 27% more expensive than he was. It was corrected in the contract, and the currency now travels with the number everywhere."
+        },
+        {
+          "t": "An exact per-lead figure from a different, lost account is never used here",
+          "b": "There is a precise cost-per-lead number associated with a separate body account that no longer has platform access. It belongs to that account and is not recycled onto this one."
+        },
+        {
+          "t": "“Booked” means scheduled",
+          "b": "Not attended, not held, not converted to a treatment sale."
+        },
+        {
+          "t": "No revenue and no return on ad spend",
+          "b": "Treatment revenue is the clinic’s outcome."
+        }
+      ]
+    },
+    {
+      "slug": "medspa-laser-offers",
+      "source": "medspa-laser-cpl-drop",
+      "group": "aesthetics",
+      "claim": "C4",
+      "order": 10,
+      "title": "The account whose numbers are gone — and the mechanism that survived it",
+      "vertical": "Med spa, laser and body",
+      "client": "A U.S. med spa",
+      "region": "United States",
+      "window": "Platform record lost at off-boarding",
+      "capability": "Two priced offers, one per service line",
+      "cardCopy": "The ad platform record for this client is gone. The CRM record is not — and it holds more about the mechanism than a spend export would have.",
+      "lede": "This case exists because deleting it would be the dishonest option. The headline figures are unrecoverable, so they are not claimed — but the build is fully documented.",
+      "problem": [
+        "Laser hair removal is the most commoditised offer in the med spa category. Every clinic within ten miles runs it, most of them discount it, and the standard “book a consultation” campaign competes on price against every other identical ad in the same feed.",
+        "So the problem was not to get more laser leads. It was to give the clinic something specific enough to be worth responding to, and to stop paying for a conversion the account could not learn.",
+        "There was a second service line with a different economic shape — higher-ticket, more considered — which needed a different offer entirely."
+      ],
+      "built": [
+        {
+          "t": "Two named, separately priced offers — one per service line",
+          "b": "The CRM still holds both follow-up sequences, each named for the offer it serves. A priced full-body voucher is the answer to the commoditisation problem: it converts an uncomparable category pitch into a specific, bounded, priced thing — which is both a better ad and a qualifying mechanism, because someone unwilling to buy at that price never enters the funnel."
+        },
+        {
+          "t": "The lead form wired into the CRM with the offer in the workflow name",
+          "b": "For an account whose ad-platform side has been revoked, that title is the surviving attribution: channel, offer, price and bundle, in text chosen at build time."
+        },
+        {
+          "t": "Internal alerting per offer, not per account",
+          "b": "The delivery team was notified by offer, so the person picking up the phone knew which ad the lead had come from."
+        },
+        {
+          "t": "Third-party dialler integration running in a live client account",
+          "b": "A lead-aging process carried the largest enrolment count in the account. Lead aging is the unglamorous half of speed-to-lead: it is what works the contact who did not answer on day one."
+        },
+        {
+          "t": "Compliance hygiene as a build component",
+          "b": "Opt-out handling shipped as part of the build rather than bolted on afterwards — which matters in a regulated, SMS-heavy vertical."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "The headline turnaround figure is held, not published",
+          "b": "A dramatic cost-per-lead improvement is associated with this account in Alex’s own history. The platform access is gone, no dated screenshot survives, and so the figure is blocked in the claims contract and does not appear — here or anywhere else — until it can be re-sourced."
+        },
+        {
+          "t": "No cost per lead is claimed for this account at all",
+          "b": "The client’s own reporting sheet confirms both campaigns existed and ran. It holds no ad spend and no cost per lead anywhere, and nothing has been reconstructed to fill the gap."
+        },
+        {
+          "t": "The mechanism is evidenced; the outcome is not",
+          "b": "What the CRM proves is what was built. It does not prove what it produced, and this page does not imply otherwise."
+        }
+      ]
+    },
+    {
+      "slug": "pmu-clinic",
+      "source": "pmu-clinic",
+      "group": "aesthetics",
+      "claim": null,
+      "order": 11,
+      "title": "Permanent makeup, where the only metric that matters is what fraction of enquiries book",
+      "vertical": "Permanent makeup",
+      "client": "A U.S. permanent-makeup clinic",
+      "region": "United States",
+      "window": "A short, cleanly measured engagement",
+      "capability": "A closed loop: leads and bookings in one tracker",
+      "cardCopy": "The prospect is not comparison-shopping on price. She is deciding whether she trusts someone to put pigment in her face.",
+      "lede": "Volume is close to worthless in this category. A hundred cheap enquiries from people browsing brow photos produce nothing but an exhausted front desk.",
+      "problem": [
+        "Permanent makeup is a high-trust, appearance-permanent purchase made almost entirely on the artist’s portfolio and the client’s nerve.",
+        "That changes what a good funnel looks like. The only thing worth measuring is what fraction of enquiries turn into a booked consultation — because in this category, someone who books has already decided.",
+        "The engagement is short and the surviving evidence is proportionate, so this page stays honest about its size."
+      ],
+      "built": [
+        {
+          "t": "A dedicated CRM sub-account with the standard follow-up stack",
+          "b": "The numbered client automation architecture deployed across the client book — new-lead automation, follow-up sequence, appointment workflows, alerting and a dialler layer."
+        },
+        {
+          "t": "A booking calendar wired into the client’s reporting sheet",
+          "b": "On the same versioned reporting master template used across the client base, with the campaign, confirmation method and status logged per lead."
+        },
+        {
+          "t": "A tracked, closed loop",
+          "b": "The reason this small engagement earns a page: the tracker holds both the lead list and the resulting bookings, over one defined window. Most engagements have one or the other. This one lets the conversion rate be computed rather than asserted."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No figures are published for this account",
+          "b": "This engagement produced the cleanest lead-to-booking rate in the evidence base. It is not in the claims contract, so the rate is not stated here — the page describes the build and the measurement discipline instead."
+        },
+        {
+          "t": "The sample is small, and that is stated first",
+          "b": "A clean rate over one short window is a clean rate over one short window. It is not presented as a portfolio-wide conversion benchmark."
+        },
+        {
+          "t": "No revenue and no return on ad spend",
+          "b": "Treatment revenue is the clinic’s."
+        }
+      ]
+    },
+    {
+      "slug": "aesthetics-group",
+      "source": "aesthetics-group-multi-location",
+      "group": "aesthetics",
+      "claim": null,
+      "order": 12,
+      "title": "A multi-location group running three marketing jobs at once",
+      "vertical": "Multi-site aesthetics",
+      "client": "A multi-location U.S. aesthetics and med spa group",
+      "region": "United States",
+      "window": "A multi-year programme",
+      "capability": "Brand, traffic and lead-gen funded as three separate layers",
+      "cardCopy": "A multi-location group does not have one marketing job. It has three, running simultaneously, with different objectives and different time horizons.",
+      "lede": "Be known in two catchment areas, be visited, and be booked. Those are three jobs, and a multi-objective account is exactly where blended maths dies.",
+      "problem": [
+        "Most of this programme’s spend never optimised for a form fill and was never asked to. Dividing it by a lead count would produce a cost per lead that describes nothing that happened.",
+        "So the programme was structured by objective from the start, with each layer funded and measured on its own terms.",
+        "That structure is also what makes the account auditable years later — the layers never got averaged into one number that nobody could take apart."
+      ],
+      "built": [
+        {
+          "t": "Structured the programme by objective into three funded layers",
+          "b": "Brand and awareness, traffic and consideration, and lead generation — kept as three sets of campaigns rather than averaged into one account-level number."
+        },
+        {
+          "t": "Built campaigns per catchment location",
+          "b": "A second CRM sub-account stood up for the second location within three days of the first, so each catchment carried its own funnel rather than sharing one."
+        },
+        {
+          "t": "Named and priced the offer, and built the matching follow-up sequence",
+          "b": "The creative price and the workflow name agree across two systems — which is what makes an offer claim checkable rather than remembered."
+        },
+        {
+          "t": "Deployed deposit-taking at the point of booking",
+          "b": "The show-rate fix, present as a live artifact in the client’s CRM rather than as an interview anecdote."
+        },
+        {
+          "t": "Shipped lead-quality hygiene as a standard build component",
+          "b": "Spam filtering inside the funnel, so the front desk is not the filter."
+        },
+        {
+          "t": "Wired pipeline stage changes back to the ad platform",
+          "b": "Stage-triggered conversion events sent back to the channel, closing the measurement loop."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No figures are published for this account",
+          "b": "This is the largest engagement in the portfolio by spend. It has no green-lit claim of its own, so no spend, impression, reach or lead figure for it appears here — it is represented only inside the portfolio-wide managed-spend claim."
+        },
+        {
+          "t": "Not all of this account is his work",
+          "b": "The account predates the engagement and contains untagged campaigns. Only the tag-attributable subset is his; the rest is described as spend managed and supported, never as work produced."
+        },
+        {
+          "t": "Programme spend is never divided by a lead total",
+          "b": "Most of the spend bought reach and clicks, not form fills. Any cost per lead derived that way would be arithmetic on two unrelated numbers."
+        },
+        {
+          "t": "The second location never ran",
+          "b": "It was set up and produced nothing. Recorded deliberately, because an honest census is what makes the rest of the portfolio credible."
+        }
+      ]
+    },
+    {
+      "slug": "b2b-refrigeration",
+      "source": "b2b-refrigeration-cpl",
+      "group": "b2b",
+      "claim": "C9",
+      "order": 13,
+      "title": "B2B commercial refrigeration, at consumer-grade cost per lead",
+      "vertical": "B2B trade services",
+      "client": "A UK commercial-refrigeration installer",
+      "region": "United Kingdom",
+      "window": "A two-year account relationship",
+      "figure": {
+        "value": "817",
+        "unit": "B2B leads at ~$1.88 each",
+        "note": "Flagship campaign 709 leads at £1.18 (~$1.50). This is the cheap exception in the portfolio, and it is labelled as one."
+      },
+      "cardCopy": "The buyer is a facilities manager, a restaurant operator or a site contractor. Longer consideration, higher job value, and a much thinner audience.",
+      "lede": "No existing paid-lead engine, no historical cost per lead to beat, and no incumbent creative to inherit. Two markets inside one country that behave as separate auctions.",
+      "problem": [
+        "A commercial-refrigeration installer needed installation enquiries at volume in a B2B trade-services market rather than a consumer one.",
+        "Two distinct markets inside one country behave as separate auction environments. Pooling them into one national campaign would have hidden which one was working and made the cheaper market subsidise the more expensive one invisibly.",
+        "There was no baseline to beat, which cuts both ways: nothing to prove against, and nothing to hide behind."
+      ],
+      "built": [
+        {
+          "t": "Split the account by geography instead of running one national campaign",
+          "b": "Two parallel lead campaigns with separate budgets and separate cost signals, so each market’s real economics stayed visible."
+        },
+        {
+          "t": "Quarantined the awareness launch as its own campaign",
+          "b": "The awareness spend sits in its own campaign on its own objective and is excluded from the cost per lead entirely. The claim gets no help from it."
+        },
+        {
+          "t": "Ran native lead-form campaigns",
+          "b": "The cost per lead is computed from the platform’s own leads counter — no pixel inference, no proxy conversion standing in for an enquiry."
+        },
+        {
+          "t": "Wired the leads into the client’s CRM by named workflow",
+          "b": "Including a region-specific intake path, so the two markets stayed separable downstream as well as upstream."
+        },
+        {
+          "t": "Ran a speed-to-lead SMS sequence with a phone follow-up path behind it",
+          "b": "The enquiry is worked within minutes rather than whenever someone checks an inbox."
+        },
+        {
+          "t": "Shipped a published AI voice agent into the account",
+          "b": "A deployment in a live client account, stated as a deployment rather than as a scale claim."
+        }
+      ],
+      "results": [
+        {
+          "v": "817 leads at ~$1.88",
+          "d": "The two lead campaigns combined, excluding all awareness spend.",
+          "s": "Meta Ads platform pull, reconciled against retained raw data",
+          "badge": "v"
+        },
+        {
+          "v": "709 leads at ~$1.50",
+          "d": "The flagship campaign, and the cheapest lead source in the portfolio.",
+          "s": "Same platform pull",
+          "badge": "v"
+        },
+        {
+          "v": "Survives the hostile math",
+          "d": "Even dividing every pound in the account — awareness included — by the lead count stays under the published claim.",
+          "s": "Arithmetic on the full account total",
+          "badge": "v"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "This does not generalise to “B2B is cheap”",
+          "b": "This account is the explicit exception, and it is labelled as one everywhere it appears. Qualified B2B elsewhere in this portfolio costs many times more per scheduled appointment — the agency’s own pipeline is the honest benchmark, and it is on this site too."
+        },
+        {
+          "t": "No client revenue, no return on ad spend, no job value",
+          "b": "The completed installation is the client’s outcome, not his."
+        },
+        {
+          "t": "No booked-appointment or lead-to-job conversion rate",
+          "b": "One reported installation is not a rate, and is not presented as one."
+        },
+        {
+          "t": "No claim the awareness campaign produced leads",
+          "b": "It bought reach. It is excluded from every cost figure on this page."
+        }
+      ]
+    },
+    {
+      "slug": "agency-own-pipeline",
+      "source": "agency-own-b2b-pipeline",
+      "group": "b2b",
+      "claim": "B4",
+      "order": 14,
+      "title": "Running the play on my own business, selling to clinic owners",
+      "vertical": "B2B agency growth",
+      "client": "Alex’s own agency",
+      "region": "United States",
+      "window": "Roughly eighteen months of live account",
+      "ownership": "My own business — not client work",
+      "figure": {
+        "value": "215+",
+        "unit": "scheduled appointments at ~$62 each",
+        "note": "Alongside 170+ leads. The platform result type is website appointments scheduled — which is why this never says “booked sales calls”."
+      },
+      "cardCopy": "Every agency claims it can generate leads. Almost none can show what happened when they pointed the machine at themselves.",
+      "lede": "Most agencies get clients from referrals and founder-network warmth, and quietly never run the play they sell. This is that play, run on his own business.",
+      "problem": [
+        "Paid social selling agency services to clinic and med spa owners, with the objective set to a scheduled appointment rather than a form fill.",
+        "It is the hardest version of the job. The prospect is an owner already being cold-called, direct-messaged and emailed by a dozen agencies a week.",
+        "And the unit that matters is not an enquiry. It is a specific business with real revenue, on a calendar."
+      ],
+      "built": [
+        {
+          "t": "Optimised to the scheduled appointment, not to the lead",
+          "b": "Every campaign told the platform to find people who book, rather than people who submit a form. That is a materially harder conversion to buy and a materially more useful one."
+        },
+        {
+          "t": "Qualified at the form on revenue",
+          "b": "A monthly-revenue filter on the form, so what landed on the calendar was a business with budget rather than a browser."
+        },
+        {
+          "t": "Carried a named commercial offer through the campaign structure",
+          "b": "A performance-weighted risk-transfer model, named and consistent across the account rather than improvised per campaign."
+        },
+        {
+          "t": "Funded prospecting and retargeting separately",
+          "b": "Retargeting converted at roughly three fifths of prospecting cost — visible because the two were never pooled."
+        },
+        {
+          "t": "Tested format and structure against each other, and killed losers small",
+          "b": "One campaign name carries its own post-mortem. The failures stayed in the record."
+        },
+        {
+          "t": "Ran a real outbound infrastructure behind the paid layer",
+          "b": "A fleet of sending sub-accounts with orchestration concentrated in one — which is genuinely how outbound volume is distributed for deliverability — plus AI voice workflows and a no-show recovery flow."
+        },
+        {
+          "t": "Ran the sales CRM himself",
+          "b": "Named in the platform’s own appointment-owner column, across three calendar types including a Spanish-language sales demo calendar."
+        }
+      ],
+      "results": [
+        {
+          "v": "215+ scheduled appointments",
+          "d": "At roughly $62 each, across the account.",
+          "s": "Meta Ads platform pull, result type schedule_website",
+          "badge": "v"
+        },
+        {
+          "v": "170+ leads",
+          "d": "A separate counter from the same pull. The two are different units and are never contrasted as if bookings exceeded leads.",
+          "s": "Same platform pull",
+          "badge": "v"
+        },
+        {
+          "v": "Spend agrees across two pulls",
+          "d": "The account total reconciled exactly between an initial pull and an independent re-pull.",
+          "s": "Two platform pulls",
+          "badge": "v"
+        }
+      ],
+      "notClaimed": [
+        {
+          "t": "Never “booked sales calls”",
+          "b": "The platform result type is website appointments scheduled — not verified booked-and-held sales calls. The wrong phrasing is blocked by an automated check on every outward surface, including this page."
+        },
+        {
+          "t": "No assertion about who scheduled",
+          "b": "The platform confirms a scheduling event, not an attendee identity. Target market is not the same thing as verified attendees."
+        },
+        {
+          "t": "No revenue, no clients-closed count, no agency income figure",
+          "b": "The appointments are the claim. What came after them is not."
+        },
+        {
+          "t": "This is his own business, and it says so",
+          "b": "Nothing here is presented as client work, and the agency’s own client-getting creative is kept separate from client creative."
+        }
+      ]
+    },
+    {
+      "slug": "recruitment-lead-gen",
+      "source": "recruitment-lead-gen",
+      "group": "b2b",
+      "claim": null,
+      "order": 15,
+      "title": "Recruitment lead-gen as a bid-strategy problem, not a creative one",
+      "vertical": "Talent acquisition",
+      "client": "A U.S. recruitment client",
+      "region": "United States",
+      "window": "A short, structured test programme",
+      "capability": "A bid-strategy matrix, one variable at a time",
+      "cardCopy": "The product is a job, the buyer is a candidate, and the constraint is geography plus availability — a pool measured in thousands, not millions.",
+      "lede": "Broad targeting burns budget on people who will never travel to the role. Narrow targeting exhausts the audience in days and costs climb.",
+      "problem": [
+        "Recruitment lead-gen looks like consumer lead-gen and behaves nothing like it.",
+        "That makes it a bid-strategy and audience-structure problem rather than a creative one — which is precisely why a small account earns a page.",
+        "The only way to learn anything from an audience this thin is to isolate one variable per campaign and let each carry its own cost signal."
+      ],
+      "built": [
+        {
+          "t": "A structured campaign-architecture test, readable straight off the campaign names",
+          "b": "Parallel builds isolating one variable each: interest-based targeting, open and broad targeting, and a bid-control strategy run against the same audience. A bid-strategy matrix is the kind of test most operators talk about and few actually structure — and the platform record shows it was run, not described."
+        },
+        {
+          "t": "A dedicated audience-segment campaign",
+          "b": "One campaign targeted a specific candidate segment with segment-specific messaging, isolated as its own campaign so the result stayed visible rather than being averaged away. It was the cheapest segment in the account by a wide margin."
+        },
+        {
+          "t": "Creative tested as its own variable",
+          "b": "A video-creative campaign and a static test run separately. Winners and losers were both left in the record."
+        },
+        {
+          "t": "Awareness kept separate",
+          "b": "An engagement campaign is excluded from every cost-per-lead figure for this account."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No figures are published for this account",
+          "b": "The account carries applicant and cost figures. They are not in the claims contract, so this page describes the test structure and states no numbers."
+        },
+        {
+          "t": "Applicants are not placements",
+          "b": "What was produced is applicant enquiries. Hiring outcomes are the client’s and are not claimed."
+        },
+        {
+          "t": "The winning segment is a finding, not a formula",
+          "b": "One segment outperformed on one account over one window. That is a result worth acting on, not a rule to generalise."
+        }
+      ]
+    },
+    {
+      "slug": "wedding-venue-b2b",
+      "source": "wedding-venue-b2b",
+      "group": "b2b",
+      "claim": null,
+      "order": 16,
+      "title": "A survey-qualified cross-border funnel, with AI voice wired to the calendar",
+      "vertical": "Events and hospitality",
+      "client": "A B2B venue-growth engagement",
+      "region": "United States and Canada",
+      "window": "Multi-year account",
+      "capability": "Paid traffic → qualifying survey → CRM → booked strategy session",
+      "cardCopy": "A capability case, not a volume case. In an audience this small, an unqualified lead is worse than no lead.",
+      "lede": "Selling a growth system to venue owners is a low-volume, high-consideration motion. The buyer is an owner-operator who is usually also the person running weddings at the weekend.",
+      "problem": [
+        "The total addressable audience in any given region is a few thousand businesses, and the decision is slow.",
+        "The wrong answer is a lead form and hope. An unqualified lead consumes the only expensive resource in the funnel, which is a human’s time on a call.",
+        "So the qualification had to happen before the call was ever booked — in the funnel, not in the conversation."
+      ],
+      "built": [
+        {
+          "t": "A survey-qualified funnel, cross-border, with the design stated in the build itself",
+          "b": "The intake workflow’s own title records the whole architecture: paid traffic to a landing page carrying a qualifying survey, then into the CRM, run across two countries. Lead qualification implemented as a funnel rather than asserted as a value."
+        },
+        {
+          "t": "A strategy-session booking motion with its own confirmation and no-show handling",
+          "b": "The no-show path exists as a designed branch rather than an afterthought — the practical form of the show-rate lesson learned on the aesthetic-clinic account."
+        },
+        {
+          "t": "AI voice agents wired into the booking flow",
+          "b": "An AI call ending, handing off to SMS, and triggering a booking is a complete conversational-to-calendar chain rather than a demo. This is a deployment claim and nothing more."
+        },
+        {
+          "t": "The orchestration hub for an outbound fleet",
+          "b": "This is where the outbound system actually lives; the others are sending accounts, which is genuinely how outbound volume is distributed for deliverability. The honest description is outbound across a fleet of sending sub-accounts, orchestrated from one."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "This is a capability case, not a results case",
+          "b": "It is presented for the architecture — survey qualification and a complete voice-to-calendar chain — and never as a volume or performance story. It carries no results claim of any kind."
+        },
+        {
+          "t": "The voice chain is a deployment",
+          "b": "The chain ran end to end in a live account. Nothing is claimed about the volume it handled."
+        },
+        {
+          "t": "The outbound fleet is sending infrastructure",
+          "b": "A fleet of sending sub-accounts is one system distributed for deliverability — not many bespoke systems, and it is never counted as such."
+        }
+      ]
+    },
+    {
+      "slug": "home-services-rebooking",
+      "source": "home-services-rebooking",
+      "group": "own",
+      "claim": null,
+      "order": 17,
+      "title": "The retention half of the system, run on my own customers",
+      "vertical": "Home services",
+      "client": "Alex’s own residential cleaning business",
+      "region": "United States",
+      "window": "Running since 2023",
+      "ownership": "My own business — not client work",
+      "capability": "Rebooking without a salesperson",
+      "cardCopy": "Every other case here answers how you fill a calendar with strangers. This one answers the question that comes after — and decides whether a local service business survives.",
+      "lede": "Residential cleaning is a recurring-revenue business trapped in a one-off-transaction interface. The economics live entirely in rebooking.",
+      "problem": [
+        "The customer books once, is happy, and then does nothing until the house is dirty again — by which point a competitor’s flyer has arrived.",
+        "Rebooking is an operations and automation problem, not a media problem. No amount of new traffic fixes it.",
+        "Alex owns this business, so unlike every client engagement in the portfolio there is no attribution boundary here. The whole chain is his."
+      ],
+      "built": [
+        {
+          "t": "A CRM and booking system built for a home-services business in 2023",
+          "b": "One of the oldest sub-accounts in the estate, predating most of the client work. This is where the appointment-engine pattern that later went to clinics was first run — on his own money and his own customers."
+        },
+        {
+          "t": "A productised snapshot of the whole build",
+          "b": "The build was packaged as reusable, distributable structure rather than left as a one-off configuration, alongside the vertical templates for other categories as part of the same productised set."
+        },
+        {
+          "t": "A system that has kept running for years",
+          "b": "The sub-account was still holding appointment records at capture, three years after it was built. Durability is the claim here, not launch volume."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "No figures are published for this business",
+          "b": "This is the only retention proof in the portfolio and it carries a measured rebooking ratio. It is not in the claims contract, so the ratio is not stated here."
+        },
+        {
+          "t": "It is his own business, and it always says so",
+          "b": "This is never presented as client work, and it is never counted inside client totals."
+        },
+        {
+          "t": "No revenue figures",
+          "b": "The business’s finances are not part of any claim on this site."
+        }
+      ]
+    },
+    {
+      "slug": "ecommerce-college-venture",
+      "source": "ecommerce-college-venture",
+      "group": "own",
+      "claim": "C10",
+      "order": 18,
+      "title": "The business I built to pay my own tuition",
+      "vertical": "E-commerce",
+      "client": "Alex’s own venture",
+      "region": "United States",
+      "window": "2017–2021",
+      "ownership": "My own business — not client work",
+      "capability": "A multi-six-figure Amazon and eBay business, run solo through college",
+      "cardCopy": "Before the agency, before a single ad account: a retail business run solo while carrying a full-time course load and a restaurant job.",
+      "lede": "Founder-attested, with no checkable number — and it is labelled that way. The story is the operating instinct, not the revenue line.",
+      "problem": [
+        "Before any of the marketing work, Alex built and ran a retail business on Amazon and eBay while carrying a full-time college course load and working a restaurant job, and used it to self-fund his tuition.",
+        "That is the whole story, and it is a better story than the number that used to sit on top of it.",
+        "It belongs in a marketing portfolio because every instinct that shows up later in the ad accounts was formed here."
+      ],
+      "built": [
+        {
+          "t": "Sourcing",
+          "b": "Finding, evaluating and buying inventory at a margin that survives platform fees."
+        },
+        {
+          "t": "Inventory and cash-flow management",
+          "b": "The part that kills most e-commerce operators, run against a student’s cash position."
+        },
+        {
+          "t": "Fulfilment",
+          "b": "Amazon FBA logistics and self-fulfilled eBay orders."
+        },
+        {
+          "t": "Listing and merchandising",
+          "b": "Writing the listings and pricing against live competition."
+        },
+        {
+          "t": "Customer service and supplier relationships",
+          "b": "Every message, every return, every dispute, personally — and negotiating the supply side."
+        }
+      ],
+      "results": [],
+      "notClaimed": [
+        {
+          "t": "Founder-attested, with no retained records",
+          "b": "The platform history is gone. This is Alex’s firsthand account, labelled as testimony rather than dressed as data — and the framing is deliberately qualitative for that reason."
+        },
+        {
+          "t": "Two specific figures are permanently retired",
+          "b": "A revenue total and a seller rating were previously quoted. Both are unverifiable, both are blocked in the claims contract, and neither appears anywhere on this site."
+        },
+        {
+          "t": "It is his own business, and it is not client work",
+          "b": "It is never counted inside any client total, spend figure or lead figure."
+        }
+      ]
+    }
+  ],
+  "dropped": [
+    {
+      "source": "insurance-iul-funnel",
+      "reason": "Ownership of the build is not yet confirmed. The proof-os file is explicit that it is not usable on any outward surface until that is settled, so it is not published in any form — not as a capability page, not as a gallery row. Revisit once ownership is confirmed and a claim exists."
+    },
+    {
+      "source": "booked-appointment-engine",
+      "reason": "Not a per-client case study — it is the cross-client system narrative that sits on top of the individual files. Its substance is already carried by the per-client pages and by the systems section of the home page, so publishing it here would restate the same engagements a second time under a different heading."
+    }
+  ]
+}
