@@ -213,19 +213,19 @@
           "v": "70 booked appointments",
           "d": "The best rolling 30-day window of the engagement.",
           "s": "Client tracker, counted and de-duplicated",
-          "badge": "v"
+          "badge": "c"
         },
         {
           "v": "61 in the calendar month",
           "d": "The same window expressed on calendar boundaries, which is the more conservative read.",
           "s": "Same tracker",
-          "badge": "v"
+          "badge": "c"
         },
         {
           "v": "Counted down, not up",
           "d": "Duplicate rows were removed before the figure was stated. The number went down in the cleaning, which is why it survives scrutiny.",
           "s": "Tracker counting methodology",
-          "badge": "v"
+          "badge": "c"
         }
       ],
       "notClaimed": [
@@ -719,9 +719,9 @@
       "region": "Canada",
       "window": "A sustained monthly offer cadence",
       "figure": {
-        "value": "~$3–$12",
-        "unit": "USD per lead (CA$4–$16 on a Canadian account)",
-        "note": "~1,200 body-contouring leads and 80 booked appointments on one account. The account bills in Canadian dollars, so the currency is stated every time — quoting the local figure unmarked would read as roughly 27% more expensive than it was."
+        "value": "~US$5.40",
+        "unit": "average USD per lead (CA$7.39 — the account bills in Canadian dollars)",
+        "note": "1,192 body-contouring leads at ~US$5.40 average cost per lead across an entire account, plus 80 booked appointments. The account bills in Canadian dollars, so the currency is stated every time — quoting the local figure unmarked would read as roughly 27% more expensive than it was."
       },
       "cardCopy": "A smaller auction, a smaller catchment, and the same local audience seeing the same ads again within weeks. This market needs a cadence, not a hero campaign.",
       "lede": "Non-surgical body contouring is a category where the offer does almost all the work. Nobody searches for the device name — they respond to a described outcome on a named body area at a stated price.",
@@ -758,8 +758,8 @@
       ],
       "results": [
         {
-          "v": "~1,200 leads at ~$3–$12 USD",
-          "d": "CA$4–$16 on the local account. The currency is part of the claim, not a footnote to it.",
+          "v": "1,192 leads at ~US$5.40 average",
+          "d": "CA$7.39 average on the local account, across 13 lead campaigns of 15. The currency is part of the claim, not a footnote to it — and the average is honest because the whole account was his: 99.6% of its spend was lead-objective.",
           "s": "Meta Ads platform pull, per campaign",
           "badge": "c"
         },
@@ -899,7 +899,7 @@
       "slug": "aesthetics-group",
       "source": "aesthetics-group-multi-location",
       "group": "aesthetics",
-      "claim": null,
+      "claim": "B9",
       "order": 12,
       "title": "A multi-location group running three marketing jobs at once",
       "vertical": "Multi-site aesthetics",
@@ -940,11 +940,30 @@
           "b": "Stage-triggered conversion events sent back to the channel, closing the measurement loop."
         }
       ],
-      "results": [],
+      "results": [
+        {
+          "v": "655 lead-form leads at $20.95 blended",
+          "d": "From the campaigns carrying Alex's own tag. The floor, not the ceiling.",
+          "s": "Meta Ads platform pull, campaign level",
+          "badge": "v"
+        },
+        {
+          "v": "Best campaign: 514 leads at $15.81",
+          "d": "A single weight-loss campaign, the strongest performer in the programme.",
+          "s": "Meta Ads platform pull, campaign level",
+          "badge": "v"
+        },
+        {
+          "v": "$145K over three years",
+          "d": "93 campaigns, 33.7M impressions, 10.9M brand reach — run as three funded layers: brand, traffic and lead generation kept structurally separate.",
+          "s": "Meta Ads platform pull, account level",
+          "badge": "v"
+        }
+      ],
       "notClaimed": [
         {
-          "t": "No figures are published for this account",
-          "b": "This is the largest engagement in the portfolio by spend. It has no green-lit claim of its own, so no spend, impression, reach or lead figure for it appears here — it is represented only inside the portfolio-wide managed-spend claim."
+          "t": "Only the tagged subset is counted",
+          "b": "655 leads at $20.95 is a floor drawn from the campaigns carrying Alex's own tag inside a $144,918.33 account. Wider readings exist — 735 leads at $24.92, 887 at $23.70 — but every campaign they add performed worse than the ones already counted, so the safest reading here is also the best-performing one. Attribution is campaign-level; ad-set and ad-level are not yet applied."
         },
         {
           "t": "Not all of this account is his work",
@@ -958,7 +977,8 @@
           "t": "The second location never ran",
           "b": "It was set up and produced nothing. Recorded deliberately, because an honest census is what makes the rest of the portfolio credible."
         }
-      ]
+      ],
+      "figure": "655 leads @ $20.95"
     },
     {
       "slug": "b2b-refrigeration",

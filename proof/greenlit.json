@@ -1,7 +1,7 @@
 {
   "$schema": "./GREENLIT.md",
-  "version": "1.9.0",
-  "updated": "2026-08-18",
+  "version": "1.10.0",
+  "updated": "2026-08-19",
   "source_of_truth": "AlexFC0810/proof — CLAIMS_LEDGER.md (scorecard 2026-06-25) + shareable/master-positioning.md",
   "doctrine": {
     "name": "Alex Amaro",
@@ -94,19 +94,19 @@
       "label": "Body-sculpting / contouring leads",
       "status": "partial",
       "headline": {
-        "value": "~$3–$12",
-        "unit": "CPL (USD)",
-        "qualifier": "~1,200 body-contouring leads + 80 booked appointments (tracker) on one account. Account currency is CAD (CA$4–$16); USD conversion at ~0.73, rounded up so the published range stays conservative."
+        "value": "~US$5.40",
+        "unit": "average cost per lead",
+        "qualifier": "1,192 leads at CA$7.39 each (~US$5.40 at 0.73) across a full Canadian body-contouring account — CA$8,804.13 on 13 lead campaigns of 15. Alex ran the whole account and 99.6% of its spend was lead-objective, so the account average is not a blended figure. 80 booked appointments (client tracker). Lead volume and cost are platform-verified; the booked count is tracker-corroborated."
       },
       "wording": {
-        "resume": "Produced body-sculpting/contouring leads at ~$3–$12 USD (CA$4–$16 on a Canadian account) — ~1,200 leads and 80 booked appointments on one account.",
-        "linkedin": "Body-sculpting/contouring leads at ~$3–$12 USD — CA$4–$16 on a Canadian account.",
-        "portfolio_employer": "~1,200 body-contouring leads at ~$3–$12 USD CPL (CA$4–$16, Canadian account) on a single account, with 80 booked appointments tracked.",
-        "portfolio_client": "For body-contouring clinics: ~1,200 leads on one account at ~$3–$12 USD per lead (CA$4–$16 local) — with 80 appointments booked.",
-        "one_liner": "~1,200 body-contouring leads @ ~$3–$12 USD CPL (+80 booked)"
+        "resume": "Ran a full body-contouring account to 1,192 leads at ~US$5.40 each (CA$7.39) — 80 booked appointments tracked.",
+        "linkedin": "1,192 body-contouring leads at about US$5.40 each — a whole Canadian account, not a cherry-picked campaign.",
+        "portfolio_employer": "1,192 leads at ~US$5.40 average cost per lead (CA$7.39) across an entire Canadian body-contouring account — CA$8,804 spend, 13 lead campaigns, 80 booked appointments tracked.",
+        "portfolio_client": "For body-contouring clinics: 1,192 leads at about US$5.40 each across the whole account — with 80 appointments booked.",
+        "one_liner": "1,192 body-contouring leads @ ~US$5.40 avg (+80 booked)"
       },
       "evidence_path": "evidence/meta-ads/body-contouring-pearls.md",
-      "notes": "Exact '$13.51' belongs to the lost MD Body account — do not use. 80 booked from 2026-06-25 Drive tracker pull. 2026-08-18: currency corrected. The account bills in CAD (evidence/meta-ads/ad-account-inventory.md) and the claim published unmarked '$4–$16', which a US reader reads as USD — overstating Alex's cost by ~27% on a metric where lower wins. Both currencies are now named so the figure is precise in either reading. Exact '$13.51' stays retired regardless."
+      "notes": "Exact '$13.51' belongs to the lost MD Body account — do not use. 80 booked from 2026-06-25 Drive tracker pull. 2026-08-18: currency corrected. The account bills in CAD (evidence/meta-ads/ad-account-inventory.md) and the claim published unmarked '$4–$16', which a US reader reads as USD — overstating Alex's cost by ~27% on a metric where lower wins. Both currencies are now named so the figure is precise in either reading. Exact '$13.51' stays retired regardless. 2026-08-19: Alex confirmed he ran the WHOLE account, which is what makes an average honest — the tagged-only reading was 237 leads and the published ~1,200 would have been a ~5x over-claim. Exact count is 1,192, independently re-verified from the raw Meta pull. Do NOT sum to 1,230: one LINK_CLICKS campaign reports 38 link clicks as 'results'. Status stays 'partial' because the 80 booked is tracker-sourced; the lead and cost figures are platform-hard."
     },
     {
       "id": "C6",
@@ -194,14 +194,14 @@
         "qualifier": "built through college, self-funding tuition (founder-attested)"
       },
       "wording": {
-        "resume": "Built and ran a multi-multi-six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
-        "linkedin": "Built and ran a multi-multi-six-figure online retail business while in college full-time — how I paid tuition.",
-        "portfolio_employer": "Built a multi-multi-six-figure Amazon/eBay business from scratch while in college full-time — the operating instincts behind how I build marketing systems.",
-        "portfolio_client": "Founder DNA: built a multi-multi-six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
+        "resume": "Built and ran a multi-six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
+        "linkedin": "Built and ran a multi-six-figure online retail business while in college full-time — how I paid tuition.",
+        "portfolio_employer": "Built a multi-six-figure Amazon/eBay business from scratch while in college full-time — the operating instincts behind how I build marketing systems.",
+        "portfolio_client": "Founder DNA: built a multi-six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
         "one_liner": "Multi-multi-six-figure e-commerce business built through college"
       },
       "evidence_path": "case-studies/ecommerce-college-venture/README.md",
-      "notes": "Founder-attested grit story. Never '$350K' or '4.9-star' (unverifiable). 2026-08-18: 'six-figure' -> 'multi-six-figure' per the 2026-08-06 under-claim audit and Alex's approval. Still founder-attested with no checkable number, so evidence weight is unchanged — this is truer to the testimony, not a stronger sourcing claim. Never '$350K' or '4.9-star'."
+      "notes": "Founder-attested grit story. Never '$350K' or '4.9-star' (unverifiable). 2026-08-18: 'six-figure' -> 'multi-six-figure' per the 2026-08-06 under-claim audit and Alex's approval. Still founder-attested with no checkable number, so evidence weight is unchanged — this is truer to the testimony, not a stronger sourcing claim. Never '$350K' or '4.9-star'. 2026-08-19: repaired 'multi-multi-six-figure' in all five wordings — a chained string replace applied twice on 2026-08-18 because 'six-figure' matches inside 'multi-six-figure'. Caught by the portfolio build, not by the guard: claims-lint tests what is FORBIDDEN, not what is malformed."
     },
     {
       "id": "B1",
@@ -354,6 +354,25 @@
       },
       "evidence_path": "CLAIMS_LEDGER.md#b8",
       "notes": "Founder-attested (Alex, 2026-07-30). Tier gate for Track B / function-owner roles — was missing from every surface and was silently capping the positioning. NEVER say hired/recruited (not established), do not imply a corporate reporting line, do not inflate the ~10 months."
+    },
+    {
+      "id": "B9",
+      "label": "Multi-location aesthetics group — three-year programme",
+      "status": "partial",
+      "headline": {
+        "value": "655",
+        "unit": "leads at $20.95",
+        "qualifier": "655 lead-form leads at $20.95 blended from Alex's own tagged campaigns, best campaign 514 at $15.81, inside a $144,918.33 three-year Meta programme for a multi-location U.S. aesthetics group — 93 campaigns, 33.7M impressions, 10.9M brand reach. Run as three funded layers (brand, traffic, lead-gen). NEVER divide account spend by any lead count: ~77% of spend bought reach and clicks by design."
+      },
+      "wording": {
+        "resume": "Produced 655 lead-form leads at $20.95 blended — best campaign 514 leads at $15.81 — inside a $145K three-year Meta programme for a multi-location aesthetics group.",
+        "linkedin": "655 leads at $20.95, with the best campaign at $15.81 — inside the largest account I have run: $145K over three years for a multi-location aesthetics group, with brand, traffic and lead-gen as three funded layers rather than one blended budget.",
+        "portfolio_employer": "655 lead-form leads at $20.95 blended, best campaign 514 at $15.81 — within a $145K / 93-campaign / 33.7M-impression three-year programme for a multi-location aesthetics group, where brand, traffic and lead generation were kept structurally separate.",
+        "portfolio_client": "For a multi-location aesthetics group: 655 leads at about $21 each, best campaign at $15.81 — inside a three-year programme that kept brand, traffic and lead-gen as separate funded layers.",
+        "one_liner": "655 leads @ $20.95 (best 514 @ $15.81) in a $145K 3-year programme"
+      },
+      "evidence_path": "case-studies/aesthetics-group-multi-location/README.md",
+      "notes": "2026-08-19: new claim. Largest engagement in the estate and previously had NO approved wording, which is why it has never appeared on any surface. Scope confirmed by Alex: campaigns tagged 'SC' are his. A case-sensitive token rescan found 6 of 93 tagged (not the 3 previously recorded) spanning lead, traffic AND engagement objectives — platform evidence of a full-funnel mandate. Alex chose the efficiency-first framing: the 655 tagged floor is simultaneously the SAFEST and the BEST-PERFORMING reading, because every campaign the inclusive readings (735 at $24.92, 887 at $23.70) add performed worse. Ad-set and ad-level attribution is NOT yet applied — the saved pull is campaign-level only; the re-pull spec is in the case study."
     }
   ],
   "do_not_say": [
