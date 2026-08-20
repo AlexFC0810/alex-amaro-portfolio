@@ -249,6 +249,20 @@ function renderCase(c, prev, next) {
   const title = `${c.title} — Alex Amaro`;
   const desc = c.cardCopy;
 
+for (const c of cases) {
+  if (c.figure !== null && c.figure !== undefined) {
+    const f = c.figure;
+    const bad = typeof f !== 'object' || Array.isArray(f) ||
+      !['value', 'unit'].every((k) => typeof f[k] === 'string' && f[k].trim());
+    if (bad) {
+      console.error(`case "${c.slug}": figure must be an object {value, unit, note?} with non-empty strings.`);
+      console.error(`  got: ${JSON.stringify(f)}`);
+      console.error(`  a bare string silently renders as "undefined" in display type.`);
+      process.exit(1);
+    }
+  }
+}
+
   const figureBlock = c.figure ? `
       <div class="hero-stat">
         <span class="hs-num">${esc(c.figure.value)}</span>
@@ -455,15 +469,15 @@ function renderIndex(cases) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Case studies — Alex Amaro &middot; ${cases.length} client engagements</title>
-<meta name="description" content="${cases.length} client engagements across clinical, aesthetics, B2B and my own ventures — the problem, the mechanism, the result, and what each case deliberately does not claim.">
+<title>Case studies — Alex Amaro &middot; ${cases.length} engagements</title>
+<meta name="description" content="${cases.length} engagements across clinical, aesthetics, B2B and my own ventures — the problem, the mechanism, the result, and what each case deliberately does not claim.">
 <link rel="canonical" href="${SITE}/work.html">
 <link rel="icon" href="${FAVICON}">
 <meta name="author" content="Alex Amaro">
 <meta name="theme-color" content="#0d2440">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alex Amaro — Portfolio">
-<meta property="og:title" content="Case studies — ${cases.length} client engagements">
+<meta property="og:title" content="Case studies — ${cases.length} engagements">
 <meta property="og:description" content="The problem, the mechanism, the result — and what each case deliberately does not claim.">
 <meta property="og:url" content="${SITE}/work.html">
 <meta property="og:image" content="${SITE}/assets/og-cover.png">

@@ -1,0 +1,5 @@
+# Build/lint contract, synced from the proof vault.
+# NEVER tracked: its notes and evidence_path fields carry real client business
+# names, and GitHub Pages serves every tracked file. Anonymised labels are what
+# the rendered site publishes; this is the private source behind them.
+proof/greenlit.json

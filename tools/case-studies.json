@@ -978,7 +978,11 @@
           "b": "It was set up and produced nothing. Recorded deliberately, because an honest census is what makes the rest of the portfolio credible."
         }
       ],
-      "figure": "655 leads @ $20.95"
+      "figure": {
+        "value": "655",
+        "unit": "leads at $20.95",
+        "note": "Best campaign: 514 leads at $15.81, inside $145K over three years."
+      }
     },
     {
       "slug": "b2b-refrigeration",
