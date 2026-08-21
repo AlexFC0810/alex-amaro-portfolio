@@ -5,6 +5,23 @@
 > **Vercel** (aspirational — discipline: six type steps, three radii, no drop shadow).
 > Both cached at `doctrine-hub/swipes/design-systems/`.
 
+> ### 2026-08-21 — corrected benchmark, corrected amplitude
+> Alex looked at v2 and preferred the old site. Both causes are written down here
+> rather than argued about, and only one of them is taste.
+>
+> **1. Wrong benchmark register.** Linear is a *developer tool*: deliberately
+> impersonal, engineered to disappear behind the work. A portfolio cannot
+> disappear — it IS the work. Linear stays the reference for restraint and for
+> the geometry-over-shadow rule. It is no longer the reference for temperature.
+> That is now the v1 site's `#16365C` navy family, borrowed for its **presence**,
+> not for its hue.
+>
+> **2. The ladder shipped at roughly 40% of the amplitude it was designed for.**
+> The four grounds stepped 1.044:1 and 1.050:1 apart. On a phone at 40% screen
+> brightness that is one flat plane — so a system whose entire depth strategy is
+> tonal rendered as a single sheet of near-black behind 1.2:1 hairlines. The
+> direction was right. The intensity was the defect.
+
 ## Why this system and not another
 
 This is not a new palette. It is **the system Alex already shipped twice** —
@@ -29,42 +46,62 @@ misused by the next agent, and drift restarts.
 Every value was measured with a WCAG contrast calculator against the ground it
 actually sits on. Nothing here was chosen by eye. Measurements at the bottom.
 
-### Grounds — depth is tonal, never cast
+### Grounds — depth is tonal, at an amplitude you can actually see
 
-Four steps of near-black. A raised surface reads raised because it is *lighter*,
+Four steps of deep navy. A raised surface reads raised because it is *lighter*,
 not because it casts a shadow. This is the Vercel move (`#fafafa → #ebebeb →
-#171717`) inverted for a dark canvas.
+#171717`) inverted for a dark canvas — but the step size is the whole ballgame,
+and the first cut got it wrong by about 40%.
 
 ```css
---bg:        #0a0a0b;  /* page substrate — the floor everything sits on */
---bg-soft:   #111114;  /* alternating section bands; the quiet lift that
-                          separates one section from the next without a rule */
---bg-card:   #161619;  /* card and panel fill — one step up from any band */
---bg-raise:  #1c1c21;  /* the top of the ladder: hover state, input fill,
-                          the inside of a card that already sits on a card */
+--bg:        #090c17;  /* page substrate — the floor everything sits on */
+--bg-soft:   #181d2d;  /* alternating section bands;  1.163:1 above --bg */
+--bg-card:   #242b40;  /* card and panel fill;        1.193:1 above --bg-soft */
+--bg-raise:  #303853;  /* top of the ladder — hover, input fill, the inside of a
+                          card that already sits on a card. 1.215:1 above
+                          --bg-card, 1.687:1 end to end */
 ```
+
+**The rule that replaces the old one: every adjacent ground pair must measure
+≥ 1.15:1.** That is the sixth check in the audit and it is not optional — a
+tonal system with no tonal amplitude is a flat page carrying extra tokens.
+
+The ladder also has a temperature now, which it did not before. Pure-neutral
+near-black reads switched off rather than lit, and the warmth is the one thing
+the old site had that this page did not.
 
 ### Hairlines — the separation strategy
 
 Linear's finding, adopted whole: hairline borders *"let geometry do the work that
-shadows usually would."* **There is no `box-shadow` anywhere in this page.** Not
-one. Separation is a 1px border or a tonal step, never a cast shadow.
+shadows usually would."* **There is still no drop shadow anywhere on this page.**
+Separation is a 1px border or a tonal step.
+
+With the ladder widened, the borders became a supporting act rather than the
+entire strategy — and they got brighter along with the grounds, because a 1.2:1
+hairline on a flat ground was the other half of why the page read as one sheet.
 
 ```css
---border:      #26262c;  /* the default 1px edge — visible at rest, invisible at speed */
---border-soft: #1d1d22;  /* section dividers and internal rules; quieter than --border
+--border:      #3d4560;  /* the default 1px edge — 2.06:1 on --bg, 1.48:1 on --bg-card */
+--border-soft: #2c3347;  /* section dividers and internal rules; quieter than --border
                             so a divider never competes with a card edge */
---border-lit:  rgba(245,158,11,.34);  /* hover/active ring. The accent as a RING,
+--border-lit:  rgba(245,158,11,.38);  /* hover/active ring. The accent as a RING,
                             never as a glow — a glow is a shadow wearing a costume */
 ```
 
 ### Type colours
 
 ```css
---text:       #ececf1;  /* headings and body — the reading colour */
---text-dim:   #a1a1aa;  /* secondary copy, standfirsts, card body */
---text-faint: #8b8b96;  /* captions, meta, timestamps — the floor of the ramp */
+--text:       #eef0f7;  /* headings and body — the reading colour */
+--text-dim:   #b3b9ca;  /* secondary copy, standfirsts, card body */
+--text-faint: #a6acbf;  /* captions, meta, timestamps — the floor of the ramp */
 ```
+
+**Every one of these moved when the grounds moved, and that is the point.** The
+worst pairing on this page is no longer `--text-faint` on `--bg`; it is
+`--text-faint` on `--bg-raise`, which is now a genuinely lighter surface. The old
+`#8b8b96` measures **3.43:1** against the new `--bg-raise` and would have shipped
+a failure. So would `#95959f`, at **3.90:1**. A palette change is exactly when to
+re-measure every token, because the ground moved underneath all of them.
 
 **`--text-faint` is `#8b8b96` and must never be lowered to `#6b6b76`.** Alex's
 dashboard carries the note: *"#6b6b76 measured 3.76:1 and failed; this measures
@@ -183,12 +220,30 @@ radius.
 
 ---
 
-## Elevation — there is none, and that is the point
+## Elevation — one lit edge, and still zero drop shadows
 
-**Zero `box-shadow` declarations.** Depth comes from:
+**Zero drop shadows. One inset highlight.** Depth comes from:
 
-1. the four-step tonal ground ladder, and
-2. 1px hairlines.
+1. the four-step tonal ground ladder,
+2. 1px hairlines, and
+3. `--lit` — a single 1px inset top highlight.
+
+```css
+--lit: inset 0 1px 0 rgba(255,255,255,.075);
+```
+
+This is the one thing borrowed back from `index.html`, where **every** elevation
+token ends in `inset 0 1px 0 rgba(255,255,255,.92)`. That inset hairline — not
+the drop shadows stacked in front of it — is what makes those cards read as *lit*
+rather than merely *outlined*. It casts nothing, so the property this page was
+built on survives intact: `elevation_variants: 1`, one value, six surfaces, no
+blur radius anywhere on the page.
+
+It lives on `.card-body`, not on `.card`. Measured rather than assumed: in
+Chromium an inset shadow is painted **underneath** a top-edge `<img>`, and moving
+it onto the `<img>` does not paint either — so on `.card` it would have been
+invisible on the four image cards and visible only on the one without an image.
+On `.card-body` it lands at the top of the body on every card.
 
 The old site shipped four multi-layer drop-shadow tokens (2–4 layers each). Both
 benchmarks use neither: Vercel uses two 1px *rings*, Linear uses 0.5px hairlines
@@ -243,9 +298,12 @@ already shipped on `index.html` and is copied here without modification:
 2. Otherwise add `.motion` and arm a **2600ms force-settle timer in the same
    statement**, so the escape hatch can never diverge from the opt-in.
 3. `try/catch` → settle on any error.
-4. **No `<noscript>` dependency**: reveal styles only apply *under* `html.motion`,
-   so with JS disabled the class is never added and every section renders at full
-   opacity by default.
+4. **No `<noscript>` dependency for anything structural**: reveal styles only
+   apply *under* `html.motion`, so with JS disabled the class is never added and
+   every section renders at full opacity by default. The page's one `<noscript>`
+   element is a courtesy note next to the calculator telling a JS-off reader that
+   the sliders are inert and the printed figures are the worked example. It adds
+   21px to the JS-off render and nothing else depends on it.
 
 `requestAnimationFrame` is paused in background tabs. An entrance animation that
 starts at `opacity:0` and waits for a frame has already produced a blank screen in
@@ -257,17 +315,33 @@ this portfolio once. It will not do it again.
 
 Contrast, computed against each ground (flat 4.5:1 bar, no large-text exemption):
 
-| | `--bg` #0a0a0b | `--bg-soft` #111114 | `--bg-card` #161619 | `--bg-raise` #1c1c21 |
+| | `--bg` #090c17 | `--bg-soft` #181d2d | `--bg-card` #242b40 | `--bg-raise` #303853 |
 |---|---|---|---|---|
-| `--text` #ececf1 | 16.81 | 16.01 | 15.34 | 14.41 |
-| `--text-dim` #a1a1aa | 7.72 | 7.35 | 7.05 | 6.62 |
-| `--text-faint` #8b8b96 | **5.87** | 5.59 | 5.36 | **5.04** |
-| `--accent` #f59e0b | 9.21 | 8.78 | 8.41 | 7.90 |
-| `--link` #fbbf24 | 11.85 | 11.29 | 10.82 | 10.17 |
-| ~~#6b6b76~~ (rejected) | **3.76** | 3.58 | 3.43 | 3.22 |
+| `--text` #eef0f7 | 17.13 | 14.72 | 12.34 | 10.15 |
+| `--text-dim` #b3b9ca | 9.95 | 8.55 | 7.17 | 5.90 |
+| `--text-faint` #a6acbf | 8.62 | 7.41 | 6.21 | **5.11** |
+| `--accent` #f59e0b | 9.08 | 7.81 | 6.54 | 5.38 |
+| `--link` #fbbf24 | 11.68 | 10.04 | 8.42 | 6.93 |
+| ~~#95959f~~ (rejected) | 6.57 | 5.65 | 4.74 | **3.90** |
+| ~~#8b8b96~~ (the previous floor) | 5.79 | 4.98 | 4.17 | **3.43** |
 
-Tightest passing pair on the page: `--text-faint` on `--bg-raise` at **5.04:1**.
-`--border` is 1.32:1 against `--bg` and is a *border*, never a text colour.
+Tightest passing pair on the page: `--text-faint` on `--bg-raise` at **5.11:1**,
+up from 5.04:1 — and that is now measured against a surface 1.687:1 lighter than
+the one the old floor was measured on.
+
+**The ground ladder itself — the check this page previously had no bar for:**
+
+| pair | ratio | bar |
+|---|---|---|
+| `--bg` → `--bg-soft` | **1.163** | ≥ 1.15 ✔ |
+| `--bg-soft` → `--bg-card` | **1.193** | ≥ 1.15 ✔ |
+| `--bg-card` → `--bg-raise` | **1.215** | ≥ 1.15 ✔ |
+| `--bg` → `--bg-raise` (end to end) | **1.687** | — |
+
+Previously: 1.050 / 1.044 / 1.064, and 1.166 end to end.
+
+`--border` is 2.06:1 against `--bg` and 1.48:1 against `--bg-card`, and is a
+*border*, never a text colour.
 
 ---
 
@@ -275,24 +349,28 @@ Tightest passing pair on the page: `--text-faint` on `--bg-raise` at **5.04:1**.
 
 | Axis | World-class | Linear | Vercel | **v2 target** |
 |---|---|---|---|---|
-| Distinct type styles | 6–12 | 8 steps | 6 steps | **10 measured** |
+| Distinct type styles | 6–12 | 8 steps | 6 steps | **11 measured** |
 | Weight band | 400–600 | 400–590 | 400–450 | **400 / 520 / 560 / 590** |
 | Radius values | 2–3 | 6px, 12px | 2 / 6 / 9999 | **3 — 4px / 10px / 999px** |
-| Elevation | one ladder, or hairlines | hairlines, no shadow | two rings | **0 — no shadow at all** |
+| Elevation | one ladder, or hairlines | hairlines, no shadow | two rings | **1 — one inset hairline, zero drop shadows** |
 | Tracking | scales negatively with size | -0.022em constant | -0.050 → -0.060em | **+0.080em at 12px → -0.045em at 64px** |
 
 Measured on the rendered page with `_audit/token-ripper.js`, not asserted:
 
 ```
-distinct_type_styles: 10        weight_band: 400/520/560/590
+distinct_type_styles: 11        weight_band: 400/520/560/590
 max_weight: 590                 radius_values: 3   (4px · 999px · 10px)
-elevation_variants: 0           families: Inter, ui-monospace
+elevation_variants: 1           families: Inter, ui-monospace
 ```
+
+The eleventh style is `--fs-hero` — mono, `clamp(50px, 9vw, 78px)` — and it
+exists for exactly one element: the `9.5×` in the hero. One focal object per
+screen, and a focal object needs a step of its own or it is not focal.
 
 The full rendered ramp, largest to smallest, with the tracking each size got:
 
-| 64 | 44 | 32 | 28 | 22 | 19 | 16 | 15 | 13 | 12 |
-|---|---|---|---|---|---|---|---|---|---|
+| 78 | 64 | 44 | 32 | 28 | 22 | 19 | 16 | 15 | 13 | 12 |
+|---|---|---|---|---|---|---|---|---|---|---|
 | -0.045 | -0.035 | -0.028 | -0.020 | -0.022 | -0.018 | -0.011 | -0.005 | -0.005 | +0.080 |
 
 (28px and 15px are monospace figures; 12px is the uppercase mono label, the one
@@ -305,11 +383,16 @@ step that takes *positive* tracking because uppercase mono closes up without it.
 1. **No new colour** without measuring it against all four grounds first.
 2. **No weight above 590.** If something needs more emphasis, make it bigger or
    make it `--text` against `--text-dim` — do not reach for bold.
-3. **No `box-shadow`.** If a thing needs to look raised, step it up the ground
-   ladder and give it a hairline.
-4. **No fourth radius**, and no `border-radius: 50%`.
-5. **No off-origin request** — no CDN font, no analytics, no remote image. The
+3. **No drop shadow, ever.** There is exactly one `box-shadow` token, `--lit`,
+   and it is an inset 1px top highlight with no blur and no offset. If a thing
+   needs to look raised: step it up the ground ladder, give it a hairline, and
+   give it `--lit`. Do not add a second elevation value.
+4. **Every adjacent ground pair stays ≥ 1.15:1.** Touch a ground token and you
+   re-measure all three pairs *and* every text token against all four grounds.
+   The first version of this page failed exactly here, and looked flat for it.
+5. **No fourth radius**, and no `border-radius: 50%`.
+6. **No off-origin request** — no CDN font, no analytics, no remote image. The
    zero-off-origin property is a feature of this repo, and one Higgsfield clip is
    already permanently lost to a hotlinked CloudFront URL.
-6. **No input below 16px.**
-7. If you add a token, **write its role in this file in the same commit**.
+7. **No input below 16px.**
+8. If you add a token, **write its role in this file in the same commit**.
