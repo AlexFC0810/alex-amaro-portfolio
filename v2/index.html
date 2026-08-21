@@ -12,11 +12,16 @@
 <meta property="og:title" content="Alex Amaro — the systems are running right now">
 <meta property="og:description" content="Most marketers can show you campaigns. This one shows you systems that are running right now — and here are the URLs.">
 <meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/v2/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/v2/assets/og-v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alex Amaro — most marketers can show you campaigns. 9.5x an agency's leads at ~75% lower CPL, same account.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/v2/assets/og-v2.png">
 <meta name="twitter:title" content="Alex Amaro — the systems are running right now">
 <meta name="twitter:description" content="Most marketers can show you campaigns. This one shows you systems that are running right now — and here are the URLs.">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0b'/%3E%3Crect x='7' y='14.5' width='18' height='3' rx='1.5' fill='%23f59e0b'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#090c17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23090c17'/%3E%3Crect x='7' y='14.5' width='18' height='3' rx='1.5' fill='%23f59e0b'/%3E%3C/svg%3E">
 
 <!-- Motion opt-in AND its own escape hatch, armed in the same statement so they
      can never diverge. Whatever happens to the rest of this page's JS, every
@@ -27,10 +32,26 @@
 <script>
 (function(){try{
   var r=document.documentElement;
+  r.classList.add('js');
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('settled');return;}
   r.classList.add('motion');
   setTimeout(function(){r.classList.add('settled');},2600);
 }catch(e){document.documentElement.classList.add('settled');}})();
+</script>
+
+<!-- Structured data. The page had none, so a search result or a shared card had
+     nothing but the title tag to work with. Nothing here is a claim; it is
+     identity and links only. -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person",
+ "name":"Alex Amaro",
+ "jobTitle":"Paid media operator and AI systems builder",
+ "description":"A paid-media operator who builds the AI systems behind the funnel.",
+ "url":"https://alexfc0810.github.io/alex-amaro-portfolio/v2/",
+ "image":"https://alexfc0810.github.io/alex-amaro-portfolio/v2/assets/og-v2.png",
+ "knowsLanguage":["en","es"],
+ "knowsAbout":["Meta Ads","Paid social","Lead generation","Marketing automation","GoHighLevel","Conversion rate optimisation"],
+ "sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"]}
 </script>
 
 <link rel="preload" href="../assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -66,25 +87,50 @@
 }
 
 :root{
-  /* --- GROUNDS: depth is tonal, never cast ------------------------------- */
-  --bg:#0a0a0b;        /* page substrate */
-  --bg-soft:#111114;   /* alternating section band */
-  --bg-card:#161619;   /* card / panel fill */
-  --bg-raise:#1c1c21;  /* hover, input fill, card-on-card */
+  /* --- GROUNDS: a navy ladder, at an amplitude you can actually see ------
+     These four steps shipped 1.044:1 and 1.050:1 apart. On a phone at 40%
+     brightness that collapses to one flat plane — which is exactly why a
+     system built on "tonal depth instead of shadows" rendered as a single
+     sheet of near-black with 1.2:1 hairlines. The deltas below are roughly
+     doubled: every adjacent pair is >= 1.15:1, measured 1.163 / 1.193 / 1.215,
+     1.687 end to end.
 
-  /* --- HAIRLINES: the entire separation strategy ------------------------- */
-  --border:#26262c;
-  --border-soft:#1d1d22;
-  --border-lit:rgba(245,158,11,.34);
+     They also carry a navy cast now. Pure-neutral near-black reads switched
+     off; the v1 site's #16365C is the reference here — not for its hue, for
+     its PRESENCE. A developer tool is built to disappear behind the work. A
+     portfolio cannot disappear: it IS the work. */
+  --bg:#090c17;        /* page substrate */
+  --bg-soft:#181d2d;   /* alternating section band  ·  1.163 above --bg */
+  --bg-card:#242b40;   /* card / panel fill         ·  1.193 above --bg-soft */
+  --bg-raise:#303853;  /* hover, input fill, lifted ·  1.215 above --bg-card */
 
-  /* --- TYPE COLOUR (every value measured; see DESIGN.md) ----------------- */
-  --text:#ececf1;        /* 16.81:1 on --bg */
-  --text-dim:#a1a1aa;    /*  7.72:1 on --bg */
-  --text-faint:#8b8b96;  /*  5.87:1 on --bg — NEVER #6b6b76, which is 3.76 and fails */
+  /* --- HAIRLINES: a supporting act now, not the whole separation strategy - */
+  --border:#3d4560;      /* 1.48:1 on --bg-card, 2.06:1 on --bg */
+  --border-soft:#2c3347;
+  --border-lit:rgba(245,158,11,.38);
+
+  /* --- THE ONE LIT EDGE --------------------------------------------------
+     The only box-shadow on this page, and it casts nothing. A 1px inset top
+     highlight is what makes a surface read as LIT rather than merely
+     outlined — lifted straight from index.html, where every elevation token
+     ends in `inset 0 1px 0 rgba(255,255,255,.92)`. One value, six surfaces,
+     still zero drop shadows. Measured: an inset shadow is painted UNDER a
+     top-edge <img>, so it lives on .card-body, which is where it reads on
+     both the image cards and the one without an image. */
+  --lit:inset 0 1px 0 rgba(255,255,255,.075);
+
+  /* --- TYPE COLOUR — every value measured against the WORST ground it sits
+     on, which is now --bg-raise rather than --bg ------------------------- */
+  --text:#eef0f7;        /* 17.13:1 on --bg  ·  10.15:1 on --bg-raise */
+  --text-dim:#b3b9ca;    /*  9.95:1 on --bg  ·   5.90:1 on --bg-raise */
+  --text-faint:#a6acbf;  /*  8.62:1 on --bg  ·   5.11:1 on --bg-raise.
+                            #95959f was the suggested fix and measures 3.90:1
+                            on this raised ground — the ground moved, so the
+                            token had to move further than the suggestion. */
 
   /* --- THE ONE ACCENT ---------------------------------------------------- */
   --accent:#f59e0b;  /* rules, dots, markers. Functional only. */
-  --link:#fbbf24;    /* interactive text — 10.82:1 on --bg-card */
+  --link:#fbbf24;    /* interactive text — 8.42:1 on --bg-card, 6.93:1 on --bg-raise */
 
   /* --- FAMILIES ---------------------------------------------------------- */
   --sans:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
@@ -107,6 +153,7 @@
   --fs-label:12px;   /* mono */
   --fs-data:15px;    /* mono */
   --fs-figure:28px;  /* mono */
+  --fs-hero:clamp(50px,9vw,78px); /* mono — the one focal figure on the page */
 
   /* --- RADIUS: three, and only three ------------------------------------- */
   --r-sm:4px; --r-md:10px; --r-full:999px;
@@ -144,6 +191,7 @@ strong,b{font-weight:var(--w-med)}
 .t-label{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em; line-height:1.4; text-transform:uppercase}
 .t-data{font-family:var(--mono); font-size:var(--fs-data); font-weight:var(--w-reg); letter-spacing:-0.005em; line-height:1.5}
 .t-figure{font-family:var(--mono); font-size:var(--fs-figure); font-weight:var(--w-reg); letter-spacing:-0.02em; line-height:1.1}
+.t-hero{font-family:var(--mono); font-size:var(--fs-hero); font-weight:var(--w-reg); letter-spacing:-0.03em; line-height:1}
 
 a{color:var(--link); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:rgba(251,191,36,.4)}
 a:hover{text-decoration-color:var(--link)}
@@ -154,6 +202,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 img,video{max-width:100%; height:auto; display:block}
 
 /* --- LAYOUT PRIMITIVES --------------------------------------------------- */
+.vh{position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 .rail{max-width:var(--rail); margin-inline:auto; padding-inline:20px}
 .measure{max-width:var(--measure); margin-inline:auto; padding-inline:20px}
 section{padding-block:var(--section)}
@@ -178,20 +227,40 @@ section{padding-block:var(--section)}
 .linkrow a{display:inline-flex; align-items:center; min-height:44px; padding:0 12px; border-radius:var(--r-sm)}
 .linkrow a:hover{background:var(--bg-card)}
 
-/* --- NAV: solid ground + one hairline. No shadow, no translucency. ------- */
+/* --- NAV ------------------------------------------------------------------
+   The scrolling nav hid 170px of itself at 375px: clientWidth 375 against
+   scrollWidth 545, with "Work" and "v1 site" entirely off-screen and no fade,
+   chevron or scrollbar to say so. Below 640px it now collapses to a real menu
+   button. The no-JS path keeps the horizontal scroller, so the links are never
+   gated on a script that might not run. Inter-link gap 6px -> 12px. --------- */
 header.nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--border-soft)}
-/* The nav scrolls sideways rather than wrapping. Wrapped, it became a 100px
-   sticky header on a 375px phone — 12% of the viewport, permanently. Scrolling
-   keeps it at 56px, keeps every link a 44px target, and the container clips
-   itself so the page never scrolls sideways. */
-.nav-in{max-width:var(--rail); margin-inline:auto; padding-inline:20px; display:flex; align-items:center; gap:6px;
-  flex-wrap:nowrap; min-height:56px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
-.nav-in::-webkit-scrollbar{display:none}
-header.nav a{white-space:nowrap; flex:none}
-.nav-mark{color:var(--text); text-decoration:none; margin-right:auto; display:flex; align-items:center; min-height:44px; padding-right:12px}
-.nav-mark:hover{text-decoration:none}
-header.nav a{color:var(--text-dim); text-decoration:none; display:flex; align-items:center; min-height:44px; padding:0 10px; border-radius:var(--r-sm)}
+.nav-in{max-width:var(--rail); margin-inline:auto; padding-inline:20px; display:flex; align-items:center; gap:12px; min-height:56px}
+header.nav a{white-space:nowrap; flex:none; color:var(--text-dim); text-decoration:none;
+  display:flex; align-items:center; min-height:44px; padding:0 10px; border-radius:var(--r-sm)}
 header.nav a:hover{color:var(--text); background:var(--bg-card)}
+.nav-mark{color:var(--text); margin-right:auto; padding:0 10px 0 0}
+.nav-mark:hover{color:var(--text); background:transparent; text-decoration:none}
+.nav-links{display:flex; align-items:center; gap:12px; flex-wrap:nowrap;
+  overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+/* Scroll-spy. aria-current was 0 across the whole document; exactly one link
+   now carries it at all times, set before the first scroll event. */
+header.nav a[aria-current="true"]{color:var(--accent); background:var(--bg-card); box-shadow:var(--lit)}
+/* The mark carries aria-current at the top of the page, which is correct — but
+   a wordmark styled as a selected tab reads as a nav pill, not as an identity.
+   It keeps the semantics and gives back the pill. */
+header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transparent; box-shadow:none}
+.nav-toggle{display:none; white-space:nowrap; align-items:center; min-height:44px; margin-left:auto;
+  padding:0 14px; background:var(--bg-card); color:var(--text); border:1px solid var(--border);
+  border-radius:var(--r-sm); cursor:pointer; box-shadow:var(--lit)}
+.nav-toggle:hover{border-color:var(--border-lit)}
+@media(max-width:639.98px){
+  html.js .nav-toggle{display:inline-flex}
+  html.js .nav-links{display:none; position:absolute; top:100%; left:0; right:0; overflow:visible;
+    flex-direction:column; align-items:stretch; gap:2px; padding:8px 20px 16px;
+    background:var(--bg-card); border-bottom:1px solid var(--border); box-shadow:var(--lit)}
+  html.js .nav-links[data-open]{display:flex}
+}
 
 /* --- HERO ---------------------------------------------------------------- */
 .hero{padding-top:clamp(48px,7vw,84px); padding-bottom:var(--section)}
@@ -201,9 +270,29 @@ header.nav a:hover{color:var(--text); background:var(--bg-card)}
 .hero-meta a{color:var(--text-dim); text-decoration:none; border:1px solid var(--border); border-radius:var(--r-full);
   padding:0 16px; min-height:44px; display:inline-flex; align-items:center}
 .hero-meta a:hover{color:var(--text); background:var(--bg-raise); border-color:var(--border-lit)}
+/* Four identical CTAs meant the page had no primary action at all — the only
+   solid amber fill on 19,000px of document was the currency toggle, which is
+   the least consequential control here. One real CTA takes the fill; the
+   toggle gives it back. */
+.hero-meta .btn-primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
+.hero-meta .btn-primary:hover{background:var(--link); border-color:var(--link); color:var(--bg)}
+
+/* --- THE FOCAL OBJECT -----------------------------------------------------
+   One focal point per screen, and this is it: the single most persuasive fact
+   on the page, which v2 had dropped below the fold. Every word of the copy is
+   verbatim from the approved claims contract — C3 headline.value,
+   headline.unit and wording.portfolio_employer. None of it is written here. */
+.hero-stat{margin:28px 0 0; padding:22px; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--r-md); box-shadow:var(--lit); display:grid; grid-template-columns:1fr; gap:16px}
+@media(min-width:600px){.hero-stat{grid-template-columns:auto 1fr; gap:30px; padding:26px 30px; align-items:center}}
+.hero-stat-fig{border-left:2px solid var(--accent); padding-left:20px}
+.hero-stat .t-hero{color:var(--accent)}
+.hero-stat .t-label{display:block; margin-top:9px; color:var(--text-faint)}
+.hero-stat .t-lead{color:var(--text); max-width:48ch}
 
 /* --- CALCULATOR ---------------------------------------------------------- */
-.calc{margin-top:44px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-md); overflow:hidden}
+.calc{margin-top:44px; background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-md);
+  overflow:hidden; box-shadow:var(--lit)}
 .calc-head{padding:24px 24px 0; display:flex; flex-wrap:wrap; gap:12px; align-items:baseline; justify-content:space-between}
 .calc-grid{display:grid; grid-template-columns:1fr; gap:0}
 @media(min-width:720px){.calc-grid{grid-template-columns:1fr 1fr}}
@@ -228,7 +317,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
 .cur button{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em; line-height:1.4;
   text-transform:uppercase; min-height:44px; padding:0 14px; background:transparent; color:var(--text-faint);
   border:1px solid var(--border); border-radius:var(--r-sm); cursor:pointer}
-.cur button[aria-pressed=true]{color:var(--bg); background:var(--accent); border-color:var(--accent)}
+.cur button[aria-pressed=true]{color:var(--link); background:var(--bg-raise); border-color:var(--border-lit)}
 .out-big{color:var(--accent); margin:10px 0 6px}
 .out-annual{color:var(--text); margin-top:18px}
 .chain{margin-top:18px; padding-top:18px; border-top:1px solid var(--border-soft); color:var(--text-faint);
@@ -243,7 +332,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
   overflow:hidden; display:flex; flex-direction:column}
 .card:hover{background:var(--bg-raise); border-color:var(--border-lit)}
 .card .shot{border-bottom:1px solid var(--border-soft); background:var(--bg); aspect-ratio:8/5; object-fit:cover; object-position:top center; width:100%}
-.card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1}
+.card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; box-shadow:var(--lit)}
 .card-body .t-cap{color:var(--text-dim)}
 .card-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
 .tag{color:var(--text-faint); border:1px solid var(--border); border-radius:var(--r-full); padding:5px 10px}
@@ -258,10 +347,12 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
 .note{border-left:2px solid var(--accent); padding:4px 0 4px 22px; margin-top:44px}
 
 /* --- CREATIVE WALL (full-bleed) ------------------------------------------ */
+/* Six stills, not thirty. The concept wall was taking 27% of page height and
+   90% of every image on a page whose measured client results got 11.3% — and
+   the wall's own caption calls it "not campaigns that ran". */
 .wall{display:grid; gap:6px; grid-template-columns:repeat(2,1fr); padding-inline:6px}
 @media(min-width:560px){.wall{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:900px){.wall{grid-template-columns:repeat(5,1fr)}}
-@media(min-width:1280px){.wall{grid-template-columns:repeat(6,1fr)}}
+@media(min-width:900px){.wall{grid-template-columns:repeat(6,1fr)}}
 .wall img{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:var(--r-sm); background:var(--bg-card)}
 .matrix{display:grid; gap:10px; grid-template-columns:repeat(2,1fr)}
 @media(min-width:640px){.matrix{grid-template-columns:repeat(4,1fr)}}
@@ -290,7 +381,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
 
 /* --- FOOTER -------------------------------------------------------------- */
 footer{border-top:1px solid var(--border-soft); padding-block:56px; background:var(--bg-soft)}
-.disclaim{border:1px solid var(--border); border-radius:var(--r-md); padding:24px; background:var(--bg-card)}
+.disclaim{border:1px solid var(--border); border-radius:var(--r-md); padding:24px; background:var(--bg-card); box-shadow:var(--lit)}
 .disclaim li{margin-top:10px; color:var(--text-dim)}
 .disclaim ul{padding-left:20px}
 
@@ -312,12 +403,15 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
 
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-mark t-label" href="#main">Alex&nbsp;Amaro</a>
-    <a class="t-label" href="#running">Running now</a>
-    <a class="t-label" href="#creative">Creative</a>
-    <a class="t-label" href="#numbers">Numbers</a>
-    <a class="t-label" href="#work">Work</a>
-    <a class="t-label" href="../index.html">v1 site</a>
+    <a class="nav-mark t-label" href="#top">Alex&nbsp;Amaro</a>
+    <button id="navToggle" class="nav-toggle t-label" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav id="navLinks" class="nav-links" aria-label="Sections">
+      <a class="t-label" href="#running">Running now</a>
+      <a class="t-label" href="#creative">Creative</a>
+      <a class="t-label" href="#numbers">Numbers</a>
+      <a class="t-label" href="#work">Work</a>
+      <a class="t-label" href="../index.html">v1 site</a>
+    </nav>
   </div>
 </header>
 
@@ -328,14 +422,25 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
      Not a stack of furniture. The calculator is here because a page arguing
      "I build systems" should hand you one in the first screen.
      ========================================================================== -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="measure">
     <p class="eyebrow t-label">Paid media · AI systems · Remote, U.S.</p>
     <h1 class="t-display">Most marketers can show you campaigns.</h1>
+
+    <figure class="hero-stat">
+      <div class="hero-stat-fig">
+        <p class="t-hero">9.5&times;</p>
+        <p class="t-label">lead volume</p>
+      </div>
+      <figcaption>
+        <p class="t-lead">Took over a chiropractic account from an incumbent national agency and delivered 9.5&times; the leads at ~75% lower cost per lead &mdash; same account (114 @ $12.59 vs 12 @ $49.81).</p>
+      </figcaption>
+    </figure>
+
     <p class="t-lead">This one shows you systems that are <strong>running right now</strong> — an AI operator console, an opportunity agent that reads an inbox on a 30-minute cron, shipped apps with public URLs. They are all linked below, and you can click every one of them. Start with this, though. It runs on your numbers, not mine.</p>
 
     <div class="hero-meta">
-      <a class="t-label" href="#running">See what&rsquo;s running</a>
+      <a class="t-label btn-primary" href="#running">See what&rsquo;s running</a>
       <a class="t-label" href="../Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
       <a class="t-label" href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
       <a class="t-label" href="https://github.com/AlexFC0810">GitHub</a>
@@ -361,38 +466,40 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
         <div class="calc-controls">
           <div class="field">
             <label for="job">Average job or appointment value <span class="val t-data" id="jobV">$500</span></label>
-            <input id="job" type="range" min="100" max="6000" step="50" value="500">
+            <input id="job" type="range" min="100" max="6000" step="50" value="500" aria-valuetext="$500">
             <span class="hint t-cap">Your typical ticket — not your best one.</span>
           </div>
           <div class="field">
             <label for="calls">Inbound calls per week <span class="val t-data" id="callsV">30</span></label>
-            <input id="calls" type="range" min="5" max="150" step="1" value="30">
+            <input id="calls" type="range" min="5" max="150" step="1" value="30" aria-valuetext="30 calls per week">
             <span class="hint t-cap">Roughly how many people ring you in a normal week.</span>
           </div>
           <div class="field">
             <label for="miss">Share that go unanswered <span class="val t-data" id="missV">25%</span></label>
-            <input id="miss" type="range" min="5" max="70" step="1" value="25">
+            <input id="miss" type="range" min="5" max="70" step="1" value="25" aria-valuetext="25 percent">
             <span class="hint t-cap">A model default. There is no verified industry figure behind it — use your own number.</span>
           </div>
           <div class="field">
             <label for="book">Of those, share that was ready to book <span class="val t-data" id="bookV">30%</span></label>
-            <input id="book" type="range" min="10" max="70" step="1" value="30">
+            <input id="book" type="range" min="10" max="70" step="1" value="30" aria-valuetext="30 percent">
             <span class="hint t-cap">Deliberately conservative — &ldquo;even if only one in three would have booked.&rdquo;</span>
           </div>
         </div>
 
         <div class="calc-out">
           <p class="t-label" style="color:var(--text-faint)">Estimated monthly exposure</p>
-          <p class="t-figure out-big" id="monthly">$4,141</p>
-          <p class="t-cap">per month walking to whoever answered first</p>
-          <p class="t-data out-annual" id="annual">$49.7k</p>
-          <p class="t-cap">a year, on these numbers</p>
+          <div id="calcOut" aria-live="polite" aria-atomic="true">
+            <p class="t-figure out-big" id="monthly">$4,141</p>
+            <p class="t-cap">per month walking to whoever answered first</p>
+            <p class="t-data out-annual" id="annual">$49.7k</p>
+            <p class="t-cap">a year, on these numbers</p>
+          </div>
           <p class="chain"><b id="c1">30</b> calls/wk &times; <b id="c2">25%</b> = <b id="c3">7.5</b> missed/wk &times; 4.33 wks &times; <b>85%</b> who never ring back &times; <b id="c4">30%</b> who were ready &asymp; <b id="c5">8.3</b> jobs/mo &times; <b id="c6">$500</b></p>
         </div>
       </div>
 
       <div class="honesty">
-        <p class="t-cap"><strong>This is your arithmetic, not my result.</strong> It computes what your own inputs imply — it is not a claim about anything I have delivered. Two of the four inputs are model defaults rather than measured figures, and both say so. The 85% is the same kind of assumption. Nothing is sent anywhere; the maths runs in this browser tab and stops when you close it.</p>
+        <p class="t-cap"><strong>This is your arithmetic, not my result.</strong> It computes what your own inputs imply — it is not a claim about anything I have delivered. Two of the four inputs are model defaults rather than measured figures, and both say so. The 85% is the same kind of assumption. Nothing is sent anywhere; the maths runs in this browser tab and stops when you close it.<noscript> The sliders need JavaScript — with it off, every figure above stays at the worked example it is printed with.</noscript></p>
       </div>
     </div>
   </div>
@@ -412,12 +519,15 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
     <div class="cards">
 
       <article class="card">
-        <img class="shot" src="./assets/shot-revops-1200.webp" width="1200" height="750" loading="lazy" decoding="async"
+        <img class="shot" src="./assets/shot-revops-1200.webp"
+             srcset="./assets/shot-revops-480.webp 480w, ./assets/shot-revops-720.webp 720w, ./assets/shot-revops-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
              alt="Screenshot: a dark sign-in card headed RevOps Cockpit, with email and password fields.">
         <div class="card-body">
           <h3 class="t-h3">Supercharged OS — AI operator console</h3>
           <p class="t-cap">Next.js and Supabase, with three daily crons: scrape, enrich, then generate outreach scripts with Gemini and push them into the CRM and a cold-email sequence. <strong>What you will see is the door</strong> — the shell is public, the data is behind a sign-in, and I would rather you know that before you click than after.</p>
-          <a class="card-link t-data" href="https://revops.superchargedroi.com">revops.superchargedroi.com</a>
+          <a class="card-link t-data" href="https://revops.superchargedroi.com" target="_blank" rel="noopener">revops.superchargedroi.com<span class="vh"> (opens in a new tab)</span></a>
           <div class="card-tags t-label">
             <span class="tag tag-live">Live</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Sign-in wall</span>
           </div>
@@ -425,12 +535,15 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
       </article>
 
       <article class="card">
-        <img class="shot" src="./assets/shot-creative-review-1200.webp" width="1200" height="750" loading="lazy" decoding="async"
+        <img class="shot" src="./assets/shot-creative-review-1200.webp"
+             srcset="./assets/shot-creative-review-480.webp 480w, ./assets/shot-creative-review-720.webp 720w, ./assets/shot-creative-review-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
              alt="Screenshot: a review page listing the most-used AI video prompts with usage counts and a craft-vocabulary frequency list.">
         <div class="card-body">
           <h3 class="t-h3">Ad-creative prompt corpus, reviewed</h3>
           <p class="t-cap">516 prompts across six export files, 350 of them unique — ranked by how often each was actually reached for, with the craft vocabulary tallied and the phrases that fell out of the working prompt by accident flagged for a look. It is a page about <em>how the creative got made</em>, which is the part most reels never show.</p>
-          <a class="card-link t-data" href="https://sc-ad-creative-review.vercel.app">sc-ad-creative-review.vercel.app</a>
+          <a class="card-link t-data" href="https://sc-ad-creative-review.vercel.app" target="_blank" rel="noopener">sc-ad-creative-review.vercel.app<span class="vh"> (opens in a new tab)</span></a>
           <div class="card-tags t-label">
             <span class="tag tag-live">Live</span><span class="tag">Python</span><span class="tag">Generated from a manifest</span>
           </div>
@@ -438,12 +551,15 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
       </article>
 
       <article class="card">
-        <img class="shot" src="./assets/shot-engine-proof-1200.webp" width="1200" height="750" loading="lazy" decoding="async"
+        <img class="shot" src="./assets/shot-engine-proof-1200.webp"
+             srcset="./assets/shot-engine-proof-480.webp 480w, ./assets/shot-engine-proof-720.webp 720w, ./assets/shot-engine-proof-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
              alt="Screenshot: a dark editorial audit page headed Apex Coatings and Styling — Meta Ads plus Backend Conversion Audit, labelled SAMPLE AUDIT.">
         <div class="card-body">
           <h3 class="t-h3">A worked Meta-ads and CRM audit</h3>
           <p class="t-cap">How I diagnose offer, backend, creative and measurement as one revenue system rather than four line items. <strong>It is a sample</strong> — a representative audit of a category, labelled as such on its own first screen. No real client, no borrowed numbers.</p>
-          <a class="card-link t-data" href="https://sc-upwork-engine-proof.vercel.app">sc-upwork-engine-proof.vercel.app</a>
+          <a class="card-link t-data" href="https://sc-upwork-engine-proof.vercel.app" target="_blank" rel="noopener">sc-upwork-engine-proof.vercel.app<span class="vh"> (opens in a new tab)</span></a>
           <div class="card-tags t-label">
             <span class="tag tag-live">Live</span><span class="tag">Sample, not a client</span>
           </div>
@@ -451,12 +567,15 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
       </article>
 
       <article class="card">
-        <img class="shot" src="./assets/shot-upwork-command-1200.webp" width="1200" height="750" loading="lazy" decoding="async"
+        <img class="shot" src="./assets/shot-upwork-command-1200.webp"
+             srcset="./assets/shot-upwork-command-480.webp 480w, ./assets/shot-upwork-command-720.webp 720w, ./assets/shot-upwork-command-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
              alt="Screenshot: a dark dashboard headed Upwork Command showing a daily sends counter, a next-action card and a copyable go-live command.">
         <div class="card-body">
           <h3 class="t-h3">Upwork Command — the operator&rsquo;s own dashboard</h3>
           <p class="t-cap">A daily send floor, one next action, a copyable go-live command and the saved searches behind the radar. Built for one user, which is why it says what to do next instead of showing twelve charts.</p>
-          <a class="card-link t-data" href="https://sc-upwork-command.vercel.app">sc-upwork-command.vercel.app</a>
+          <a class="card-link t-data" href="https://sc-upwork-command.vercel.app" target="_blank" rel="noopener">sc-upwork-command.vercel.app<span class="vh"> (opens in a new tab)</span></a>
           <div class="card-tags t-label">
             <span class="tag tag-live">Live</span><span class="tag">Next.js</span><span class="tag">Single-operator UI</span>
           </div>
@@ -500,7 +619,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   <div class="measure">
     <div class="sec-head">
       <p class="eyebrow t-label">The craft</p>
-      <h2 class="t-h1">One offer, eight hooks.</h2>
+      <h2 class="t-h2">One offer, eight hooks.</h2>
       <p class="t-lead">Media buying is mostly a question of how many honest ways you can say the same thing before the market tells you which one it wanted. This is one chiropractic screening offer written eight ways — same price, same proof, eight different doors in.</p>
     </div>
   </div>
@@ -519,41 +638,17 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   </div>
 
   <div class="measure" style="margin-top:56px">
-    <h3 class="t-h3">Own brand: 30 concept stills from a 172-frame set</h3>
-    <p class="t-cap" style="margin-top:12px; max-width:68ch">Generated for CareLine, a product I own — so there is no client logo here, no patient, no release to chase, and nothing on this wall belongs to anybody but me. It ran as a directed exploration across named territories: London high-rise, before-and-after splits, holographic overlays, humanoid, podcast, product demo. Concept work, not campaigns that ran.</p>
+    <h3 class="t-h3">Own brand: six concept stills from a 172-frame set</h3>
+    <p class="t-cap" style="margin-top:12px; max-width:68ch">Generated for CareLine, a product I own — so there is no client logo here, no patient, no release to chase, and nothing on this wall belongs to anybody but me. It ran as a directed exploration across named territories: London high-rise, before-and-after splits, holographic overlays, humanoid, podcast, product demo &mdash; one still from each below. Concept work, not campaigns that ran, which is why it is six frames here and not thirty.</p>
   </div>
 
   <div class="wall" style="margin-top:28px">
-    <picture><source type="image/webp" srcset="./assets/careline/cl-01-dusk-reception-320.webp 320w, ./assets/careline/cl-01-dusk-reception-480.webp 480w, ./assets/careline/cl-01-dusk-reception-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-01-dusk-reception.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic reception desk at dusk, London skyline through floor-to-ceiling glass"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-02-dusk-revenue-320.webp 320w, ./assets/careline/cl-02-dusk-revenue-480.webp 480w, ./assets/careline/cl-02-dusk-revenue-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-02-dusk-revenue.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a holographic revenue spiral above a marble reception counter at dusk"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-03-revenue-counter-320.webp 320w, ./assets/careline/cl-03-revenue-counter-480.webp 480w, ./assets/careline/cl-03-revenue-counter-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-03-revenue-counter.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a glowing glass vessel labelled clinic revenue on a reception counter"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-04-revenue-lounge-320.webp 320w, ./assets/careline/cl-04-revenue-lounge-480.webp 480w, ./assets/careline/cl-04-revenue-lounge-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-04-revenue-lounge.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic lounge with a holographic revenue column and appointment cards"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-05-revenue-corridor-320.webp 320w, ./assets/careline/cl-05-revenue-corridor-480.webp 480w, ./assets/careline/cl-05-revenue-corridor-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-05-revenue-corridor.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a holographic revenue spiral down a polished clinic corridor"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-06-ba-phone-console-320.webp 320w, ./assets/careline/cl-06-ba-phone-console-480.webp 480w, ./assets/careline/cl-06-ba-phone-console-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-06-ba-phone-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a before-and-after split pairing a ringing desk phone with a booking confirmation"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-07-ba-two-panel-320.webp 320w, ./assets/careline/cl-07-ba-two-panel-480.webp 480w, ./assets/careline/cl-07-ba-two-panel-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-07-ba-two-panel.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a two-panel before-and-after, missed-call notifications against a confirmed appointment"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-08-ba-chaos-calm-320.webp 320w, ./assets/careline/cl-08-ba-chaos-calm-480.webp 480w, ./assets/careline/cl-08-ba-chaos-calm-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-08-ba-chaos-calm.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a labelled before-and-after split, a chaotic front desk against a calm one"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-09-ba-inbox-chart-320.webp 320w, ./assets/careline/cl-09-ba-inbox-chart-480.webp 480w, ./assets/careline/cl-09-ba-inbox-chart-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-09-ba-inbox-chart.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: an overflowing inbox on one side, a rising booking chart on the other"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-10-london-aerial-a-320.webp 320w, ./assets/careline/cl-10-london-aerial-a-480.webp 480w, ./assets/careline/cl-10-london-aerial-a-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-10-london-aerial-a.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: an aerial view of London at dawn"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-11-london-aerial-b-320.webp 320w, ./assets/careline/cl-11-london-aerial-b-480.webp 480w, ./assets/careline/cl-11-london-aerial-b-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-11-london-aerial-b.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: an aerial view of the Thames and the City of London"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-12-highrise-holo-320.webp 320w, ./assets/careline/cl-12-highrise-holo-480.webp 480w, ./assets/careline/cl-12-highrise-holo-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-12-highrise-holo.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a high-rise interior overlaid with holographic booking panels"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-13-phone-bus-timer-320.webp 320w, ./assets/careline/cl-13-phone-bus-timer-480.webp 480w, ./assets/careline/cl-13-phone-bus-timer-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-13-phone-bus-timer.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a phone held on a London street, a call timer running on screen"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-14-storefront-glass-320.webp 320w, ./assets/careline/cl-14-storefront-glass-480.webp 480w, ./assets/careline/cl-14-storefront-glass-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-14-storefront-glass.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a glass clinic storefront on a wet London street"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-15-rooftop-crew-320.webp 320w, ./assets/careline/cl-15-rooftop-crew-480.webp 480w, ./assets/careline/cl-15-rooftop-crew-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-15-rooftop-crew.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a presenter and a camera operator on a London rooftop"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-16-holo-never-miss-320.webp 320w, ./assets/careline/cl-16-holo-never-miss-480.webp 480w, ./assets/careline/cl-16-holo-never-miss-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-16-holo-never-miss.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a clinic corridor under the line never miss a call, never lose a lead"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-17-holo-lobby-320.webp 320w, ./assets/careline/cl-17-holo-lobby-480.webp 480w, ./assets/careline/cl-17-holo-lobby-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-17-holo-lobby.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a bright clinic lobby with a holographic brand wordmark"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-18-humanoid-leaks-320.webp 320w, ./assets/careline/cl-18-humanoid-leaks-480.webp 480w, ./assets/careline/cl-18-humanoid-leaks-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-18-humanoid-leaks.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a humanoid figure at a desk under the line you do not need more leads, you need fewer leaks"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-19-humanoid-featureset-320.webp 320w, ./assets/careline/cl-19-humanoid-featureset-480.webp 480w, ./assets/careline/cl-19-humanoid-featureset-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-19-humanoid-featureset.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a humanoid figure beside a feature list for an AI front desk"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-20-podcast-two-320.webp 320w, ./assets/careline/cl-20-podcast-two-480.webp 480w, ./assets/careline/cl-20-podcast-two-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-20-podcast-two.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: two people recording a podcast at a wooden table"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-21-podcast-neon-320.webp 320w, ./assets/careline/cl-21-podcast-neon-480.webp 480w, ./assets/careline/cl-21-podcast-neon-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-21-podcast-neon.jpg" width="480" height="480" loading="lazy" decoding="async" alt="Concept still: a presenter at a microphone beside a neon monogram, London through the window"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-22-podcast-tablet-320.webp 320w, ./assets/careline/cl-22-podcast-tablet-480.webp 480w, ./assets/careline/cl-22-podcast-tablet-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-22-podcast-tablet.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a presenter at a microphone holding a tablet showing a booking screen"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-23-busy-desk-320.webp 320w, ./assets/careline/cl-23-busy-desk-480.webp 480w, ./assets/careline/cl-23-busy-desk-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-23-busy-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a receptionist on a headset at a busy front desk"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-24-overwhelm-desk-320.webp 320w, ./assets/careline/cl-24-overwhelm-desk-480.webp 480w, ./assets/careline/cl-24-overwhelm-desk-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-24-overwhelm-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a front desk mid-rush, phone and paperwork competing for attention"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-25-calm-desk-320.webp 320w, ./assets/careline/cl-25-calm-desk-480.webp 480w, ./assets/careline/cl-25-calm-desk-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-25-calm-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: the same front desk, quiet, one screen open"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-26-laptop-console-320.webp 320w, ./assets/careline/cl-26-laptop-console-480.webp 480w, ./assets/careline/cl-26-laptop-console-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-26-laptop-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a laptop on a marble counter showing a booking console"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-27-standing-card-320.webp 320w, ./assets/careline/cl-27-standing-card-480.webp 480w, ./assets/careline/cl-27-standing-card-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-27-standing-card.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a clinician standing beside an appointment-request card"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-28-phone-screen-320.webp 320w, ./assets/careline/cl-28-phone-screen-480.webp 480w, ./assets/careline/cl-28-phone-screen-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-28-phone-screen.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a phone screen showing an incoming AI-handled call"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-29-phone-handoff-320.webp 320w, ./assets/careline/cl-29-phone-handoff-480.webp 480w, ./assets/careline/cl-29-phone-handoff-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-29-phone-handoff.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a tablet held up showing a queue of handled enquiries"></picture>
-    <picture><source type="image/webp" srcset="./assets/careline/cl-30-foam-pit-320.webp 320w, ./assets/careline/cl-30-foam-pit-480.webp 480w, ./assets/careline/cl-30-foam-pit-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, (max-width:1280px) 19vw, 16vw"><img src="./assets/careline/cl-30-foam-pit.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a shoot in progress, a figure leaping into a foam pit with Big Ben behind"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-01-dusk-reception-320.webp 320w, ./assets/careline/cl-01-dusk-reception-480.webp 480w, ./assets/careline/cl-01-dusk-reception-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-01-dusk-reception.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic reception desk at dusk, London skyline through floor-to-ceiling glass"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-08-ba-chaos-calm-320.webp 320w, ./assets/careline/cl-08-ba-chaos-calm-480.webp 480w, ./assets/careline/cl-08-ba-chaos-calm-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-08-ba-chaos-calm.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a labelled before-and-after split, a chaotic front desk against a calm one"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-16-holo-never-miss-320.webp 320w, ./assets/careline/cl-16-holo-never-miss-480.webp 480w, ./assets/careline/cl-16-holo-never-miss-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-16-holo-never-miss.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a clinic corridor under the line never miss a call, never lose a lead"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-18-humanoid-leaks-320.webp 320w, ./assets/careline/cl-18-humanoid-leaks-480.webp 480w, ./assets/careline/cl-18-humanoid-leaks-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-18-humanoid-leaks.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Ad layout: a humanoid figure at a desk under the line you do not need more leads, you need fewer leaks"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-21-podcast-neon-320.webp 320w, ./assets/careline/cl-21-podcast-neon-480.webp 480w, ./assets/careline/cl-21-podcast-neon-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-21-podcast-neon.jpg" width="480" height="480" loading="lazy" decoding="async" alt="Concept still: a presenter at a microphone beside a neon monogram, London through the window"></picture>
+    <picture><source type="image/webp" srcset="./assets/careline/cl-26-laptop-console-320.webp 320w, ./assets/careline/cl-26-laptop-console-480.webp 480w, ./assets/careline/cl-26-laptop-console-720.webp 720w" sizes="(max-width:560px) 47vw, (max-width:900px) 31vw, 16vw"><img src="./assets/careline/cl-26-laptop-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a laptop on a marble counter showing a booking console"></picture>
   </div>
 
   <div class="measure" style="margin-top:56px">
@@ -586,7 +681,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   <div class="measure">
     <div class="sec-head">
       <p class="eyebrow t-label">The numbers</p>
-      <h2 class="t-h2">Fewer, and sourced.</h2>
+      <h2 class="t-h1">Fewer, and sourced.</h2>
       <p class="t-lead">Cost per lead is quoted <strong>per campaign</strong>, never blended across an account set — a blended figure mixes brand spend with lead-gen spend and means nothing. Every line here traces to a specific account.</p>
     </div>
 
@@ -730,7 +825,13 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
 
     var CUR='$';
     function fmt(n){ return CUR + Math.round(n).toLocaleString('en-US'); }
-    function fmtK(n){ return n>=1000 ? CUR + (Math.round(n/100)/10).toLocaleString('en-US') + 'k' : fmt(n); }
+    /* The annual figure used to stop at 'k' and rendered "$19,477.2k" directly
+       beneath a correctly formatted "$1,623,101". It rolls over now. */
+    function fmtBig(n){
+      if(n>=1e6)  return CUR + (Math.round(n/1e4)/100).toLocaleString('en-US') + 'M';
+      if(n>=1000) return CUR + (Math.round(n/100)/10).toLocaleString('en-US') + 'k';
+      return fmt(n);
+    }
     function set(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; }
     function r1(n){ return Math.round(n*10)/10; }
 
@@ -746,7 +847,14 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       set('missV',  (+miss.value)+'%');
       set('bookV',  (+book.value)+'%');
       set('monthly',fmt(monthly));
-      set('annual', fmtK(monthly*12));
+      set('annual', fmtBig(monthly*12));
+
+      /* Without these the figure changed silently for anyone on a screen
+         reader: a range input announces its raw number and nothing else. */
+      job.setAttribute('aria-valuetext', fmt(v));
+      calls.setAttribute('aria-valuetext', c + ' calls per week');
+      miss.setAttribute('aria-valuetext', (+miss.value) + ' percent');
+      book.setAttribute('aria-valuetext', (+book.value) + ' percent');
       set('c1',String(c)); set('c2',(+miss.value)+'%'); set('c3',String(r1(missedWk)));
       set('c4',(+book.value)+'%'); set('c5',String(r1(lostJobsMo))); set('c6',fmt(v));
     }
@@ -764,6 +872,61 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
 
     compute();
   }catch(e){ /* the pre-rendered default result stays on screen; nothing breaks */ }
+
+  /* --- nav: the menu button below 640px, and a scroll-spy that keeps exactly
+         one aria-current on the page. Neither gates any content: with JS off
+         the links stay a horizontal scroller and every section still renders. */
+  try{
+    var toggle=document.getElementById('navToggle'), links=document.getElementById('navLinks');
+    if(toggle&&links){
+      var setOpen=function(open){
+        if(open){ links.setAttribute('data-open',''); } else { links.removeAttribute('data-open'); }
+        toggle.setAttribute('aria-expanded', open?'true':'false');
+      };
+      toggle.addEventListener('click',function(){ setOpen(toggle.getAttribute('aria-expanded')!=='true'); });
+      links.addEventListener('click',function(e){ if(e.target&&e.target.closest&&e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.keyCode===27) setOpen(false); });
+      window.addEventListener('resize',function(){ if(window.innerWidth>=640) setOpen(false); });
+    }
+
+    var order=['top','running','creative','numbers','work'], linkFor={};
+    order.forEach(function(id){
+      var a=document.querySelector('header.nav a[href="#'+id+'"]'); if(a) linkFor[id]=a;
+    });
+    var setCurrent=function(id){
+      order.forEach(function(k){ if(linkFor[k]) linkFor[k].removeAttribute('aria-current'); });
+      if(linkFor[id]) linkFor[id].setAttribute('aria-current','true');
+    };
+    /* An IntersectionObserver was the obvious tool here and it was measurably
+       wrong: when a jump lands with no section inside the observation band the
+       callback finds nothing to promote and silently leaves the previous link
+       marked — at the top of the page it still read "Work". Position is the
+       thing being asked about, so ask position directly. This always resolves
+       to exactly one link, and it resolves once synchronously at init, so the
+       count is never zero even if no frame ever runs. */
+    var sections=order.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var tops=[], lastId=null;
+    /* Offsets are cached on load and on resize, so the scroll handler is pure
+       arithmetic — no layout read, and nothing queued behind a frame. The first
+       draft throttled this with requestAnimationFrame and measurably stuck: one
+       frame ran, the in-flight flag never cleared in a background tab, and the
+       highlight froze on whatever section happened to be under it. */
+    var measure=function(){
+      if(!window.innerWidth) return;   /* a zero viewport makes every number a lie */
+      tops=sections.map(function(s){ return s.getBoundingClientRect().top+window.scrollY; });
+    };
+    var tick=function(){
+      if(!tops.length) return;
+      var line=window.scrollY+57+Math.min(160, window.innerHeight*0.25), cur=sections[0];
+      for(var i=0;i<sections.length;i++){ if(tops[i]<=line) cur=sections[i]; }
+      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) cur=sections[sections.length-1];
+      if(cur&&cur.id!==lastId){ lastId=cur.id; setCurrent(cur.id); }
+    };
+    window.addEventListener('scroll', tick, {passive:true});
+    window.addEventListener('resize', function(){ measure(); tick(); });
+    window.addEventListener('load', function(){ measure(); tick(); });
+    measure(); tick();
+  }catch(e){ /* the nav degrades to plain anchor links */ }
 })();
 </script>
 </body>

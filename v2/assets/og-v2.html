@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG cover source — portfolio v2</title>
+<!--
+  Render source for og-v2.png. Screenshot this file at exactly 1200x630 and save
+  the result next to it. Same tokens as v2/index.html: the navy ground ladder,
+  one amber accent, the weight ceiling of 590, and the self-hosted Inter file —
+  no off-origin request here either. The stat line is the approved C3 one_liner,
+  verbatim.
+-->
+<style>
+@font-face{
+  font-family:'Inter'; font-style:normal; font-weight:400 900; font-display:block;
+  src:url('../../assets/fonts/inter-latin-var.woff2') format('woff2');
+}
+*{margin:0; padding:0; box-sizing:border-box}
+html,body{width:1200px; height:630px}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:#090c17;
+  background-image:radial-gradient(900px 520px at 8% -14%, #242b40 0%, rgba(36,43,64,0) 62%);
+  color:#eef0f7; letter-spacing:-0.011em;
+  padding:66px 74px; display:flex; flex-direction:column; justify-content:space-between;
+  -webkit-font-smoothing:antialiased;
+}
+.eyebrow{display:flex; align-items:center; gap:12px; color:#f59e0b;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:17px; font-weight:520;
+  letter-spacing:.09em; text-transform:uppercase}
+.eyebrow::before{content:''; width:34px; height:3px; background:#f59e0b; border-radius:4px; flex:none}
+h1{font-size:78px; font-weight:590; letter-spacing:-.045em; line-height:1.0; margin-top:26px; max-width:19ch}
+.sub{font-size:26px; font-weight:400; letter-spacing:-.018em; line-height:1.45; color:#b3b9ca; margin-top:22px; max-width:44ch}
+.stat{display:flex; align-items:center; gap:26px; padding:22px 28px;
+  background:#242b40; border:1px solid #3d4560; border-radius:10px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.075)}
+.stat .fig{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:64px; font-weight:400;
+  letter-spacing:-.03em; line-height:1; color:#f59e0b; border-left:3px solid #f59e0b; padding-left:22px; flex:none}
+.stat .txt{font-size:23px; line-height:1.4; letter-spacing:-.015em; color:#eef0f7}
+.foot{display:flex; justify-content:space-between; align-items:center; margin-top:26px;
+  font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:17px;
+  letter-spacing:.02em; color:#a6acbf}
+</style>
+</head>
+<body>
+  <div>
+    <div class="eyebrow">Paid media &middot; AI systems &middot; Remote, U.S.</div>
+    <h1>Most marketers can show you campaigns.</h1>
+    <div class="sub">This one shows you systems that are running right now &mdash; and here are the URLs.</div>
+  </div>
+  <div>
+    <div class="stat">
+      <div class="fig">9.5&times;</div>
+      <div class="txt">9.5x an agency&rsquo;s leads at ~75% lower CPL, same account</div>
+    </div>
+    <div class="foot">
+      <span>Alex Amaro</span>
+      <span>alexfc0810.github.io/alex-amaro-portfolio/v2/</span>
+    </div>
+  </div>
+</body>
+</html>
