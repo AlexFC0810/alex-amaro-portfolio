@@ -100,15 +100,36 @@
      its PRESENCE. A developer tool is built to disappear behind the work. A
      portfolio cannot disappear: it IS the work. */
   --bg:#090c17;        /* page substrate */
-  --bg-soft:#181d2d;   /* alternating section band  ·  1.163 above --bg */
-  --bg-card:#242b40;   /* card / panel fill         ·  1.193 above --bg-soft */
-  --bg-raise:#303853;  /* hover, input fill, lifted ·  1.215 above --bg-card */
+  --bg-soft:#1f2435;   /* alternating section band  ·  1.265 above --bg */
+  --bg-card:#2d344e;   /* card / panel fill         ·  1.258 above --bg-soft */
+  --bg-raise:#3a4364;  /* hover, input fill, lifted ·  1.265 above --bg-card */
+  /* Second raise, 2026-08-22. The first raise cleared the 1.15 floor and stopped
+     there. Measured against a shipped premium system — ORYZO AI, cached in
+     doctrine-hub/swipes/design-systems — whose own ground pairs run 1.347 /
+     1.260 / 1.881, this ladder was still the shallowest thing in the room.
+     1.15 turned out to be the floor, not the target. */
 
   /* --- HAIRLINES: a supporting act now, not the whole separation strategy - */
-  --border:#3d4560;      /* 1.48:1 on --bg-card, 2.06:1 on --bg */
-  --border-soft:#2c3347;
+  --border:#4a5474;      /* 1.64:1 on --bg-card, 2.61:1 on --bg, 1.30:1 on --bg-raise.
+                            Raised with the grounds: #3d4560 measured 1.02:1 against the
+                            new --bg-raise, i.e. the hairline vanished exactly where a
+                            hover state needs it most. */
+  --border-soft:#353d55;
   --border-lit:rgba(245,158,11,.38);
 
+  /* --- THE ACCENT, RATIONED ----------------------------------------------
+     Amber earns exactly four jobs on this page:
+       1. the one primary action            .hero-meta .btn-primary
+       2. the single hero metric            .hero-stat  (the 9.5x and its rule)
+       3. the calculator's ANSWER           .out-big  +  the range thumb
+       4. live status                       .tag-live::before, the dot only
+     It was spending itself 23 times — eyebrows, nav state, calculator INPUTS,
+     every figure in the numbers strip, a pull-quote rule, three "Live" labels.
+     Both cached benchmarks converge hard here and neither is subtle about it:
+     ORYZO reserves its one orange for links and credit lines and NEVER a
+     button, noting in its own docs that this "earns its rarity"; Mercury
+     spends its cobalt on a single "Open account" and nothing else.
+     An accent used everywhere is not an accent, it is a second body colour. */
   /* --- THE ONE LIT EDGE --------------------------------------------------
      The only box-shadow on this page, and it casts nothing. A 1px inset top
      highlight is what makes a surface read as LIT rather than merely
@@ -121,12 +142,17 @@
 
   /* --- TYPE COLOUR — every value measured against the WORST ground it sits
      on, which is now --bg-raise rather than --bg ------------------------- */
-  --text:#eef0f7;        /* 17.13:1 on --bg  ·  10.15:1 on --bg-raise */
-  --text-dim:#b3b9ca;    /*  9.95:1 on --bg  ·   5.90:1 on --bg-raise */
-  --text-faint:#a6acbf;  /*  8.62:1 on --bg  ·   5.11:1 on --bg-raise.
-                            #95959f was the suggested fix and measures 3.90:1
-                            on this raised ground — the ground moved, so the
-                            token had to move further than the suggestion. */
+  --text:#eef0f7;        /* 17.13:1 on --bg  ·   8.51:1 on --bg-raise */
+  --text-dim:#c3c9d8;    /* 11.77:1 on --bg  ·   5.85:1 on --bg-raise */
+  --text-faint:#adb3c4;  /*  9.31:1 on --bg  ·   4.63:1 on --bg-raise.
+                            Deepening the ground COMPRESSES the text ramp — every tier
+                            had to move up to keep 4.5:1 on the worst surface it lands
+                            on, which is .calc-out. Worth naming: ORYZO does not solve
+                            this, it avoids it, running essentially ONE text colour and
+                            reserving its mid-tone for dividers rather than type. Three
+                            grey tiers on a deep ground is the harder road, and the
+                            spread here (8.51 / 5.85 / 4.63) is about as far as it
+                            stretches before the tiers stop reading as distinct. */
 
   /* --- THE ONE ACCENT ---------------------------------------------------- */
   --accent:#f59e0b;  /* rules, dots, markers. Functional only. */
@@ -208,8 +234,8 @@ img,video{max-width:100%; height:auto; display:block}
 section{padding-block:var(--section)}
 .band{background:var(--bg-soft); border-block:1px solid var(--border-soft)}
 
-.eyebrow{display:flex; align-items:center; gap:10px; color:var(--accent); margin-bottom:18px}
-.eyebrow::before{content:''; width:22px; height:2px; background:var(--accent); border-radius:var(--r-sm); flex:none}
+.eyebrow{display:flex; align-items:center; gap:10px; color:var(--text-faint); margin-bottom:18px}
+.eyebrow::before{content:''; width:22px; height:2px; background:var(--border); border-radius:var(--r-sm); flex:none}
 
 .sec-head{margin-bottom:40px}
 .sec-head .t-lead{margin-top:16px; max-width:64ch}
@@ -245,7 +271,7 @@ header.nav a:hover{color:var(--text); background:var(--bg-card)}
 .nav-links::-webkit-scrollbar{display:none}
 /* Scroll-spy. aria-current was 0 across the whole document; exactly one link
    now carries it at all times, set before the first scroll event. */
-header.nav a[aria-current="true"]{color:var(--accent); background:var(--bg-card); box-shadow:var(--lit)}
+header.nav a[aria-current="true"]{color:var(--text); background:var(--bg-card); box-shadow:var(--lit)}
 /* The mark carries aria-current at the top of the page, which is correct — but
    a wordmark styled as a selected tab reads as a nav pill, not as an identity.
    It keeps the semantics and gives back the pill. */
@@ -302,7 +328,7 @@ header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transpa
 .field{margin-bottom:22px}
 .field:last-child{margin-bottom:0}
 .field label{display:flex; justify-content:space-between; align-items:baseline; gap:12px; color:var(--text-dim); margin-bottom:10px}
-.field .val{color:var(--accent)}
+.field .val{color:var(--text)}
 .field .hint{display:block; margin-top:8px}
 input[type=range]{
   -webkit-appearance:none; appearance:none; width:100%; min-height:44px; background:transparent;
@@ -336,7 +362,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
 .card-body .t-cap{color:var(--text-dim)}
 .card-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
 .tag{color:var(--text-faint); border:1px solid var(--border); border-radius:var(--r-full); padding:5px 10px}
-.tag-live{color:var(--accent); border-color:var(--border-lit); display:inline-flex; align-items:center; gap:7px}
+.tag-live{color:var(--text-dim); border-color:var(--border); display:inline-flex; align-items:center; gap:7px}
 .tag-live::before{content:''; width:6px; height:6px; border-radius:var(--r-full); background:var(--accent); flex:none}
 .card-link{display:inline-flex; align-items:center; min-height:44px; word-break:break-all}
 .arch{margin:0; padding:16px; background:var(--bg); border:1px solid var(--border-soft); border-radius:var(--r-sm);
@@ -344,7 +370,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
   color:var(--text-dim); overflow-x:auto; white-space:pre}
 
 /* --- VOICE NOTE ---------------------------------------------------------- */
-.note{border-left:2px solid var(--accent); padding:4px 0 4px 22px; margin-top:44px}
+.note{border-left:2px solid var(--border); padding:4px 0 4px 22px; margin-top:44px}
 
 /* --- CREATIVE WALL (full-bleed) ------------------------------------------ */
 /* Six stills, not thirty. The concept wall was taking 27% of page height and
@@ -369,7 +395,7 @@ input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--ac
 .nums{border-top:1px solid var(--border-soft)}
 .num{display:grid; grid-template-columns:1fr; gap:6px; padding:26px 0; border-bottom:1px solid var(--border-soft)}
 @media(min-width:640px){.num{grid-template-columns:170px 1fr; gap:28px; align-items:baseline}}
-.num .t-figure{color:var(--accent)}
+.num .t-figure{color:var(--text)}
 
 /* --- WORK ---------------------------------------------------------------- */
 .work{display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--border-soft)}
@@ -777,7 +803,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
 <footer>
   <div class="measure">
     <div class="disclaim">
-      <p class="t-label" style="color:var(--accent)">What this page does not claim</p>
+      <p class="t-label" style="color:var(--text-dim)">What this page does not claim</p>
       <ul>
         <li class="t-cap">Not client revenue, and not ROAS. I do not have post-booking visibility, and closing is the client&rsquo;s side of the line. What I claim is leads, booked appointments and the follow-up systems between them.</li>
         <li class="t-cap">Not a blended cost per lead. Total spend divided by total leads is not a CPL and I will not quote one.</li>
