@@ -3,3 +3,16 @@
 # names, and GitHub Pages serves every tracked file. Anonymised labels are what
 # the rendered site publishes; this is the private source behind them.
 proof/greenlit.json
+
+# Screenshots of INTERNAL surfaces. Added 2026-08-25 after
+# assets/shot-creative-review-*.webp shipped three complete, legible generation
+# prompts to a public URL. The review site itself was correctly password-gated;
+# a screenshot of it was tracked here and served HTTP 200 beside it. No text
+# search could have caught it, because the leak was a picture.
+#
+# GitHub Pages serves every tracked file. Before adding any screenshot of an
+# admin panel, dashboard, CRM, ad manager or internal tool, OPEN IT AT FULL SIZE
+# AND READ IT. A grep cannot do this for you.
+assets/shot-*-review-*.webp
+assets/shot-*-internal-*.webp
+assets/**/_quarantine*/

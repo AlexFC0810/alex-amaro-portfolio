@@ -434,9 +434,10 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
     <nav id="navLinks" class="nav-links" aria-label="Sections">
       <a class="t-label" href="#running">Running now</a>
       <a class="t-label" href="#creative">Creative</a>
+    <a class="t-label" href="./creative.html">The wall</a>
       <a class="t-label" href="#numbers">Numbers</a>
       <a class="t-label" href="#work">Work</a>
-      <a class="t-label" href="../index.html">v1 site</a>
+      <a class="t-label" href="./v1.html">v1 site</a>
     </nav>
   </div>
 </header>
@@ -467,7 +468,7 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
 
     <div class="hero-meta">
       <a class="t-label btn-primary" href="#running">See what&rsquo;s running</a>
-      <a class="t-label" href="../Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
+      <a class="t-label" href="./Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
       <a class="t-label" href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
       <a class="t-label" href="https://github.com/AlexFC0810">GitHub</a>
     </div>
@@ -560,18 +561,21 @@ html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
         </div>
       </article>
 
+      <!-- This card used to carry a screenshot of the internal creative-review page, and
+           three complete generation prompts were legible in it at every srcset width —
+           including house direction vocabulary and a verbatim hook line. (Naming that
+           vocabulary here would republish it: HTML comments are served too.) The
+           review site itself is correctly password-gated (401). The screenshot of it was
+           not, and no text search would ever have found it, because the leak was a
+           picture. Assets deleted 2026-08-25.
+           Do not reintroduce a screenshot of any internal surface without opening it at
+           full size and reading it first. -->
       <article class="card">
-        <img class="shot" src="./assets/shot-creative-review-1200.webp"
-             srcset="./assets/shot-creative-review-480.webp 480w, ./assets/shot-creative-review-720.webp 720w, ./assets/shot-creative-review-1200.webp 1200w"
-             sizes="(max-width:819px) calc(100vw - 40px), 512px"
-             width="1200" height="750" loading="lazy" decoding="async"
-             alt="Screenshot: a review page listing the most-used AI video prompts with usage counts and a craft-vocabulary frequency list.">
         <div class="card-body">
-          <h3 class="t-h3">Ad-creative prompt corpus, reviewed</h3>
-          <p class="t-cap">516 prompts across six export files, 350 of them unique — ranked by how often each was actually reached for, with the craft vocabulary tallied and the phrases that fell out of the working prompt by accident flagged for a look. It is a page about <em>how the creative got made</em>, which is the part most reels never show.</p>
-          <a class="card-link t-data" href="https://sc-ad-creative-review.vercel.app" target="_blank" rel="noopener">sc-ad-creative-review.vercel.app<span class="vh"> (opens in a new tab)</span></a>
+          <h3 class="t-h3">A generative production system</h3>
+          <p class="t-cap">The creative above came out of a system rather than a session — a house library of reusable direction modes, one written brief and one named control variable per test, and a review gate that most generations do not get through. The system stays in-house. What it produces is what you just scrolled past.</p>
           <div class="card-tags t-label">
-            <span class="tag tag-live">Live</span><span class="tag">Python</span><span class="tag">Generated from a manifest</span>
+            <span class="tag">In-house</span><span class="tag">One variable per test</span><span class="tag">Reviewed before it ships</span>
           </div>
         </div>
       </article>
@@ -695,6 +699,13 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       </figure>
     </div>
   </div>
+
+  <div class="measure" style="margin-top:56px">
+    <p class="t-label" style="color:var(--accent)">The full library</p>
+    <h3 class="t-h3" style="margin-top:12px">54 pieces, organised as three controlled tests</h3>
+    <p class="t-cap" style="margin-top:12px; max-width:68ch">This section is the short version. The whole wall &mdash; every client static, all thirty concept stills, both films, and the constant-versus-variable breakdown behind each test &mdash; lives on its own page, with every tile labelled client work or concept.</p>
+    <p class="t-data" style="margin-top:14px"><a href="./creative.html">The Creative Wall &rarr;</a></p>
+  </div>
 </section>
 
 <!-- ==========================================================================
@@ -770,30 +781,30 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
     </div>
 
     <div class="work">
-      <a href="../work/chiro-head-to-head.html">Head-to-head against an incumbent national agency<span class="t-cap">Chiropractic · same ad account</span></a>
-      <a href="../work/b2b-refrigeration.html">B2B refrigeration at consumer-grade cost per lead<span class="t-cap">Commercial refrigeration · U.K.</span></a>
-      <a href="../work/weight-loss-clinic-launch.html">Filling a calendar from zero at a clinic opening<span class="t-cap">Weight loss · U.S.</span></a>
-      <a href="../work/aesthetic-clinic-bookings.html">The leaky middle, between the lead and the consultation<span class="t-cap">Aesthetic clinic</span></a>
-      <a href="../work/montreal-bilingual.html">Bilingual acquisition held in-language to the calendar<span class="t-cap">Beauty · Canada · FR/EN</span></a>
-      <a href="../work/medspa-full-program.html">A full med spa programme across four service lines<span class="t-cap">Med spa · U.S.</span></a>
-      <a href="../work/tattoo-removal-studio.html">Tattoo removal in the most expensive consumer market<span class="t-cap">Tattoo removal · U.S.</span></a>
-      <a href="../work/body-contouring.html">A sustained monthly offer cycle in a small catchment<span class="t-cap">Body contouring · Canada</span></a>
-      <a href="../work/agency-own-pipeline.html">Running the play on my own business<span class="t-cap">B2B · selling to clinic owners</span></a>
-      <a href="../work/aesthetics-group.html">A group running three marketing jobs at once<span class="t-cap">Multi-location aesthetics</span></a>
-      <a href="../work/spine-clinic.html">A priced offer, bilingual campaigns, AI voice in the booking flow<span class="t-cap">Chiropractic · U.S.</span></a>
-      <a href="../work/wedding-venue-b2b.html">A survey-qualified cross-border funnel<span class="t-cap">Venue B2B · AI voice</span></a>
-      <a href="../work/eye-care-device-launch.html">Launching a device inside an existing medical practice<span class="t-cap">Eye care · U.S.</span></a>
-      <a href="../work/pmu-clinic.html">Where the only metric is what fraction of enquiries book<span class="t-cap">Permanent makeup</span></a>
-      <a href="../work/recruitment-lead-gen.html">Recruitment lead-gen as a bid-strategy problem<span class="t-cap">Recruitment</span></a>
-      <a href="../work/home-services-rebooking.html">The retention half, run on my own customers<span class="t-cap">Home services</span></a>
-      <a href="../work/medspa-laser-offers.html">The account whose numbers are gone — and what survived it<span class="t-cap">Med spa · laser</span></a>
-      <a href="../work/ecommerce-college-venture.html">The business I built to pay my own tuition<span class="t-cap">E-commerce · 2017–2021</span></a>
+      <a href="./work/chiro-head-to-head.html">Head-to-head against an incumbent national agency<span class="t-cap">Chiropractic · same ad account</span></a>
+      <a href="./work/b2b-refrigeration.html">B2B refrigeration at consumer-grade cost per lead<span class="t-cap">Commercial refrigeration · U.K.</span></a>
+      <a href="./work/weight-loss-clinic-launch.html">Filling a calendar from zero at a clinic opening<span class="t-cap">Weight loss · U.S.</span></a>
+      <a href="./work/aesthetic-clinic-bookings.html">The leaky middle, between the lead and the consultation<span class="t-cap">Aesthetic clinic</span></a>
+      <a href="./work/montreal-bilingual.html">Bilingual acquisition held in-language to the calendar<span class="t-cap">Beauty · Canada · FR/EN</span></a>
+      <a href="./work/medspa-full-program.html">A full med spa programme across four service lines<span class="t-cap">Med spa · U.S.</span></a>
+      <a href="./work/tattoo-removal-studio.html">Tattoo removal in the most expensive consumer market<span class="t-cap">Tattoo removal · U.S.</span></a>
+      <a href="./work/body-contouring.html">A sustained monthly offer cycle in a small catchment<span class="t-cap">Body contouring · Canada</span></a>
+      <a href="./work/agency-own-pipeline.html">Running the play on my own business<span class="t-cap">B2B · selling to clinic owners</span></a>
+      <a href="./work/aesthetics-group.html">A group running three marketing jobs at once<span class="t-cap">Multi-location aesthetics</span></a>
+      <a href="./work/spine-clinic.html">A priced offer, bilingual campaigns, AI voice in the booking flow<span class="t-cap">Chiropractic · U.S.</span></a>
+      <a href="./work/wedding-venue-b2b.html">A survey-qualified cross-border funnel<span class="t-cap">Venue B2B · AI voice</span></a>
+      <a href="./work/eye-care-device-launch.html">Launching a device inside an existing medical practice<span class="t-cap">Eye care · U.S.</span></a>
+      <a href="./work/pmu-clinic.html">Where the only metric is what fraction of enquiries book<span class="t-cap">Permanent makeup</span></a>
+      <a href="./work/recruitment-lead-gen.html">Recruitment lead-gen as a bid-strategy problem<span class="t-cap">Recruitment</span></a>
+      <a href="./work/home-services-rebooking.html">The retention half, run on my own customers<span class="t-cap">Home services</span></a>
+      <a href="./work/medspa-laser-offers.html">The account whose numbers are gone — and what survived it<span class="t-cap">Med spa · laser</span></a>
+      <a href="./work/ecommerce-college-venture.html">The business I built to pay my own tuition<span class="t-cap">E-commerce · 2017–2021</span></a>
     </div>
 
     <div class="linkrow t-cap" style="margin-top:22px">
-      <a href="../work.html">All eighteen cases, with the index</a>
-      <a href="../index.html">The first version of this site</a>
-      <a href="../proof.html">The proof page</a>
+      <a href="./work.html">All eighteen cases, with the index</a>
+      <a href="./v1.html">The first version of this site</a>
+      <a href="./proof.html">The proof page</a>
     </div>
   </div>
 </section>
@@ -818,7 +829,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       <a href="mailto:jesusalexelamaro@gmail.com">jesusalexelamaro@gmail.com</a>
       <a href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
       <a href="https://github.com/AlexFC0810">GitHub</a>
-      <a href="../Alex-Amaro-Resume.pdf">Résumé</a>
+      <a href="./Alex-Amaro-Resume.pdf">Résumé</a>
     </div>
   </div>
 </footer>
