@@ -631,8 +631,7 @@ ${videoBlock}
     <div class="sec-head">
       <p class="eyebrow t-label">Method</p>
       <h2 class="t-h1">The part most reels never show.</h2>
-      <p class="t-lead">Output alone proves a subscription. What is worth showing is the decision behind it &mdash; which is why the prompt corpus behind this work was itself reviewed and published: 516 prompts across six export files, 350 of them unique, ranked by how often each was actually reached for, with the craft vocabulary tallied and the phrases that fell out of the working prompt by accident flagged for a look.</p>
-      <p class="t-lead" style="margin-top:16px"><a href="https://sc-ad-creative-review.vercel.app">sc-ad-creative-review.vercel.app</a></p>
+      <p class="t-lead">Output alone proves a subscription. What is worth showing is the decision behind it &mdash; which is why every generation here runs through a system rather than a session: a house library of reusable direction modes, one written brief and one named control variable per test, and a review gate that most output does not get through. The system itself stays in-house. What it produces is the wall above.</p>
     </div>
   </div>
 </section>
