@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Media buyer's model — Alex Amaro</title>
+<meta name="description" content="Spend to leads to booked jobs to ROAS, and which lever actually moves it.">
+<meta name="robots" content="noindex,follow">
+<style>
+  :root{
+    --bg:#090c17; --soft:#1f2435; --card:#2d344e; --raise:#3a4364;
+    --line:#4a5474; --line-soft:#353d55;
+    --ink:#eef0f7; --dim:#c3c9d8; --faint:#adb3c4;
+    --accent:#f59e0b;
+    --mono:ui-monospace,"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+    --r-sm:4px; --r-md:10px; --r-full:999px;
+    --lit:inset 0 1px 0 rgba(255,255,255,.075);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;
+       padding:36px 20px 80px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+           color:var(--faint);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .eyebrow::before{content:'';width:22px;height:2px;background:var(--line);border-radius:var(--r-sm);flex:none}
+  h1{font-size:clamp(28px,4.6vw,42px);font-weight:590;letter-spacing:-.025em;line-height:1.1;margin-bottom:12px}
+  .lede{color:var(--dim);max-width:64ch;margin-bottom:26px}
+
+  .presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+  .presets button{font-family:var(--mono);font-size:11px;padding:8px 14px;border-radius:var(--r-full);
+    background:var(--card);color:var(--dim);border:1px solid var(--line);cursor:pointer;min-height:44px}
+  .presets button:hover{color:var(--ink)}
+  .presets button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:560}
+
+  .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px;align-items:start}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+
+  .panel{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--r-md);
+         padding:20px;box-shadow:var(--lit)}
+  .panel h2{font-size:13px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;
+            color:var(--faint);font-weight:400;margin-bottom:18px}
+
+  .field{margin-bottom:17px}
+  .field:last-child{margin-bottom:0}
+  .frow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+  .flabel{font-size:14px;color:var(--dim)}
+  .fval{font-family:var(--mono);font-size:14px;color:var(--ink);font-weight:560}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;
+    background:var(--line);border-radius:var(--r-full);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
+    background:var(--accent);border-radius:var(--r-full);border:0;cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--accent);
+    border-radius:var(--r-full);border:0;cursor:pointer}
+  .fhint{font-size:12px;color:var(--faint);margin-top:6px}
+
+  .out{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);
+       border:1px solid var(--line-soft);border-radius:var(--r-sm);overflow:hidden;margin-bottom:18px}
+  .cell{background:var(--card);padding:13px 14px}
+  .cell .k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .cell .v{font-family:var(--mono);font-size:19px;font-weight:560;margin-top:4px}
+  .cell.hero{grid-column:1 / -1;background:var(--raise)}
+  .cell.hero .v{font-size:38px;color:var(--accent);letter-spacing:-.02em}
+  .cell.hero .k{color:var(--dim)}
+
+  .chain{font-family:var(--mono);font-size:12px;color:var(--faint);line-height:1.85;
+         background:var(--soft);border-left:2px solid var(--line);padding:12px 14px;border-radius:var(--r-sm)}
+  .chain b{color:var(--ink);font-weight:560}
+
+  .sens{margin-top:22px}
+  .sens h2{font-size:13px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;
+           color:var(--faint);font-weight:400;margin-bottom:6px}
+  .sens .why{color:var(--dim);font-size:14px;margin-bottom:16px;max-width:70ch}
+  .bars{display:flex;flex-direction:column;gap:10px}
+  .bar{display:grid;grid-template-columns:180px 1fr 92px;gap:12px;align-items:center}
+  @media(max-width:620px){.bar{grid-template-columns:1fr;gap:4px}}
+  .bar .lbl{font-size:13px;color:var(--dim)}
+  .bar .track{height:26px;background:var(--soft);border-radius:var(--r-sm);overflow:hidden;position:relative}
+  .bar .fill{height:100%;background:var(--raise);border-right:2px solid var(--line);
+             transition:width .25s ease}
+  .bar.top .fill{background:var(--accent);border-right-color:var(--accent)}
+  .bar .num{font-family:var(--mono);font-size:13px;text-align:right;color:var(--ink)}
+  .bar.top .num{color:var(--accent);font-weight:560}
+
+  .note{margin-top:26px;border-left:2px solid var(--line);padding:6px 0 6px 20px;color:var(--dim);max-width:74ch}
+  .note b{color:var(--ink);font-weight:560}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line-soft);
+         font-family:var(--mono);font-size:11px;color:var(--faint)}
+  a{color:var(--ink)}
+  footer a{display:inline-block;padding:14px 0;min-height:44px}
+  .modeswitch{display:flex;gap:0;border:1px solid var(--line);border-radius:var(--r-full);
+              overflow:hidden;margin-bottom:20px;width:fit-content}
+  .modeswitch button{font-family:var(--mono);font-size:11px;padding:8px 16px;background:transparent;
+    color:var(--faint);border:0;cursor:pointer;min-height:44px}
+  .modeswitch button[aria-pressed="true"]{background:var(--raise);color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Media buying · unit economics</p>
+  <h1>Spend goes in. Booked jobs come out.<br>Here is every step in between.</h1>
+  <p class="lede">Cost per lead is a leading indicator, not the scoreboard. This is the whole chain — and, at the bottom, which single lever actually moves the return. Drag anything.</p>
+
+  <div class="presets" id="presets"></div>
+
+  <div class="modeswitch" id="modes">
+    <button data-mode="fwd" aria-pressed="true">Forward &mdash; what will this spend produce</button>
+    <button data-mode="rev" aria-pressed="false">Reverse &mdash; what does that target cost</button>
+  </div>
+
+  <div class="cols">
+    <div class="panel">
+      <h2 id="inputTitle">The inputs</h2>
+      <div id="fields"></div>
+    </div>
+
+    <div class="panel">
+      <h2>What it produces</h2>
+      <div class="out" id="outputs"></div>
+      <div class="chain" id="chain"></div>
+    </div>
+  </div>
+
+  <div class="panel sens">
+    <h2>Which lever moves the return</h2>
+    <p class="why" id="sensWhy"></p>
+    <div class="bars" id="bars"></div>
+  </div>
+
+  <p class="note" id="takeaway"></p>
+
+  <footer>
+    Every figure recomputes live from the inputs above &mdash; nothing here is a stored screenshot.
+    <a href="./index.html">Back to the portfolio</a>
+  </footer>
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const money = n => "$" + Math.round(n).toLocaleString("en-US");
+const money2 = n => "$" + n.toFixed(2);
+
+const FIELDS = [
+  {k:"spend",  label:"Ad spend",              min:250,  max:50000, step:250,  fmt:money,  hint:"Monthly, for one campaign or one account."},
+  {k:"cpl",    label:"Cost per qualified lead",min:5,   max:400,   step:1,    fmt:money2, hint:"Qualified — a form with a filter on it, not raw volume."},
+  {k:"book",   label:"Lead → booked rate",    min:5,    max:95,    step:1,    fmt:v=>v+"%", hint:"Speed-to-lead lives here. This is the number an AI receptionist moves."},
+  {k:"close",  label:"Booked → closed rate",  min:2,    max:80,    step:1,    fmt:v=>v+"%", hint:"Sales-side. The buyer controls it, but creative pre-qualifies it."},
+  {k:"job",    label:"Average job value",     min:200,  max:60000, step:100,  fmt:money,  hint:"First transaction only. Repeat value is handled below."},
+  {k:"ltv",    label:"Lifetime multiple",     min:1,    max:8,     step:0.1,  fmt:v=>v.toFixed(1)+"×", hint:"1.0 = one-and-done. Retention lives here."},
+  {k:"margin", label:"Gross margin",          min:10,   max:95,    step:1,    fmt:v=>v+"%", hint:"Because revenue is not profit, and the buyer knows it."}
+];
+
+const PRESETS = [
+  {id:"waseem", name:"The $15k bathroom",
+   note:"The worked example as handed over: $2,000 spend, 30 qualified leads, 50% booking, 25% close.",
+   v:{spend:2000,cpl:66.67,book:50,close:25,job:15000,ltv:1,margin:45}},
+  // The three hard figures are spend, scheduled appointments and cash collected: 13,465 /
+  // 218 / ~28,000. The 4.6% and the $2,800 are a DERIVATION from those, not separately
+  // measured — roughly ten closes at roughly $2,800 of first payment. Quote the three hard
+  // numbers and the 2.1x; treat the decomposition as illustration only.
+  {id:"b2b", name:"A campaign I ran end to end",
+   note:"B2B acquisition targeting clinic owners. $13,465 spend, 218 scheduled appointments at $61.77, and revenue visible all the way to cash collected — roughly $28,000 on first payment, just over 2x before any retention.",
+   v:{spend:13465,cpl:61.77,book:100,close:4.6,job:2800,ltv:2.6,margin:70}},
+  {id:"remodel", name:"Remodeling, conservative",
+   note:"Same trade, pessimistic assumptions — to show the floor, not the ceiling.",
+   v:{spend:3000,cpl:110,book:40,close:18,job:12000,ltv:1.2,margin:38}}
+];
+
+const state = Object.assign({}, PRESETS[0].v);
+let mode = "fwd";
+let target = 50000;
+let activePreset = "waseem";
+
+function calc(s){
+  const leads   = s.spend / s.cpl;
+  const books   = leads * (s.book/100);
+  const closes  = books * (s.close/100);
+  const cpb     = books   ? s.spend/books  : 0;
+  const cac     = closes  ? s.spend/closes : 0;
+  const rev     = closes * s.job;
+  const revLtv  = rev * s.ltv;
+  const roas    = s.spend ? rev/s.spend : 0;
+  const roasLtv = s.spend ? revLtv/s.spend : 0;
+  const gp      = revLtv * (s.margin/100);
+  const beCloses= s.job ? s.spend/(s.job*(s.margin/100)) : 0;
+  return {leads,books,closes,cpb,cac,rev,revLtv,roas,roasLtv,gp,profit:gp-s.spend,beCloses};
+}
+
+function buildFields(){
+  const host = $("fields");
+  while(host.firstChild) host.removeChild(host.firstChild);
+
+  if(mode==="rev"){
+    const f=document.createElement("div"); f.className="field";
+    const row=document.createElement("div"); row.className="frow";
+    const l=document.createElement("span"); l.className="flabel"; l.textContent="Revenue target";
+    const v=document.createElement("span"); v.className="fval"; v.id="val-target"; v.textContent=money(target);
+    row.appendChild(l); row.appendChild(v); f.appendChild(row);
+    const r=document.createElement("input");
+    r.type="range"; r.min=5000; r.max=500000; r.step=5000; r.value=target;
+    r.addEventListener("input",e=>{target=+e.target.value; $("val-target").textContent=money(target); render();});
+    f.appendChild(r);
+    const h=document.createElement("div"); h.className="fhint";
+    h.textContent="Set the number the business needs. Everything below stays as-is; the spend is solved for.";
+    f.appendChild(h);
+    host.appendChild(f);
+  }
+
+  for(const f of FIELDS){
+    if(mode==="rev" && f.k==="spend") continue;
+    const wrap=document.createElement("div"); wrap.className="field";
+    const row=document.createElement("div"); row.className="frow";
+    const lab=document.createElement("span"); lab.className="flabel"; lab.textContent=f.label;
+    const val=document.createElement("span"); val.className="fval"; val.id="val-"+f.k;
+    val.textContent=f.fmt(state[f.k]);
+    row.appendChild(lab); row.appendChild(val); wrap.appendChild(row);
+    const rng=document.createElement("input");
+    rng.type="range"; rng.min=f.min; rng.max=f.max; rng.step=f.step; rng.value=state[f.k];
+    rng.setAttribute("aria-label",f.label);
+    rng.addEventListener("input",e=>{
+      state[f.k]=+e.target.value;
+      $("val-"+f.k).textContent=f.fmt(state[f.k]);
+      setPreset(null); render();
+    });
+    wrap.appendChild(rng);
+    const hint=document.createElement("div"); hint.className="fhint"; hint.textContent=f.hint;
+    wrap.appendChild(hint);
+    host.appendChild(wrap);
+  }
+}
+
+function cell(k,v,hero){
+  const c=document.createElement("div"); c.className="cell"+(hero?" hero":"");
+  const kk=document.createElement("div"); kk.className="k"; kk.textContent=k;
+  const vv=document.createElement("div"); vv.className="v"; vv.textContent=v;
+  c.appendChild(kk); c.appendChild(vv); return c;
+}
+
+function render(){
+  const s = Object.assign({}, state);
+  if(mode==="rev"){
+    const per = (s.job*(s.close/100)*(s.book/100))/s.cpl;   // revenue per $1 of spend
+    s.spend = per>0 ? target/per : 0;
+  }
+  const r = calc(s);
+
+  const out=$("outputs");
+  while(out.firstChild) out.removeChild(out.firstChild);
+  out.appendChild(cell("Return on ad spend", r.roas.toFixed(1)+"×", true));
+  out.appendChild(cell(mode==="rev"?"Spend required":"Ad spend", money(s.spend)));
+  out.appendChild(cell("Qualified leads", Math.round(r.leads).toLocaleString()));
+  out.appendChild(cell("Booked", r.books.toFixed(1)));
+  out.appendChild(cell("Cost per booking", money2(r.cpb)));
+  out.appendChild(cell("Closed", r.closes.toFixed(2)));
+  out.appendChild(cell("Cost to acquire (CAC)", money(r.cac)));
+  out.appendChild(cell("Revenue, first sale", money(r.rev)));
+  out.appendChild(cell("With lifetime value", money(r.revLtv)+"  ("+r.roasLtv.toFixed(1)+"×)"));
+  out.appendChild(cell("Gross profit after ad spend", money(r.profit)));
+  out.appendChild(cell("Breakeven", r.beCloses.toFixed(2)+" closes"));
+
+  const ch=$("chain");
+  while(ch.firstChild) ch.removeChild(ch.firstChild);
+  const steps=[
+    [money(s.spend)+" spend"," ÷ "+money2(s.cpl)+" CPL"," = "+Math.round(r.leads)+" qualified leads"],
+    [Math.round(r.leads)+" leads"," × "+s.book+"% booked"," = "+r.books.toFixed(1)+" booked"],
+    [r.books.toFixed(1)+" booked"," × "+s.close+"% closed"," = "+r.closes.toFixed(2)+" jobs"],
+    [r.closes.toFixed(2)+" jobs"," × "+money(s.job)," = "+money(r.rev)+" revenue"],
+    [money(r.rev)+" ÷ "+money(s.spend)," "," = "+r.roas.toFixed(1)+"× ROAS"]
+  ];
+  for(const [a,b,c] of steps){
+    const line=document.createElement("div");
+    line.appendChild(document.createTextNode(a+b));
+    const strong=document.createElement("b"); strong.textContent=c;
+    line.appendChild(strong);
+    ch.appendChild(line);
+  }
+
+  renderSensitivity(s, r);
+}
+
+function renderSensitivity(s, base){
+  const lifts=[
+    {lbl:"Cost per lead, 20% better", mut:x=>{x.cpl*=0.8;}},
+    {lbl:"Booking rate, +15 points",  mut:x=>{x.book=Math.min(100,x.book+15);}},
+    {lbl:"Close rate, +10 points",    mut:x=>{x.close=Math.min(100,x.close+10);}},
+    {lbl:"Average job value, +20%",   mut:x=>{x.job*=1.2;}},
+    {lbl:"Ad spend, +20%",            mut:x=>{x.spend*=1.2;}}
+  ].map(l=>{
+    const c=Object.assign({},s); l.mut(c);
+    const roas=calc(c).roas;
+    return {lbl:l.lbl, roas, delta: base.roas? (roas/base.roas-1)*100 : 0};
+  });
+
+  const max=Math.max(...lifts.map(l=>Math.abs(l.delta)),1);
+  const best=lifts.reduce((a,b)=>b.delta>a.delta?b:a, lifts[0]);
+
+  const host=$("bars");
+  while(host.firstChild) host.removeChild(host.firstChild);
+  for(const l of lifts){
+    const row=document.createElement("div");
+    row.className="bar"+(l===best?" top":"");
+    const lb=document.createElement("div"); lb.className="lbl"; lb.textContent=l.lbl;
+    const tr=document.createElement("div"); tr.className="track";
+    const fi=document.createElement("div"); fi.className="fill";
+    fi.style.width=Math.max(2,(Math.abs(l.delta)/max)*100)+"%";
+    tr.appendChild(fi);
+    const nm=document.createElement("div"); nm.className="num";
+    nm.textContent=(l.delta>=0?"+":"")+l.delta.toFixed(0)+"% ROAS";
+    row.appendChild(lb); row.appendChild(tr); row.appendChild(nm);
+    host.appendChild(row);
+  }
+
+  $("sensWhy").textContent =
+    "Each row changes exactly one input and leaves the rest alone — the same discipline as running one variable per test. "+
+    "On these numbers the biggest mover is: "+best.lbl.toLowerCase()+".";
+
+  const t=$("takeaway");
+  while(t.firstChild) t.removeChild(t.firstChild);
+  const cpl=lifts[0], bk=lifts[1], cl=lifts[2];
+  const strong=document.createElement("b");
+  strong.textContent="Cheaper leads are the smallest of the three levers here. ";
+  t.appendChild(strong);
+  t.appendChild(document.createTextNode(
+    "A 20% better cost per lead is worth "+cpl.delta.toFixed(0)+"% more return. Fifteen points of booking rate is worth "+
+    bk.delta.toFixed(0)+"%, and ten points of close rate is worth "+cl.delta.toFixed(0)+"%. "+
+    "That is why I do not optimise to cost per lead alone — I optimise to booked jobs, and I write creative that pre-qualifies so the "+
+    "sales conversation starts warmer. Speed-to-lead and follow-up sit on the booking-rate line, which is the second-biggest lever on this page."
+  ));
+}
+
+function setPreset(id){
+  activePreset=id;
+  for(const b of $("presets").children) b.setAttribute("aria-pressed", String(b.dataset.id===id));
+  const p=PRESETS.find(x=>x.id===id);
+  $("inputTitle").textContent = p ? p.name : "The inputs — custom";
+}
+
+function buildPresets(){
+  const host=$("presets");
+  for(const p of PRESETS){
+    const b=document.createElement("button");
+    b.textContent=p.name; b.dataset.id=p.id;
+    b.setAttribute("aria-pressed", String(p.id===activePreset));
+    b.title=p.note;
+    b.addEventListener("click",()=>{
+      Object.assign(state,p.v);
+      setPreset(p.id); buildFields(); render();
+    });
+    host.appendChild(b);
+  }
+}
+
+$("modes").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  mode=b.dataset.mode;
+  for(const x of $("modes").children) x.setAttribute("aria-pressed", String(x.dataset.mode===mode));
+  buildFields(); render();
+});
+
+buildPresets(); buildFields(); setPreset("waseem"); render();
+</script>
+</body>
+</html>
