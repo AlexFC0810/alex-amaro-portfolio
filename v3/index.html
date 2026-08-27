@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Amaro — the work, at full size</title>
+<meta name="description" content="Ad creative, motion systems and live software — shown, not described. Films you can press play on, a creative wall with a review gate, live URLs, and numbers that each trace to a source.">
+<meta name="author" content="Alex Amaro">
+<!-- Draft surface: unlinked and unindexed until promoted. Flip this line on promotion. -->
+<meta name="robots" content="noindex">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Alex Amaro">
+<meta property="og:title" content="Alex Amaro — the work, at full size">
+<meta property="og:description" content="Most marketers can tell you about campaigns. This page hangs the actual work — films, creative, live systems — with a source under every claim.">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png">
+<meta name="theme-color" content="#0f0c09">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f0c09'/%3E%3Crect x='7' y='14.5' width='18' height='3' rx='1.5' fill='%23ee7524'/%3E%3C/svg%3E">
+
+<!-- Head script arms the nav menu class only. Nothing on this page gates
+     content on JavaScript: reveals are CSS scroll-driven under @supports, so a
+     browser without support (or with JS off, or with reduced motion set)
+     renders every section at full opacity by default. The blank-screen class
+     of bug is excluded by construction, not by a timer. -->
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preload" href="../assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ============================================================================
+   PORTFOLIO v3 — "the darkroom"
+   Register shift from v2: instrument panel → gallery. The page's argument is
+   the work itself, hung at full size on a warm near-black ground, with the
+   chrome kept near-monochrome so the creative is the only saturated thing.
+
+   Benchmarks (cached in doctrine-hub/swipes/design-systems/):
+   · monopo saigon — a creative agency portfolio, the same JOB as this page:
+     the interface never picks up a hue; all colour lives in the work; scale
+     does the shouting so weight never has to (display at weight 400).
+   · ORYZO AI — warm-dark museum ground, cream type, hairline separation, one
+     ember accent "earning its rarity", tonal grounds ≥1.15:1 adjacent.
+
+   Every colour below was measured with a WCAG calculator against the grounds
+   it sits on. Ladder: 1.155 / 1.198 / 1.269, 1.757 end to end. Worst text
+   pairing on the page: --text-faint on --bg-raise at 4.79:1. Accent text
+   never sits on --bg-raise (3.81:1 there — rules and dots only).
+
+   Weight band: 400 / 520 / 560 — LOWER ceiling than v2's 590, because the
+   serif display does its work with size, not weight. Three radii. Zero drop
+   shadows; depth is the ground ladder + hairlines + one inset lit edge.
+   Zero off-origin requests: two font families self-hosted, all media local.
+   ============================================================================ */
+
+@font-face{
+  font-family:'Instrument Serif'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('../assets/fonts/instrument-serif-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Instrument Serif'; font-style:italic; font-weight:400; font-display:swap;
+  src:url('../assets/fonts/instrument-serif-italic-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Inter'; font-style:normal; font-weight:400 900; font-display:swap;
+  src:url('../assets/fonts/inter-latin-var.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:'Inter Fallback';
+  src:local('Arial'),local('Helvetica');
+  ascent-override:93.38%; descent-override:23.25%; line-gap-override:0%; size-adjust:103.74%;
+}
+
+:root{
+  /* Grounds — warm near-black, a developing-room ladder you can actually see.
+     Adjacent pairs measured 1.155 / 1.198 / 1.269 (bar ≥1.15), 1.757 end to end. */
+  --bg:#0f0c09;
+  --bg-soft:#221c14;
+  --bg-card:#332a1e;
+  --bg-raise:#453a2a;
+
+  /* Hairlines — cream at low alpha so they warm with the ground under them. */
+  --border:rgba(244,236,221,.16);
+  --border-soft:rgba(244,236,221,.09);
+  --border-lit:rgba(238,117,36,.5);
+
+  /* The one lit edge. Only box-shadow on the page; casts nothing. */
+  --lit:inset 0 1px 0 rgba(255,236,210,.07);
+
+  /* Type colours — measured against every ground (table in the header note). */
+  --text:#f4ecdd;        /* 16.61:1 on --bg · 9.46:1 on --bg-raise */
+  --text-dim:#c9bda9;    /* 10.53:1 on --bg · 5.99:1 on --bg-raise */
+  --text-faint:#b5a993;  /*  8.42:1 on --bg · 4.79:1 on --bg-raise */
+
+  /* The one accent: ember. Its jobs on this page, exhaustively —
+       1. the italic half of the hero line and the closing line
+       2. the 9.5× numeral and its rule
+       3. the live-status dots
+       4. hover rings (--border-lit)
+     Interactive text uses --link, one step brighter, legible on every ground.
+     Ember text never sits on --bg-raise. It is never a fill. */
+  --accent:#ee7524;      /* 6.69:1 on --bg · 4.83:1 on --bg-card */
+  --link:#ffa14e;        /* 9.71:1 on --bg · 5.53:1 on --bg-raise */
+
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
+
+  --w-reg:400; --w-med:520; --w-semi:560;   /* the ceiling is 560 */
+
+  --fs-mega:clamp(58px,11vw,164px);   /* serif · the hero line, once */
+  --fs-display:clamp(36px,5.6vw,72px);/* serif · section openers */
+  --fs-h3:22px;
+  --fs-lead:clamp(18px,1.8vw,20px);
+  --fs-body:16px;
+  --fs-caption:13px;
+  --fs-label:12px;                    /* mono · uppercase */
+  --fs-data:15px;                     /* mono */
+  --fs-figure:clamp(30px,3.4vw,44px); /* mono · the placard numerals */
+  --fs-hero:clamp(54px,8vw,84px);     /* mono · the 9.5×, once */
+
+  --r-sm:4px; --r-md:12px; --r-full:999px;
+
+  --measure:760px;
+  --rail:1120px;
+  --section:clamp(80px,10vw,132px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--sans); font-size:var(--fs-body); font-weight:var(--w-reg);
+  line-height:1.6; letter-spacing:-0.011em;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{margin:0; text-wrap:balance}
+p,ul,ol,figure{margin:0}
+strong,b{font-weight:var(--w-med)}   /* reset from 700 — the ceiling holds */
+
+.t-mega{font-family:var(--serif); font-weight:var(--w-reg); font-size:var(--fs-mega); line-height:.94; letter-spacing:-0.015em}
+.t-display{font-family:var(--serif); font-weight:var(--w-reg); font-size:var(--fs-display); line-height:1.02; letter-spacing:-0.01em}
+.t-h3{font-size:var(--fs-h3); font-weight:var(--w-med); letter-spacing:-0.022em; line-height:1.32}
+.t-lead{font-size:var(--fs-lead); font-weight:var(--w-reg); letter-spacing:-0.018em; line-height:1.55; color:var(--text-dim)}
+.t-cap{font-size:var(--fs-caption); font-weight:var(--w-reg); letter-spacing:-0.005em; line-height:1.55; color:var(--text-faint)}
+.t-label{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em; line-height:1.4; text-transform:uppercase}
+.t-data{font-family:var(--mono); font-size:var(--fs-data); font-weight:var(--w-reg); letter-spacing:-0.005em; line-height:1.5}
+.t-figure{font-family:var(--mono); font-size:var(--fs-figure); font-weight:var(--w-reg); letter-spacing:-0.02em; line-height:1.05}
+.t-hero{font-family:var(--mono); font-size:var(--fs-hero); font-weight:var(--w-reg); letter-spacing:-0.03em; line-height:1}
+
+/* The italic voice — serif italic in ember. The page's signature gesture,
+   spent twice: the hero line and the closing line. */
+.ink{font-style:italic; color:var(--accent)}
+
+a{color:var(--link); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:rgba(255,161,78,.4)}
+a:hover{text-decoration-color:var(--link)}
+a:focus-visible,button:focus-visible,input:focus-visible,video:focus-visible{outline:2px solid var(--link); outline-offset:2px; border-radius:var(--r-sm)}
+
+img,video{max-width:100%; height:auto; display:block}
+
+.vh{position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.rail{max-width:var(--rail); margin-inline:auto; padding-inline:20px}
+.measure{max-width:var(--measure); margin-inline:auto; padding-inline:20px}
+section{padding-block:var(--section)}
+.band{background:var(--bg-soft); border-block:1px solid var(--border-soft)}
+
+.eyebrow{display:flex; align-items:center; gap:10px; color:var(--text-faint); margin-bottom:20px}
+.eyebrow::before{content:''; width:22px; height:2px; background:var(--border); border-radius:var(--r-sm); flex:none}
+
+.sec-head{margin-bottom:44px}
+.sec-head .t-lead{margin-top:18px; max-width:62ch}
+
+.skip{position:absolute; left:-9999px; top:0; z-index:100; display:flex; align-items:center;
+  min-height:44px; padding:0 18px; border-radius:var(--r-sm); color:var(--text)}
+.skip:focus{left:12px; top:12px; background:var(--bg-card); border:1px solid var(--border)}
+
+.linkrow{display:flex; flex-wrap:wrap; gap:2px; margin-top:18px; margin-inline:-12px}
+.linkrow a{display:inline-flex; align-items:center; min-height:44px; padding:0 12px; border-radius:var(--r-sm)}
+.linkrow a:hover{background:var(--bg-card)}
+
+/* --- NAV — v2's pattern, restyled ---------------------------------------- */
+header.nav{position:sticky; top:0; z-index:50; background:rgba(15,12,9,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border-soft)}
+.nav-in{max-width:var(--rail); margin-inline:auto; padding-inline:20px; display:flex; align-items:center; gap:12px; min-height:58px}
+header.nav a{white-space:nowrap; flex:none; color:var(--text-dim); text-decoration:none;
+  display:flex; align-items:center; min-height:44px; padding:0 10px; border-radius:var(--r-sm)}
+header.nav a:hover{color:var(--text); background:var(--bg-card)}
+.nav-mark{color:var(--text); margin-right:auto; padding:0 10px 0 0; font-family:var(--serif); font-size:19px; font-style:italic; letter-spacing:0}
+.nav-mark:hover{color:var(--text); background:transparent; text-decoration:none}
+.nav-links{display:flex; align-items:center; gap:10px; flex-wrap:nowrap;
+  overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
+.nav-links::-webkit-scrollbar{display:none}
+header.nav a[aria-current="true"]{color:var(--text); background:var(--bg-card); box-shadow:var(--lit)}
+header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transparent; box-shadow:none}
+.nav-toggle{display:none; white-space:nowrap; align-items:center; min-height:44px; margin-left:auto;
+  padding:0 14px; background:var(--bg-card); color:var(--text); border:1px solid var(--border);
+  border-radius:var(--r-sm); cursor:pointer; box-shadow:var(--lit)}
+.nav-toggle:hover{border-color:var(--border-lit)}
+@media(max-width:679.98px){
+  html.js .nav-toggle{display:inline-flex}
+  html.js .nav-links{display:none; position:absolute; top:100%; left:0; right:0; overflow:visible;
+    flex-direction:column; align-items:stretch; gap:2px; padding:8px 20px 16px;
+    background:var(--bg-card); border-bottom:1px solid var(--border); box-shadow:var(--lit)}
+  html.js .nav-links[data-open]{display:flex}
+}
+
+/* --- HERO ----------------------------------------------------------------- */
+.hero{padding-top:clamp(56px,8vw,104px); padding-bottom:var(--section)}
+.hero-grid{display:grid; grid-template-columns:1fr; gap:48px; align-items:center}
+@media(min-width:880px){.hero-grid{grid-template-columns:1.5fr 1fr; gap:56px}}
+.hero .t-mega{margin-bottom:28px}
+.hero .t-lead{max-width:54ch}
+.hero-meta{display:flex; flex-wrap:wrap; gap:8px 6px; margin-top:30px}
+.hero-meta a{color:var(--text-dim); text-decoration:none; border:1px solid var(--border); border-radius:var(--r-full);
+  padding:0 18px; min-height:44px; display:inline-flex; align-items:center}
+.hero-meta a:hover{color:var(--text); background:var(--bg-raise); border-color:var(--border-lit)}
+/* The one solid CTA — an elevated warm surface, not an accent fill.
+   ORYZO's move: the single filled button is the ladder's top step. */
+.hero-meta .btn-primary{background:var(--bg-raise); border-color:var(--border); color:var(--text); box-shadow:var(--lit)}
+.hero-meta .btn-primary:hover{border-color:var(--border-lit); background:var(--bg-raise)}
+
+/* The hero film — a phone-framed cut, tilted half a degree off square so it
+   reads as an object on a table rather than furniture in a grid. */
+.hero-film{margin:0; transform:rotate(-1.5deg); transition:transform .45s ease}
+.hero-film:hover{transform:rotate(0deg)}
+@media(prefers-reduced-motion:reduce){.hero-film{transform:none; transition:none}}
+.hero-film video{width:100%; aspect-ratio:9/16; border:1px solid var(--border); border-radius:var(--r-md);
+  background:var(--bg-card); object-fit:cover}
+.hero-film figcaption{margin-top:12px}
+
+/* The hero placard — the single most persuasive fact, C3, verbatim. */
+.hero-stat{margin:40px 0 0; padding:24px; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:var(--r-md); box-shadow:var(--lit); display:grid; grid-template-columns:1fr; gap:16px}
+@media(min-width:600px){.hero-stat{grid-template-columns:auto 1fr; gap:30px; padding:26px 30px; align-items:center}}
+.hero-stat-fig{border-left:2px solid var(--accent); padding-left:20px}
+.hero-stat .t-hero{color:var(--accent)}
+.hero-stat .t-label{display:block; margin-top:9px; color:var(--text-faint)}
+.hero-stat .t-lead{color:var(--text); max-width:48ch}
+
+/* --- STRIPS — the gallery grammar. Full-bleed horizontal scroll, snap,
+   left edge aligned to the rail. A wall that stops at the rail is a grid;
+   a strip that runs off both edges is a wall. ----------------------------- */
+.strip{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x proximity;
+  padding-block:6px; padding-inline:max(20px, calc((100vw - var(--rail)) / 2 + 20px));
+  scrollbar-width:thin; scrollbar-color:var(--bg-raise) transparent}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--bg-raise); border-radius:var(--r-full)}
+.strip::-webkit-scrollbar-track{background:transparent}
+.tile{flex:0 0 clamp(220px,24vw,320px); scroll-snap-align:start; border-radius:var(--r-md);
+  overflow:hidden; border:1px solid var(--border-soft); background:var(--bg-card)}
+.tile img{width:100%; height:100%; aspect-ratio:4/5; object-fit:cover}
+.tile-sq img{aspect-ratio:1/1}
+.strip-note{margin-top:18px}
+
+/* --- THE REEL — films in phone frames ------------------------------------ */
+.film{flex:0 0 clamp(230px,26vw,320px); scroll-snap-align:start}
+.film video{width:100%; aspect-ratio:9/16; border:1px solid var(--border); border-radius:var(--r-md);
+  background:var(--bg-card); object-fit:cover}
+.film figcaption{margin-top:10px; padding-inline:2px}
+
+/* --- THE GATE — the ledger ------------------------------------------------ */
+.ledger{border-top:1px solid var(--border); margin-top:8px}
+.ledger-row{display:grid; grid-template-columns:minmax(96px,150px) 1fr; gap:20px; align-items:baseline;
+  padding:20px 0; border-bottom:1px solid var(--border-soft)}
+.ledger-row .t-figure{color:var(--text); text-align:right}
+.ledger-row p{color:var(--text-dim)}
+.ledger-row .t-cap{margin-top:4px}
+
+/* --- LIVE SURFACE CARDS --------------------------------------------------- */
+.cards{display:grid; grid-template-columns:1fr; gap:16px}
+@media(min-width:820px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--r-md);
+  overflow:hidden; display:flex; flex-direction:column}
+.card:hover{background:var(--bg-raise); border-color:var(--border-lit)}
+.card .shot{border-bottom:1px solid var(--border-soft); background:var(--bg); aspect-ratio:8/5; object-fit:cover; object-position:top center; width:100%}
+.card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; box-shadow:var(--lit)}
+.card-body .t-cap{color:var(--text-dim)}
+.card-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
+.tag{color:var(--text-faint); border:1px solid var(--border-soft); border-radius:var(--r-full); padding:5px 10px}
+.tag-live{color:var(--text-dim); display:inline-flex; align-items:center; gap:7px}
+.tag-live::before{content:''; width:6px; height:6px; border-radius:var(--r-full); background:var(--accent); flex:none}
+.card-link{display:inline-flex; align-items:center; min-height:44px; word-break:break-all}
+.arch{margin:0; padding:16px; background:var(--bg); border:1px solid var(--border-soft); border-radius:var(--r-sm);
+  font-family:var(--mono); font-size:var(--fs-caption); letter-spacing:-0.005em; line-height:1.75;
+  color:var(--text-dim); overflow-x:auto; white-space:pre}
+.note{border-left:2px solid var(--border); padding:4px 0 4px 22px; margin-top:44px; max-width:68ch}
+
+/* --- PLACARDS — the numbers as museum labels ------------------------------ */
+.placards{display:grid; gap:14px; grid-template-columns:1fr}
+@media(min-width:640px){.placards{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.placards{grid-template-columns:repeat(3,1fr)}}
+.plq{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--r-md);
+  padding:24px; box-shadow:var(--lit); display:flex; flex-direction:column; gap:12px}
+.plq .t-figure{color:var(--text)}
+.plq p{color:var(--text-dim)}
+.plq .t-cap{color:var(--text-faint); margin-top:auto; padding-top:6px; border-top:1px solid var(--border-soft)}
+
+/* --- CALCULATOR — v2's engine, this page's skin --------------------------- */
+.calc{margin-top:8px; background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--r-md);
+  overflow:hidden; box-shadow:var(--lit)}
+.calc-head{padding:24px 24px 0; display:flex; flex-wrap:wrap; gap:12px; align-items:baseline; justify-content:space-between}
+.calc-grid{display:grid; grid-template-columns:1fr; gap:0}
+@media(min-width:720px){.calc-grid{grid-template-columns:1fr 1fr}}
+.calc-controls{padding:24px}
+.calc-out{padding:24px; background:var(--bg-raise); border-top:1px solid var(--border-soft)}
+@media(min-width:720px){.calc-out{border-top:0; border-left:1px solid var(--border-soft)}}
+.field{margin-bottom:22px}
+.field:last-child{margin-bottom:0}
+.field label{display:flex; justify-content:space-between; align-items:baseline; gap:12px; color:var(--text-dim); margin-bottom:10px}
+.field .val{color:var(--text)}
+.field .hint{display:block; margin-top:8px}
+input[type=range]{
+  -webkit-appearance:none; appearance:none; width:100%; min-height:44px; background:transparent;
+  font-size:var(--fs-body);
+}
+input[type=range]::-webkit-slider-runnable-track{height:2px; background:var(--border); border-radius:var(--r-full)}
+input[type=range]::-moz-range-track{height:2px; background:var(--border); border-radius:var(--r-full)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:18px; height:18px; margin-top:-8px;
+  background:var(--accent); border-radius:var(--r-full); border:0}
+input[type=range]::-moz-range-thumb{width:18px; height:18px; background:var(--accent); border-radius:var(--r-full); border:0}
+.cur{display:inline-flex; gap:4px}
+.cur button{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em; line-height:1.4;
+  text-transform:uppercase; min-height:44px; padding:0 14px; background:transparent; color:var(--text-faint);
+  border:1px solid var(--border-soft); border-radius:var(--r-sm); cursor:pointer}
+.cur button[aria-pressed=true]{color:var(--link); background:var(--bg-raise); border-color:var(--border-lit)}
+.out-big{color:var(--link); margin:10px 0 6px}
+.out-annual{color:var(--text); margin-top:18px}
+.chain{margin-top:18px; padding-top:18px; border-top:1px solid var(--border-soft); color:var(--text-faint);
+  font-family:var(--mono); font-size:var(--fs-caption); letter-spacing:-0.005em; line-height:1.55; overflow-wrap:anywhere}
+.chain b{color:var(--text-dim); font-weight:var(--w-reg)}
+.honesty{padding:20px 24px; border-top:1px solid var(--border-soft); background:var(--bg-card)}
+
+/* --- WORK ------------------------------------------------------------------ */
+.work{display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--border-soft)}
+@media(min-width:720px){.work{grid-template-columns:1fr 1fr}}
+.work a{display:flex; flex-direction:column; justify-content:center; gap:6px; min-height:44px; padding:18px 4px;
+  border-bottom:1px solid var(--border-soft); color:var(--text); text-decoration:none}
+.work a:hover{color:var(--link)}
+.work a span{color:var(--text-faint)}
+
+/* --- FOOTER ---------------------------------------------------------------- */
+footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; background:var(--bg-soft)}
+.close-line{margin-bottom:48px}
+.disclaim{border:1px solid var(--border-soft); border-radius:var(--r-md); padding:24px; background:var(--bg-card); box-shadow:var(--lit)}
+.disclaim li{margin-top:10px; color:var(--text-dim)}
+.disclaim ul{padding-left:20px}
+
+/* --- MOTION — CSS scroll-driven, progressive enhancement only.
+   Default state is fully visible. Only a browser that (a) supports scroll
+   timelines AND (b) has no reduced-motion preference ever sees a reveal.
+   No JS involved; nothing can strand a section at opacity 0. -------------- */
+@media (prefers-reduced-motion: no-preference){
+  @supports (animation-timeline: view()){
+    .rv{animation:rvIn linear both; animation-timeline:view(); animation-range:entry 5% entry 45%}
+    @keyframes rvIn{from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none}}
+  }
+}
+</style>
+</head>
+<body>
+
+<a class="skip t-label" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-mark" href="#top">Alex&nbsp;Amaro</a>
+    <button id="navToggle" class="nav-toggle t-label" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav id="navLinks" class="nav-links" aria-label="Sections">
+      <a class="t-label" href="#reel">Reel</a>
+      <a class="t-label" href="#wall">Wall</a>
+      <a class="t-label" href="#gate">Gate</a>
+      <a class="t-label" href="#running">Running</a>
+      <a class="t-label" href="#numbers">Numbers</a>
+      <a class="t-label" href="#work">Work</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     HERO — the arrest. One serif line at full size, one pressable film,
+     one placard. Show first, explain second.
+     ========================================================================== -->
+<section class="hero" id="top">
+  <div class="rail">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow t-label">Paid media · AI creative systems · Remote, U.S.</p>
+        <h1 class="t-mega">The work,<br><span class="ink">at full size.</span></h1>
+        <p class="t-lead">Most marketers can tell you about campaigns. This page hangs the actual work — the films, the ad creative, the live software — and puts a source or a URL under every number. Press play on anything.</p>
+        <div class="hero-meta">
+          <a class="t-label btn-primary" href="#reel">Watch the reel</a>
+          <a class="t-label" href="mailto:jesusalexelamaro@gmail.com">Email me</a>
+          <a class="t-label" href="../Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
+          <a class="t-label" href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
+        </div>
+      </div>
+
+      <figure class="hero-film">
+        <video controls preload="none" playsinline poster="../assets/motion/careline-peakload-poster.webp" width="720" height="1280">
+          <source src="../assets/motion/careline-peakload-14s.mp4" type="video/mp4">
+        </video>
+        <figcaption class="t-cap">Peak Load — 14s. Own-brand film for CareLine, the AI front-desk product I own. Designed and rendered in the in-house motion system. Concept work, labelled as such.</figcaption>
+      </figure>
+    </div>
+
+    <figure class="hero-stat measure" style="margin-inline:auto">
+      <div class="hero-stat-fig">
+        <p class="t-hero">9.5&times;</p>
+        <p class="t-label">lead volume</p>
+      </div>
+      <figcaption>
+        <p class="t-lead">Took over a chiropractic account from an incumbent national agency and delivered 9.5&times; the leads at ~75% lower cost per lead &mdash; same account (114 @ $12.59 vs 12 @ $49.81).</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     01 — THE REEL. Films first: the highest-bandwidth proof on the page.
+     ========================================================================== -->
+<section id="reel" class="band">
+  <div class="rail rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">01 · The reel</p>
+      <h2 class="t-display">Films, <span class="ink">pressed play by you.</span></h2>
+      <p class="t-lead">All of these are own-brand films for CareLine and Supercharged — products I own — so every frame here is mine to show: studio and concept work, labelled as such, not client campaigns. Self-hosted from this origin. Nothing autoplays; nothing loads until you ask.</p>
+    </div>
+  </div>
+
+  <div class="strip" role="list">
+    <figure class="film" role="listitem">
+      <video controls preload="none" playsinline poster="../assets/motion/careline-frontdesk-poster.webp" width="720" height="1280">
+        <source src="../assets/motion/careline-frontdesk-16s.mp4" type="video/mp4">
+      </video>
+      <figcaption class="t-cap"><strong>Front Desk — 16s.</strong> Motion-system cut. Every film ships against a beat-sheet manifest and measured gates: a loudness window, a longest-gap check on pacing, letterbox and edge-density sweeps.</figcaption>
+    </figure>
+    <figure class="film" role="listitem">
+      <video controls preload="none" playsinline poster="../assets/motion/careline-secondcall-poster.webp" width="720" height="1280">
+        <source src="../assets/motion/careline-secondcall-16s.mp4" type="video/mp4">
+      </video>
+      <figcaption class="t-cap"><strong>Second Call — 16s.</strong> Same story, second angle — one named variable moved, everything else held. That is the whole method, and it applies to film the same as to statics.</figcaption>
+    </figure>
+    <figure class="film" role="listitem">
+      <video controls preload="none" playsinline poster="../assets/creative/ai-01-frontdesk-ad.jpg" width="1080" height="1920">
+        <source src="../assets/creative/ai-01-frontdesk-ad.mp4" type="video/mp4">
+      </video>
+      <figcaption class="t-cap"><strong>AI UGC hook + end card.</strong> Generated, judged, assembled in-house. My own review note on this hook, from the log: &ldquo;that was beautiful, that is usable, that&rsquo;s ready to go.&rdquo; Most don&rsquo;t get that note — see the gate below.</figcaption>
+    </figure>
+    <figure class="film" role="listitem">
+      <video controls preload="none" playsinline poster="../assets/creative/ai-01-frontdesk-walk.jpg" width="1080" height="1920">
+        <source src="../assets/creative/ai-01-frontdesk-walk.mp4" type="video/mp4">
+      </video>
+      <figcaption class="t-cap"><strong>AI front-desk walkthrough.</strong> The companion cut — same product, demonstration register.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02 — THE WALL. Client campaigns as they ran, then the concept set.
+     Full-bleed strips: the work is the only saturated thing on the page.
+     ========================================================================== -->
+<section id="wall">
+  <div class="rail rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">02 · The wall</p>
+      <h2 class="t-display">Client campaigns, <span class="ink">as they ran.</span></h2>
+      <p class="t-lead">Twenty client statics, every one from a campaign that actually spent money — a chiropractic screening offer written eight ways, laser hair removal in six art directions, body contouring in five castings, one GLP-1 offer. Clients appear by vertical only.</p>
+    </div>
+  </div>
+
+  <div class="strip" role="list" aria-label="Client campaign creatives">
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-01-480.webp 480w, ../assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 1"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-02-480.webp 480w, ../assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 2"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-03-480.webp 480w, ../assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 3"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-04-480.webp 480w, ../assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 4"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-01-480.webp 480w, ../assets/creative-static/medspa-laser-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 01: a woman on a white-sand beach under palm fronds; a magenta band carries the headline"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-02-480.webp 480w, ../assets/creative-static/medspa-laser-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 02: an overhead shot of a woman floating in dark green pool water, type in gold"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-04-480.webp 480w, ../assets/creative-static/medspa-laser-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 04: a woman walks out of the surf in an open white shirt; the price leads the frame"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-01-480.webp 480w, ../assets/creative-static/medspa-body-contouring-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 01: a woman in black activewear against a deep navy gradient"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-02-480.webp 480w, ../assets/creative-static/medspa-body-contouring-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 02: a woman leaps with one arm raised against a hot-pink ground"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-05-480.webp 480w, ../assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 5"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-06-480.webp 480w, ../assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 6"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-03-480.webp 480w, ../assets/creative-static/medspa-laser-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 03: a woman standing in the sea against a blue sky; the headline sits in a dark band"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-03-480.webp 480w, ../assets/creative-static/medspa-body-contouring-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 03: a low-angle hero shot against clouds, hands on hips"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-weight-loss-01-480.webp 480w, ../assets/creative-static/medspa-weight-loss-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="GLP-1 weight-loss ad: the words skinny shots in gold beside a $40 per week price capsule on white"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-07-480.webp 480w, ../assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 7"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-05-480.webp 480w, ../assets/creative-static/medspa-laser-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 05: a studio cut-out against a purple gradient; benefits sit in white bars"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-04-480.webp 480w, ../assets/creative-static/medspa-body-contouring-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 04: a woman in maroon activewear with earphones against a maroon-to-grey ground"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-06-480.webp 480w, ../assets/creative-static/medspa-laser-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-06.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 06: a client in protective eyewear during a laser session, clinician's hands in frame"></picture></div>
+    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-05-480.webp 480w, ../assets/creative-static/medspa-body-contouring-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 05: a woman stretches with her eyes closed on a bright coastline"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-08-480.webp 480w, ../assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 8"></picture></div>
+  </div>
+
+  <div class="rail rv" style="margin-top:64px">
+    <div class="sec-head" style="margin-bottom:32px">
+      <h3 class="t-display" style="font-size:clamp(28px,3.6vw,44px)">Own brand &amp; concept — <span class="ink">30 kept from 172 frames.</span></h3>
+      <p class="t-lead" style="margin-top:14px">A directed exploration for CareLine across named territories — London high-rise, before-and-after splits, holographic overlays, humanoid, podcast, product demo. No client logo, no patient, no release to chase. Concept work, not campaigns that ran, and labelled so.</p>
+    </div>
+  </div>
+
+  <div class="strip" role="list" aria-label="Own-brand concept stills">
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-01-dusk-reception-480.webp 480w, ../assets/careline/cl-01-dusk-reception-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-01-dusk-reception.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic reception desk at dusk, London skyline through floor-to-ceiling glass"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-08-ba-chaos-calm-480.webp 480w, ../assets/careline/cl-08-ba-chaos-calm-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-08-ba-chaos-calm.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a labelled before-and-after split, a chaotic front desk against a calm one"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-12-highrise-holo-480.webp 480w, ../assets/careline/cl-12-highrise-holo-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-12-highrise-holo.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a high-rise interior overlaid with holographic booking panels"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-16-holo-never-miss-480.webp 480w, ../assets/careline/cl-16-holo-never-miss-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-16-holo-never-miss.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic corridor under the line never miss a call, never lose a lead"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-18-humanoid-leaks-480.webp 480w, ../assets/careline/cl-18-humanoid-leaks-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-18-humanoid-leaks.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a humanoid figure at a desk under the line you do not need more leads, you need fewer leaks"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-06-ba-phone-console-480.webp 480w, ../assets/careline/cl-06-ba-phone-console-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-06-ba-phone-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a before-and-after split pairing a ringing desk phone with a booking confirmation"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-14-storefront-glass-480.webp 480w, ../assets/careline/cl-14-storefront-glass-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-14-storefront-glass.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a glass clinic storefront on a wet London street"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-10-london-aerial-a-480.webp 480w, ../assets/careline/cl-10-london-aerial-a-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-10-london-aerial-a.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: an aerial view of London at dawn"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-20-podcast-two-480.webp 480w, ../assets/careline/cl-20-podcast-two-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-20-podcast-two.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: two people recording a podcast at a wooden table"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-23-busy-desk-480.webp 480w, ../assets/careline/cl-23-busy-desk-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-23-busy-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a receptionist on a headset at a busy front desk"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-28-phone-screen-480.webp 480w, ../assets/careline/cl-28-phone-screen-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-28-phone-screen.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a phone screen showing an incoming AI-handled call"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-15-rooftop-crew-480.webp 480w, ../assets/careline/cl-15-rooftop-crew-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-15-rooftop-crew.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a presenter and a camera operator on a London rooftop"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-04-revenue-lounge-480.webp 480w, ../assets/careline/cl-04-revenue-lounge-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-04-revenue-lounge.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic lounge with a holographic revenue column and appointment cards"></picture></div>
+    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-30-foam-pit-480.webp 480w, ../assets/careline/cl-30-foam-pit-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-30-foam-pit.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a shoot in progress, a figure leaping into a foam pit with Big Ben behind"></picture></div>
+  </div>
+
+  <div class="rail rv strip-note">
+    <p class="t-data">54 pieces on the full wall — 20 client · 34 own-brand &amp; concept · 3 controlled tests, every tile labelled. <a href="../creative.html">The Creative Wall, with the briefs &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     03 — THE GATE. The differentiator: the reject pile, on the record.
+     Counts verified against creative/index.json (sc-ad-creative-os) 2026-08-25.
+     ========================================================================== -->
+<section id="gate" class="band">
+  <div class="measure rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">03 · The gate</p>
+      <h2 class="t-display">Most generations <span class="ink">don&rsquo;t make it.</span></h2>
+      <p class="t-lead">The wall has a bouncer. Every AI generation is logged to a manifest with its model, its named test variable and a verdict — and the reject pile is the part most portfolios would hide.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-row">
+        <p class="t-figure">109</p>
+        <div><p>generations logged in the manifest.</p></div>
+      </div>
+      <div class="ledger-row">
+        <p class="t-figure">12</p>
+        <div><p>accepted on craft.</p><p class="t-cap">The hook in the reel above is one of them.</p></div>
+      </div>
+      <div class="ledger-row">
+        <p class="t-figure">25</p>
+        <div><p>rejected — each with a written reason.</p><p class="t-cap">The notes are specific or they are useless: a phone visible in a shot that specified none, a sign that would not spell, a delivery measured slow against its own word budget. The note is the asset — the next brief inherits it.</p></div>
+      </div>
+      <div class="ledger-row">
+        <p class="t-figure">72</p>
+        <div><p>still in the queue, unjudged.</p><p class="t-cap">Logged is not shipped. Volume only counts after the verdict.</p></div>
+      </div>
+    </div>
+
+    <p class="t-lead" style="margin-top:36px">The films run the same discipline: a beat-sheet manifest per cut, then measured gates — an integrated-loudness window, a longest-gap check on speech pacing, letterbox and edge-density sweeps. A cut that misses a gate goes back, not out. Behind the wall&rsquo;s three controlled tests sit 516 prompts across six export files, 350 of them unique — one written brief and one named variable per test.</p>
+    <p class="t-cap" style="margin-top:18px; max-width:64ch">This is what &ldquo;creative volume&rdquo; means here: not more generations — more <em>judged</em> generations. The generation systems stay in-house; what they produce is what you just scrolled past.</p>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 — RUNNING RIGHT NOW. Live URLs, inherited from the claims-bound root.
+     ========================================================================== -->
+<section id="running">
+  <div class="rail rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">04 · Running right now</p>
+      <h2 class="t-display">Three live URLs, <span class="ink">one agent on a cron.</span></h2>
+      <p class="t-lead">Anyone can list capabilities. These are addresses — open them in another tab and judge for yourself. Each caption says what you will actually find, including where you will hit a sign-in wall.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <img class="shot" src="../assets/shot-revops-1200.webp"
+             srcset="../assets/shot-revops-480.webp 480w, ../assets/shot-revops-720.webp 720w, ../assets/shot-revops-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
+             alt="Screenshot: a dark sign-in card headed RevOps Cockpit, with email and password fields.">
+        <div class="card-body">
+          <h3 class="t-h3">Supercharged OS — AI operator console</h3>
+          <p class="t-cap">Next.js and Supabase, with three daily crons: scrape, enrich, then generate outreach scripts with Gemini and push them into the CRM and a cold-email sequence. <strong>What you will see is the door</strong> — the shell is public, the data is behind a sign-in, and I would rather you know that before you click than after.</p>
+          <a class="card-link t-data" href="https://revops.superchargedroi.com" target="_blank" rel="noopener">revops.superchargedroi.com<span class="vh"> (opens in a new tab)</span></a>
+          <div class="card-tags t-label">
+            <span class="tag tag-live">Live</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Sign-in wall</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="shot" src="../assets/shot-engine-proof-1200.webp"
+             srcset="../assets/shot-engine-proof-480.webp 480w, ../assets/shot-engine-proof-720.webp 720w, ../assets/shot-engine-proof-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
+             alt="Screenshot: a dark editorial audit page headed Apex Coatings and Styling — Meta Ads plus Backend Conversion Audit, labelled SAMPLE AUDIT.">
+        <div class="card-body">
+          <h3 class="t-h3">A worked Meta-ads and CRM audit</h3>
+          <p class="t-cap">How I diagnose offer, backend, creative and measurement as one revenue system rather than four line items. <strong>It is a sample</strong> — a representative audit of a category, labelled as such on its own first screen. No real client, no borrowed numbers.</p>
+          <a class="card-link t-data" href="https://sc-upwork-engine-proof.vercel.app" target="_blank" rel="noopener">sc-upwork-engine-proof.vercel.app<span class="vh"> (opens in a new tab)</span></a>
+          <div class="card-tags t-label">
+            <span class="tag tag-live">Live</span><span class="tag">Sample, not a client</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="shot" src="../assets/shot-upwork-command-1200.webp"
+             srcset="../assets/shot-upwork-command-480.webp 480w, ../assets/shot-upwork-command-720.webp 720w, ../assets/shot-upwork-command-1200.webp 1200w"
+             sizes="(max-width:819px) calc(100vw - 40px), 512px"
+             width="1200" height="750" loading="lazy" decoding="async"
+             alt="Screenshot: a dark dashboard headed Upwork Command showing a daily sends counter, a next-action card and a copyable go-live command.">
+        <div class="card-body">
+          <h3 class="t-h3">Upwork Command — the operator&rsquo;s own dashboard</h3>
+          <p class="t-cap">A daily send floor, one next action, a copyable go-live command and the saved searches behind the radar. Built for one user, which is why it says what to do next instead of showing twelve charts.</p>
+          <a class="card-link t-data" href="https://sc-upwork-command.vercel.app" target="_blank" rel="noopener">sc-upwork-command.vercel.app<span class="vh"> (opens in a new tab)</span></a>
+          <div class="card-tags t-label">
+            <span class="tag tag-live">Live</span><span class="tag">Next.js</span><span class="tag">Single-operator UI</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-body">
+          <h3 class="t-h3">Autonomous Opportunity Radar</h3>
+          <p class="t-cap">TypeScript, on a 30-minute GitHub Actions cron. It has no public URL because it holds live inbox and Slack credentials, so instead of a screenshot, here is the pipeline:</p>
+          <pre class="arch">saved-search email
+   ↓ IMAP, skip anything tagged $RadarDone
+parse  → title · URL · budget
+   ↓
+score  → apply / screen / skip   (the rubric is the IP)
+   ↓
+draft  → Claude, prompt-cached templates
+   ↓
+post   → Slack, proposal attached
+   ↓
+mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
+          <p class="t-cap"><strong>The judgment call is the interesting part.</strong> Version one read the official API — clean, but the key sits behind a manual approval gate that can stall for months, and once did. A perfect input that never turns on is worth zero. So the input became the inbox instead: no approval needed, unambiguously within terms, and that single change also deleted the dedup database, the bot and the always-on server. The workflow also ships <em>dormant-safe</em> — with no secrets set it exits green with a notice rather than failing every 30 minutes, so it arms itself the day the credentials land.</p>
+          <div class="card-tags t-label">
+            <span class="tag">TypeScript</span><span class="tag">GitHub Actions</span><span class="tag">No public URL — holds secrets</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="note">
+      <p class="t-cap"><strong>On AI voice, precisely.</strong> I shipped an AI voice agent into a client&rsquo;s booking flow in <strong>February 2025</strong>, built inside GoHighLevel, and it ran. Four live client accounts across three countries now carry voice or conversational booking workflows. Shipped and ran — <em>not</em> scaled: the enrolment volumes are single-digit to low-double, so this is a deployment claim and I will not dress it as a volume one. The front-desk agent answers, qualifies, captures booking intent and routes to the owner. It does not replace the receptionist.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     05 — THE NUMBERS. Museum placards, contract-bound. Spend leads the grid
+     and total lead volume closes it, on purpose: placed adjacently they read
+     as an implied blended cost per lead, which would be false.
+     ========================================================================== -->
+<section id="numbers" class="band">
+  <div class="rail rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">05 · The numbers</p>
+      <h2 class="t-display">Placards, <span class="ink">with sources.</span></h2>
+      <p class="t-lead">Cost per lead is quoted <strong>per campaign</strong>, never blended across an account set — a blended figure mixes brand spend with lead-gen spend and means nothing. Every placard traces to a specific account, and the proof page shows the arithmetic for each.</p>
+    </div>
+
+    <div class="placards">
+      <div class="plq">
+        <p class="t-figure">$225K+</p>
+        <p>Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K.</p>
+        <p class="t-cap">Medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B. Managed and supported — a large share of it on awareness objectives, which is exactly why it must never be divided by a lead count.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">9.5&times;</p>
+        <p>The incumbent national agency&rsquo;s lead volume, on the same chiropractic ad account, at roughly 75% lower cost per lead.</p>
+        <p class="t-cap">114 leads at $12.59 against their 12 at $49.81. Same account, same market, same period — the only comparison worth making.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">$1.88</p>
+        <p>Cost per lead across 817 B2B leads for a U.K. commercial-refrigeration installer.</p>
+        <p class="t-cap">The flagship campaign ran 709 of them at about $1.50. B2B at consumer-grade cost — the cheap exception, not the rule.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">70</p>
+        <p>Appointments booked in a 30-day window for a weight-loss clinic opening.</p>
+        <p class="t-cap">61 of them fell inside the calendar month. Booked means scheduled, not attended.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">~120</p>
+        <p>Appointments booked in roughly three months for an aesthetic clinic.</p>
+        <p class="t-cap">Double-sourced — the CRM and the client&rsquo;s own tracker agree.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">1,192</p>
+        <p>Body-contouring leads at ~US$5.40 average cost per lead (CA$7.39), plus 80 booked appointments in the client&rsquo;s tracker.</p>
+        <p class="t-cap">13 of the account&rsquo;s 15 campaigns were lead-objective — this is a lead-gen figure, not a blend.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">1,750+</p>
+        <p>Leads across one med spa programme — weight loss, Botox, laser and photofacial — including 1,200+ weight-loss leads at ~$9 cost per lead.</p>
+        <p class="t-cap">1,781 platform-verified.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">730+</p>
+        <p>Tattoo-removal leads at ~$19&ndash;$21 per lead in a saturated Brooklyn/NYC market.</p>
+        <p class="t-cap">737 verified; the flagship campaign ran 526 at $19.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">89</p>
+        <p>Appointments booked in ~10 weeks at the Montréal location of a national Canadian laser &amp; wax franchise — on 350+ bilingual FR/EN leads, roughly one booked appointment per four leads.</p>
+        <p class="t-cap">89 dated rows, so 89 — never rounded to 90. Held in French and English, to the calendar.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">215+</p>
+        <p>Scheduled appointments from the agency&rsquo;s own B2B client-acquisition campaigns, at ~$62 each.</p>
+        <p class="t-cap">Meta schedule_website conversions — &ldquo;scheduled&rdquo; is the platform&rsquo;s word, and mine.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure">6,250+</p>
+        <p>Qualified leads across medspa, aesthetics, chiropractic, tattoo-removal, weight-loss and B2B campaigns.</p>
+        <p class="t-cap">Qualified is doing real work in that sentence: the consumer forms carried qualifying questions and the B2B forms filtered for $20K+/month businesses. Sales-ready, not raw volume.</p>
+      </div>
+      <div class="plq">
+        <p class="t-figure" aria-hidden="true">&rarr;</p>
+        <p>Every placard above has a &ldquo;how verified&rdquo; breakdown — the arithmetic, the source system, and the badge it earned.</p>
+        <p class="t-cap"><a href="../proof.html">The proof page, claim by claim &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06 — YOUR ARITHMETIC. The calculator, engine inherited verbatim from the
+     root page. No network, no storage; the default result is pre-rendered.
+     ========================================================================== -->
+<section id="calc">
+  <div class="measure rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">06 · Your arithmetic</p>
+      <h2 class="t-display">Runs on your numbers, <span class="ink">not mine.</span></h2>
+      <p class="t-lead">A page full of my results should still hand you something that computes yours. This is what a busy phone line costs, on your inputs, with every assumption labelled as one.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-head">
+        <h3 class="t-h3">What a busy phone line costs you</h3>
+        <div class="cur" role="group" aria-label="Currency">
+          <button type="button" data-cur="$" aria-pressed="true">$ USD</button>
+          <button type="button" data-cur="&pound;" aria-pressed="false">&pound; GBP</button>
+        </div>
+      </div>
+
+      <div class="calc-grid">
+        <div class="calc-controls">
+          <div class="field">
+            <label for="job">Average job or appointment value <span class="val t-data" id="jobV">$500</span></label>
+            <input id="job" type="range" min="100" max="6000" step="50" value="500" aria-valuetext="$500">
+            <span class="hint t-cap">Your typical ticket — not your best one.</span>
+          </div>
+          <div class="field">
+            <label for="calls">Inbound calls per week <span class="val t-data" id="callsV">30</span></label>
+            <input id="calls" type="range" min="5" max="150" step="1" value="30" aria-valuetext="30 calls per week">
+            <span class="hint t-cap">Roughly how many people ring you in a normal week.</span>
+          </div>
+          <div class="field">
+            <label for="miss">Share that go unanswered <span class="val t-data" id="missV">25%</span></label>
+            <input id="miss" type="range" min="5" max="70" step="1" value="25" aria-valuetext="25 percent">
+            <span class="hint t-cap">A model default. There is no verified industry figure behind it — use your own number.</span>
+          </div>
+          <div class="field">
+            <label for="book">Of those, share that was ready to book <span class="val t-data" id="bookV">30%</span></label>
+            <input id="book" type="range" min="10" max="70" step="1" value="30" aria-valuetext="30 percent">
+            <span class="hint t-cap">Deliberately conservative — &ldquo;even if only one in three would have booked.&rdquo;</span>
+          </div>
+        </div>
+
+        <div class="calc-out">
+          <p class="t-label" style="color:var(--text-faint)">Estimated monthly exposure</p>
+          <div id="calcOut" aria-live="polite" aria-atomic="true">
+            <p class="t-figure out-big" id="monthly">$4,141</p>
+            <p class="t-cap">per month walking to whoever answered first</p>
+            <p class="t-data out-annual" id="annual">$49.7k</p>
+            <p class="t-cap">a year, on these numbers</p>
+          </div>
+          <p class="chain"><b id="c1">30</b> calls/wk &times; <b id="c2">25%</b> = <b id="c3">7.5</b> missed/wk &times; 4.33 wks &times; <b>85%</b> who never ring back &times; <b id="c4">30%</b> who were ready &asymp; <b id="c5">8.3</b> jobs/mo &times; <b id="c6">$500</b></p>
+        </div>
+      </div>
+
+      <div class="honesty">
+        <p class="t-cap"><strong>This is your arithmetic, not my result.</strong> It computes what your own inputs imply — it is not a claim about anything I have delivered. Two of the four inputs are model defaults rather than measured figures, and both say so. The 85% is the same kind of assumption. Nothing is sent anywhere; the maths runs in this browser tab and stops when you close it.<noscript> The sliders need JavaScript — with it off, every figure above stays at the worked example it is printed with.</noscript></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 — THE WORK. Links into the existing 18 case pages, untouched.
+     ========================================================================== -->
+<section id="work" class="band">
+  <div class="measure rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">07 · The work</p>
+      <h2 class="t-display">Eighteen cases, <span class="ink">each with what it does not claim.</span></h2>
+      <p class="t-lead">Every case page ends with a section headed &ldquo;what this case does not claim&rdquo; — the boundary stated before anyone has to ask for it. Seven of the eighteen carry no figure at all, because no approved figure exists for them, and they say so rather than reaching for a number.</p>
+    </div>
+
+    <div class="work">
+      <a href="../work/chiro-head-to-head.html">Head-to-head against an incumbent national agency<span class="t-cap">Chiropractic · same ad account</span></a>
+      <a href="../work/b2b-refrigeration.html">B2B refrigeration at consumer-grade cost per lead<span class="t-cap">Commercial refrigeration · U.K.</span></a>
+      <a href="../work/weight-loss-clinic-launch.html">Filling a calendar from zero at a clinic opening<span class="t-cap">Weight loss · U.S.</span></a>
+      <a href="../work/aesthetic-clinic-bookings.html">The leaky middle, between the lead and the consultation<span class="t-cap">Aesthetic clinic</span></a>
+      <a href="../work/montreal-bilingual.html">Bilingual acquisition held in-language to the calendar<span class="t-cap">Beauty · Canada · FR/EN</span></a>
+      <a href="../work/medspa-full-program.html">A full med spa programme across four service lines<span class="t-cap">Med spa · U.S.</span></a>
+      <a href="../work/tattoo-removal-studio.html">Tattoo removal in the most expensive consumer market<span class="t-cap">Tattoo removal · U.S.</span></a>
+      <a href="../work/body-contouring.html">A sustained monthly offer cycle in a small catchment<span class="t-cap">Body contouring · Canada</span></a>
+      <a href="../work/agency-own-pipeline.html">Running the play on my own business<span class="t-cap">B2B · selling to clinic owners</span></a>
+      <a href="../work/aesthetics-group.html">A group running three marketing jobs at once<span class="t-cap">Multi-location aesthetics</span></a>
+      <a href="../work/spine-clinic.html">A priced offer, bilingual campaigns, AI voice in the booking flow<span class="t-cap">Chiropractic · U.S.</span></a>
+      <a href="../work/wedding-venue-b2b.html">A survey-qualified cross-border funnel<span class="t-cap">Venue B2B · AI voice</span></a>
+      <a href="../work/eye-care-device-launch.html">Launching a device inside an existing medical practice<span class="t-cap">Eye care · U.S.</span></a>
+      <a href="../work/pmu-clinic.html">Where the only metric is what fraction of enquiries book<span class="t-cap">Permanent makeup</span></a>
+      <a href="../work/recruitment-lead-gen.html">Recruitment lead-gen as a bid-strategy problem<span class="t-cap">Recruitment</span></a>
+      <a href="../work/home-services-rebooking.html">The retention half, run on my own customers<span class="t-cap">Home services</span></a>
+      <a href="../work/medspa-laser-offers.html">The account whose numbers are gone — and what survived it<span class="t-cap">Med spa · laser</span></a>
+      <a href="../work/ecommerce-college-venture.html">The business I built to pay my own tuition<span class="t-cap">E-commerce · 2017–2021</span></a>
+    </div>
+
+    <div class="linkrow t-cap" style="margin-top:22px">
+      <a href="../work.html">All eighteen cases, with the index</a>
+      <a href="../creative.html">The Creative Wall</a>
+      <a href="../proof.html">The proof page</a>
+      <a href="../index.html">The instrument-panel version of this site</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="measure">
+    <div class="close-line">
+      <h2 class="t-display">If the work fits,<br><span class="ink">the conversation is short.</span></h2>
+      <div class="hero-meta">
+        <a class="t-label btn-primary" href="mailto:jesusalexelamaro@gmail.com">jesusalexelamaro@gmail.com</a>
+        <a class="t-label" href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
+        <a class="t-label" href="https://github.com/AlexFC0810">GitHub</a>
+        <a class="t-label" href="../Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
+      </div>
+    </div>
+
+    <div class="disclaim">
+      <p class="t-label" style="color:var(--text-dim)">What this page does not claim</p>
+      <ul>
+        <li class="t-cap">Not client revenue, and not ROAS. I do not have post-booking visibility, and closing is the client&rsquo;s side of the line. What I claim is leads, booked appointments and the follow-up systems between them.</li>
+        <li class="t-cap">Not a blended cost per lead. Total spend divided by total leads is not a CPL and I will not quote one.</li>
+        <li class="t-cap">Not scaled AI voice. Shipped, and ran, from February 2025 — at single-digit to low-double enrolment volumes.</li>
+        <li class="t-cap">Not client campaigns, where the label says otherwise. The films and concept stills are own-brand studio work for products I own, and each caption says so.</li>
+        <li class="t-cap">Not client identities. Clients appear by vertical and country only.</li>
+        <li class="t-cap">The calculator claims nothing at all. It is your arithmetic on your inputs, with its assumptions labelled as assumptions.</li>
+      </ul>
+    </div>
+    <p class="t-cap" style="margin-top:26px">Alex Amaro · paid media and the AI systems behind it · remote, United States · English and Spanish.</p>
+    <p class="t-cap" style="margin-top:6px">B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit). Associate&rsquo;s — University of Wisconsin&ndash;Oshkosh (conferred). HubSpot-certified; the builds are GoHighLevel.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* --- the calculator. Engine inherited verbatim from the root page.
+         No network, no storage. --- */
+  try{
+    var job=document.getElementById('job'), calls=document.getElementById('calls'),
+        miss=document.getElementById('miss'), book=document.getElementById('book');
+    if(job&&calls&&miss&&book){
+      var CUR='$';
+      var fmt=function(n){ return CUR + Math.round(n).toLocaleString('en-US'); };
+      var fmtBig=function(n){
+        if(n>=1e6)  return CUR + (Math.round(n/1e4)/100).toLocaleString('en-US') + 'M';
+        if(n>=1000) return CUR + (Math.round(n/100)/10).toLocaleString('en-US') + 'k';
+        return fmt(n);
+      };
+      var set=function(id,v){ var el=document.getElementById(id); if(el) el.textContent=v; };
+      var r1=function(n){ return Math.round(n*10)/10; };
+
+      var compute=function(){
+        var v=+job.value, c=+calls.value, m=+miss.value/100, b=+book.value/100;
+        var missedWk   = c*m;
+        var lostReadyMo= missedWk*4.33*0.85;   /* 85% of voicemail callers never ring back */
+        var lostJobsMo = lostReadyMo*b;
+        var monthly    = lostJobsMo*v;
+
+        set('jobV',   fmt(v));
+        set('callsV', String(c));
+        set('missV',  (+miss.value)+'%');
+        set('bookV',  (+book.value)+'%');
+        set('monthly',fmt(monthly));
+        set('annual', fmtBig(monthly*12));
+
+        job.setAttribute('aria-valuetext', fmt(v));
+        calls.setAttribute('aria-valuetext', c + ' calls per week');
+        miss.setAttribute('aria-valuetext', (+miss.value) + ' percent');
+        book.setAttribute('aria-valuetext', (+book.value) + ' percent');
+        set('c1',String(c)); set('c2',(+miss.value)+'%'); set('c3',String(r1(missedWk)));
+        set('c4',(+book.value)+'%'); set('c5',String(r1(lostJobsMo))); set('c6',fmt(v));
+      };
+
+      [job,calls,miss,book].forEach(function(el){ el.addEventListener('input',compute); });
+
+      document.querySelectorAll('.cur button').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          document.querySelectorAll('.cur button').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+          btn.setAttribute('aria-pressed','true');
+          CUR = btn.getAttribute('data-cur');
+          compute();
+        });
+      });
+
+      compute();
+    }
+  }catch(e){ /* the pre-rendered default result stays on screen */ }
+
+  /* --- nav: menu button below 680px, and the position-based scroll-spy
+         inherited from the root page. Neither gates any content. --- */
+  try{
+    var toggle=document.getElementById('navToggle'), links=document.getElementById('navLinks');
+    if(toggle&&links){
+      var setOpen=function(open){
+        if(open){ links.setAttribute('data-open',''); } else { links.removeAttribute('data-open'); }
+        toggle.setAttribute('aria-expanded', open?'true':'false');
+      };
+      toggle.addEventListener('click',function(){ setOpen(toggle.getAttribute('aria-expanded')!=='true'); });
+      links.addEventListener('click',function(e){ if(e.target&&e.target.closest&&e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.keyCode===27) setOpen(false); });
+      window.addEventListener('resize',function(){ if(window.innerWidth>=680) setOpen(false); });
+    }
+
+    var order=['top','reel','wall','gate','running','numbers','work'], linkFor={};
+    order.forEach(function(id){
+      var a=document.querySelector('header.nav a[href="#'+id+'"]'); if(a) linkFor[id]=a;
+    });
+    var setCurrent=function(id){
+      order.forEach(function(k){ if(linkFor[k]) linkFor[k].removeAttribute('aria-current'); });
+      if(linkFor[id]) linkFor[id].setAttribute('aria-current','true');
+    };
+    var sections=order.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var tops=[], lastId=null;
+    var measure=function(){
+      if(!window.innerWidth) return;
+      tops=sections.map(function(s){ return s.getBoundingClientRect().top+window.scrollY; });
+    };
+    var tick=function(){
+      if(!tops.length) return;
+      var line=window.scrollY+59+Math.min(160, window.innerHeight*0.25), cur=sections[0];
+      for(var i=0;i<sections.length;i++){ if(tops[i]<=line) cur=sections[i]; }
+      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) cur=sections[sections.length-1];
+      if(cur&&cur.id!==lastId){ lastId=cur.id; setCurrent(cur.id); }
+    };
+    window.addEventListener('scroll', tick, {passive:true});
+    window.addEventListener('resize', function(){ measure(); tick(); });
+    window.addEventListener('load', function(){ measure(); tick(); });
+    measure(); tick();
+  }catch(e){ /* the nav degrades to plain anchor links */ }
+
+  /* --- one film at a time: pressing play on any video pauses the others.
+         Communicates nothing visually; it just prevents two soundtracks. --- */
+  try{
+    var vids=[].slice.call(document.querySelectorAll('video'));
+    vids.forEach(function(v){
+      v.addEventListener('play',function(){
+        vids.forEach(function(o){ if(o!==v && !o.paused) o.pause(); });
+      });
+    });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
