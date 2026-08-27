@@ -1,0 +1,27 @@
+{
+  "note": "Leak-regression tripwire, not secrecy: a determined reader can dictionary-guess tokens. Its job is catching the accident class that already happened twice. Full-strength context-aware lint runs nightly from the private vault.",
+  "algo": "sha256(salt|token)",
+  "salt": "proof-public-banlist-v1",
+  "normalization": "lowercase; strip punctuation except word chars, dots and spaces; collapse whitespace; tokens are checked as normalized 1–4-gram word sequences and numeric tokens",
+  "hashes": [
+    "0301457809135f7bbdd3e52b78f2127d681fa85a70203e653bdf76eb4974def2",
+    "0366e7bf513bfb6e98fa5e182673170abe0b68af86d8781d1eaed69288058163",
+    "06e30ff669cfdc93bdd6c99b7815ec60e2909b7fb5e06c482a4f0e03cccf808c",
+    "21b3238a3e703f3ca0e0a29a51bd8a35822777841c30c0f678b16169d5eee03b",
+    "280c0af3245ae204cca2a855163edba64ce9ddf2ec19be7632080ce851f21503",
+    "29cec760999a64d5f158a86bfb58f2901a5be9dbebf0f4f2f81a590a6f48b21c",
+    "2c4fbe0076e888ab00070553e838ba93d66272102d20ff445394de586d4c3305",
+    "4550c301ab54c6d238ac1ecf36b857cff3e46313bc8b31c106a258c313fd5093",
+    "45cca4980784927297a97e5401a12aa68408a12c2e1d817edc5d3febcdc033d8",
+    "574f6c106286c0560ae784b75f4956a68d8d437d81bf75a4abd9df418ad6cf25",
+    "63360fd4fafda2a39e4e09aaeca947baf6accf2813ef3c037b35495f537fa9f0",
+    "6664e04df805d2a92fb3f2cf2c01066780c5a98c8871951266494a1d58a59ad6",
+    "b690e97f498af0c78620ebad416afc353075a2fb1269ee698b66faff945c2677",
+    "c1902075c06ffe3cea08581e2d5803977dd421b965d19c53aab1d275abcf08a2",
+    "ca4a9b9be4e516c67e1e6c5f812c579f1d226443a7ad8cd7d12469b24cb84635",
+    "e245a79a0dde407f5365b69b71589b35ff870755cd3d6e1b2de3ea215ebcbca2",
+    "e81cca8149245be9f2430a0e9f3f62f4dc44b4b6dc1e002ff4404e0718ea560d",
+    "e94fe7b01c60109a94e0b744f6dadcb5b3af1ad63a1f60a9a72dc87d7d959f4f",
+    "fade654c2f20f0d86199e9a70882b11e38964780f90928afa3da5824776fc0bd"
+  ]
+}

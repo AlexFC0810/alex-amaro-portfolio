@@ -1,0 +1,615 @@
+{
+  "schema": "public-claims/v1",
+  "contract_version": "1.12.0",
+  "generated": "2026-08-27",
+  "subject": {
+    "name": "Alex Amaro",
+    "site": "https://alexfc0810.github.io/alex-amaro-portfolio/",
+    "contact": "LinkedIn and GitHub are linked from every page of the site"
+  },
+  "derivation": "Compiled from the private claims contract. Client identities, evidence file paths and the ban-rule internals are deliberately absent. What remains is exactly what the subject is prepared to defend in a room.",
+  "integrity": {
+    "algo": "sha256",
+    "canonical": "af54ba8205b8d52eedb91ff8b1138ce327aaaa32d92745c21ba7c3861ca62979"
+  },
+  "principles": [
+    {
+      "id": "P1",
+      "text": "Cost per lead is quoted per campaign, never as total spend divided by total leads."
+    },
+    {
+      "id": "P2",
+      "text": "The attribution boundary: leads, booked appointments and follow-up systems are claimed. Client revenue and ROAS are not — closing is client-side, and post-booking visibility usually does not exist. Downstream closes are lead-quality evidence only."
+    },
+    {
+      "id": "P3",
+      "text": "Booked means scheduled, not attended, unless a show is separately verified."
+    },
+    {
+      "id": "P4",
+      "text": "Clients are identified by vertical and market, never by name."
+    },
+    {
+      "id": "P5",
+      "text": "A figure whose source cannot be produced is retired, at any size, even when it flatters. Retirements stay on the record with their reasons."
+    }
+  ],
+  "status_legend": {
+    "verified": "Platform- or artifact-verified; re-derived from primary records.",
+    "partial": "The headline is sourced; a secondary figure rests on a weaker source, and the claim says which.",
+    "attested": "Founder-attested, labelled as testimony in the wording itself — never silently.",
+    "retired": "Withdrawn by the subject. Kept on the record because the withdrawal is part of the record."
+  },
+  "evidence_tiers": {
+    "A": {
+      "name": "hard artifact",
+      "definition": "A retained, re-checkable artifact exists — a platform export, a committed data pull, a dated CRM record."
+    },
+    "B": {
+      "name": "measured, uncaptured",
+      "definition": "Measured on a live platform; the account or export did not survive client off-boarding. The measurement happened; the receipt did not."
+    },
+    "C": {
+      "name": "structural",
+      "definition": "The system itself is the evidence — workflow records, build artifacts, verified configurations."
+    },
+    "D": {
+      "name": "attestation",
+      "definition": "Founder testimony, labelled as exactly that."
+    }
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "label": "Meta ad spend managed",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "14+ accounts — clinics, med spas, weight-loss, tattoo-removal, local service and B2B — U.S., Canada, U.K.",
+      "headline": {
+        "value": "$225K+",
+        "unit": "ad spend",
+        "qualifier": "14+ accounts, U.S., Canada and the U.K. (≈$229,100 USD-eq verified across 14 accounts with non-zero spend; excludes client accounts lost at off-boarding, so true lifetime is higher)"
+      },
+      "wording": {
+        "resume": "Managed/supported $225K+ in Meta ad spend across 14+ clinic, medspa, weight-loss, tattoo-removal, local-service and B2B accounts in the U.S., Canada and the U.K.",
+        "linkedin": "I've managed $225K+ in Meta ad spend across 14+ U.S., Canada and U.K. accounts.",
+        "portfolio_employer": "$225K+ in Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B.",
+        "portfolio_client": "We've managed $225K+ in Meta ad spend for businesses like yours — clinics, med spas, local services and B2B — across the U.S., Canada and the U.K.",
+        "one_liner": "$225K+ Meta spend managed (14+ accounts)"
+      },
+      "provenance": "Two independent platform pulls, nineteen days apart, agree within a tenth of a percent; the per-account export is retained in the vault.",
+      "boundaries": [
+        "A majority of this spend sits on one account and includes awareness objectives — it is spend managed, and it is never paired with lead totals to imply a blended cost per lead."
+      ]
+    },
+    {
+      "id": "C2",
+      "label": "Cost per lead (per campaign)",
+      "status": "partial",
+      "evidence_tier": "A",
+      "client": "across the client base",
+      "headline": {
+        "value": "$4–$22",
+        "unit": "CPL",
+        "qualifier": "per campaign; as low as ~$1.50–$4 on the best campaigns"
+      },
+      "wording": {
+        "resume": "Delivered cost-per-lead as low as ~$4 (under $2 on a B2B campaign), with strong lead-gen campaigns commonly in the $4–$22 range per campaign.",
+        "linkedin": "Strong lead campaigns at $4–22 cost-per-lead per campaign (as low as ~$4).",
+        "portfolio_employer": "Cost per lead as low as ~$4, with strong campaigns commonly $4–$22 — quoted per campaign, never blended.",
+        "portfolio_client": "Qualified leads commonly in the $4–$22 range per campaign — with best campaigns under $4.",
+        "one_liner": "$4–$22 CPL per campaign (as low as ~$4)"
+      },
+      "provenance": "A range assembled from per-campaign platform figures held in the vault's evidence files; quoted per campaign by rule.",
+      "boundaries": [
+        "Never a blanket rate — a range across strong campaigns, quoted per campaign.",
+        "Never derived by dividing total spend by total leads."
+      ]
+    },
+    {
+      "id": "C3",
+      "label": "Beat incumbent national agency (hero)",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "chiropractic clinic, U.S.",
+      "headline": {
+        "value": "9.5×",
+        "unit": "lead volume",
+        "qualifier": "9.5x the lead volume at ~75% lower CPL, same account (114 at $12.59 vs the incumbent's 12 at $49.81)"
+      },
+      "wording": {
+        "resume": "Outperformed an incumbent national chiropractic agency on the same client account: 114 leads at $12.59 CPL vs. their 12 at $49.81 — 9.5x the lead volume at ~75% lower cost per lead.",
+        "linkedin": "Outperformed a national incumbent agency on the SAME client account — 9.5x the lead volume at ~75% lower CPL (114 leads at $12.59 vs. their 12 at $49.81).",
+        "portfolio_employer": "Took over a chiropractic account from an incumbent national agency and delivered 9.5x the leads at ~75% lower cost per lead — same account (114 @ $12.59 vs 12 @ $49.81).",
+        "portfolio_client": "When a clinic ran us head-to-head against their national agency, we delivered 9.5x the leads at ~75% lower cost per lead — on the same account.",
+        "one_liner": "9.5x an agency's leads at ~75% lower CPL, same account"
+      },
+      "provenance": "Exact-match verified from the live ad account — both operators' campaigns are read from the same account's own reporting.",
+      "boundaries": [
+        "A same-account comparison, not a controlled split test.",
+        "The incumbent agency is never identified.",
+        "Client revenue is not claimed."
+      ]
+    },
+    {
+      "id": "C4",
+      "label": "Med spa laser + body-sculpting acquisition",
+      "status": "attested",
+      "evidence_tier": "D",
+      "client": "med spa, U.S.",
+      "headline": {
+        "value": "~$10",
+        "unit": "cost per lead (founder-attested level)",
+        "qualifier": "laser and body-sculpting acquisition for a U.S. med spa on an established, heavily-spent ad account, built on two named priced offers and a GoHighLevel follow-up system. Founder-attested from memory: the ad account was revoked at off-boarding, and the CRM-side recovery route was tested live and returns no records."
+      },
+      "wording": {
+        "resume": "Ran laser and body-sculpting acquisition for a U.S. med spa on an established, heavily-spent ad account — two named priced voucher offers wired into a GoHighLevel system I built (per-offer SMS follow-up, per-offer team alerting, a dialler working aged leads, opt-out compliance). Once the account was dialled in it was running at about $10 a lead — among the lowest cost per lead that account had ever recorded. That figure is from memory, not a screenshot.",
+        "linkedin": "A med spa account I ran on laser and body-sculpting: two priced voucher offers, a full GoHighLevel follow-up build behind them, and once it was dialled in we were getting leads at about $10 — about the cheapest that account had ever run. I say plainly that this one is from memory: the client revoked the ad account at off-boarding, so I cannot put the platform record in front of you.",
+        "portfolio_employer": "Med spa laser and body-sculpting lead-gen on an established account — offer design ($299 full-body laser voucher, $199 body-contouring voucher), Meta lead forms wired into a GoHighLevel system with per-offer follow-up, alerting and aged-lead dialling. Level once dialled in: about $10 a lead, founder-attested and labelled as such. The client CRM still holds the contacts and workflow records that show the funnel ran. For a platform-verified laser figure, see the ~$16 CPL on a different account that is still re-pullable today.",
+        "portfolio_client": "We run laser and aesthetic acquisition on priced entry offers, with the follow-up system built behind them — on one med spa account that meant leads at around $10 once it was dialled in.",
+        "one_liner": "Med spa laser/body-sculpting acquisition at ~$10 a lead (founder-attested level)"
+      },
+      "provenance": "Founder testimony, labelled as testimony — the platform record did not survive off-boarding, and the claim says so in its own wording.",
+      "boundaries": [
+        "Stated as a level once dialled in, never as a before/after improvement.",
+        "No second cost figure is ever placed beside it.",
+        "This account's spend is not counted toward managed spend."
+      ]
+    },
+    {
+      "id": "C5",
+      "label": "Body-sculpting / contouring leads",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "body-contouring clinic, Canada",
+      "headline": {
+        "value": "~US$5.40",
+        "unit": "average cost per lead",
+        "qualifier": "1,192 leads at CA$7.39 each (~US$5.40 at 0.73) across a full Canadian body-contouring account — CA$8,804.13 on 13 lead campaigns of 15. Alex ran the whole account and 99.6% of its spend was lead-objective, so the account average is not a blended figure. 80 booked appointments (client tracker). Lead volume and cost are platform-verified; the booked count is tracker-corroborated."
+      },
+      "wording": {
+        "resume": "Ran a full body-contouring account to 1,192 leads at ~US$5.40 each (CA$7.39) — 80 booked appointments tracked.",
+        "linkedin": "1,192 body-contouring leads at about US$5.40 each — a whole Canadian account, not a cherry-picked campaign.",
+        "portfolio_employer": "1,192 leads at ~US$5.40 average cost per lead (CA$7.39) across an entire Canadian body-contouring account — CA$8,804 spend, 13 lead campaigns, 80 booked appointments tracked.",
+        "portfolio_client": "For body-contouring clinics: 1,192 leads at about US$5.40 each across the whole account — with 80 appointments booked.",
+        "one_liner": "1,192 body-contouring leads @ ~US$5.40 avg (+80 booked)"
+      },
+      "provenance": "Lead volume and cost are platform-verified from the raw export; the booked count comes from the client's tracker and is labelled as such.",
+      "boundaries": [
+        "The account average is honest because the whole account was lead-objective — it is not a blended figure.",
+        "The 80 booked appointments are tracker-corroborated, not platform-verified, and the claim says which."
+      ]
+    },
+    {
+      "id": "C6",
+      "label": "Booked appointments — one month",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "weight-loss clinic, U.S. — grand opening",
+      "headline": {
+        "value": "70",
+        "unit": "booked appointments",
+        "qualifier": "booked appointments in a 30-day window (2025-06-24 to 07-23); 61 within the July calendar month — weight-loss clinic grand opening"
+      },
+      "wording": {
+        "resume": "Booked 70 appointments in a 30-day window for a weight-loss clinic grand opening (61 within the calendar month), via paid ads and an integrated GoHighLevel follow-up system.",
+        "linkedin": "70 booked appointments in a 30-day window for a weight-loss clinic grand opening.",
+        "portfolio_employer": "70 booked appointments in a 30-day window (61 in the calendar month) for a weight-loss clinic grand opening.",
+        "portfolio_client": "70 appointments booked in 30 days for a weight-loss clinic opening.",
+        "one_liner": "70 booked appointments in 30 days"
+      },
+      "provenance": "Verified from the CRM tracker, deduplicated row by row.",
+      "boundaries": [
+        "Booked means scheduled, not attended."
+      ]
+    },
+    {
+      "id": "C7",
+      "label": "Booked appointments — 90 days",
+      "status": "partial",
+      "evidence_tier": "B",
+      "client": "aesthetic clinic",
+      "headline": {
+        "value": "~120",
+        "unit": "booked appointments",
+        "qualifier": "in ~3 months (aesthetic clinic) — double-sourced: 113 tracker + 120 GHL"
+      },
+      "wording": {
+        "resume": "Booked ~120 appointments in ~3 months for an aesthetic clinic.",
+        "linkedin": "~120 appointments booked in ~3 months for an aesthetic clinic.",
+        "portfolio_employer": "~120 appointments booked in roughly three months for an aesthetic clinic (double-sourced: CRM + tracker).",
+        "portfolio_client": "~120 appointments booked in about three months for an aesthetic clinic.",
+        "one_liner": "~120 booked appointments in ~3 months"
+      },
+      "provenance": "Double-sourced — the client tracker and the CRM agree within a handful of rows; the platform-side export did not survive off-boarding.",
+      "boundaries": [
+        "Booked means scheduled — show rate is not claimed.",
+        "Quoted as an approximation, never rounded up."
+      ]
+    },
+    {
+      "id": "C8",
+      "label": "Montreal bilingual campaign",
+      "status": "partial",
+      "evidence_tier": "A",
+      "client": "beauty brand, Montreal (bilingual FR/EN)",
+      "headline": {
+        "value": "350+",
+        "unit": "bilingual leads",
+        "qualifier": "350+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — roughly one booked appointment per four leads. The floor is set below a photographed, DOM-verified CRM total of 384. Exact CPL permanently retired (ad account revoked at off-boarding)."
+      },
+      "wording": {
+        "resume": "Generated 350+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks (~40/month) for a Montreal beauty brand — roughly one booking per four leads, campaigns and follow-up run in-language, not translated.",
+        "linkedin": "350+ bilingual FR/EN leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — built and run in-language, about one booking for every four leads.",
+        "portfolio_employer": "350+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — roughly one booked appointment per four leads.",
+        "portfolio_client": "For a Montreal brand: 350+ bilingual leads and 89 booked appointments in about ten weeks — roughly one booking for every four leads, campaigns run in-language.",
+        "one_liner": "350+ bilingual leads, 89 booked in ~10 weeks (~1 in 4)"
+      },
+      "provenance": "The lead floor sits under a photographed, DOM-verified count in a dedicated sub-account that held nothing else; the booked count is exactly the number of dated rows in the client's tracker.",
+      "boundaries": [
+        "Exact cost per lead is retired in every form — the ad account was revoked and nobody can check it, so it is not quoted.",
+        "89 means 89 dated rows — a row without an appointment date is not a booking."
+      ]
+    },
+    {
+      "id": "C9",
+      "label": "B2B refrigeration lead-gen",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "commercial-refrigeration installer, U.K.",
+      "headline": {
+        "value": "~$1.88",
+        "unit": "CPL, B2B",
+        "qualifier": "817 leads for a commercial-refrigeration installer; flagship campaign 709 leads at £1.18 (~$1.50); ongoing since June 2024"
+      },
+      "wording": {
+        "resume": "Generated 817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead — 709 of them at £1.18 (~$1.50) on the flagship campaign.",
+        "linkedin": "817 B2B leads for a commercial-refrigeration installer at ~$1.88 per lead (flagship campaign ~$1.50).",
+        "portfolio_employer": "817 B2B leads at ~$1.88 CPL for a UK commercial-refrigeration installer — flagship campaign 709 leads at ~$1.50, ongoing since June 2024. The lead forms carried qualification, and the client reported a completed installation off the back of the leads.",
+        "portfolio_client": "B2B works too: 817 leads for a commercial-refrigeration installer at under $2 per lead, running since 2024 — and the client told us they completed an installation off the back of them.",
+        "one_liner": "817 B2B leads at ~$1.88 CPL"
+      },
+      "provenance": "Platform-verified on an account still in Meta access, running continuously since June 2024 — re-checkable today.",
+      "boundaries": [
+        "The cheap exception — B2B is not generalized from it.",
+        "The client's completed installation is lead-quality evidence, never claimed revenue."
+      ]
+    },
+    {
+      "id": "C10",
+      "label": "E-commerce (2017–2021)",
+      "status": "attested",
+      "evidence_tier": "D",
+      "client": "own venture — Amazon/eBay, through college",
+      "headline": {
+        "value": "multi-six-figure",
+        "unit": "e-commerce business",
+        "qualifier": "built through college, self-funding tuition (founder-attested)"
+      },
+      "wording": {
+        "resume": "Built and ran a multi-six-figure Amazon/eBay business while attending college full-time — self-funding tuition — owning sourcing, inventory, fulfillment, customer service, and supplier relationships.",
+        "linkedin": "Built and ran a multi-six-figure online retail business while in college full-time — how I paid tuition.",
+        "portfolio_employer": "Built a multi-six-figure Amazon/eBay business from scratch while in college full-time — the operating instincts behind how I build marketing systems.",
+        "portfolio_client": "Founder DNA: built a multi-six-figure e-commerce business from scratch while in college — we run your campaigns like operators, not vendors.",
+        "one_liner": "Multi-six-figure e-commerce business built through college"
+      },
+      "provenance": "Founder testimony, labelled as testimony — the marketplace history is gone and no checkable number is quoted.",
+      "boundaries": [
+        "No revenue figure and no review score is quoted — the claim is told at the strength the testimony supports."
+      ]
+    },
+    {
+      "id": "B1",
+      "label": "Total qualified leads",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "across the client base",
+      "headline": {
+        "value": "6,250+",
+        "unit": "qualified leads",
+        "qualifier": "itemized floor — 6,295 counted account by account from clean lead-form/lead-action campaigns only; excludes awareness and traffic spend, and excludes accounts lost at off-boarding"
+      },
+      "wording": {
+        "resume": "Generated 6,250+ qualified leads across paid-social campaigns — cost per lead quoted per campaign, never blended.",
+        "linkedin": "6,250+ qualified leads generated across paid social.",
+        "portfolio_employer": "6,250+ qualified leads across medspa, aesthetics, chiropractic, tattoo-removal, weight-loss and B2B campaigns.",
+        "portfolio_client": "6,250+ qualified leads generated for clients — and that's a counted floor, not an estimate.",
+        "one_liner": "6,250+ qualified leads"
+      },
+      "provenance": "An itemized floor — counted account by account from clean lead campaigns only, excluding awareness and traffic spend, and excluding accounts lost at off-boarding.",
+      "boundaries": [
+        "Never paired with total spend to imply a blended cost per lead."
+      ]
+    },
+    {
+      "id": "B2",
+      "label": "Full medspa program (one clinic)",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "med spa, U.S. — one clinic, full program",
+      "headline": {
+        "value": "1,750+",
+        "unit": "leads",
+        "qualifier": "one clinic, full program — weight-loss, Botox, laser & photofacial (1,781 platform-verified); incl. 1,200+ weight-loss leads at ~$9 CPL"
+      },
+      "wording": {
+        "resume": "Ran a full med spa lead-gen program for one clinic — 1,750+ leads across weight-loss, Botox, laser and photofacial, including 1,200+ weight-loss leads at ~$9 CPL.",
+        "linkedin": "Full medspa program for one clinic — 1,750+ leads across weight-loss, Botox, laser and photofacial.",
+        "portfolio_employer": "1,750+ leads for a single med spa across four service lines, including 1,200+ weight-loss leads at ~$9 CPL.",
+        "portfolio_client": "For one med spa: 1,750+ leads across weight-loss, Botox, laser and photofacial.",
+        "one_liner": "1,750+ leads, one medspa program"
+      },
+      "provenance": "Platform-verified across four service lines on one account.",
+      "boundaries": []
+    },
+    {
+      "id": "B3",
+      "label": "Tattoo-removal studio",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "tattoo-removal studio, Brooklyn/NYC — longest-running client, roughly two years and still running",
+      "headline": {
+        "value": "730+",
+        "unit": "leads",
+        "qualifier": "tattoo-removal leads at ~$19–$21 CPL in a saturated Brooklyn/NYC market (737 verified; flagship campaign 526 at $19). Alex's longest-running client — roughly two years and still running (Meta from Mar 2024, CRM reactivation built Mar 2026, last login Apr 2026). The client video testimonial is cleared for portfolio, 1:1 and interview use (2026-08-20)."
+      },
+      "wording": {
+        "resume": "Generated 730+ tattoo-removal leads at ~$19–$21 CPL in a saturated NYC market — flagship campaign 526 leads at $19 — for my longest-running client, roughly two years and still running.",
+        "linkedin": "730+ tattoo-removal leads at ~$19–$21 CPL in a saturated NYC market — and two years on, the follow-up system I built there was still working: in March 2026 it re-worked 468 aged contacts through a fresh reactivation offer.",
+        "portfolio_employer": "730+ tattoo-removal leads at ~$19–$21 CPL (Brooklyn/NYC), flagship campaign 526 at $19, with 701 of the CRM’s 773 contacts traceable to named Facebook lead forms. My longest-running client — roughly two years and still running — and the one account where the client went on camera for me.",
+        "portfolio_client": "730+ tattoo-removal leads in one of the most competitive markets in the country.",
+        "one_liner": "730+ tattoo-removal leads (~$19–$21 CPL)"
+      },
+      "provenance": "Platform-verified. The flagship campaign is quoted with its own count and the account total with its own range — never the total at the flagship's price. The client's video testimonial exists and is cleared for portfolio and interview use.",
+      "boundaries": [
+        "Any cost per lead is quoted against the platform's count, not the CRM's later total.",
+        "The testimonial is cited, not quoted."
+      ]
+    },
+    {
+      "id": "B4",
+      "label": "B2B agency growth (own pipeline)",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "own agency pipeline",
+      "headline": {
+        "value": "215+",
+        "unit": "scheduled appointments",
+        "qualifier": "scheduled appointments from the agency's own B2B client-acquisition campaigns, ~$62 each (Meta schedule_website conversions) — 'scheduled', never 'booked calls'"
+      },
+      "wording": {
+        "resume": "Ran the agency's own B2B client-acquisition — 170+ leads and 215+ scheduled appointments at ~$62 per scheduled appointment.",
+        "linkedin": "Ran our own B2B growth engine — 170+ leads and 215+ scheduled appointments from campaigns targeting clinic owners.",
+        "portfolio_employer": "170+ B2B leads and 215+ website-scheduled appointments at ~$62 each, from campaigns selling agency services into the medspa/clinic market.",
+        "portfolio_client": "We run our own acquisition the same way — 215+ scheduled appointments into our own pipeline.",
+        "one_liner": "215+ scheduled B2B appointments (~$62 each)"
+      },
+      "provenance": "Meta-reported website-scheduled appointments from the agency's own acquisition campaigns.",
+      "boundaries": [
+        "Scheduled appointments, never 'booked sales calls' — the platform records the schedule event, not attendance or attendee identity."
+      ]
+    },
+    {
+      "id": "B5",
+      "label": "Lead qualification (differentiator)",
+      "status": "verified",
+      "evidence_tier": "C",
+      "client": "across the client base",
+      "headline": {
+        "value": "Qualified",
+        "unit": "not vanity volume",
+        "qualifier": "B2C qualifying questions; $20K+/mo revenue filter on B2B forms; on the B2B refrigeration account the lead forms carried qualification too (claimed 2026-08-21, previously left pending)"
+      },
+      "wording": {
+        "resume": "Engineered qualified lead flow — qualifying questions on B2C forms and a $20K+/mo revenue filter on B2B — so cost-per-lead reflects sales-ready prospects, not raw volume.",
+        "linkedin": "I optimize for QUALIFIED leads, not vanity volume — qualifying questions on B2C forms, a $20K+/mo filter on B2B.",
+        "portfolio_employer": "Every lead number here is qualified: B2C forms carried qualifying questions; B2B forms filtered for $20K+/mo businesses. Sales-ready, not raw volume.",
+        "portfolio_client": "We qualify at the form — intent questions on B2C, revenue filters on B2B — so your calendar fills with sales-ready prospects.",
+        "one_liner": "Qualified leads, not vanity volume"
+      },
+      "provenance": "Evidenced by how the forms were built — qualifying questions on B2C, a revenue filter on B2B. The field configurations were not exported, so the claim is that the forms qualified, never the questions themselves.",
+      "boundaries": [
+        "Downstream closes are lead-quality evidence only.",
+        "No financing-approval claim is made."
+      ]
+    },
+    {
+      "id": "B6",
+      "label": "Appointment-engine systems (GoHighLevel)",
+      "status": "verified",
+      "evidence_tier": "C",
+      "client": "across the client base",
+      "headline": {
+        "value": "Full-chain",
+        "unit": "ad → booked appointment",
+        "qualifier": "GoHighLevel systems: speed-to-lead, missed-call text-back, SMS/email/voicemail nurture, reactivation"
+      },
+      "wording": {
+        "resume": "Built integrated GoHighLevel systems — lead capture, pipeline, SMS/email/voicemail nurture, speed-to-lead, missed-call text-back, booking reminders, reactivation — engineered as one system.",
+        "linkedin": "I build the GoHighLevel + AI follow-up systems that turn ad clicks into booked appointments.",
+        "portfolio_employer": "The part most media buyers skip: integrated GoHighLevel follow-up systems that convert paid leads into booked appointments.",
+        "portfolio_client": "Ads are half the job. We build the follow-up system — speed-to-lead, missed-call text-back, nurture — that turns your leads into booked appointments.",
+        "one_liner": "Ad → qualified lead → booked appointment, one system"
+      },
+      "provenance": "The systems themselves are the evidence — capture, pipeline, nurture, speed-to-lead, missed-call text-back, reminders, reactivation, built in GoHighLevel.",
+      "boundaries": [
+        "Builds are GoHighLevel — HubSpot is certification-level, and no HubSpot client build is claimed."
+      ]
+    },
+    {
+      "id": "B8",
+      "label": "People management — 4-person delivery team",
+      "status": "attested",
+      "evidence_tier": "D",
+      "client": "own agency",
+      "headline": {
+        "value": "4",
+        "unit": "person delivery team",
+        "qualifier": "~10 months, at Alex’s agency: call center, media buyer, ad-creative specialist, GoHighLevel specialist"
+      },
+      "wording": {
+        "resume": "Led a four-person delivery team for ~10 months — call center, media buyer, ad-creative specialist and GoHighLevel specialist — setting priorities, reviewing output and owning the client relationships.",
+        "linkedin": "Ran the agency with a four-person delivery team — call center, media buyer, ad creative and GoHighLevel — before rebuilding that same capability as AI systems.",
+        "portfolio_employer": "Managed a four-person delivery team (call center, media buyer, ad creative, GoHighLevel specialist) for roughly 10 months.",
+        "portfolio_client": "Our delivery has run with a specialist team — call center, media buying, creative and CRM build.",
+        "one_liner": "Led a 4-person delivery team (~10 months)"
+      },
+      "provenance": "Founder-attested and labelled as such.",
+      "boundaries": [
+        "Never 'hired' or 'recruited' — led, for roughly ten months, at his own agency."
+      ]
+    },
+    {
+      "id": "B9",
+      "label": "Multi-location aesthetics group — three-year programme",
+      "status": "partial",
+      "evidence_tier": "A",
+      "client": "multi-location aesthetics group, U.S.",
+      "headline": {
+        "value": "655",
+        "unit": "leads at $20.95",
+        "qualifier": "655 lead-form leads at $20.95 blended from Alex's own tagged campaigns, best campaign 514 at $15.81, inside a $144,918.33 three-year Meta programme for a multi-location U.S. aesthetics group — 93 campaigns, 33.7M impressions, 10.9M brand reach. Run as three funded layers (brand, traffic, lead-gen). NEVER divide account spend by any lead count: ~77% of spend bought reach and clicks by design."
+      },
+      "wording": {
+        "resume": "Produced 655 lead-form leads at $20.95 blended — best campaign 514 leads at $15.81 — inside a $145K three-year Meta programme for a multi-location aesthetics group.",
+        "linkedin": "655 leads at $20.95, with the best campaign at $15.81 — inside the largest account I have run: $145K over three years for a multi-location aesthetics group, with brand, traffic and lead-gen as three funded layers rather than one blended budget.",
+        "portfolio_employer": "655 lead-form leads at $20.95 blended, best campaign 514 at $15.81 — within a $145K / 93-campaign / 33.7M-impression three-year programme for a multi-location aesthetics group, where brand, traffic and lead generation were kept structurally separate.",
+        "portfolio_client": "For a multi-location aesthetics group: 655 leads at about $21 each, best campaign at $15.81 — inside a three-year programme that kept brand, traffic and lead-gen as separate funded layers.",
+        "one_liner": "655 leads @ $20.95 (best 514 @ $15.81) in a $145K 3-year programme"
+      },
+      "provenance": "A campaign-level platform pull retained in the vault; Alex's campaigns identified by their account tag. The floor reading is simultaneously the safest and the best-performing reading.",
+      "boundaries": [
+        "Never divide this account's spend by any lead count — a majority of spend bought reach and clicks by design, as three funded layers."
+      ]
+    },
+    {
+      "id": "B10",
+      "label": "Second same-account head-to-head (chiropractic & spine clinic)",
+      "status": "verified",
+      "evidence_tier": "A",
+      "client": "chiropractic & spine clinic, U.S.",
+      "headline": {
+        "value": "~35%",
+        "unit": "lower cost per lead, same account",
+        "qualifier": "Alex's lead-form campaigns delivered 139 leads at $30.38 blended against another operator's lead-form campaigns in the same account at $46.58 (250 leads on 2.8x the spend). Every one of Alex's three campaigns ($27.68–$35.23) beat every one of theirs ($45.01–$53.42). Campaign dates were not retained, so this is a same-account comparison — never a split test, never a takeover."
+      },
+      "wording": {
+        "resume": "Ran a $47 new-patient lead-form programme for a chiropractic and spine clinic and owned the CRM under the whole account — my campaigns delivered leads at $30.38 blended against another operator’s lead-form campaigns in the same account at $46.58, roughly 35% lower — and shipped an AI voice agent into the clinic’s booking flow in February 2025.",
+        "linkedin": "A second same-account comparison from my book: on one chiropractic account my lead-form campaigns ran at $30.38 blended while another operator’s ran at $46.58 — about 35% cheaper, same clinic, same service, same objective. Every one of my three campaigns beat every one of theirs. I also owned the CRM that both sets of ads fed into, and it is where I shipped my first AI voice agent into a live client account, in February 2025.",
+        "portfolio_employer": "Chiropractic lead-gen built on a priced $47 new-patient offer, run through Meta instant forms into a GoHighLevel pipeline I built — with the CRM’s own opportunity cards carrying a Source: Facebook field. My campaigns: $30.38 blended, per-campaign $27.68–$35.23. Another operator’s lead-form campaigns in the same account: $46.58 blended, $45.01–$53.42 per campaign. They spent 2.8x what I did to reach 250 leads against my 139. Campaign dates were not retained, so I call it a same-account comparison rather than a split test.",
+        "portfolio_client": "On this account we were not the only ones buying media — and you can see the difference in the account itself. Our lead-form campaigns brought patients in about 35% cheaper than the campaigns running alongside them, for the same clinic and the same service. We also built the follow-up system every one of those leads landed in.",
+        "one_liner": "Second same-account comparison: my lead-form campaigns at $30.38 vs another operator’s $46.58 — ~35% lower"
+      },
+      "provenance": "Read from the account's own reporting — every one of Alex's campaigns beat every one of the other operator's, and the other operator's larger volume on larger spend is stated in the same breath.",
+      "boundaries": [
+        "A same-account comparison — never 'took over', never a split test.",
+        "The other operator is never named or characterized."
+      ]
+    },
+    {
+      "id": "B11",
+      "label": "AI voice agents shipped into live client accounts",
+      "status": "verified",
+      "evidence_tier": "C",
+      "client": "4 client accounts, 3 countries",
+      "headline": {
+        "value": "4",
+        "unit": "live client accounts running AI voice / conversational booking",
+        "qualifier": "across three countries, built inside GoHighLevel, earliest published 15–16 Feb 2025 on a client account. A DEPLOYMENT claim, not a scale claim: enrolment volumes run single-digit to low-double."
+      },
+      "wording": {
+        "resume": "Shipped AI voice and conversational booking agents into four live client accounts across three countries, the earliest in February 2025 — built inside GoHighLevel alongside the speed-to-lead, reminder and reactivation sequences they hand off to.",
+        "linkedin": "I have been shipping AI voice agents into live client accounts since February 2025 — four of them now, across three countries, running end-of-call handling and booking hand-off inside the CRM. I call it a deployment rather than a scale story, because the call volumes are small and I would rather say that than dress it up.",
+        "portfolio_employer": "AI voice and conversational booking agents running in four live client accounts across three countries, earliest published February 2025 — wired into the same GoHighLevel builds that carry the speed-to-lead, no-show recovery and reactivation sequences. Deployment claim, not a volume claim: enrolments are single-digit to low-double and are stated as such.",
+        "portfolio_client": "We have been running AI voice agents inside live client accounts since early 2025 — answering, qualifying and handing off to the booking flow, in the same system that runs your follow-up.",
+        "one_liner": "AI voice agents shipped into 4 live client accounts across 3 countries, from Feb 2025"
+      },
+      "provenance": "DOM-verified workflow records across four accounts, earliest published February 2025.",
+      "boundaries": [
+        "A deployment claim, not a scale claim — enrolment volumes are single-digit to low-double and are stated as such.",
+        "No vendor is named.",
+        "No booked-appointment total is attached."
+      ]
+    },
+    {
+      "id": "B12",
+      "label": "Financial services (IUL) — build only, no media",
+      "status": "verified",
+      "evidence_tier": "C",
+      "client": "financial-services funnel — build only",
+      "headline": {
+        "value": "IUL funnel",
+        "unit": "built end-to-end (build only)",
+        "qualifier": "a complete insurance / IUL acquisition funnel — free-guide lead magnet, a Meta long-form lead ad as a separately-tracked second entry point, SMS nurture, a personalised plan-document step, wrong-number handling, reactivation and booking. Shipped May 2024, still maintained January 2026. Build only: no media was run and no performance figure is claimed."
+      },
+      "wording": {
+        "resume": "Built a complete insurance / IUL acquisition funnel — free-guide lead magnet with a Meta long-form lead ad as a separately-tracked second entry point, SMS nurture, a personalised plan-document step, wrong-number handling, a reactivation sequence and a booking path. Shipped May 2024 and still maintained in January 2026. (Build only — I did not run media on it, and I claim no performance figures.)",
+        "linkedin": "Financial services is in my range too, and I will be precise about how: I built a full IUL life-insurance funnel — education-first entry offer, two separately-tracked entry points, SMS nurture, a personalised plan document delivered mid-sequence, wrong-number handling, reactivation, booking. I did not run the ads on it, so I have no numbers for it and I do not pretend to. What it shows is that the system-building transfers out of clinics and into a regulated, high-consideration category.",
+        "portfolio_employer": "A complete IUL / life-insurance acquisition funnel, built end to end: education-first lead magnet, a separately-tracked long-form lead-ad entry point, SMS nurture, a personalised plan-document step, wrong-number handling, reactivation and booking. Shipped May 2024, still maintained January 2026. Build only — no media run, no figures claimed. It is here to show the range of the system-building, not a result.",
+        "portfolio_client": "The same funnel architecture we run for clinics has been built for financial services too — a full IUL life-insurance funnel, education-first, with the nurture and booking layers behind it. We built that one; we did not run the media on it.",
+        "one_liner": "Built a complete IUL / life-insurance acquisition funnel (build only — no media run, no figures claimed)"
+      },
+      "provenance": "The build itself is the evidence — shipped May 2024, still maintained January 2026.",
+      "boundaries": [
+        "Build only: no media was run and no performance figure is claimed — the disclaimer lives inside the wording itself."
+      ]
+    },
+    {
+      "id": "B13",
+      "label": "Bilingual delivery — French and Spanish",
+      "status": "verified",
+      "evidence_tier": "C",
+      "client": "Montreal clinic (FR) + own agency (ES)",
+      "headline": {
+        "value": "FR + ES",
+        "unit": "bilingual delivery, on two evidenced legs",
+        "qualifier": "French: Montreal acquisition AND follow-up run in-language, evidenced by French-Canadian records, .fr domains and French operational notes in the client’s own tracker. Spanish: a Spanish-language sales-demo calendar in Alex’s own agency CRM — the only artifact evidencing bilingual SELLING rather than bilingual acquisition."
+      },
+      "wording": {
+        "resume": "Bilingual delivery on two legs: ran French/English acquisition and follow-up in-language for a Montreal clinic — not translated, run in-language end to end — and hold a Spanish-language sales-demo track in my own agency CRM.",
+        "linkedin": "Bilingual delivery, and I can point at both legs. French: for a Montreal clinic I ran the acquisition and the follow-up in-language — the confirmation text arrives in the language the lead opted in from, which is where most bilingual campaigns quietly leak. Spanish: my own agency ran a Spanish-language demo calendar, so it is selling in Spanish, not just advertising in it.",
+        "portfolio_employer": "Bilingual delivery evidenced on two independent legs. French: campaigns and the whole follow-up layer run in-language for the Montreal location of a national Canadian franchise — visible in the client’s own tracker as French-Canadian records, .fr domains and French operational notes. Spanish: a Spanish-language sales-demo calendar in my agency’s own CRM, which evidences bilingual selling rather than bilingual media.",
+        "portfolio_client": "If your market is bilingual, the follow-up has to be too. We run acquisition and follow-up in the language your customer opted in from — in French for a Montreal clinic, and in Spanish on our own sales floor.",
+        "one_liner": "Bilingual delivery on two evidenced legs — French acquisition and follow-up, Spanish selling"
+      },
+      "provenance": "Two independently evidenced legs — French-Canadian records, in-language domains and French operational notes in the client's own tracker; a Spanish-language sales-demo calendar in the agency's own CRM.",
+      "boundaries": [
+        "A third leg was deliberately removed when it turned out not to be Alex's work — no Spanish-language lead volume or cost is quoted."
+      ]
+    }
+  ],
+  "retired": [
+    {
+      "id": "B7",
+      "label": "Portfolio-wide booked-appointment aggregate",
+      "status": "retired",
+      "narrative": "A cross-client booked-appointment total was retired by the subject in August 2026, on his own review. The measurable number was real as a census — appointment rows present in the client systems he built — but measured is not attributable: some of those systems carried the clients' own front-desk bookings, and a reader would infer campaign attribution. He declined to defend the inference. No replacement aggregate is claimed at any size; the per-client, campaign-attributable figures are what remain.",
+      "replacement_claims": [
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ]
+    }
+  ],
+  "not_claimed": [
+    "client revenue",
+    "ROAS",
+    "blended cost per lead (total spend divided by total leads)",
+    "attended appointments — booked means scheduled unless a show is separately verified",
+    "any portfolio-wide appointment total",
+    "HubSpot client builds (certification-level only)",
+    "financing outcomes as lead-quality proof"
+  ],
+  "machine": {
+    "claims_json": "https://alexfc0810.github.io/alex-amaro-portfolio/claims.json",
+    "llms_txt": "https://alexfc0810.github.io/alex-amaro-portfolio/llms.txt",
+    "audit": "https://alexfc0810.github.io/alex-amaro-portfolio/audit.html",
+    "interrogate": "https://proof-counsel.vercel.app/",
+    "counsel_api": {
+      "url": "https://proof-counsel.vercel.app/api/counsel",
+      "method": "POST",
+      "body": "{\"question\": \"...\"}"
+    }
+  }
+}

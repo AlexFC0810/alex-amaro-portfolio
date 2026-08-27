@@ -1,0 +1,19 @@
+# The public repo's guard: a salted-hash leak tripwire + contract integrity.
+# No secrets run here — this repo is public and GitHub Pages serves every
+# tracked file. The full-strength, context-aware sweep (real patterns, real
+# names) runs nightly from the PRIVATE vault against this repo's content.
+name: guards
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: leak tripwire + claims.json integrity
+        run: node tools/public-selftest.mjs
