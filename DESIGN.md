@@ -396,3 +396,59 @@ step that takes *positive* tracking because uppercase mono closes up without it.
    already permanently lost to a hotlinked CloudFront URL.
 7. **No input below 16px.**
 8. If you add a token, **write its role in this file in the same commit**.
+
+---
+
+# Portfolio v3 draft — "the darkroom" (`/v3/`, 2026-08-27)
+
+> Register shift, not a token tweak: instrument panel → **gallery**. The page's
+> argument is the work itself, hung at full size. Draft status: **noindex,
+> unlinked from every nav** until Alex promotes it.
+>
+> Benchmarks (both cached in `doctrine-hub/swipes/design-systems/`):
+> **monopo saigon** — a creative agency portfolio, the same JOB as this page:
+> the interface never picks up a hue, all colour lives in the work, and scale
+> does the shouting so weight never has to (display at weight 400, 225px).
+> **ORYZO AI** — warm-dark museum ground, cream type, hairline separation, one
+> ember accent "earning its rarity", tonal grounds ≥1.15:1 adjacent.
+
+## v3 tokens, measured
+
+Grounds (warm near-black): `#0f0c09 → #221c14 → #332a1e → #453a2a` —
+adjacent pairs **1.155 / 1.198 / 1.269**, end-to-end **1.757** (v2 shipped 1.687).
+
+Text: `--text #f4ecdd` (9.46:1 worst), `--text-dim #c9bda9` (5.99 worst),
+`--text-faint #b5a993` (4.79 worst, on `--bg-raise`).
+
+Accent, two tiers: `--accent #ee7524` (ember — text-safe on bg/soft/card,
+**rules and dots only on --bg-raise**, never a fill) and `--link #ffa14e`
+(interactive text, 5.53:1 worst). The serif-italic-in-ember is the page's
+signature gesture and is spent exactly twice: the hero line and the close.
+
+Type: **three families** — Instrument Serif (display, weight 400 only, both
+woff2 self-hosted in `assets/fonts/`), Inter (body, shared file with v2),
+system mono (labels/figures). **Weight ceiling 560** — lower than v2's 590,
+because the serif does its work with size (`--fs-mega` up to 164px), not weight.
+
+Radii 4/12/999. Zero drop shadows; depth = ground ladder + hairlines + the one
+`--lit` inset. Zero off-origin requests holds.
+
+## Motion — safer than v2 by construction
+
+Reveals are **CSS scroll-driven** (`animation-timeline: view()`) inside
+`@supports` inside `prefers-reduced-motion: no-preference`. Default state is
+fully visible; no JS is involved; a browser without support gets a static
+page. The v2 four-layer force-settle contract is therefore unnecessary here —
+there is no state to force-settle. Known artifact: full-page screenshots show
+below-viewport `.rv` sections at opacity 0; live scrolling is unaffected.
+
+## Content contract
+
+Every claim inherited verbatim from the v2 root (greenlit v1.11.2);
+`node tools/claims-lint.mjs v3/index.html` is clean and must stay clean.
+The gate-ledger counts (109 / 12 / 25 / 72) were verified against
+`sc-ad-creative-os/creative/index.json` on 2026-08-25 — re-verify before
+editing them. The three new films in `assets/motion/` were frame-extracted,
+read at full size, and transcoded with `-map_metadata -1`; their soundbeds
+are machine-gated but **unheard by a human** — Alex listens once on a phone
+before sharing the /v3/ link (the content engine's own go-live gate).
