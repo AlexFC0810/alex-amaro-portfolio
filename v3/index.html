@@ -406,6 +406,7 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
       <a class="t-label" href="#running">Running</a>
       <a class="t-label" href="#numbers">Numbers</a>
       <a class="t-label" href="#work">Work</a>
+      <a class="t-label" href="#record">Record</a>
       <a class="t-label" href="mailto:jesusalexelamaro@gmail.com" style="color:var(--link); border:1px solid var(--border); border-radius:var(--r-full); padding:0 14px">Email</a>
     </nav>
   </div>
@@ -880,6 +881,39 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   </div>
 </section>
 
+<!-- ==========================================================================
+     08 — THE RECORD. The three surfaces that hold this page to its word:
+     the counsel agent, the published audit, the machine-readable contract.
+     Zero new ember — the page's budget is spent on the hero and the close.
+     ========================================================================== -->
+<section id="record">
+  <div class="rail rv">
+    <div class="sec-head">
+      <p class="eyebrow t-label">08 · The record</p>
+      <h2 class="t-display">Every claim here <span class="mist">stands cross-examination.</span></h2>
+      <p class="t-lead">This page is the presentation; these are the checks. A counsel agent answers hostile questions from a published contract, the audit is public with its attacker&rsquo;s prompt included, and the contract itself is machine-readable &mdash; statuses, evidence tiers, and the claims that were retired, with reasons.</p>
+    </div>
+
+    <div class="placards">
+      <div class="plq">
+        <h3 class="t-h3">The Interrogation Room</h3>
+        <p>Counsel answers from the contract, cites as it goes, refuses out loud.</p>
+        <p class="t-cap"><a class="biglink" href="https://proof-counsel.vercel.app/" target="_blank" rel="noopener">proof-counsel.vercel.app &rarr;<span class="vh"> (opens in a new tab)</span></a></p>
+      </div>
+      <div class="plq">
+        <h3 class="t-h3">The Cross-Examination</h3>
+        <p>The audit, published &mdash; the attacker&rsquo;s prompt included.</p>
+        <p class="t-cap"><a class="biglink" href="../audit.html">The audit record &rarr;</a></p>
+      </div>
+      <div class="plq">
+        <h3 class="t-h3">The Contract</h3>
+        <p>Machine-readable: statuses, evidence tiers, retirements.</p>
+        <p class="t-cap"><a class="biglink" href="../claims.json">claims.json &rarr;</a><br><a class="biglink" href="../llms.txt">/llms.txt for your agent &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -982,7 +1016,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       window.addEventListener('resize',function(){ if(window.innerWidth>=680) setOpen(false); });
     }
 
-    var order=['top','reel','wall','gate','running','numbers','work'], linkFor={};
+    var order=['top','reel','wall','gate','running','numbers','work','record'], linkFor={};
     order.forEach(function(id){
       var a=document.querySelector('header.nav a[href="#'+id+'"]'); if(a) linkFor[id]=a;
     });
