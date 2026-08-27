@@ -9,10 +9,16 @@
 <!-- Draft surface: unlinked and unindexed until promoted. Flip this line on promotion. -->
 <meta name="robots" content="noindex">
 <meta property="og:type" content="profile">
+<meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/v3/">
 <meta property="og:site_name" content="Alex Amaro">
 <meta property="og:title" content="Alex Amaro — the work, at full size">
 <meta property="og:description" content="Most marketers can tell you about campaigns. This page hangs the actual work — films, creative, live systems — with a source under every claim.">
-<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alex Amaro — the work, at full size. 9.5x an incumbent agency's leads, same account.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v3.png">
 <meta name="theme-color" content="#0f0c09">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f0c09'/%3E%3Crect x='7' y='14.5' width='18' height='3' rx='1.5' fill='%23ee7524'/%3E%3C/svg%3E">
 
@@ -242,17 +248,42 @@ header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transpa
 /* --- STRIPS — the gallery grammar. Full-bleed horizontal scroll, snap,
    left edge aligned to the rail. A wall that stops at the rail is a grid;
    a strip that runs off both edges is a wall. ----------------------------- */
-.strip{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x proximity;
+.strip{display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x proximity; cursor:grab;
   padding-block:6px; padding-inline:max(20px, calc((100vw - var(--rail)) / 2 + 20px));
-  scrollbar-width:thin; scrollbar-color:var(--bg-raise) transparent}
+  scrollbar-width:thin; scrollbar-color:#7a6a4d transparent}
+  /* thumb #7a6a4d measured 3.71:1 on --bg, 3.21:1 on --bg-soft — the 3:1 UI bar holds on both */
+.strip.dragging{cursor:grabbing; scroll-snap-type:none; user-select:none}
 .strip::-webkit-scrollbar{height:8px}
-.strip::-webkit-scrollbar-thumb{background:var(--bg-raise); border-radius:var(--r-full)}
+.strip::-webkit-scrollbar-thumb{background:#7a6a4d; border-radius:var(--r-full)}
 .strip::-webkit-scrollbar-track{background:transparent}
-.tile{flex:0 0 clamp(220px,24vw,320px); scroll-snap-align:start; border-radius:var(--r-md);
-  overflow:hidden; border:1px solid var(--border-soft); background:var(--bg-card)}
+.tile{flex:0 0 clamp(220px,24vw,320px); scroll-snap-align:start; border-radius:var(--r-md); margin:0;
+  overflow:hidden; border:1px solid var(--border-soft); background:var(--bg-card); display:flex; flex-direction:column}
+.tile:hover{border-color:var(--border-lit)}
+.tile a{display:block; text-decoration:none}
+.tile a:focus-visible{outline:2px solid var(--link); outline-offset:-2px}
 .tile img{width:100%; height:100%; aspect-ratio:4/5; object-fit:cover}
 .tile-sq img{aspect-ratio:1/1}
+.tile-plate{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em;
+  line-height:1.4; text-transform:uppercase; color:var(--text-faint);
+  padding:9px 12px 10px; border-top:1px solid var(--border-soft); margin-top:auto}
 .strip-note{margin-top:18px}
+/* Strip controls — the wall must be traversable with a mouse, a keyboard or a
+   thumb, not only a trackpad. JS arms the bar; without JS it stays hidden and
+   the strip remains a native scroller. */
+.strip-bar{display:none; align-items:center; gap:10px; margin-top:14px}
+.strip-bar[data-armed]{display:flex}
+.sbtn{width:44px; height:44px; display:inline-flex; align-items:center; justify-content:center;
+  background:var(--bg-card); color:var(--text); border:1px solid var(--border); border-radius:var(--r-full);
+  cursor:pointer; font-family:var(--mono); font-size:18px; line-height:1; box-shadow:var(--lit)}
+.sbtn:hover{background:var(--bg-raise); border-color:var(--border-lit)}
+.sbtn:disabled{opacity:.35; cursor:default}
+.sbtn:disabled:hover{background:var(--bg-card); border-color:var(--border)}
+.scount{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--text-faint)}
+/* The italic inflection inside section headings keeps the ink colour — ember
+   is rationed to the hero line, the 9.5×, the live dots and the closing line. */
+.mist{font-style:italic}
+.biglink{display:inline-flex; align-items:center; min-height:44px}
 
 /* --- THE REEL — films in phone frames ------------------------------------ */
 .film{flex:0 0 clamp(230px,26vw,320px); scroll-snap-align:start}
@@ -294,6 +325,7 @@ header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transpa
 .plq{background:var(--bg-card); border:1px solid var(--border-soft); border-radius:var(--r-md);
   padding:24px; box-shadow:var(--lit); display:flex; flex-direction:column; gap:12px}
 .plq .t-figure{color:var(--text)}
+.plq-lead .t-figure{font-size:clamp(38px,4.6vw,58px)}
 .plq p{color:var(--text-dim)}
 .plq .t-cap{color:var(--text-faint); margin-top:auto; padding-top:6px; border-top:1px solid var(--border-soft)}
 
@@ -374,6 +406,7 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
       <a class="t-label" href="#running">Running</a>
       <a class="t-label" href="#numbers">Numbers</a>
       <a class="t-label" href="#work">Work</a>
+      <a class="t-label" href="mailto:jesusalexelamaro@gmail.com" style="color:var(--link); border:1px solid var(--border); border-radius:var(--r-full); padding:0 14px">Email</a>
     </nav>
   </div>
 </header>
@@ -400,7 +433,7 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
       </div>
 
       <figure class="hero-film">
-        <video controls preload="none" playsinline poster="../assets/motion/careline-peakload-poster.webp" width="720" height="1280">
+        <video controls preload="none" playsinline aria-label="Peak Load — 14-second own-brand motion film for CareLine" poster="../assets/motion/careline-peakload-poster.webp" width="720" height="1280">
           <source src="../assets/motion/careline-peakload-14s.mp4" type="video/mp4">
         </video>
         <figcaption class="t-cap">Peak Load — 14s. Own-brand film for CareLine, the AI front-desk product I own. Designed and rendered in the in-house motion system. Concept work, labelled as such.</figcaption>
@@ -426,37 +459,42 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
   <div class="rail rv">
     <div class="sec-head">
       <p class="eyebrow t-label">01 · The reel</p>
-      <h2 class="t-display">Films, <span class="ink">pressed play by you.</span></h2>
+      <h2 class="t-display">Films, <span class="mist">pressed play by you.</span></h2>
       <p class="t-lead">All of these are own-brand films for CareLine and Supercharged — products I own — so every frame here is mine to show: studio and concept work, labelled as such, not client campaigns. Self-hosted from this origin. Nothing autoplays; nothing loads until you ask.</p>
     </div>
   </div>
 
-  <div class="strip" role="list">
+  <div class="strip" id="strip-reel" tabindex="0" role="list" aria-label="Own-brand films">
     <figure class="film" role="listitem">
-      <video controls preload="none" playsinline poster="../assets/motion/careline-frontdesk-poster.webp" width="720" height="1280">
+      <video controls preload="none" playsinline aria-label="Front Desk — 16-second own-brand motion film for CareLine" poster="../assets/motion/careline-frontdesk-poster.webp" width="720" height="1280">
         <source src="../assets/motion/careline-frontdesk-16s.mp4" type="video/mp4">
       </video>
       <figcaption class="t-cap"><strong>Front Desk — 16s.</strong> Motion-system cut. Every film ships against a beat-sheet manifest and measured gates: a loudness window, a longest-gap check on pacing, letterbox and edge-density sweeps.</figcaption>
     </figure>
     <figure class="film" role="listitem">
-      <video controls preload="none" playsinline poster="../assets/motion/careline-secondcall-poster.webp" width="720" height="1280">
+      <video controls preload="none" playsinline aria-label="Second Call — 16-second own-brand motion film for CareLine" poster="../assets/motion/careline-secondcall-poster.webp" width="720" height="1280">
         <source src="../assets/motion/careline-secondcall-16s.mp4" type="video/mp4">
       </video>
       <figcaption class="t-cap"><strong>Second Call — 16s.</strong> Same story, second angle — one named variable moved, everything else held. That is the whole method, and it applies to film the same as to statics.</figcaption>
     </figure>
     <figure class="film" role="listitem">
-      <video controls preload="none" playsinline poster="../assets/creative/ai-01-frontdesk-ad.jpg" width="1080" height="1920">
+      <video controls preload="none" playsinline aria-label="AI-generated UGC hook with claim-free end card, CareLine" poster="../assets/creative/ai-01-frontdesk-ad.jpg" width="1080" height="1920">
         <source src="../assets/creative/ai-01-frontdesk-ad.mp4" type="video/mp4">
       </video>
       <figcaption class="t-cap"><strong>AI UGC hook + end card.</strong> Generated, judged, assembled in-house. My own review note on this hook, from the log: &ldquo;that was beautiful, that is usable, that&rsquo;s ready to go.&rdquo; Most don&rsquo;t get that note — see the gate below.</figcaption>
     </figure>
     <figure class="film" role="listitem">
-      <video controls preload="none" playsinline poster="../assets/creative/ai-01-frontdesk-walk.jpg" width="1080" height="1920">
+      <video controls preload="none" playsinline aria-label="AI front-desk walkthrough film, CareLine" poster="../assets/creative/ai-01-frontdesk-walk.jpg" width="1080" height="1920">
         <source src="../assets/creative/ai-01-frontdesk-walk.mp4" type="video/mp4">
       </video>
       <figcaption class="t-cap"><strong>AI front-desk walkthrough.</strong> The companion cut — same product, demonstration register.</figcaption>
     </figure>
   </div>
+  <div class="rail"><div class="strip-bar" data-for="strip-reel">
+    <button type="button" class="sbtn" data-dir="-1" aria-label="Scroll the films back">&#8249;</button>
+    <button type="button" class="sbtn" data-dir="1" aria-label="Scroll the films forward">&#8250;</button>
+    <span class="scount" aria-live="polite"></span>
+  </div></div>
 </section>
 
 <!-- ==========================================================================
@@ -467,60 +505,70 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
   <div class="rail rv">
     <div class="sec-head">
       <p class="eyebrow t-label">02 · The wall</p>
-      <h2 class="t-display">Client campaigns, <span class="ink">as they ran.</span></h2>
+      <h2 class="t-display">Client campaigns, <span class="mist">as they ran.</span></h2>
       <p class="t-lead">Twenty client statics, every one from a campaign that actually spent money — a chiropractic screening offer written eight ways, laser hair removal in six art directions, body contouring in five castings, one GLP-1 offer. Clients appear by vertical only.</p>
     </div>
   </div>
 
-  <div class="strip" role="list" aria-label="Client campaign creatives">
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-01-480.webp 480w, ../assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 1"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-02-480.webp 480w, ../assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 2"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-03-480.webp 480w, ../assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 3"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-04-480.webp 480w, ../assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 4"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-01-480.webp 480w, ../assets/creative-static/medspa-laser-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 01: a woman on a white-sand beach under palm fronds; a magenta band carries the headline"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-02-480.webp 480w, ../assets/creative-static/medspa-laser-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 02: an overhead shot of a woman floating in dark green pool water, type in gold"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-04-480.webp 480w, ../assets/creative-static/medspa-laser-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 04: a woman walks out of the surf in an open white shirt; the price leads the frame"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-01-480.webp 480w, ../assets/creative-static/medspa-body-contouring-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 01: a woman in black activewear against a deep navy gradient"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-02-480.webp 480w, ../assets/creative-static/medspa-body-contouring-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 02: a woman leaps with one arm raised against a hot-pink ground"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-05-480.webp 480w, ../assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 5"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-06-480.webp 480w, ../assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 6"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-03-480.webp 480w, ../assets/creative-static/medspa-laser-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 03: a woman standing in the sea against a blue sky; the headline sits in a dark band"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-03-480.webp 480w, ../assets/creative-static/medspa-body-contouring-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 03: a low-angle hero shot against clouds, hands on hips"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-weight-loss-01-480.webp 480w, ../assets/creative-static/medspa-weight-loss-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="GLP-1 weight-loss ad: the words skinny shots in gold beside a $40 per week price capsule on white"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-07-480.webp 480w, ../assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 7"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-05-480.webp 480w, ../assets/creative-static/medspa-laser-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 05: a studio cut-out against a purple gradient; benefits sit in white bars"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-04-480.webp 480w, ../assets/creative-static/medspa-body-contouring-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 04: a woman in maroon activewear with earphones against a maroon-to-grey ground"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-06-480.webp 480w, ../assets/creative-static/medspa-laser-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-06.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 06: a client in protective eyewear during a laser session, clinician's hands in frame"></picture></div>
-    <div class="tile tile-sq" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-05-480.webp 480w, ../assets/creative-static/medspa-body-contouring-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 05: a woman stretches with her eyes closed on a bright coastline"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-08-480.webp 480w, ../assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 8"></picture></div>
+  <div class="strip" id="strip-client" tabindex="0" role="list" aria-label="Client campaign creatives">
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 01"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-01-480.webp 480w, ../assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 1"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 01</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 02"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-02-480.webp 480w, ../assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 2"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 02</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 03"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-03-480.webp 480w, ../assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 3"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 03</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 04"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-04-480.webp 480w, ../assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 4"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 04</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 01"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-01-480.webp 480w, ../assets/creative-static/medspa-laser-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 01: a woman on a white-sand beach under palm fronds; a magenta band carries the headline"></picture></a><figcaption class="tile-plate">Med spa · Laser 01</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 02"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-02-480.webp 480w, ../assets/creative-static/medspa-laser-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 02: an overhead shot of a woman floating in dark green pool water, type in gold"></picture></a><figcaption class="tile-plate">Med spa · Laser 02</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 04"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-04-480.webp 480w, ../assets/creative-static/medspa-laser-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 04: a woman walks out of the surf in an open white shirt; the price leads the frame"></picture></a><figcaption class="tile-plate">Med spa · Laser 04</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Contouring 01"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-01-480.webp 480w, ../assets/creative-static/medspa-body-contouring-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 01: a woman in black activewear against a deep navy gradient"></picture></a><figcaption class="tile-plate">Med spa · Contouring 01</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Contouring 02"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-02-480.webp 480w, ../assets/creative-static/medspa-body-contouring-02-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-02.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 02: a woman leaps with one arm raised against a hot-pink ground"></picture></a><figcaption class="tile-plate">Med spa · Contouring 02</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 05"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-05-480.webp 480w, ../assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 5"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 05</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 06"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-06-480.webp 480w, ../assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 6"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 06</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 03"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-03-480.webp 480w, ../assets/creative-static/medspa-laser-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 03: a woman standing in the sea against a blue sky; the headline sits in a dark band"></picture></a><figcaption class="tile-plate">Med spa · Laser 03</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Contouring 03"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-03-480.webp 480w, ../assets/creative-static/medspa-body-contouring-03-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-03.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 03: a low-angle hero shot against clouds, hands on hips"></picture></a><figcaption class="tile-plate">Med spa · Contouring 03</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · GLP-1 offer"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-weight-loss-01-480.webp 480w, ../assets/creative-static/medspa-weight-loss-01-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-weight-loss-01.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="GLP-1 weight-loss ad: the words skinny shots in gold beside a $40 per week price capsule on white"></picture></a><figcaption class="tile-plate">Med spa · GLP-1 offer</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 07"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-07-480.webp 480w, ../assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 7"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 07</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 05"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-05-480.webp 480w, ../assets/creative-static/medspa-laser-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 05: a studio cut-out against a purple gradient; benefits sit in white bars"></picture></a><figcaption class="tile-plate">Med spa · Laser 05</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Contouring 04"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-04-480.webp 480w, ../assets/creative-static/medspa-body-contouring-04-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-04.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 04: a woman in maroon activewear with earphones against a maroon-to-grey ground"></picture></a><figcaption class="tile-plate">Med spa · Contouring 04</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Laser 06"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-laser-06-480.webp 480w, ../assets/creative-static/medspa-laser-06-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-laser-06.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Laser hair removal ad, art direction 06: a client in protective eyewear during a laser session, clinician's hands in frame"></picture></a><figcaption class="tile-plate">Med spa · Laser 06</figcaption></figure>
+    <figure class="tile tile-sq" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Med spa · Contouring 05"><picture><source type="image/webp" srcset="../assets/creative-static/medspa-body-contouring-05-480.webp 480w, ../assets/creative-static/medspa-body-contouring-05-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/medspa-body-contouring-05.jpg" width="1080" height="1080" loading="lazy" decoding="async" alt="Non-surgical body-contouring ad, casting variant 05: a woman stretches with her eyes closed on a bright coastline"></picture></a><figcaption class="tile-plate">Med spa · Contouring 05</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Chiropractic · Hook 08"><picture><source type="image/webp" srcset="../assets/creative-static/chiro-knee-pain-08-480.webp 480w, ../assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 8"></picture></a><figcaption class="tile-plate">Chiropractic · Hook 08</figcaption></figure>
   </div>
+  <div class="rail"><div class="strip-bar" data-for="strip-client">
+    <button type="button" class="sbtn" data-dir="-1" aria-label="Scroll the client wall back">&#8249;</button>
+    <button type="button" class="sbtn" data-dir="1" aria-label="Scroll the client wall forward">&#8250;</button>
+    <span class="scount" aria-live="polite"></span>
+  </div></div>
 
   <div class="rail rv" style="margin-top:64px">
     <div class="sec-head" style="margin-bottom:32px">
-      <h3 class="t-display" style="font-size:clamp(28px,3.6vw,44px)">Own brand &amp; concept — <span class="ink">30 kept from 172 frames.</span></h3>
+      <h3 class="t-display" style="font-size:clamp(28px,3.6vw,44px)">Own brand &amp; concept — <span class="mist">30 kept from 172 frames.</span></h3>
       <p class="t-lead" style="margin-top:14px">A directed exploration for CareLine across named territories — London high-rise, before-and-after splits, holographic overlays, humanoid, podcast, product demo. No client logo, no patient, no release to chase. Concept work, not campaigns that ran, and labelled so.</p>
     </div>
   </div>
 
-  <div class="strip" role="list" aria-label="Own-brand concept stills">
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-01-dusk-reception-480.webp 480w, ../assets/careline/cl-01-dusk-reception-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-01-dusk-reception.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic reception desk at dusk, London skyline through floor-to-ceiling glass"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-08-ba-chaos-calm-480.webp 480w, ../assets/careline/cl-08-ba-chaos-calm-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-08-ba-chaos-calm.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a labelled before-and-after split, a chaotic front desk against a calm one"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-12-highrise-holo-480.webp 480w, ../assets/careline/cl-12-highrise-holo-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-12-highrise-holo.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a high-rise interior overlaid with holographic booking panels"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-16-holo-never-miss-480.webp 480w, ../assets/careline/cl-16-holo-never-miss-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-16-holo-never-miss.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic corridor under the line never miss a call, never lose a lead"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-18-humanoid-leaks-480.webp 480w, ../assets/careline/cl-18-humanoid-leaks-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-18-humanoid-leaks.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a humanoid figure at a desk under the line you do not need more leads, you need fewer leaks"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-06-ba-phone-console-480.webp 480w, ../assets/careline/cl-06-ba-phone-console-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-06-ba-phone-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a before-and-after split pairing a ringing desk phone with a booking confirmation"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-14-storefront-glass-480.webp 480w, ../assets/careline/cl-14-storefront-glass-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-14-storefront-glass.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a glass clinic storefront on a wet London street"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-10-london-aerial-a-480.webp 480w, ../assets/careline/cl-10-london-aerial-a-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-10-london-aerial-a.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: an aerial view of London at dawn"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-20-podcast-two-480.webp 480w, ../assets/careline/cl-20-podcast-two-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-20-podcast-two.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: two people recording a podcast at a wooden table"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-23-busy-desk-480.webp 480w, ../assets/careline/cl-23-busy-desk-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-23-busy-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a receptionist on a headset at a busy front desk"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-28-phone-screen-480.webp 480w, ../assets/careline/cl-28-phone-screen-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-28-phone-screen.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a phone screen showing an incoming AI-handled call"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-15-rooftop-crew-480.webp 480w, ../assets/careline/cl-15-rooftop-crew-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-15-rooftop-crew.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a presenter and a camera operator on a London rooftop"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-04-revenue-lounge-480.webp 480w, ../assets/careline/cl-04-revenue-lounge-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-04-revenue-lounge.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic lounge with a holographic revenue column and appointment cards"></picture></div>
-    <div class="tile" role="listitem"><picture><source type="image/webp" srcset="../assets/careline/cl-30-foam-pit-480.webp 480w, ../assets/careline/cl-30-foam-pit-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-30-foam-pit.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a shoot in progress, a figure leaping into a foam pit with Big Ben behind"></picture></div>
+  <div class="strip" id="strip-concept" tabindex="0" role="list" aria-label="Own-brand concept stills">
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Dusk reception"><picture><source type="image/webp" srcset="../assets/careline/cl-01-dusk-reception-480.webp 480w, ../assets/careline/cl-01-dusk-reception-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-01-dusk-reception.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic reception desk at dusk, London skyline through floor-to-ceiling glass"></picture></a><figcaption class="tile-plate">Concept · Dusk reception</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Before / after"><picture><source type="image/webp" srcset="../assets/careline/cl-08-ba-chaos-calm-480.webp 480w, ../assets/careline/cl-08-ba-chaos-calm-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-08-ba-chaos-calm.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a labelled before-and-after split, a chaotic front desk against a calm one"></picture></a><figcaption class="tile-plate">Concept · Before / after</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Holo overlay"><picture><source type="image/webp" srcset="../assets/careline/cl-12-highrise-holo-480.webp 480w, ../assets/careline/cl-12-highrise-holo-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-12-highrise-holo.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a high-rise interior overlaid with holographic booking panels"></picture></a><figcaption class="tile-plate">Concept · Holo overlay</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Corridor line"><picture><source type="image/webp" srcset="../assets/careline/cl-16-holo-never-miss-480.webp 480w, ../assets/careline/cl-16-holo-never-miss-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-16-holo-never-miss.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic corridor under the line never miss a call, never lose a lead"></picture></a><figcaption class="tile-plate">Concept · Corridor line</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Humanoid"><picture><source type="image/webp" srcset="../assets/careline/cl-18-humanoid-leaks-480.webp 480w, ../assets/careline/cl-18-humanoid-leaks-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-18-humanoid-leaks.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a humanoid figure at a desk under the line you do not need more leads, you need fewer leaks"></picture></a><figcaption class="tile-plate">Concept · Humanoid</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Phone vs console"><picture><source type="image/webp" srcset="../assets/careline/cl-06-ba-phone-console-480.webp 480w, ../assets/careline/cl-06-ba-phone-console-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-06-ba-phone-console.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a before-and-after split pairing a ringing desk phone with a booking confirmation"></picture></a><figcaption class="tile-plate">Concept · Phone vs console</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Storefront"><picture><source type="image/webp" srcset="../assets/careline/cl-14-storefront-glass-480.webp 480w, ../assets/careline/cl-14-storefront-glass-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-14-storefront-glass.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a glass clinic storefront on a wet London street"></picture></a><figcaption class="tile-plate">Concept · Storefront</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · London dawn"><picture><source type="image/webp" srcset="../assets/careline/cl-10-london-aerial-a-480.webp 480w, ../assets/careline/cl-10-london-aerial-a-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-10-london-aerial-a.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: an aerial view of London at dawn"></picture></a><figcaption class="tile-plate">Concept · London dawn</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Podcast"><picture><source type="image/webp" srcset="../assets/careline/cl-20-podcast-two-480.webp 480w, ../assets/careline/cl-20-podcast-two-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-20-podcast-two.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: two people recording a podcast at a wooden table"></picture></a><figcaption class="tile-plate">Concept · Podcast</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Front desk"><picture><source type="image/webp" srcset="../assets/careline/cl-23-busy-desk-480.webp 480w, ../assets/careline/cl-23-busy-desk-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-23-busy-desk.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a receptionist on a headset at a busy front desk"></picture></a><figcaption class="tile-plate">Concept · Front desk</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Phone UI"><picture><source type="image/webp" srcset="../assets/careline/cl-28-phone-screen-480.webp 480w, ../assets/careline/cl-28-phone-screen-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-28-phone-screen.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a phone screen showing an incoming AI-handled call"></picture></a><figcaption class="tile-plate">Concept · Phone UI</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Rooftop shoot"><picture><source type="image/webp" srcset="../assets/careline/cl-15-rooftop-crew-480.webp 480w, ../assets/careline/cl-15-rooftop-crew-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-15-rooftop-crew.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a presenter and a camera operator on a London rooftop"></picture></a><figcaption class="tile-plate">Concept · Rooftop shoot</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Lounge holo"><picture><source type="image/webp" srcset="../assets/careline/cl-04-revenue-lounge-480.webp 480w, ../assets/careline/cl-04-revenue-lounge-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-04-revenue-lounge.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a clinic lounge with a holographic revenue column and appointment cards"></picture></a><figcaption class="tile-plate">Concept · Lounge holo</figcaption></figure>
+    <figure class="tile" role="listitem"><a href="../creative.html" aria-label="Open the Creative Wall — Concept · Foam pit"><picture><source type="image/webp" srcset="../assets/careline/cl-30-foam-pit-480.webp 480w, ../assets/careline/cl-30-foam-pit-720.webp 720w" sizes="(max-width:640px) 60vw, 300px"><img src="../assets/careline/cl-30-foam-pit.jpg" width="480" height="860" loading="lazy" decoding="async" alt="Concept still: a shoot in progress, a figure leaping into a foam pit with Big Ben behind"></picture></a><figcaption class="tile-plate">Concept · Foam pit</figcaption></figure>
   </div>
+  <div class="rail"><div class="strip-bar" data-for="strip-concept">
+    <button type="button" class="sbtn" data-dir="-1" aria-label="Scroll the concept wall back">&#8249;</button>
+    <button type="button" class="sbtn" data-dir="1" aria-label="Scroll the concept wall forward">&#8250;</button>
+    <span class="scount" aria-live="polite"></span>
+  </div></div>
 
   <div class="rail rv strip-note">
-    <p class="t-data">54 pieces on the full wall — 20 client · 34 own-brand &amp; concept · 3 controlled tests, every tile labelled. <a href="../creative.html">The Creative Wall, with the briefs &rarr;</a></p>
+    <p class="t-data">54 pieces on the full wall — 20 client · 34 own-brand &amp; concept · 3 controlled tests, every tile labelled. <a class="biglink" href="../creative.html">The Creative Wall, with the briefs &rarr;</a></p>
   </div>
 </section>
 
@@ -532,7 +580,7 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
   <div class="measure rv">
     <div class="sec-head">
       <p class="eyebrow t-label">03 · The gate</p>
-      <h2 class="t-display">Most generations <span class="ink">don&rsquo;t make it.</span></h2>
+      <h2 class="t-display">Most generations <span class="mist">don&rsquo;t make it.</span></h2>
       <p class="t-lead">The wall has a bouncer. Every AI generation is logged to a manifest with its model, its named test variable and a verdict — and the reject pile is the part most portfolios would hide.</p>
     </div>
 
@@ -567,7 +615,7 @@ footer{border-top:1px solid var(--border-soft); padding-block:72px 56px; backgro
   <div class="rail rv">
     <div class="sec-head">
       <p class="eyebrow t-label">04 · Running right now</p>
-      <h2 class="t-display">Three live URLs, <span class="ink">one agent on a cron.</span></h2>
+      <h2 class="t-display">Three live URLs, <span class="mist">one agent on a cron.</span></h2>
       <p class="t-lead">Anyone can list capabilities. These are addresses — open them in another tab and judge for yourself. Each caption says what you will actually find, including where you will hit a sign-in wall.</p>
     </div>
 
@@ -658,22 +706,22 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   <div class="rail rv">
     <div class="sec-head">
       <p class="eyebrow t-label">05 · The numbers</p>
-      <h2 class="t-display">Placards, <span class="ink">with sources.</span></h2>
+      <h2 class="t-display">Placards, <span class="mist">with sources.</span></h2>
       <p class="t-lead">Cost per lead is quoted <strong>per campaign</strong>, never blended across an account set — a blended figure mixes brand spend with lead-gen spend and means nothing. Every placard traces to a specific account, and the proof page shows the arithmetic for each.</p>
     </div>
 
     <div class="placards">
-      <div class="plq">
+      <div class="plq plq-lead">
         <p class="t-figure">$225K+</p>
         <p>Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K.</p>
         <p class="t-cap">Medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B. Managed and supported — a large share of it on awareness objectives, which is exactly why it must never be divided by a lead count.</p>
       </div>
-      <div class="plq">
+      <div class="plq plq-lead">
         <p class="t-figure">9.5&times;</p>
         <p>The incumbent national agency&rsquo;s lead volume, on the same chiropractic ad account, at roughly 75% lower cost per lead.</p>
         <p class="t-cap">114 leads at $12.59 against their 12 at $49.81. Same account, same market, same period — the only comparison worth making.</p>
       </div>
-      <div class="plq">
+      <div class="plq plq-lead">
         <p class="t-figure">$1.88</p>
         <p>Cost per lead across 817 B2B leads for a U.K. commercial-refrigeration installer.</p>
         <p class="t-cap">The flagship campaign ran 709 of them at about $1.50. B2B at consumer-grade cost — the cheap exception, not the rule.</p>
@@ -721,7 +769,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       <div class="plq">
         <p class="t-figure" aria-hidden="true">&rarr;</p>
         <p>Every placard above has a &ldquo;how verified&rdquo; breakdown — the arithmetic, the source system, and the badge it earned.</p>
-        <p class="t-cap"><a href="../proof.html">The proof page, claim by claim &rarr;</a></p>
+        <p class="t-cap"><a class="biglink" href="../proof.html">The proof page, claim by claim &rarr;</a></p>
       </div>
     </div>
   </div>
@@ -735,7 +783,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   <div class="measure rv">
     <div class="sec-head">
       <p class="eyebrow t-label">06 · Your arithmetic</p>
-      <h2 class="t-display">Runs on your numbers, <span class="ink">not mine.</span></h2>
+      <h2 class="t-display">Runs on your numbers, <span class="mist">not mine.</span></h2>
       <p class="t-lead">A page full of my results should still hand you something that computes yours. This is what a busy phone line costs, on your inputs, with every assumption labelled as one.</p>
     </div>
 
@@ -798,7 +846,7 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
   <div class="measure rv">
     <div class="sec-head">
       <p class="eyebrow t-label">07 · The work</p>
-      <h2 class="t-display">Eighteen cases, <span class="ink">each with what it does not claim.</span></h2>
+      <h2 class="t-display">Eighteen cases, <span class="mist">each with what it does not claim.</span></h2>
       <p class="t-lead">Every case page ends with a section headed &ldquo;what this case does not claim&rdquo; — the boundary stated before anyone has to ask for it. Seven of the eighteen carry no figure at all, because no approved figure exists for them, and they say so rather than reaching for a number.</p>
     </div>
 
@@ -971,6 +1019,64 @@ mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
       });
     });
   }catch(e){}
+
+  /* --- strip controls: prev/next buttons, a live "a–b of n" counter, and
+         pointer-drag scrolling. A bar stays hidden unless JS arms it AND the
+         strip actually overflows, so nothing renders that does nothing.
+         Without JS the strips remain plain native scrollers. --- */
+  try{
+    document.querySelectorAll('.strip-bar').forEach(function(bar){
+      var strip=document.getElementById(bar.getAttribute('data-for'));
+      if(!strip) return;
+      var items=[].slice.call(strip.children);
+      var count=bar.querySelector('.scount');
+      var prev=bar.querySelector('[data-dir="-1"]'), next=bar.querySelector('[data-dir="1"]');
+
+      var update=function(){
+        var overflow=strip.scrollWidth>strip.clientWidth+8;
+        if(overflow){ bar.setAttribute('data-armed',''); } else { bar.removeAttribute('data-armed'); return; }
+        var sl=strip.scrollLeft, sr=sl+strip.clientWidth, a=0, b=0;
+        for(var i=0;i<items.length;i++){
+          var l=items[i].offsetLeft, r=l+items[i].offsetWidth;
+          if(r-24>sl && l+24<sr){ if(!a) a=i+1; b=i+1; }
+        }
+        if(count) count.textContent=a+'–'+b+' of '+items.length;
+        if(prev) prev.disabled = sl<=4;
+        if(next) next.disabled = sl>=strip.scrollWidth-strip.clientWidth-4;
+      };
+      var step=function(dir){
+        strip.scrollBy({left:dir*Math.round(strip.clientWidth*0.8), behavior:'smooth'});
+      };
+      if(prev) prev.addEventListener('click',function(){ step(-1); });
+      if(next) next.addEventListener('click',function(){ step(1); });
+      strip.addEventListener('scroll',update,{passive:true});
+      window.addEventListener('resize',update);
+      update();
+
+      /* drag-to-scroll for mouse users. A 6px threshold separates a drag from
+         a click, and a post-drag click on a tile link is swallowed so dragging
+         never navigates. Video controls are excluded. */
+      var down=null, dragged=false;
+      strip.addEventListener('pointerdown',function(e){
+        if(e.button!==0 || e.target.tagName==='VIDEO' || e.pointerType!=='mouse') return;
+        down={x:e.clientX, sl:strip.scrollLeft}; dragged=false;
+      });
+      strip.addEventListener('pointermove',function(e){
+        if(!down) return;
+        var dx=e.clientX-down.x;
+        if(!dragged && Math.abs(dx)>6){ dragged=true; strip.classList.add('dragging'); }
+        if(dragged) strip.scrollLeft=down.sl-dx;
+      });
+      var end=function(){ if(!down) return; down=null;
+        if(dragged) setTimeout(function(){ strip.classList.remove('dragging'); dragged=false; },0);
+      };
+      strip.addEventListener('pointerup',end);
+      strip.addEventListener('pointerleave',end);
+      strip.addEventListener('click',function(e){
+        if(dragged || strip.classList.contains('dragging')){ e.preventDefault(); e.stopPropagation(); }
+      },true);
+    });
+  }catch(e){ /* strips stay native scrollers */ }
 })();
 </script>
 </body>
