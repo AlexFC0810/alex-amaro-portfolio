@@ -542,3 +542,8 @@ html.js .system-panel:not(.is-active){display:none}
 .site-footer,.work a span,.linkrow a,.tour-tabs button span,.system-selector button,.status,.micro-label,.claim__details span,
 .text-link,.proof-card__top,.proof-card__label,.proof-card>p,.proof-card footer,.shot__verdict,.disclaim p.mono,.hero__scroll{font-weight:var(--w-med)}
 .eyebrow,.card-link,.site-nav a,.button,.tour-tabs button strong,.wordmark,.reel-cell__title{font-weight:var(--w-semi)}
+/* the weight-binding block above must not reach these: serif numerals stay 400,
+   the paper card's mono lines are 11px = 520, and body text in the footer is 400 */
+.proof-card__number,.claim__number,.ledger-row .num{font-weight:var(--w-reg)}
+.proof-card>p:not(.proof-card__number,.proof-card__label),.proof-card--compact>p:not(.proof-card__number,.proof-card__label){font-weight:var(--w-med)}
+.disclaim li,.creds p,.site-footer__row a{font-weight:var(--w-reg)}
