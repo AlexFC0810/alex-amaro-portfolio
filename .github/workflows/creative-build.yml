@@ -1,0 +1,58 @@
+name: creative-first release review
+on:
+  push:
+    branches: [portfolio/creative-first-2026-09-04]
+permissions:
+  contents: write
+concurrency:
+  group: creative-first-build
+  cancel-in-progress: false
+jobs:
+  build-review:
+    if: "contains(github.event.head_commit.message, '[creative-build]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Review dependencies outside public source
+        run: |
+          npm install --prefix /tmp/creative-build playwright@1.55.1 cheerio@1.0.0 sharp@0.34.3
+          /tmp/creative-build/node_modules/.bin/playwright install --with-deps chromium
+      - name: Build approved page and static collection
+        run: node tools/build-creative-portfolio.mjs
+      - name: Browser checks and actual visual captures
+        run: node tools/creative-portfolio-qa.cjs
+      - name: Remove captured reference source from the eventual release
+        run: |
+          git rm --ignore-unmatch _review/reference-source.html _review/reference-report.json _review/reference.css _review/desktop-small.b64 _review/mobile-small.b64 _review/static-inventory.json _review/all-assets.json
+          git add index.html creative.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html assets/og-creative-first.png proof/experience.json tools/portfolio-gallery.json tools/build-creative-wall.mjs _audit/releases/2026-09-04-creative-first.json _review/packs
+          if test -d assets/portfolio-static; then git add assets/portfolio-static; fi
+      - name: Public contract, privacy, case preservation and links
+        run: |
+          node tools/public-selftest.mjs
+          node tools/check-home-claims.mjs
+          node tools/gate-ledger.mjs
+          git diff --exit-code 4bda70ac4bec9fc61087b3520f4a9a588ba47c57 -- claims.json llms.txt work.html work tools/case-studies.json
+          node tools/link-check.mjs
+      - name: Retain browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: creative-first-visual-review
+          path: /tmp/creative-portfolio-review/
+          if-no-files-found: warn
+      - name: Save review build without touching production
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/portfolio/creative-first-2026-09-04 | cut -f1)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Creative-first render and browser report for review; not promoted'
+          git push origin HEAD:refs/heads/portfolio/creative-first-2026-09-04
+      - name: Enforce the browser acceptance gate
+        run: node -e "const r=require('./_audit/releases/2026-09-04-creative-first.json'); if(!r.passed){console.error(r.failures);process.exit(1)}"
