@@ -1,0 +1,50 @@
+[
+  {
+    "name": "social",
+    "width": 700,
+    "bytes": 9856,
+    "parts": [
+      "_review/packs/social-01.txt",
+      "_review/packs/social-02.txt",
+      "_review/packs/social-03.txt"
+    ]
+  },
+  {
+    "name": "reference",
+    "width": 720,
+    "bytes": 24024,
+    "parts": [
+      "_review/packs/reference-01.txt",
+      "_review/packs/reference-02.txt",
+      "_review/packs/reference-03.txt",
+      "_review/packs/reference-04.txt",
+      "_review/packs/reference-05.txt",
+      "_review/packs/reference-06.txt"
+    ]
+  },
+  {
+    "name": "hero-375",
+    "width": 375,
+    "bytes": 18358,
+    "parts": [
+      "_review/packs/hero-375-01.txt",
+      "_review/packs/hero-375-02.txt",
+      "_review/packs/hero-375-03.txt",
+      "_review/packs/hero-375-04.txt",
+      "_review/packs/hero-375-05.txt"
+    ]
+  },
+  {
+    "name": "gallery-375",
+    "width": 375,
+    "bytes": 25966,
+    "parts": [
+      "_review/packs/gallery-375-01.txt",
+      "_review/packs/gallery-375-02.txt",
+      "_review/packs/gallery-375-03.txt",
+      "_review/packs/gallery-375-04.txt",
+      "_review/packs/gallery-375-05.txt",
+      "_review/packs/gallery-375-06.txt"
+    ]
+  }
+]

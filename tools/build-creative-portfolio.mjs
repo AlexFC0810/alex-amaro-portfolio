@@ -75,7 +75,8 @@ else {
     const u=new URL(a.src,reference);assert.equal(u.origin,new URL(reference).origin);
     const r=await fetch(u,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error('Static source unavailable: '+u.pathname);
     const bytes=Buffer.from(await r.arrayBuffer()),meta=await sharp(bytes).metadata();
-    assert.ok(meta.width>=400&&meta.height>=400,'Source too small');
+    if(meta.width<600||meta.height<240){console.log('Excluded undersized public static:',u.pathname,meta.width,meta.height);continue;}
+    console.log('Public static candidate:',u.pathname,meta.width,meta.height);
     const id=(/Residential cleaning/i.test(a.text)?'home-services':'own-brand')+'-'+String(i+1).padStart(2,'0');
     const file='assets/portfolio-static/'+id+'.webp';
     const out=await sharp(bytes).rotate().webp({quality:90}).toBuffer();write(file,out);

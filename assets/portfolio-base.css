@@ -63,7 +63,7 @@ button,input:where([type=button],[type=reset],[type=submit]){appearance:button}
 .table{display:table}
 .grow{flex-grow:1}
 }
-@font-face{font-family:Inter;src:url(/fonts/inter-latin-var.woff2)format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:Inter;src:url(fonts/inter-latin-var.woff2)format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
 :root{--paper:#f3efe6;--paper-bright:#fffdf7;--ink:#111;--ink-soft:#3c3a36;--blue:#7138f4;--orange:#ff5a24;--acid:#ffc13d;--line:#1113}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}

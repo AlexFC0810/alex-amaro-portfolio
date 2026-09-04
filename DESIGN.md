@@ -1,3 +1,23 @@
+# Current canonical design — creative-first (2026-09-04)
+
+The owner-selected creative reference governs the homepage and static gallery. The earlier V4 and instrument-panel sections below are historical descriptions, not a reason to revert this design.
+
+**Reference:** https://alex-amaro-creative.alexfc10.chatgpt.site/ — captured rendered DOM and its actual stylesheet during this release.
+
+**Palette:** paper #f3efe6; bright paper #fffdf7; deep paper #e4ded2; ink #111; secondary ink #3c3a36; interactive purple #7138f4; accent orange #ff5a24 (decorative); acid yellow #ffc13d for selected controls/highlights. Purple and black support clear focal objects, not an audit-dashboard register.
+
+**Type:** self-hosted Inter variable, headline up to 850; Georgia italic at 400 for the signature word. Body 17–20px, captions generally 12–14px, and 44px minimum interactive targets. The former 560/590 weight ceiling belongs to historical V4/V2 and is superseded here.
+
+**Imagery:** real static creative, always contained rather than cropped, with captions below the artwork. Four tilted hero cards carry variety; the larger gallery uses manual swipe/scroll, arrows, filters and an all-items grid. A small hard-edged purple hover offset is intentional; no autoplay or endless animation. No video elements or generated motion stills in the active collection.
+
+**Writing:** first-person and buyer-readable. No proof tour, generation-rejection ledger or interrogation-room pitch in the main story. Source links and concise material qualifications support the results. The voice section demonstrates one part of the broader growth/marketing-operations contribution.
+
+**Sources:** assets/portfolio-base.css retains the captured reference stylesheet; assets/portfolio.css adds the responsive/accessibility changes. tools/build-creative-portfolio.mjs generates both home and collection from the same copy and manifest. Runtime behavior lives in assets/portfolio.js.
+
+**Release gates:** visual review of hero/gallery/voice/social preview and new public own-brand assets; mobile and desktop interaction tests; no-JS content; public claims/privacy/links; source-to-live publication match. Passing these checks is not a claim of measured conversion uplift.
+
+---
+
 # Portfolio v2 — design system
 
 > "Instrument panel at night" · theme: dark · one accent
