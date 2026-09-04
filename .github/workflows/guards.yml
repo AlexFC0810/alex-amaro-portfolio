@@ -1,12 +1,12 @@
-# The public repo's guard: a salted-hash leak tripwire + contract integrity.
-# No secrets run here — this repo is public and GitHub Pages serves every
-# tracked file. The full-strength, context-aware sweep (real patterns, real
-# names) runs nightly from the PRIVATE vault against this repo's content.
+# Public, deterministic content checks stay separate from live-publication checks.
+# Private names/patterns stay in the private vault; no private configuration here.
 name: guards
 on:
   push:
     branches: [main]
   pull_request:
+permissions:
+  contents: read
 jobs:
   guards:
     runs-on: ubuntu-latest
@@ -17,13 +17,24 @@ jobs:
           node-version: 22
       - name: leak tripwire + claims.json integrity
         run: node tools/public-selftest.mjs
-      # Internal only: no network in CI, so this is deterministic and cannot be
-      # made red by somebody else's outage. It resolves every href, src, poster
-      # and srcset candidate to a file, and every #fragment to an id in the
-      # document it points at. That second half is the one that earns its keep:
-      # on 2026-09-04 it found 126 anchors on the case pages still aimed at v1
-      # sections that had not existed since the rebuild, none of which errored,
-      # all of which quietly dumped the reader at the top of the home page.
-      # Run `node tools/link-check.mjs --external` by hand before a release.
       - name: link integrity (internal targets and fragments)
         run: node tools/link-check.mjs
+      - name: home claims licensed by the public contract
+        run: node tools/check-home-claims.mjs
+      - name: creative review counts match the dated ledger
+        run: node tools/gate-ledger.mjs
+  live-publication:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: guards
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: portfolio-live-publication
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Confirm GitHub Pages serves the committed HTML and stylesheet
+        run: node tools/check-live-site.mjs
