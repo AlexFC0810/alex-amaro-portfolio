@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>og-v4 — render at exactly 1200x630 with tools/make-og.mjs og-v4</title>
+<style>
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;src:url('./fonts/instrument-serif-latin.woff2') format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;src:url('./fonts/instrument-serif-italic-latin.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;src:url('./fonts/inter-latin-var.woff2') format('woff2')}
+*{margin:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#050505;color:#eeeae3;overflow:hidden;font-family:'Inter',Arial,sans-serif;position:relative}
+.card{padding:64px 76px;height:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.eyebrow{font-family:ui-monospace,Consolas,monospace;font-size:18px;letter-spacing:.16em;text-transform:uppercase;color:#e2b972;font-weight:520}
+h1{margin-top:22px;font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:112px;line-height:.94;letter-spacing:-0.04em;color:#ede8df}
+h1 em{font-style:italic;color:#e2b972}
+.dek{margin-top:26px;color:#aaa6a0;font-size:21px;line-height:1.5;max-width:520px;letter-spacing:-.01em}
+.name{margin-top:26px;font-family:ui-monospace,Consolas,monospace;font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:#eeeae3;font-weight:560}
+.proof{border:1px solid #4a4741;background:#080808;padding:10px}
+.proof .top{display:flex;justify-content:space-between;font-family:ui-monospace,Consolas,monospace;font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:#9c9992;padding:6px 8px 12px}
+.plate{background:#e9e3d9;color:#15120f;text-align:center;padding:30px 24px 26px}
+.plate .st{font-family:ui-monospace,Consolas,monospace;font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:560;padding-bottom:12px;border-bottom:1px solid rgba(22,19,15,.55)}
+.plate .n{margin-top:16px;font-family:'Instrument Serif',Georgia,serif;font-size:118px;line-height:.9;letter-spacing:-.03em;color:#7a5218}
+.plate .l{margin-top:8px;font-family:ui-monospace,Consolas,monospace;font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:560}
+.plate .r{margin:16px 0 12px;height:1px;background:rgba(22,19,15,.35)}
+.plate p{font-family:ui-monospace,Consolas,monospace;font-size:13px;letter-spacing:.13em;text-transform:uppercase;font-weight:560;padding:8px 0;border-bottom:1px solid rgba(22,19,15,.25)}
+.plate footer{margin-top:12px;font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:560}
+</style>
+</head>
+<body>
+<div class="card">
+  <div>
+    <p class="eyebrow">Meta paid social · AI-native operator · Evidence on file</p>
+    <h1>The work is live.<br>The proof is <em>attached.</em></h1>
+    <p class="dek">Client ad creative you can open, live systems you can click, and every figure bound to a published, machine-readable contract.</p>
+    <p class="name">Alex Amaro</p>
+  </div>
+  <div class="proof">
+    <div class="top"><span>Source status</span><span>04</span></div>
+    <div class="plate">
+      <div class="st">Verified · A</div>
+      <div class="n">9.5&times;</div>
+      <div class="l">Lead volume</div>
+      <div class="r"></div>
+      <p>~75% lower CPL</p>
+      <p>Same account</p>
+      <footer>114 @ $12.59 vs 12 @ $49.81</footer>
+    </div>
+  </div>
+</div>
+</body>
+</html>

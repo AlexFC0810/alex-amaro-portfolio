@@ -520,3 +520,57 @@ editing them. The three new films in `assets/motion/` were frame-extracted,
 read at full size, and transcoded with `-map_metadata -1`; their soundbeds
 are machine-gated but **unheard by a human** — Alex listens once on a phone
 before sharing the /v3/ link (the content engine's own go-live gate).
+
+---
+
+# Portfolio v4 draft — "the proof room" (`/v4/`, 2026-09-04)
+
+> A static port of the Codex-built prototype (`proof-os/flagship-proof/`, 2026-08-27 — the design
+> Alex rated highest), made canonical: every figure bound to `claims.json`, every guard able to read
+> it, every token measured. Draft status: **noindex, unlinked** until Alex promotes it. Tokens and
+> the reasoning live at the top of `v4/style.css`; this section is the measured record.
+
+## v4 tokens, measured
+
+Grounds: `--ink #050505 → --panel #1a1917 → --raised #2a2825` — adjacent pairs **1.160 / 1.195**;
+the paper band `--paper #e9e3d9 → --paper-deep #d8cfbf` 1.210. Separation is hairlines plus the
+paper inversion; there is no drop shadow anywhere (`elevation_variants: 0` on the rip).
+
+Text on ink / panel / raised: `--white #eeeae3` 17.0 / 15.5 / 13.7 · `--muted #a39f98` 7.7 / 7.1 / 6.2 ·
+`--quiet #8c8882` 5.8 / 5.3 / **4.2 — never used on `--raised`**. Gold `#cea15a` 8.6 on ink,
+`--gold-bright #e2b972` 11.1. On paper: `--ink-text #15120f` 14.6 · `--paper-body #5f5950` 5.4 ·
+`--paper-gold #80551e` 5.1 · `--paper-figure #7a5218` 5.4 (the prototype's `#9b6b29` measured 3.63
+and failed the flat 4.5 bar — there is no large-text exemption on this estate).
+
+Type: **three families** — Instrument Serif (display, weight 400 only), Inter (body), system mono
+(labels). Ramp: `--fs-mega` (h1, once) · `--fs-display` (section h2) · `--fs-sub` (every serif
+sub-head) · `--fs-figure` (every serif numeral) · `--fs-lead` · `--fs-body 16` · `--fs-cap 14` ·
+mono `--fs-label 11` at 520 · `--fs-ui 12` at 560. **Weight ceiling 560.** The prototype's 5–9px
+chrome and 650/700 labels were raised and clamped. Rip on 2026-09-04 at 375: 29 rendered styles,
+band 400/520/560, radius values 1 (the play discs), families 3.
+
+## Measured on the render (2026-09-04, `_audit/measure.js`)
+
+| | 1440×900 | 375×812 |
+|---|---|---|
+| tap targets under 44px | 0 of 116 | 0 of 105 |
+| text below 4.5:1 | 0 of 438 | 0 of 419 |
+| horizontal overflow | none | none |
+| first screen | specialty at y≈165, $225K+ rail at y≈790 | specialty y=102, $225K+ y=709 |
+
+## Guards this page adds
+
+- `tools/check-home-claims.mjs` — every `[data-claim]` block's numeric tokens must be licensed by
+  that claim's contract strings; every `data-status` pill must read `<status> · <tier>`. Runs on
+  `index.html` and every `v<n>/index.html`.
+- `tools/gate-ledger.mjs` — the four review-gate counts (109 / 12 / 25 / 72, inventory counts, not
+  performance claims) must equal `proof/gate-ledger.json` and sum. Re-derive the snapshot from the
+  private creative manifest before editing the counts.
+- `proof/called-shots.json` — the dated, falsifiable forecast register the strategy block renders.
+  A verdict is printed on the resolution date, hit or miss, and never deleted.
+
+## Motion
+
+CSS scroll-driven reveals under `@supports (animation-timeline: view())` inside
+`prefers-reduced-motion: no-preference`; default state visible; no JavaScript involved. Tabs and
+the lightbox are progressive enhancement — every panel is in the DOM and every tile is a real link.

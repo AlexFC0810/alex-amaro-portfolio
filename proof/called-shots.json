@@ -1,0 +1,21 @@
+{
+  "schema": "called-shots/v1",
+  "definition": "A called shot is a dated, public, falsifiable statement about something the subject is about to do or find out — filed before the outcome is known, with a named resolution date and a verdict printed on that date whether it was hit or missed. A miss is rendered exactly like a hit. The calendar adjudicates; nothing here is a performance claim and no figure in this file is a claim.",
+  "shots": [
+    {
+      "id": "CS1",
+      "filed": "2026-09-04",
+      "resolves": "2026-09-25",
+      "lane": "Public-program participant operations",
+      "thesis": "A publicly funded programme creates value only when the people it was built for get from awareness to completion, and the outreach, intake, follow-up, scheduling and reporting between those two points are usually fragmented. The thesis under validation: that participant-operations infrastructure is a repeatable category rather than a one-off pattern, and that the right way in is as a partner beneath an established programme operator — never as a prime.",
+      "will_have_done": "Established, for one live programme, the procurement mechanism, the buyer class and a safe pilot shape — or published here that I could not.",
+      "boundaries": [
+        "Exploratory. Nothing has shipped, nothing is claimed, no partner or programme is named.",
+        "Meta paid social remains the only owned channel specialism on this site; this lane claims none."
+      ],
+      "status": "open",
+      "verdict": null,
+      "verdict_date": null
+    }
+  ]
+}

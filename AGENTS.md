@@ -24,7 +24,8 @@ It is not only a website. It is an **evidence surface with a contract behind it*
 | `proof.html` | The Proof Room — claims with verification status. |
 | `audit.html` | The published cross-examination, including the attacker's prompt. |
 | `model.html` | The unit-economics model. Claims nothing; runs entirely client-side. |
-| `v1.html`, `v2/`, `v3/` | History and drafts. `v3/` is `noindex` and unlinked until promoted. |
+| `v1.html`, `v2/`, `v3/` | History and drafts. `v3/` is `noindex` and unlinked. |
+| `v4/` | **The proof-room draft** (2026-09-04) — the Codex prototype ported to static HTML, contract-bound. `noindex` and unlinked until Alex promotes it to root. Its guards: `tools/check-home-claims.mjs`, `tools/gate-ledger.mjs`; its registers: `proof/gate-ledger.json`, `proof/called-shots.json`. |
 | `claims.json`, `llms.txt` | The machine-readable record. **Compiled in the private vault** — never hand-edit; the sha256 will catch you. |
 | `Alex-Amaro-Resume.pdf` | Downloadable résumé. **See the warning below.** |
 
@@ -32,7 +33,7 @@ Assets, fonts and media live in `assets/`. `robots.txt` and `sitemap.xml` must s
 
 ## Hard rules
 
-1. **`claims.json` is binding.** Every public figure comes from a claim's `wording` field, used verbatim, and the commit message names the claim id. No figure that is not in the contract reaches a page — at any size, however flattering. If a stronger statement is less defensible, ship the defensible one.
+1. **`claims.json` is binding.** Every public figure comes from a claim's `wording` field, used verbatim, and the commit message names the claim id. No performance figure that is not in the contract reaches a page — at any size, however flattering. If a stronger statement is less defensible, ship the defensible one. *Inventory and process counts* (pieces on a wall, generations logged / accepted / rejected) are not claims: each is sourced to a named manifest with a dated snapshot in `proof/`, checked by a tool on every push, and never placed within 300 characters of a spend, lead or booking figure. Wrap every claim-bearing block in `data-claim="<id>"` so `tools/check-home-claims.mjs` can hold it to the contract.
 2. **Never hand-edit `claims.json` or `llms.txt`.** They are compiled in `proof-os` and integrity-hashed. Sync the local lint config with `cp ../proof-os/shareable/greenlit.json proof/greenlit.json` (gitignored — it carries real client names and must never be committed).
 3. **Cost per lead is per campaign.** Never total spend ÷ total leads. Never place a managed-spend total within 300 characters of a lead total without "per campaign" nearby — there is a lint rule for exactly this.
 4. **Clients by vertical and market, never by name.** This applies to variable names, preset ids, comments and filenames, not just prose. GitHub Pages serves every tracked file, and an HTML comment is served too.
@@ -64,6 +65,8 @@ node tools/public-selftest.mjs                      # leak tripwire + contract i
 node tools/claims-lint.mjs --strict --config ../proof-os/shareable/greenlit.json \
      index.html model.html work.html proof.html creative.html audit.html llms.txt DESIGN.md AGENTS.md work
 node tools/build-case-studies.mjs --check           # case-page source drift
+node tools/check-home-claims.mjs                    # every [data-claim] block on index.html / v*/index.html is licensed by the contract
+node tools/gate-ledger.mjs                          # the review-gate counts match proof/gate-ledger.json and sum
 node tools/link-check.mjs --external                # internal targets, #fragments, and live URLs
 node tools/make-og.mjs                              # only if assets/og-*.html changed
 ```

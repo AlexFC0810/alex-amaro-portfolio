@@ -1,0 +1,10 @@
+{
+  "as_of": "2026-09-04",
+  "source": "sc-ad-creative-os/creative/index.json",
+  "field": "craft",
+  "note": "Inventory counts, not performance claims. Re-derived from the private creative manifest on the as_of date; tools/gate-ledger.mjs --check asserts the figures on the page equal these and that total = accepted + rejected + unjudged.",
+  "total": 109,
+  "accepted": 12,
+  "rejected": 25,
+  "unjudged": 72
+}
