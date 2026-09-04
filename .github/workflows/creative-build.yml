@@ -24,13 +24,15 @@ jobs:
           npm install --prefix /tmp/creative-build playwright@1.55.1 cheerio@1.0.0 sharp@0.34.3
           /tmp/creative-build/node_modules/.bin/playwright install --with-deps chromium
       - name: Build approved page and static collection
-        run: node tools/build-creative-portfolio.mjs
+        run: |
+          node tools/creative-release-patch.mjs
+          node tools/build-creative-portfolio.mjs
       - name: Browser checks and actual visual captures
         run: node tools/creative-portfolio-qa.cjs
       - name: Remove captured reference source from the eventual release
         run: |
           git rm --ignore-unmatch _review/reference-source.html _review/reference-report.json _review/reference.css _review/desktop-small.b64 _review/mobile-small.b64 _review/static-inventory.json _review/all-assets.json
-          git add index.html creative.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html assets/og-creative-first.png proof/experience.json tools/portfolio-gallery.json tools/build-creative-wall.mjs _audit/releases/2026-09-04-creative-first.json _review/packs
+          git add index.html creative.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html assets/og-creative-first.png proof/experience.json tools/portfolio-gallery.json tools/build-creative-wall.mjs tools/build-creative-portfolio.mjs AGENTS.md DESIGN.md _audit/releases/2026-09-04-creative-first.json _review/packs
           if test -d assets/portfolio-static; then git add assets/portfolio-static; fi
       - name: Public contract, privacy, case preservation and links
         run: |
