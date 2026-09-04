@@ -20,14 +20,14 @@ It is also an **evidence surface with a contract behind it**: every public figur
 
 | Path | What it is |
 |---|---|
-| `index.html` | The root. Hero → `#running` (systems) → `#creative` → `#numbers` → `#work` → `#record`. Hand-edited. |
+| `index.html` | The final canonical portfolio, promoted from V4 on 2026-09-04 at Alex’s request. Hero → proof tour → creative/video → `#running` (including `#voice`) → evidence → strategy → work → record. Hand-edited; styles in `assets/portfolio.css`. |
 | `work.html`, `work/*.html` | 18 case studies. **Generated** — edit `tools/case-studies.json` and run the builder, never the HTML. |
 | `creative.html` | The creative wall. **Generated** by `tools/build-creative-wall.mjs`. |
 | `proof.html` | The Proof Room — claims with verification status. |
 | `audit.html` | The published cross-examination, including the attacker's prompt. |
 | `model.html` | The unit-economics model. Claims nothing; runs entirely client-side. |
 | `v1.html`, `v2/`, `v3/` | History and drafts. `v3/` is `noindex` and unlinked. |
-| `v4/` | **The proof-room draft** (2026-09-04) — the Codex prototype ported to static HTML, contract-bound. `noindex` and unlinked until Alex promotes it to root. Its guards: `tools/check-home-claims.mjs`, `tools/gate-ledger.mjs`; its registers: `proof/gate-ledger.json`, `proof/called-shots.json`. |
+| `v4/` | Retained noindex source snapshot of the proof-room design. The canonical final version is now `index.html`; do not overwrite its voice/CRM improvements with this older snapshot. Guards: `tools/check-home-claims.mjs`, `tools/gate-ledger.mjs`. |
 | `claims.json`, `llms.txt` | The machine-readable record. **Compiled in the private vault** — never hand-edit; the sha256 will catch you. |
 | `Alex-Amaro-Resume.pdf` | Downloadable résumé. **See the warning below.** |
 
@@ -89,3 +89,9 @@ If you touched a social card, **open the PNG and read it**. No check in this rep
 ## Boundaries
 
 Use this repo for the **public rendering** of the portfolio: content implementation, layout, assets, SEO, interactions and public guards. It is a presentation/deployment surface, not an application backend and not the canonical professional-strategy source. Data, automation and business logic live elsewhere. Growth strategy, content production and fulfilment SOPs route to their own engines.
+
+## Final portfolio release — 2026-09-04
+
+Alex authorized the final version in chat. V4’s design is now the canonical root, with the existing callable demo integrated into the client-systems panel. `#voice` deep links reopen the correct tab. The neutral demo label is deliberate: the agent-name mapping was not independently established. The phone number was previously confirmed by Alex; this release tests the website affordance, not a phone call. No CRM settings, routing or messages are changed.
+
+Keep three evidence classes distinct: configured platform capability, public-demo behavior, and proven client deployment. The workflow illustration is not a live log. Existing B11 and every other contracted evidence block are preserved. The own-brand video is labelled component/concept work, not an approved complete ad or a client result. No new off-origin resource is introduced. The existing guards workflow now also runs the home-claims and gate-ledger checks that the page describes.
