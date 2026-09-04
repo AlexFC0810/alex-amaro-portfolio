@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-04",
+  "reviewed_render_commit": "728b726a77c9385b9b5b56da1f2bafa9aabe8e48",
+  "source_workflow_run": 33930053404,
+  "source_artifact_id": 9958212781,
+  "source_artifact_sha256": "01ba41297742ee6c18c2a23990437194f8acc4e2a020d5e87ef8b858024a6d96",
+  "review_method": "Downloaded the actual browser-capture artifact into the working environment and opened the images. No OCR or generated substitute was used.",
+  "inspected": [
+    "reference.jpg: owner-selected creative reference, 1440px desktop",
+    "hero-1440.png: headline, direct first-person copy, static artwork and distinct demo/contact actions",
+    "hero-375.png: headline wrapping, experience line, mobile navigation and call affordance",
+    "gallery-1440.png: artwork is contained without cropping; captions below; manual exploration and filters",
+    "phone-375.png: callable public demo and clearly stated behavior",
+    "voice-1440.png: CRM workflow explanation, explicit implementation credit and configuration distinction",
+    "social.png: claim-free social preview, correct name and message",
+    "asset-home-services-offer.webp",
+    "asset-home-services-detail.webp",
+    "asset-home-services-trust.webp",
+    "asset-home-services-blue.webp",
+    "asset-own-brand-comparison.webp",
+    "asset-own-brand-tension.webp"
+  ],
+  "findings_addressed": [
+    "Headline spacing loosened after viewing the first render; the reference's overall style is retained.",
+    "No video examples, operator-console hero, fake execution log or generation-review ledger in the active homepage/collection.",
+    "Six imported static files are unique native-size assets from the owner's existing public reference, not new high-resolution Canva exports.",
+    "Residential-cleaning pieces are own-brand direct-mail work, not claimed as paid social campaigns or client performance evidence.",
+    "The CareLine comparison is product-explainer creative, not a claim that this public demo booked an appointment.",
+    "Printed offer terms remain on the artwork. Portfolio presentation does not renew or strengthen those historical offers."
+  ],
+  "scope_limits": [
+    "No physical iPhone test or actual telephone call was performed.",
+    "No CRM configuration, booking or message was changed or triggered.",
+    "Existing client creative and case studies were retained from the reviewed public estate; this release did not re-audit every original campaign asset.",
+    "The broad Canva inventory has not been newly exported or exhausted.",
+    "The browser report was emitted before this manual inspection and records that timing as pending; this separate record completes the selected visual review."
+  ],
+  "decision": "Accept this creative-first presentation for the user-authorized release. Technical and live-publication checks remain separate."
+}
