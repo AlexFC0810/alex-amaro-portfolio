@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OG cover source — challenger</title>
+<!-- Render source for og-challenger.png. Same tokens as the challenger index.html:
+     parchment canvas, serif display at 400, one italic word, ink CTA. Stat line is
+     the approved C3 one_liner, verbatim.  Regenerate:  node tools/make-og.mjs og-challenger -->
+<style>
+@font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:block;src:url('./fonts/instrument-serif-latin.woff2') format('woff2')}
+@font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:block;src:url('./fonts/instrument-serif-italic-latin.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 900;font-display:block;src:url('./fonts/inter-latin-var.woff2') format('woff2')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px}
+body{font-family:'Inter',Arial,sans-serif;background:#f4efe6;
+ background-image:radial-gradient(760px 420px at 92% -12%, rgba(224,161,42,.22) 0%, rgba(224,161,42,0) 62%),radial-gradient(640px 420px at -8% 40%, rgba(91,46,224,.12) 0%, rgba(91,46,224,0) 60%);
+ color:#1a1714;padding:64px 74px;display:flex;flex-direction:column;justify-content:space-between;-webkit-font-smoothing:antialiased}
+.eyebrow{display:flex;align-items:center;gap:12px;color:#625b52;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:17px;font-weight:500;letter-spacing:.09em;text-transform:uppercase}
+.eyebrow::before{content:'';width:34px;height:3px;background:#e0a12a;flex:none}
+h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:112px;line-height:.94;letter-spacing:-.015em;margin-top:26px;max-width:13ch}
+h1 em{font-style:italic;color:#5b2ee0}
+.stat{display:flex;align-items:center;gap:26px;padding:22px 28px;background:#fcfaf5;border:1px solid #b9ae9b}
+.stat .fig{font-family:'Instrument Serif',Georgia,serif;font-size:72px;line-height:1;color:#8a5a00;border-left:3px solid #e0a12a;padding-left:22px;flex:none}
+.stat .txt{font-size:24px;line-height:1.35;letter-spacing:-.012em;color:#1a1714}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:24px;font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:17px;letter-spacing:.02em;color:#625b52}
+</style>
+</head>
+<body>
+  <div>
+    <div class="eyebrow">AI-native growth operator &middot; Meta paid social &middot; Remote, U.S.</div>
+    <h1>Two kinds of demand. <em>One</em> machine.</h1>
+  </div>
+  <div>
+    <div class="stat"><div class="fig">9.5&times;</div><div class="txt">9.5x an agency&rsquo;s leads at ~75% lower CPL, same account &mdash; and the machine around the ads, which you can call.</div></div>
+    <div class="foot"><span>Alex Amaro</span><span>alexfc0810.github.io/alex-amaro-portfolio</span></div>
+  </div>
+</body>
+</html>
