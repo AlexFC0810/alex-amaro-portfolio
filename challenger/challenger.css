@@ -1349,6 +1349,19 @@ h3 {
   font-size: 14px;
 }
 
+.fit-note {
+  max-width: 960px;
+  margin: 24px 0 0;
+  padding: 18px 22px;
+  border-left: 3px solid var(--gold);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.fit-note strong {
+  color: var(--ink);
+}
+
 .contact-section {
   display: grid;
   grid-template-columns: 1.2fr .8fr;
