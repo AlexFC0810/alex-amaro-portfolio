@@ -23,6 +23,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -75,7 +76,29 @@ for (const file of walkHtml(ROOT)) {
   }
 }
 
+// THE TRAP THIS TOOL FELL INTO ON ITS FIRST CI RUN.
+// It passed locally and failed in CI, because "the file exists" was answered
+// against the working tree. Six responsive image variants sat on the author's
+// disk, unstaged, while a TRACKED page referenced them — so the check was
+// green on the machine that could not see the problem and red on the server
+// that served the 404s. A checker whose answer depends on your uncommitted
+// state is worse than no checker: it teaches you to trust a green run.
+// So a resolved target is now also asked whether git knows about it. This is a
+// WARNING rather than a failure, because a legitimately untracked file (a
+// draft, a local scratch page) should not block a commit — but it is loud, and
+// it names the exact thing CI is about to fail on.
+let trackedFiles = null;
+try {
+  trackedFiles = new Set(
+    execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' })
+      .split('\n').filter(Boolean).map((p) => path.resolve(ROOT, p)),
+  );
+} catch {
+  // No git, or not a checkout. Skip the tracking check rather than fail on it.
+}
+
 let fails = 0;
+let warns = 0;
 let checked = 0;
 const externals = new Map();
 
@@ -119,6 +142,9 @@ for (const { file, ref, ids } of targets) {
   if (!fs.existsSync(abs)) {
     fails++;
     console.log(`FAIL  ${rel} -> ${ref}  (missing: ${path.relative(ROOT, abs).replace(/\\/g, '/')})`);
+  } else if (trackedFiles && fs.statSync(abs).isFile() && !trackedFiles.has(abs)) {
+    warns++;
+    console.log(`WARN  ${rel} -> ${ref}  (on your disk but NOT tracked by git — this will 404 once deployed)`);
   } else if (frag && /\.html?$/i.test(abs)) {
     const targetIds = new Set(
       [...fs.readFileSync(abs, 'utf8').matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]),
@@ -130,7 +156,12 @@ for (const { file, ref, ids } of targets) {
   }
 }
 
-if (!QUIET) console.log(`link-check: ${checked} internal target(s) checked, ${fails} failure(s).`);
+if (!QUIET || warns) {
+  console.log(
+    `link-check: ${checked} internal target(s) checked, ${fails} failure(s)` +
+    (warns ? `, ${warns} untracked-target warning(s)` : '') + '.',
+  );
+}
 
 if (EXTERNAL) {
   console.log(`link-check: checking ${externals.size} external URL(s)…`);
