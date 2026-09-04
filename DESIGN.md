@@ -542,21 +542,50 @@ Text on ink / panel / raised: `--white #eeeae3` 17.0 / 15.5 / 13.7 · `--muted #
 `--paper-gold #80551e` 5.1 · `--paper-figure #7a5218` 5.4 (the prototype's `#9b6b29` measured 3.63
 and failed the flat 4.5 bar — there is no large-text exemption on this estate).
 
+Control boundaries (ghost buttons, strip buttons, ledger toggles, menu, film cards, the modal):
+`--line-ui #6a665f` — **3.57:1 on ink, 3.08:1 on panel**, the 3:1 non-text floor. It was `#5a5751`
+(2.83) until the critic pass. `--line` and `--line-light` remain decorative hairlines only.
+
 Type: **three families** — Instrument Serif (display, weight 400 only), Inter (body), system mono
 (labels). Ramp: `--fs-mega` (h1, once) · `--fs-display` (section h2) · `--fs-sub` (every serif
-sub-head) · `--fs-figure` (every serif numeral) · `--fs-lead` · `--fs-body 16` · `--fs-cap 14` ·
-mono `--fs-label 11` at 520 · `--fs-ui 12` at 560. **Weight ceiling 560.** The prototype's 5–9px
-chrome and 650/700 labels were raised and clamped. Rip on 2026-09-04 at 375: 29 rendered styles,
-band 400/520/560, radius values 1 (the play discs), families 3.
+sub-head, and the hero rail's numerals) · `--fs-figure` (every other serif numeral) · `--fs-lead` ·
+`--fs-body 16` · `--fs-cap 14` · mono `--fs-label 11` at 520 · `--fs-ui 12` at 560. **Weight
+ceiling 560.** The prototype's 5–9px chrome and 650/700 labels were raised and clamped; the reel
+chrome and the paper source card now sit on the 11px floor too, and the card's arithmetic line
+(`114 @ $12.59 vs 12 @ $49.81` — the line a skeptic reads to check 9.5×) is 12px. Rip on
+2026-09-04 at 375 after the critic pass: 24 rendered styles, band 400/520/560, radius values 1
+(the play discs), families 3, elevation variants 0.
 
-## Measured on the render (2026-09-04, `_audit/measure.js`)
+Frames: every film on this page is a 9:16 ad, so the film cards and the video modal are
+phone-shaped (the modal is `calc((100vh - 116px) * 9 / 16)` wide with the caption beside it);
+the hero contact sheet shows three 4:5 tiles at their own ratio, sized from whichever of the cell's
+height or width binds first (`cqh`/`cqw`, height-only fallback). Nothing in a frame is cropped.
+
+Spacing: `.section-space` is `clamp(64px, 6.4vw, 100px)` per side (52px under 640) — the eyebrow
+and hairline do the sectioning; the prototype's 170px bands measured as 318–419px of empty ground
+between sections and were cut.
+
+Mobile (≤640): the reel stacks — source card first, then the contact sheet (all six tiles, 4:5),
+then the console; the film door is hidden because the video section opens the same film at full
+size. The stat rail sits above the reel and carries the two conversion CTAs; the header keeps a
+44px **Book** pill beside the menu so a phone reader is never more than one tap from Calendly.
+
+## Measured on the render (2026-09-04, `_audit/measure.js`, after the critic pass)
 
 | | 1440×900 | 375×812 |
 |---|---|---|
-| tap targets under 44px | 0 of 116 | 0 of 105 |
-| text below 4.5:1 | 0 of 438 | 0 of 419 |
+| tap targets under 44px | 0 of 119 | 0 of 115 |
+| text below 4.5:1 | 0 of 440 | 0 of 420 |
+| text nodes under 11px | 0 | 0 |
 | horizontal overflow | none | none |
-| first screen | specialty at y≈165, $225K+ rail at y≈790 | specialty y=102, $225K+ y=709 |
+| page height | 15,646px (was 17,234) | 24,774px |
+| first screen | specialty at y≈165, serif rail at y≈780 | specialty y=102, $225K+ y=709, Book pill in the header |
+
+Critic pass (design-critic, live `/v4/`, 2026-09-04): ten findings — no mobile CTA for 27 screens,
+reel illegible on a phone, portrait films cropped to landscape frames and played at a third of the
+modal, hero tiles cropped, two dead reel cells, 9px arithmetic, 318–419px section gaps, an unlinked
+called shot, 17px rail numerals, and a11y regressions (no skip link, no `aria-labelledby`, no
+arrow keys, 2.2–2.8:1 control borders, no focus trap). All ten applied; none touched claim copy.
 
 ## Guards this page adds
 

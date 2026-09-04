@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
@@ -53,10 +54,13 @@
     <a href="#running">Systems</a>
     <a href="#numbers">Results</a>
     <a href="#record">Record</a>
-    <a class="site-nav__mail" href="mailto:jesusalexelamaro@gmail.com">Email</a>
+    <a class="site-nav__mail" href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">Email</a>
     <a class="site-nav__cta" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Start a conversation <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
   </nav>
-  <button id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation"><svg aria-hidden="true"><use href="#i-list"/></svg></button>
+  <div class="site-header__tools">
+    <a class="header-book" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book</a>
+    <button id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation"><svg aria-hidden="true"><use href="#i-list"/></svg></button>
+  </div>
 </header>
 
 <main id="top">
@@ -97,11 +101,11 @@
         <span class="reel-cell__title">Ad creative<br>video</span>
         <span class="vh">Play the B2B refrigeration video ad</span>
       </a>
-      <article class="reel-cell reel-cell--system">
+      <a class="reel-cell reel-cell--system" href="#running" aria-label="Operator console — open the live systems">
         <div class="frame-label" aria-hidden="true"><span>Operator console</span><span>03</span></div>
         <img src="../assets/shot-upwork-command-720.webp" alt="Opportunity Command, the single-operator dashboard: a daily send floor, one next action and a copyable go-live command." loading="eager" decoding="async">
-      </article>
-      <article class="reel-cell reel-cell--proof" data-claim="C3">
+      </a>
+      <a class="reel-cell reel-cell--proof" href="#numbers" data-claim="C3" aria-label="Source status, 9.5 times lead volume — open the evidence ledger">
         <div class="frame-label" aria-hidden="true"><span>Source status</span><span>04</span></div>
         <div class="proof-card proof-card--compact">
           <div class="proof-card__top"><span data-status="verified · A">Verified · A</span><svg aria-hidden="true"><use href="#i-seal"/></svg></div>
@@ -112,9 +116,9 @@
           <p>Same account</p>
           <footer>114 @ $12.59 vs 12 @ $49.81</footer>
         </div>
-      </article>
+      </a>
     </div>
-    <div class="hero-reel__footer" aria-hidden="true"><span>Campaigns</span><span>Video</span><span>Systems</span><span>Proof</span></div>
+    <nav class="hero-reel__footer" aria-label="Reel index"><a href="#creative">Campaigns</a><a href="#video">Video</a><a href="#running">Systems</a><a href="#numbers">Proof</a></nav>
   </div>
 
   <div class="metric-rail" aria-label="Selected verified results">
@@ -126,9 +130,11 @@
     <i aria-hidden="true"></i>
     <div data-claim="B1"><strong>6,250+</strong><span>Qualified leads</span></div>
     <p><svg aria-hidden="true"><use href="#i-check"/></svg> Cost per lead is quoted per campaign — never total spend divided by total leads. No ROAS theatre, no borrowed outcomes, source status shown.</p>
+    <div class="metric-rail__cta">
+      <a class="button button--primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Start a conversation <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+      <a class="button button--ghost" href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">Email me <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+    </div>
   </div>
-
-  <a class="hero__scroll" href="#tour">Scroll to enter <svg aria-hidden="true"><use href="#i-down"/></svg></a>
 </section>
 
 <!-- ==========================================================================
@@ -144,12 +150,12 @@
   </div>
 
   <div class="tour-tabs" role="tablist" aria-label="Proof tour chapters">
-    <button type="button" role="tab" class="is-active" aria-selected="true" aria-controls="tour-01" data-tab="tour-01"><span>01</span><strong>Shape demand</strong></button>
-    <button type="button" role="tab" aria-selected="false" aria-controls="tour-02" data-tab="tour-02"><span>02</span><strong>Run the system</strong></button>
-    <button type="button" role="tab" aria-selected="false" aria-controls="tour-03" data-tab="tour-03"><span>03</span><strong>Verify the result</strong></button>
+    <button type="button" role="tab" id="tab-tour-01" class="is-active" aria-selected="true" aria-controls="tour-01" data-tab="tour-01"><span>01</span><strong>Shape demand</strong></button>
+    <button type="button" role="tab" id="tab-tour-02" aria-selected="false" tabindex="-1" aria-controls="tour-02" data-tab="tour-02"><span>02</span><strong>Run the system</strong></button>
+    <button type="button" role="tab" id="tab-tour-03" aria-selected="false" tabindex="-1" aria-controls="tour-03" data-tab="tour-03"><span>03</span><strong>Verify the result</strong></button>
   </div>
 
-  <div class="tour-panel is-active" id="tour-01" role="tabpanel">
+  <div class="tour-panel is-active" id="tour-01" role="tabpanel" aria-labelledby="tab-tour-01">
     <div class="tour-copy">
       <p class="micro-label">Brief → angles → variations</p>
       <h3>Make the market stop.</h3>
@@ -181,7 +187,7 @@
     </div>
   </div>
 
-  <div class="tour-panel" id="tour-02" role="tabpanel">
+  <div class="tour-panel" id="tour-02" role="tabpanel" aria-labelledby="tab-tour-02">
     <div class="tour-copy">
       <p class="micro-label">Media → routing → follow-up</p>
       <h3>Turn attention into an operating flow.</h3>
@@ -208,7 +214,7 @@
     </div>
   </div>
 
-  <div class="tour-panel" id="tour-03" role="tabpanel" data-claim="C3">
+  <div class="tour-panel" id="tour-03" role="tabpanel" aria-labelledby="tab-tour-03" data-claim="C3">
     <div class="tour-copy">
       <p class="micro-label">Claim → source → boundary</p>
       <h3>Show what happened. Show where it stops.</h3>
@@ -352,14 +358,14 @@
     </div>
 
     <div class="system-selector" role="tablist" aria-label="Live systems">
-      <button type="button" role="tab" class="is-active" aria-selected="true" aria-controls="sys-01" data-tab="sys-01"><span>01</span>Client follow-up + AI voice</button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="sys-02" data-tab="sys-02"><span>02</span>A worked audit</button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="sys-03" data-tab="sys-03"><span>03</span>The economics</button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="sys-04" data-tab="sys-04"><span>04</span>Opportunity radar</button>
-      <button type="button" role="tab" aria-selected="false" aria-controls="sys-05" data-tab="sys-05"><span>05</span>My back office</button>
+      <button type="button" role="tab" id="tab-sys-01" class="is-active" aria-selected="true" aria-controls="sys-01" data-tab="sys-01"><span>01</span>Client follow-up + AI voice</button>
+      <button type="button" role="tab" id="tab-sys-02" aria-selected="false" tabindex="-1" aria-controls="sys-02" data-tab="sys-02"><span>02</span>A worked audit</button>
+      <button type="button" role="tab" id="tab-sys-03" aria-selected="false" tabindex="-1" aria-controls="sys-03" data-tab="sys-03"><span>03</span>The economics</button>
+      <button type="button" role="tab" id="tab-sys-04" aria-selected="false" tabindex="-1" aria-controls="sys-04" data-tab="sys-04"><span>04</span>Opportunity radar</button>
+      <button type="button" role="tab" id="tab-sys-05" aria-selected="false" tabindex="-1" aria-controls="sys-05" data-tab="sys-05"><span>05</span>My back office</button>
     </div>
 
-    <article class="system-feature system-panel is-active" id="sys-01" role="tabpanel">
+    <article class="system-feature system-panel is-active" id="sys-01" role="tabpanel" aria-labelledby="tab-sys-01">
       <div class="system-feature__image visual-frame">
         <div class="frame-label" aria-hidden="true"><span>Client systems</span><span>Live / 01</span></div>
         <div class="sys-flow">
@@ -385,7 +391,7 @@
       </div>
     </article>
 
-    <article class="system-feature system-panel" id="sys-02" role="tabpanel">
+    <article class="system-feature system-panel" id="sys-02" role="tabpanel" aria-labelledby="tab-sys-02">
       <div class="system-feature__image visual-frame">
         <div class="frame-label" aria-hidden="true"><span>Worked audit</span><span>Live / 02</span></div>
         <img src="../assets/shot-engine-proof-1200.webp" srcset="../assets/shot-engine-proof-720.webp 720w, ../assets/shot-engine-proof-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark editorial audit page headed Apex Coatings and Styling — Meta Ads plus Backend Conversion Audit, labelled sample audit." loading="lazy" decoding="async">
@@ -403,7 +409,7 @@
       </div>
     </article>
 
-    <article class="system-feature system-panel" id="sys-03" role="tabpanel">
+    <article class="system-feature system-panel" id="sys-03" role="tabpanel" aria-labelledby="tab-sys-03">
       <div class="system-feature__image visual-frame">
         <div class="frame-label" aria-hidden="true"><span>The economics</span><span>Live / 03</span></div>
         <div class="sys-flow">
@@ -428,7 +434,7 @@
       </div>
     </article>
 
-    <article class="system-feature system-panel" id="sys-04" role="tabpanel">
+    <article class="system-feature system-panel" id="sys-04" role="tabpanel" aria-labelledby="tab-sys-04">
       <div class="system-feature__image visual-frame">
         <div class="frame-label" aria-hidden="true"><span>Opportunity command</span><span>Live / 04</span></div>
         <img src="../assets/shot-upwork-command-1200.webp" srcset="../assets/shot-upwork-command-720.webp 720w, ../assets/shot-upwork-command-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark dashboard headed Upwork Command showing a daily sends counter, a next-action card and a copyable go-live command." loading="lazy" decoding="async">
@@ -446,7 +452,7 @@
       </div>
     </article>
 
-    <article class="system-feature system-panel" id="sys-05" role="tabpanel">
+    <article class="system-feature system-panel" id="sys-05" role="tabpanel" aria-labelledby="tab-sys-05">
       <div class="system-feature__image visual-frame">
         <div class="frame-label" aria-hidden="true"><span>Operator console</span><span>Live / 05</span></div>
         <img src="../assets/shot-revops-1200.webp" srcset="../assets/shot-revops-720.webp 720w, ../assets/shot-revops-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark sign-in card headed RevOps Cockpit, with email and password fields." loading="lazy" decoding="async">
@@ -646,6 +652,10 @@
         </div>
         <p class="cap">Exploratory. Nothing has shipped, nothing is claimed, no partner or programme is named. A called shot is a dated, falsifiable statement filed before the outcome is known; the verdict is printed here on the resolution date, and a miss is rendered exactly like a hit.</p>
         <span class="shot__verdict">Verdict · pending · 2026-09-25</span>
+        <div class="shot__links">
+          <a href="https://github.com/AlexFC0810/alex-amaro-portfolio/blob/main/proof/called-shots.json" target="_blank" rel="noopener">The register, as filed <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+          <a href="https://github.com/AlexFC0810/alex-amaro-portfolio/commit/8e24a746cb842bafc898c3b9159f77f61badaa82" target="_blank" rel="noopener">Filing commit 8e24a74 <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+        </div>
       </article>
     </div>
   </div>
@@ -745,7 +755,7 @@
     <p>Where the offer, the creative, the follow-up and the measurement collide — that is the work, and here it is one pair of hands. Every number above has a source. So will the next one.</p>
     <div class="closing__actions">
       <a class="button button--primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a clarity session <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
-      <a class="button button--ghost" href="mailto:jesusalexelamaro@gmail.com">Email me <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      <a class="button button--ghost" href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">Email me <svg aria-hidden="true"><use href="#i-right"/></svg></a>
     </div>
   </div>
 </section>
@@ -768,7 +778,7 @@
     <p>B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit). Associate&rsquo;s — University of Wisconsin&ndash;Oshkosh (conferred). HubSpot-certified; the builds are GoHighLevel.</p>
   </div>
   <div class="site-footer__row">
-    <a href="mailto:jesusalexelamaro@gmail.com">jesusalexelamaro@gmail.com</a>
+    <a href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">jesusalexelamaro@gmail.com</a>
     <a href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
     <a href="https://github.com/AlexFC0810">GitHub</a>
     <a href="../Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
@@ -812,11 +822,21 @@
   try{
     document.querySelectorAll('[role="tablist"]').forEach(function(list){
       var tabs=[].slice.call(list.querySelectorAll('[data-tab]'));
-      tabs.forEach(function(tab){
-        tab.addEventListener('click',function(){
-          tabs.forEach(function(t){ t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); });
-          tab.classList.add('is-active'); tab.setAttribute('aria-selected','true');
-          tabs.forEach(function(t){ var p=document.getElementById(t.getAttribute('data-tab')); if(p) p.classList.toggle('is-active', t===tab); });
+      var activate=function(tab){
+        tabs.forEach(function(t){ t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); t.setAttribute('tabindex','-1'); });
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true'); tab.removeAttribute('tabindex');
+        tabs.forEach(function(t){ var p=document.getElementById(t.getAttribute('data-tab')); if(p) p.classList.toggle('is-active', t===tab); });
+      };
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){ activate(tab); });
+        tab.addEventListener('keydown',function(e){
+          var j=-1;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown') j=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp') j=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home') j=0;
+          else if(e.key==='End') j=tabs.length-1;
+          if(j<0) return;
+          e.preventDefault(); activate(tabs[j]); tabs[j].focus();
         });
       });
     });
@@ -871,6 +891,14 @@
       if(e.key==='Escape') close();
       if(current>=0&&e.key==='ArrowLeft') showImage(current-1);
       if(current>=0&&e.key==='ArrowRight') showImage(current+1);
+      if(e.key==='Tab'){
+        var f=[].slice.call(content.querySelectorAll('button,video,a[href]')).filter(function(el){ return !el.hidden&&el.offsetParent!==null; });
+        if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+        else if(!content.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+      }
     });
   }catch(e){}
 
