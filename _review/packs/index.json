@@ -1,119 +1,77 @@
 [
   {
     "name": "social",
-    "width": 700,
-    "bytes": 5326,
-    "parts": [
-      "_review/packs/social-01.txt",
-      "_review/packs/social-02.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/social.png",
+    "bytes": 52921
   },
   {
     "name": "reference",
-    "width": 720,
-    "bytes": 12328,
-    "parts": [
-      "_review/packs/reference-01.txt",
-      "_review/packs/reference-02.txt",
-      "_review/packs/reference-03.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/reference.jpg",
+    "bytes": 123884
   },
   {
     "name": "hero-375",
-    "width": 375,
-    "bytes": 12404,
-    "parts": [
-      "_review/packs/hero-375-01.txt",
-      "_review/packs/hero-375-02.txt",
-      "_review/packs/hero-375-03.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/hero-375.png",
+    "bytes": 147575
   },
   {
     "name": "gallery-375",
-    "width": 375,
-    "bytes": 15684,
-    "parts": [
-      "_review/packs/gallery-375-01.txt",
-      "_review/packs/gallery-375-02.txt",
-      "_review/packs/gallery-375-03.txt",
-      "_review/packs/gallery-375-04.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/gallery-375.png",
+    "bytes": 207534
   },
   {
     "name": "voice-375",
-    "width": 375,
-    "bytes": 25539,
-    "parts": [
-      "_review/packs/voice-375-01.txt",
-      "_review/packs/voice-375-02.txt",
-      "_review/packs/voice-375-03.txt",
-      "_review/packs/voice-375-04.txt",
-      "_review/packs/voice-375-05.txt",
-      "_review/packs/voice-375-06.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/voice-375.png",
+    "bytes": 79908
   },
   {
     "name": "phone-375",
-    "width": 375,
-    "bytes": 6910,
-    "parts": [
-      "_review/packs/phone-375-01.txt",
-      "_review/packs/phone-375-02.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/phone-375.png",
+    "bytes": 28253
   },
   {
     "name": "hero-1440",
-    "width": 720,
-    "bytes": 13040,
-    "parts": [
-      "_review/packs/hero-1440-01.txt",
-      "_review/packs/hero-1440-02.txt",
-      "_review/packs/hero-1440-03.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/hero-1440.png",
+    "bytes": 593153
   },
   {
     "name": "gallery-1440",
-    "width": 720,
-    "bytes": 14983,
-    "parts": [
-      "_review/packs/gallery-1440-01.txt",
-      "_review/packs/gallery-1440-02.txt",
-      "_review/packs/gallery-1440-03.txt",
-      "_review/packs/gallery-1440-04.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/gallery-1440.png",
+    "bytes": 704004
   },
   {
     "name": "voice-1440",
-    "width": 850,
-    "bytes": 11775,
-    "parts": [
-      "_review/packs/voice-1440-01.txt",
-      "_review/packs/voice-1440-02.txt",
-      "_review/packs/voice-1440-03.txt"
-    ]
+    "originalCapture": "/tmp/creative-portfolio-review/voice-1440.png",
+    "bytes": 82121
   },
   {
-    "name": "asset-own-brand-04",
-    "width": 640,
-    "bytes": 1684,
-    "parts": [
-      "_review/packs/asset-own-brand-04-01.txt"
-    ]
+    "name": "asset-home-services-offer",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-home-services-offer.webp",
+    "bytes": 48322
   },
   {
-    "name": "asset-own-brand-10",
-    "width": 640,
-    "bytes": 1684,
-    "parts": [
-      "_review/packs/asset-own-brand-10-01.txt"
-    ]
+    "name": "asset-own-brand-comparison",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-own-brand-comparison.webp",
+    "bytes": 26426
   },
   {
-    "name": "asset-own-brand-16",
-    "width": 640,
-    "bytes": 1684,
-    "parts": [
-      "_review/packs/asset-own-brand-16-01.txt"
-    ]
+    "name": "asset-home-services-detail",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-home-services-detail.webp",
+    "bytes": 43616
+  },
+  {
+    "name": "asset-home-services-trust",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-home-services-trust.webp",
+    "bytes": 44948
+  },
+  {
+    "name": "asset-home-services-blue",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-home-services-blue.webp",
+    "bytes": 47474
+  },
+  {
+    "name": "asset-own-brand-tension",
+    "originalCapture": "/tmp/creative-portfolio-review/asset-own-brand-tension.webp",
+    "bytes": 10122
   }
 ]

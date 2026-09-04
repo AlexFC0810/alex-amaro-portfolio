@@ -124,6 +124,8 @@ write('assets/portfolio.css',css+`\n/* Owner-approved creative-first revision. R
 /* Later owner-approved components do not inherit the reference fit band colors. */
 .gallery-actions button{min-width:44px}.site-footer nav a{min-width:44px}.site-footer p{color:var(--ink-soft)}.fit-section,.fit-grid article{background:var(--paper-bright);color:var(--ink)}
 @media(max-width:760px){.site-nav nav.is-open a{display:inline-flex;min-width:44px}}
+.site-nav nav a{min-width:44px}
+.hero h1{letter-spacing:-.05em;word-spacing:.02em;line-height:.98}.hero h1 em{margin-right:.05em}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 `);
 write('assets/portfolio.js',`(() => {

@@ -9,7 +9,11 @@ const server=http.createServer((req,res)=>{try{let u=decodeURIComponent(new URL(
 const report={date:'2026-09-04',checks:[],failures:[],phoneCallPlaced:false,crmChanged:false,privateClaimsSweep:'Not run: private pattern configuration not present in this public release environment.',manualVisualReview:'Pending review of captured images.'};
 const check=(ok,message)=>{if(!ok)report.failures.push(message);};
 const packetIndex=[];
-async function packet(name,file,width=720){const buf=await sharp(file).resize({width,withoutEnlargement:true}).avif({quality:24,effort:6,chromaSubsampling:'4:4:4'}).toBuffer();const b64=buf.toString('base64'),parts=[];for(let i=0;i<b64.length;i+=6000){const f=`_review/packs/${name}-${String(i/6000+1).padStart(2,'0')}.txt`;fs.writeFileSync(f,b64.slice(i,i+6000));parts.push(f);}packetIndex.push({name,width,bytes:buf.length,parts});}
+async function packet(name,file,width=720){
+ const dest=path.join(OUT,name+path.extname(file));
+ if(path.resolve(file)!==path.resolve(dest))fs.copyFileSync(file,dest);
+ packetIndex.push({name,originalCapture:dest,bytes:fs.statSync(dest).size});
+}
 (async()=>{
  await new Promise(r=>server.listen(8791,'127.0.0.1',r));const browser=await chromium.launch({headless:true});
  try{
@@ -29,7 +33,7 @@ async function packet(name,file,width=720){const buf=await sharp(file).resize({w
    await page.addScriptTag({content:fs.readFileSync('_audit/measure.js','utf8')});const measured=await page.evaluate(()=>window.__auditMeasure());
    const over=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,client:document.documentElement.clientWidth,offenders:[...document.querySelectorAll('body *')].filter(x=>x.getBoundingClientRect().right>innerWidth+2&&getComputedStyle(x).position!=='fixed'&&!x.closest('.library-rail')).slice(0,8).map(x=>({tag:x.tagName,cls:x.className,right:x.getBoundingClientRect().right}))}));
    check(over.scroll<=over.client,'horizontal overflow '+w+': '+JSON.stringify(over));check(measured.tap.under44===0,'small targets '+w+': '+JSON.stringify(measured.tap.offenders));check(measured.text.below45===0,'contrast '+w+': '+JSON.stringify(measured.text.offenders));
-   const screenshot=async(name,locator)=>{const f=path.join(OUT,name+'.png');if(locator)await locator.screenshot({path:f});else await page.screenshot({path:f});return f;};
+   const screenshot=async(name,locator)=>{await page.evaluate(()=>document.activeElement?.blur());const f=path.join(OUT,name+'.png');if(locator)await locator.screenshot({path:f});else await page.screenshot({path:f});return f;};
    if(w===375||w===1440){const f=await screenshot('hero-'+w);await packet('hero-'+w,f,w===375?375:720);}
    await page.locator('#work').scrollIntoViewIfNeeded();await page.locator('.library-card').first().waitFor({state:'visible'});
    if(w===375||w===1440){const f=await screenshot('gallery-'+w);await packet('gallery-'+w,f,w===375?375:720);}
@@ -48,5 +52,5 @@ async function packet(name,file,width=720){const buf=await sharp(file).resize({w
   // Public imported statics: review each at readable size, not an uninspected tile dump.
   for(const item of manifest.items.filter(x=>x.file.startsWith('assets/portfolio-static/')))await packet('asset-'+item.id,item.file,640);
  }catch(e){report.failures.push(e.stack||e.message);}
- finally{await browser.close();server.close();report.passed=report.failures.length===0;fs.mkdirSync('_audit/releases',{recursive:true});fs.writeFileSync('_audit/releases/2026-09-04-creative-first.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync('_review/packs/index.json',JSON.stringify(packetIndex,null,2)+'\n');console.log(JSON.stringify(report,null,2));}
+ finally{await browser.close();server.close();report.passed=report.failures.length===0;fs.mkdirSync('_audit/releases',{recursive:true});fs.writeFileSync('_audit/releases/2026-09-04-creative-first.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync('_review/packs/index.json',JSON.stringify(packetIndex,null,2)+'\n');fs.writeFileSync(path.join(OUT,'report.json'),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));}
 })().catch(e=>{console.error(e);server.close();process.exit(1);});

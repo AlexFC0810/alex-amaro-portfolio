@@ -12,14 +12,14 @@
           "w": 375,
           "h": 812
         },
-        "docHeight": 11707,
+        "docHeight": 11762,
         "tap": {
-          "checked": 70,
+          "checked": 74,
           "under44": 0,
           "offenders": []
         },
         "text": {
-          "checked": 287,
+          "checked": 300,
           "below45": 0,
           "offenders": []
         },
@@ -47,14 +47,14 @@
           "w": 760,
           "h": 900
         },
-        "docHeight": 9601,
+        "docHeight": 9692,
         "tap": {
-          "checked": 70,
+          "checked": 74,
           "under44": 0,
           "offenders": []
         },
         "text": {
-          "checked": 287,
+          "checked": 300,
           "below45": 0,
           "offenders": []
         },
@@ -82,21 +82,14 @@
           "w": 1440,
           "h": 900
         },
-        "docHeight": 7992,
+        "docHeight": 8131,
         "tap": {
-          "checked": 74,
-          "under44": 1,
-          "offenders": [
-            {
-              "el": "a",
-              "text": "Work",
-              "w": 42.9,
-              "h": 44
-            }
-          ]
+          "checked": 78,
+          "under44": 0,
+          "offenders": []
         },
         "text": {
-          "checked": 290,
+          "checked": 303,
           "below45": 0,
           "offenders": []
         },
@@ -114,18 +107,16 @@
       "galleryInteractions": true
     }
   ],
-  "failures": [
-    "small targets 1440: [{\"el\":\"a\",\"text\":\"Work\",\"w\":42.9,\"h\":44}]"
-  ],
+  "failures": [],
   "phoneCallPlaced": false,
   "crmChanged": false,
   "privateClaimsSweep": "Not run: private pattern configuration not present in this public release environment.",
   "manualVisualReview": "Pending review of captured images.",
-  "staticCreatives": 32,
-  "newOwnBrandStatics": 3,
+  "staticCreatives": 35,
+  "newOwnBrandStatics": 6,
   "noJavaScript": {
     "voiceVisible": true,
-    "galleryAnchors": 32
+    "galleryAnchors": 35
   },
-  "passed": false
+  "passed": true
 }

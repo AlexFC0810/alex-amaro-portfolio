@@ -42,6 +42,21 @@
       "height": 1080
     },
     {
+      "id": "home-services-offer",
+      "sourcePath": "/library/home/clarity-door-02.webp",
+      "title": "Offer-first door hanger",
+      "alt": "Residential cleaning direct-mail design with a clear introductory offer",
+      "category": "home",
+      "market": "Residential cleaning",
+      "provenance": "Own-brand · Direct mail",
+      "file": "assets/portfolio-static/home-services-offer.webp",
+      "thumb": "assets/portfolio-static/home-services-offer.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "81b2992666053d710b5a3c269342c5bd0746c30e25668c0ab7441487bc8e5053",
+      "width": 277,
+      "height": 717
+    },
+    {
       "id": "b2b-refrigeration-01",
       "category": "b2b",
       "market": "Commercial refrigeration",
@@ -55,19 +70,19 @@
       "height": 1080
     },
     {
-      "id": "own-brand-04",
+      "id": "own-brand-comparison",
+      "sourcePath": "/library/ai/missed-call-02.webp",
+      "title": "A missed-call comparison",
+      "alt": "CareLine static creative comparing two ways of handling incoming calls",
       "category": "own",
       "market": "CareLine",
-      "title": "Missed-call tension card",
-      "alt": "CareLine AI · 1:1 staticMissed-call tension card",
-      "file": "assets/portfolio-static/own-brand-04.webp",
-      "thumb": "assets/portfolio-static/own-brand-04.webp",
       "provenance": "Own-brand creative",
-      "source": "Owner-selected public creative gallery",
-      "sourcePath": "/library/ai/missed-call-card.webp",
-      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
-      "width": 447,
-      "height": 447
+      "file": "assets/portfolio-static/own-brand-comparison.webp",
+      "thumb": "assets/portfolio-static/own-brand-comparison.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "871e1e26b31eb5078a0c2c9faf373d37e24ada1a99eb1efd407d9a7162051eb8",
+      "width": 335,
+      "height": 419
     },
     {
       "id": "medspa-botox-01",
@@ -395,210 +410,113 @@
       "height": 1080
     },
     {
-      "id": "own-brand-10",
-      "category": "own",
-      "market": "CareLine",
-      "title": "Missed-call tension card",
-      "alt": "CareLine creative built around the commercial cost of a missed call",
-      "file": "assets/portfolio-static/own-brand-10.webp",
-      "thumb": "assets/portfolio-static/own-brand-10.webp",
-      "provenance": "Own-brand creative",
-      "source": "Owner-selected public creative gallery",
-      "sourcePath": "/library/ai/missed-call-card.webp",
-      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
-      "width": 447,
-      "height": 447
+      "id": "home-services-detail",
+      "sourcePath": "/library/home/clarity-door-08.webp",
+      "title": "Make the service easy to understand",
+      "alt": "Residential cleaning door hanger with service details and a contact action",
+      "category": "home",
+      "market": "Residential cleaning",
+      "provenance": "Own-brand · Direct mail",
+      "file": "assets/portfolio-static/home-services-detail.webp",
+      "thumb": "assets/portfolio-static/home-services-detail.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "0d3fc62301a0762413e1611d17f0732a16aebce83c6b0f242cf0d0664bd44019",
+      "width": 277,
+      "height": 717
     },
     {
-      "id": "own-brand-16",
+      "id": "home-services-trust",
+      "sourcePath": "/library/home/clarity-door-04.webp",
+      "title": "Benefits and trust, on the reverse",
+      "alt": "Reverse side of a residential cleaning door hanger",
+      "category": "home",
+      "market": "Residential cleaning",
+      "provenance": "Own-brand · Direct mail",
+      "file": "assets/portfolio-static/home-services-trust.webp",
+      "thumb": "assets/portfolio-static/home-services-trust.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "764910019a9d5c5cdb0e02c5eab40373bb94c2d08c739926cf4fa8aa696b019e",
+      "width": 277,
+      "height": 717
+    },
+    {
+      "id": "home-services-blue",
+      "sourcePath": "/library/home/clarity-door-07.webp",
+      "title": "A different treatment of the offer",
+      "alt": "Blue residential cleaning direct-mail offer design",
+      "category": "home",
+      "market": "Residential cleaning",
+      "provenance": "Own-brand · Direct mail",
+      "file": "assets/portfolio-static/home-services-blue.webp",
+      "thumb": "assets/portfolio-static/home-services-blue.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "6954c5b55be93d6d55720a5e0e3e91f3374ed14c7c4f94fb83d6f180b12899c7",
+      "width": 277,
+      "height": 717
+    },
+    {
+      "id": "own-brand-tension",
+      "sourcePath": "/library/ai/missed-call-card.webp",
+      "title": "Make the missed call tangible",
+      "alt": "CareLine static creative built around a missed-call scenario",
       "category": "own",
       "market": "CareLine",
-      "title": "Missed-call tension card",
-      "alt": "CareLine AI · 1:1 staticMissed-call tension card",
-      "file": "assets/portfolio-static/own-brand-16.webp",
-      "thumb": "assets/portfolio-static/own-brand-16.webp",
       "provenance": "Own-brand creative",
-      "source": "Owner-selected public creative gallery",
-      "sourcePath": "/library/ai/missed-call-card.webp",
-      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
+      "file": "assets/portfolio-static/own-brand-tension.webp",
+      "thumb": "assets/portfolio-static/own-brand-tension.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "d682ccbb20730e709e6c0a738cdcd5113433b2f24c89076943c96f65eef4a7bd",
       "width": 447,
       "height": 447
     }
   ],
   "referenceStaticReview": {
     "date": "2026-09-04",
-    "candidates": 18,
+    "normalized": true,
+    "uniqueStaticFiles": 6,
+    "note": "Native-size public reference assets, not new high-resolution Canva exports. Narrow direct-mail artwork retains its original aspect ratio.",
     "receipts": [
       {
-        "title": "Offer-first door hanger",
         "sourcePath": "/library/home/clarity-door-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-02.webp"
-        ],
         "width": 277,
-        "height": 717
+        "height": 717,
+        "file": "assets/portfolio-static/home-services-offer.webp",
+        "status": "pending-visual-review"
       },
       {
-        "title": "Service-detail treatment",
         "sourcePath": "/library/home/clarity-door-08.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-08.webp"
-        ],
         "width": 277,
-        "height": 717
+        "height": 717,
+        "file": "assets/portfolio-static/home-services-detail.webp",
+        "status": "pending-visual-review"
       },
       {
-        "title": "Missed-call comparison",
+        "sourcePath": "/library/home/clarity-door-04.webp",
+        "width": 277,
+        "height": 717,
+        "file": "assets/portfolio-static/home-services-trust.webp",
+        "status": "pending-visual-review"
+      },
+      {
+        "sourcePath": "/library/home/clarity-door-07.webp",
+        "width": 277,
+        "height": 717,
+        "file": "assets/portfolio-static/home-services-blue.webp",
+        "status": "pending-visual-review"
+      },
+      {
         "sourcePath": "/library/ai/missed-call-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/ai/missed-call-02.webp"
-        ],
         "width": 335,
-        "height": 419
+        "height": 419,
+        "file": "assets/portfolio-static/own-brand-comparison.webp",
+        "status": "pending-visual-review"
       },
       {
         "sourcePath": "/library/ai/missed-call-card.webp",
-        "status": "imported-pending-visual-review",
         "width": 447,
         "height": 447,
-        "file": "assets/portfolio-static/own-brand-04.webp"
-      },
-      {
-        "title": "Benefit-and-trust reverse",
-        "sourcePath": "/library/home/clarity-door-04.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-04.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Blue offer treatment",
-        "sourcePath": "/library/home/clarity-door-07.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-07.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Offer-first door hanger",
-        "sourcePath": "/library/home/clarity-door-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-02.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Service-detail treatment",
-        "sourcePath": "/library/home/clarity-door-08.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-08.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Missed-call comparison",
-        "sourcePath": "/library/ai/missed-call-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/ai/missed-call-02.webp"
-        ],
-        "width": 335,
-        "height": 419
-      },
-      {
-        "sourcePath": "/library/ai/missed-call-card.webp",
-        "status": "imported-pending-visual-review",
-        "width": 447,
-        "height": 447,
-        "file": "assets/portfolio-static/own-brand-10.webp"
-      },
-      {
-        "title": "Benefit-and-trust reverse",
-        "sourcePath": "/library/home/clarity-door-04.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-04.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Blue offer treatment",
-        "sourcePath": "/library/home/clarity-door-07.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-07.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Offer-first door hanger",
-        "sourcePath": "/library/home/clarity-door-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-02.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Service-detail treatment",
-        "sourcePath": "/library/home/clarity-door-08.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-08.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Missed-call comparison",
-        "sourcePath": "/library/ai/missed-call-02.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/ai/missed-call-02.webp"
-        ],
-        "width": 335,
-        "height": 419
-      },
-      {
-        "sourcePath": "/library/ai/missed-call-card.webp",
-        "status": "imported-pending-visual-review",
-        "width": 447,
-        "height": 447,
-        "file": "assets/portfolio-static/own-brand-16.webp"
-      },
-      {
-        "title": "Benefit-and-trust reverse",
-        "sourcePath": "/library/home/clarity-door-04.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-04.webp"
-        ],
-        "width": 277,
-        "height": 717
-      },
-      {
-        "title": "Blue offer treatment",
-        "sourcePath": "/library/home/clarity-door-07.webp",
-        "status": "excluded-small-or-unavailable",
-        "options": [
-          "/library/home/clarity-door-07.webp"
-        ],
-        "width": 277,
-        "height": 717
+        "file": "assets/portfolio-static/own-brand-tension.webp",
+        "status": "pending-visual-review"
       }
     ]
   }
