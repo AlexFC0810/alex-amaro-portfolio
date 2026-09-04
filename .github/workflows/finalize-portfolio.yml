@@ -28,7 +28,7 @@ jobs:
           node tools/gate-ledger.mjs
           git diff --exit-code -- tools/case-studies.json work.html work claims.json llms.txt
           echo 'Case source, rendered cases, and compiled contract are unchanged. Private case-builder/claims-lint configuration is not present in public CI and is not copied here.'
-          git add index.html assets/portfolio.css AGENTS.md DESIGN.md .github/workflows/guards.yml
+          git add index.html assets/portfolio.css AGENTS.md DESIGN.md
           node tools/link-check.mjs
       - name: Browser test dependencies outside the repository
         run: |
@@ -43,7 +43,7 @@ jobs:
           name: final-portfolio-verification
           path: /tmp/portfolio-release-evidence/
           if-no-files-found: warn
-      - name: Commit tested result to this review branch only
+      - name: Commit tested site files to this review branch only
         env:
           RELEASE_BRANCH: portfolio/final-2026-09-04
         run: |
@@ -54,7 +54,8 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           mkdir -p _audit/releases
           cp /tmp/portfolio-release-evidence/report.json _audit/releases/2026-09-04-final.json
-          git rm .github/workflows/finalize-portfolio.yml tools/finalize-portfolio.mjs tools/final-portfolio-qa.cjs
-          git add index.html assets/portfolio.css AGENTS.md DESIGN.md .github/workflows/guards.yml _audit/releases/2026-09-04-final.json
+          git restore --source=HEAD --staged --worktree .github/workflows/guards.yml
+          git rm tools/finalize-portfolio.mjs tools/final-portfolio-qa.cjs
+          git add index.html assets/portfolio.css AGENTS.md DESIGN.md _audit/releases/2026-09-04-final.json
           git commit -m 'Publish V4-derived final portfolio with callable CRM workflow demo [portfolio-materialized]'
           git push origin "HEAD:refs/heads/$RELEASE_BRANCH"
