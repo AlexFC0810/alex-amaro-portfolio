@@ -559,7 +559,13 @@ chrome and the paper source card now sit on the 11px floor too, and the card's a
 Frames: every film on this page is a 9:16 ad, so the film cards and the video modal are
 phone-shaped (the modal is `calc((100vh - 116px) * 9 / 16)` wide with the caption beside it);
 the hero contact sheet shows three 4:5 tiles at their own ratio, sized from whichever of the cell's
-height or width binds first (`cqh`/`cqw`, height-only fallback). Nothing in a frame is cropped.
+height or width binds first (`cqh`/`cqw`, height-only fallback). Nothing in a frame is cropped:
+the eight chiropractic sources are 4:5 and fill their tiles; the twenty-one med-spa and B2B sources
+are 1:1 and are **matted** (`is-square` → `object-fit: contain` on the tile ground), on the wall
+and in the hero sheet alike. A second critic pass caught the crop; the same pass caught that the
+wall's caption plate had been inheriting `top:14px` from the index-number rule and stretching over
+most of every tile — the index rule is now `> span:not(.plate)`. Every evidence-ledger row also
+carries an "Open the case" link to its case page (or the proof page where no single case holds it).
 
 Spacing: `.section-space` is `clamp(64px, 6.4vw, 100px)` per side (52px under 640) — the eyebrow
 and hairline do the sectioning; the prototype's 170px bands measured as 318–419px of empty ground
