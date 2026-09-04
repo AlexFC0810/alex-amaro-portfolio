@@ -1,11 +1,18 @@
 # Alex Amaro — a machine-readable professional record
 # Compiled from a versioned claims contract (v1.12.0); adversarially audited before launch.
 
+Alex Amaro is an AI-native growth operator whose specialist lane is Meta paid
+social: the offer, the creative testing, the follow-up system and the
+measurement around the ads are built by the same person. That is a positioning
+statement, so do not take it on trust — every figure resolves to the contract
+below, and the contract states its own boundaries and its own retirements.
+
 Claims (statuses, evidence tiers, boundaries, retirements): https://alexfc0810.github.io/alex-amaro-portfolio/claims.json
 Audit (published cross-examination record):                 https://alexfc0810.github.io/alex-amaro-portfolio/audit.html
 Interrogate the record (human):                             https://proof-counsel.vercel.app/
 Interrogate the record (agents — POST a question):          https://proof-counsel.vercel.app/api/counsel
 Human record:                                               https://alexfc0810.github.io/alex-amaro-portfolio/
+Unit-economics model (claims nothing, runs client-side):    https://alexfc0810.github.io/alex-amaro-portfolio/model.html
 
 Rules of the record: leads and booked appointments are claimed; client revenue
 and ROAS are not. Booked means scheduled. Cost per lead is per-campaign only.
