@@ -1,0 +1,59 @@
+name: creative reference review
+on:
+  push:
+    branches: [portfolio/creative-first-2026-09-04]
+permissions:
+  contents: write
+jobs:
+  inspect:
+    if: "contains(github.event.head_commit.message, 'Capture the owner-selected')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: |
+          npm install --prefix /tmp/review playwright@1.55.1
+          /tmp/review/node_modules/.bin/playwright install --with-deps chromium
+      - name: Capture reference and inspect public static inventory
+        run: |
+          mkdir -p _review
+          cat > /tmp/capture.cjs <<'JS'
+          const {chromium}=require('/tmp/review/node_modules/playwright');
+          const fs=require('fs');
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            const p=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+            const r=await p.goto('https://alex-amaro-creative.alexfc10.chatgpt.site/',{waitUntil:'networkidle'});
+            if(!r.ok())throw Error('Reference HTTP '+r.status());
+            await p.evaluate(()=>document.fonts.ready);
+            await p.screenshot({path:'_review/reference-desktop.jpg',type:'jpeg',quality:65});
+            const report=await p.evaluate(()=>({
+              title:document.title,
+              styles:[...document.querySelectorAll('style')].map(x=>x.textContent),
+              links:[...document.querySelectorAll('link[rel="stylesheet"]')].map(x=>x.href),
+              nodes:[...document.querySelectorAll('body > *,main > *')].map(e=>({tag:e.tagName,id:e.id,cls:e.className,heading:e.querySelector('h1,h2')?.textContent,html:e.outerHTML.slice(0,1600)})),
+              hero:document.querySelector('h1')?.closest('section')?.outerHTML,
+              gallery:document.querySelector('#work')?.outerHTML?.slice(0,12000),
+              type:[...document.querySelectorAll('h1,h2,p,a')].slice(0,24).map(e=>{let s=getComputedStyle(e);return {text:e.textContent.slice(0,100),font:s.fontFamily,size:s.fontSize,weight:s.fontWeight,color:s.color,bg:s.backgroundColor}})
+            }));
+            fs.writeFileSync('_review/reference-report.json',JSON.stringify(report,null,2));
+            fs.writeFileSync('_review/reference-source.html',await p.content());
+            const stylesheet=report.styles.join('\n');fs.writeFileSync('_review/reference.css',stylesheet);
+            await p.setViewportSize({width:390,height:844});await p.screenshot({path:'_review/reference-mobile.jpg',type:'jpeg',quality:60});
+            const inventory=fs.readdirSync('assets/creative-static').filter(x=>x.endsWith('.jpg'));
+            fs.writeFileSync('_review/static-inventory.json',JSON.stringify(inventory,null,2));
+            console.log(JSON.stringify({referenceCaptured:true,staticSources:inventory.length,styleBytes:stylesheet.length,nodes:report.nodes.map(({tag,id,cls,heading})=>({tag,id,cls,heading}))}));
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exit(1)});
+          JS
+          node /tmp/capture.cjs
+      - name: Save review-only captures on this branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _review
+          git commit -m 'Reference captured for visual review; no production changes'
+          git push
