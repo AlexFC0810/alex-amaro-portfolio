@@ -7,12 +7,14 @@
 
 ## What this repo is
 
-The source for **Alex Amaro's public portfolio** — static HTML, no build step for the pages themselves, served by GitHub Pages from `main` at
+The source for **Alex Amaro's public portfolio render/deployment** — static HTML, no build step for the pages themselves, served by GitHub Pages from `main` at
 `https://alexfc0810.github.io/alex-amaro-portfolio/`.
 
-It is not only a website. It is an **evidence surface with a contract behind it**: every public figure resolves to `claims.json`, and three separate guards exist to stop a number, a name or a dead link reaching the live URL. Treat those guards as the product, not as ceremony — they are the reason the numbers on this site are worth more than the same numbers on anyone else's.
+This repo is deliberately **not an independent positioning brain**. The canonical professional identity / market positioning / portfolio strategy lives in private `career-capital-os`; the canonical claims/evidence authority lives in private `proof`. This repo consumes those upstream decisions and makes the approved truth legible, interactive, public-safe, and memorable.
 
-**Positioning, as of 2026-09-04:** an AI-native growth operator whose specialist lane is **Meta paid social**, who builds the offer, the creative testing, the follow-up system and the measurement around the ads. Deep specialisation plus unusually broad execution — never "does everything". Do **not** reposition toward Google Ads, Ad Grants, generic AI consulting, recruiting, or full-service agency work; breadth of problem-solving is not breadth of claimed specialism.
+It is also an **evidence surface with a contract behind it**: every public figure resolves to `claims.json`, and three separate guards exist to stop a number, a name or a dead link reaching the live URL. Treat those guards as the product, not as ceremony — they are the reason the numbers on this site are worth more than the same numbers on anyone else's.
+
+**Positioning rule:** do not invent or canonize Alex's professional category in this repo. Read the current approved/challenger framing from `career-capital-os` and the allowed claim language from `proof`. This repo may solve the public expression of that positioning — hierarchy, storytelling, interaction, design, and evidence presentation — but a compelling page is not authority to mutate the upstream identity.
 
 ## The pages
 
@@ -40,7 +42,8 @@ Assets, fonts and media live in `assets/`. `robots.txt` and `sitemap.xml` must s
 6. **Zero off-origin requests.** No CDN font, no analytics, no remote image, no embedded player. Self-host or do without.
 7. **`DESIGN.md` is binding** for tokens: one accent, weight ceiling 590, three radii, zero drop shadows, ground pairs ≥ 1.15:1, 16px input floor, 44×44 tap targets. Add a token and you write its role in `DESIGN.md` **in the same commit**.
 8. **Content is never gated on a frame that might not run.** Reveal styles apply only under `html.motion`; the head script arms its own force-settle timer in the same statement.
-9. **Substantive repositioning goes through an issue first.** Copy fixes, evidence reordering and defect repair do not.
+9. **Substantive professional repositioning is upstream work.** Propose/decide it in `career-capital-os`, then implement the approved public expression here. Copy fixes, evidence reordering, design experiments and defect repair may remain local when they do not change the underlying identity.
+10. **One fact, one home.** Identity/role framing → Career Capital. Claim truth/provenance → Proof. Public expression/deployment → this repo.
 
 ## The résumé PDF is a public claims surface
 
@@ -73,8 +76,8 @@ Then, in a browser at **375×812 and 1440×900** against `python -m http.server 
 - paste `_audit/measure.js`, run `window.__auditMeasure()` → `tap.under44` and `text.below45` must both be **0**;
 - paste `_audit/token-ripper.js` → max weight 590, 3 radii, 1 elevation variant, families Inter + ui-monospace;
 - `document.documentElement.scrollWidth === clientWidth` at 375 (no sideways scroll, ever);
-- strip every class the head script adds (`documentElement.className = ''`) → every section still renders at `opacity: 1`;
-- confirm the first screen carries the specialty and the scale figure. That is the whole argument for the hierarchy; if a change pushes them below the fold, the change is wrong.
+- strip every class the head script adds (`document.documentElement.className = ''`) → every section still renders at `opacity: 1`;
+- confirm the first screen communicates the currently approved professional identity and strongest allowed proof rather than a local/stale positioning variant.
 
 Finally, **read the page as three people** — a hiring manager for a senior growth role, an agency owner looking for specialist capacity, and an AI-native operator — and ask what each still misunderstands after thirty seconds. Fix the most expensive misunderstanding before you commit.
 
@@ -82,4 +85,4 @@ If you touched a social card, **open the PNG and read it**. No check in this rep
 
 ## Boundaries
 
-Use this repo for the public portfolio: content, layout, assets, SEO and the guards. It is a presentation surface, not an application backend. Data, automation and business logic live elsewhere. Growth strategy, content production and fulfilment SOPs route to their own engines.
+Use this repo for the **public rendering** of the portfolio: content implementation, layout, assets, SEO, interactions and public guards. It is a presentation/deployment surface, not an application backend and not the canonical professional-strategy source. Data, automation and business logic live elsewhere. Growth strategy, content production and fulfilment SOPs route to their own engines.
