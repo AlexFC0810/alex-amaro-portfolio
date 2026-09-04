@@ -55,6 +55,21 @@
       "height": 1080
     },
     {
+      "id": "own-brand-04",
+      "category": "own",
+      "market": "CareLine",
+      "title": "Missed-call tension card",
+      "alt": "CareLine AI · 1:1 staticMissed-call tension card",
+      "file": "assets/portfolio-static/own-brand-04.webp",
+      "thumb": "assets/portfolio-static/own-brand-04.webp",
+      "provenance": "Own-brand creative",
+      "source": "Owner-selected public creative gallery",
+      "sourcePath": "/library/ai/missed-call-card.webp",
+      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
+      "width": 447,
+      "height": 447
+    },
+    {
       "id": "medspa-botox-01",
       "category": "health",
       "market": "Aesthetics",
@@ -378,6 +393,213 @@
       "source": "Existing published portfolio collection",
       "width": 1080,
       "height": 1080
+    },
+    {
+      "id": "own-brand-10",
+      "category": "own",
+      "market": "CareLine",
+      "title": "Missed-call tension card",
+      "alt": "CareLine creative built around the commercial cost of a missed call",
+      "file": "assets/portfolio-static/own-brand-10.webp",
+      "thumb": "assets/portfolio-static/own-brand-10.webp",
+      "provenance": "Own-brand creative",
+      "source": "Owner-selected public creative gallery",
+      "sourcePath": "/library/ai/missed-call-card.webp",
+      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
+      "width": 447,
+      "height": 447
+    },
+    {
+      "id": "own-brand-16",
+      "category": "own",
+      "market": "CareLine",
+      "title": "Missed-call tension card",
+      "alt": "CareLine AI · 1:1 staticMissed-call tension card",
+      "file": "assets/portfolio-static/own-brand-16.webp",
+      "thumb": "assets/portfolio-static/own-brand-16.webp",
+      "provenance": "Own-brand creative",
+      "source": "Owner-selected public creative gallery",
+      "sourcePath": "/library/ai/missed-call-card.webp",
+      "sha256": "d0fc60b6b25b3a7922feacdaaec89b05b2a76fbb0cd970617d137f9db79617e7",
+      "width": 447,
+      "height": 447
     }
-  ]
+  ],
+  "referenceStaticReview": {
+    "date": "2026-09-04",
+    "candidates": 18,
+    "receipts": [
+      {
+        "title": "Offer-first door hanger",
+        "sourcePath": "/library/home/clarity-door-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-02.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Service-detail treatment",
+        "sourcePath": "/library/home/clarity-door-08.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-08.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Missed-call comparison",
+        "sourcePath": "/library/ai/missed-call-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/ai/missed-call-02.webp"
+        ],
+        "width": 335,
+        "height": 419
+      },
+      {
+        "sourcePath": "/library/ai/missed-call-card.webp",
+        "status": "imported-pending-visual-review",
+        "width": 447,
+        "height": 447,
+        "file": "assets/portfolio-static/own-brand-04.webp"
+      },
+      {
+        "title": "Benefit-and-trust reverse",
+        "sourcePath": "/library/home/clarity-door-04.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-04.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Blue offer treatment",
+        "sourcePath": "/library/home/clarity-door-07.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-07.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Offer-first door hanger",
+        "sourcePath": "/library/home/clarity-door-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-02.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Service-detail treatment",
+        "sourcePath": "/library/home/clarity-door-08.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-08.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Missed-call comparison",
+        "sourcePath": "/library/ai/missed-call-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/ai/missed-call-02.webp"
+        ],
+        "width": 335,
+        "height": 419
+      },
+      {
+        "sourcePath": "/library/ai/missed-call-card.webp",
+        "status": "imported-pending-visual-review",
+        "width": 447,
+        "height": 447,
+        "file": "assets/portfolio-static/own-brand-10.webp"
+      },
+      {
+        "title": "Benefit-and-trust reverse",
+        "sourcePath": "/library/home/clarity-door-04.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-04.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Blue offer treatment",
+        "sourcePath": "/library/home/clarity-door-07.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-07.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Offer-first door hanger",
+        "sourcePath": "/library/home/clarity-door-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-02.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Service-detail treatment",
+        "sourcePath": "/library/home/clarity-door-08.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-08.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Missed-call comparison",
+        "sourcePath": "/library/ai/missed-call-02.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/ai/missed-call-02.webp"
+        ],
+        "width": 335,
+        "height": 419
+      },
+      {
+        "sourcePath": "/library/ai/missed-call-card.webp",
+        "status": "imported-pending-visual-review",
+        "width": 447,
+        "height": 447,
+        "file": "assets/portfolio-static/own-brand-16.webp"
+      },
+      {
+        "title": "Benefit-and-trust reverse",
+        "sourcePath": "/library/home/clarity-door-04.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-04.webp"
+        ],
+        "width": 277,
+        "height": 717
+      },
+      {
+        "title": "Blue offer treatment",
+        "sourcePath": "/library/home/clarity-door-07.webp",
+        "status": "excluded-small-or-unavailable",
+        "options": [
+          "/library/home/clarity-door-07.webp"
+        ],
+        "width": 277,
+        "height": 717
+      }
+    ]
+  }
 }

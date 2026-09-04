@@ -2,15 +2,13 @@
   "date": "2026-09-04",
   "checks": [],
   "failures": [
-    "small targets 375: [{\"el\":\"button\",\"text\":\"←\",\"w\":40,\"h\":44},{\"el\":\"button\",\"text\":\"→\",\"w\":40,\"h\":44},{\"el\":\"a\",\"text\":\"Email\",\"w\":32,\"h\":44}]",
-    "contrast 375: [{\"el\":\"span\",\"text\":\"For growth teams\",\"color\":\"rgb(113, 56, 244)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":12,\"weight\":\"750\",\"ratio\":1},{\"el\":\"p\",\"text\":\"Strongest in hands-on growth, paid social and\",\"color\":\"rgb(60, 58, 54)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":16,\"weight\":\"400\",\"ratio\":1.93},{\"el\":\"span\",\"text\":\"For agencies + businesses\",\"color\":\"rgb(113, 56, 244)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":12,\"weight\":\"750\",\"ratio\":1},{\"el\":\"p\",\"text\":\"Meta campaigns, creative testing, CRM follow-\",\"color\":\"rgb(60, 58, 54)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":16,\"weight\":\"400\",\"ratio\":1.93},{\"el\":\"span\",\"text\":\"How I work\",\"color\":\"rgb(113, 56, 244)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":12,\"weight\":\"750\",\"ratio\":1},{\"el\":\"p\",\"text\":\"English and Spanish. HubSpot-certified in dig\",\"color\":\"rgb(60, 58, 54)\",\"bg\":\"rgb(113, 56, 244)\",\"px\":16,\"weight\":\"400\",\"ratio\":1.93},{\"el\":\"p\",\"text\":\"AI-native growth marketing · Remote, United S\",\"color\":\"rgb(170, 167, 160)\",\"bg\":\"rgb(243, 239, 230)\",\"px\":13,\"weight\":\"400\",\"ratio\":2.09}]",
-    "locator.dispatchEvent: TypeError: Failed to construct 'Touch': Failed to read the 'identifier' property from 'TouchInit': Required member is undefined.\n    at <anonymous>:7261:45\n    at Array.map (<anonymous>)\n    at InjectedScript.dispatchEvent (<anonymous>:7259:92)\n    at eval (eval at eval (:6478:24), <anonymous>:2:22)\n    at eval (eval at evaluate (:291:30), <anonymous>:9:51)\n    at UtilityScript.evaluate (<anonymous>:293:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\nCall log:\n  - waiting for locator('.lightbox-media')\n\n    at /home/runner/work/alex-amaro-portfolio/alex-amaro-portfolio/tools/creative-portfolio-qa.cjs:37:54"
+    "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#nav-links a[href=\"#voice\"]')\n    - locator resolved to <a href=\"#voice\">AI demo</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    58 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n\n    at /home/runner/work/alex-amaro-portfolio/alex-amaro-portfolio/tools/creative-portfolio-qa.cjs:41:174"
   ],
   "phoneCallPlaced": false,
   "crmChanged": false,
   "privateClaimsSweep": "Not run: private pattern configuration not present in this public release environment.",
   "manualVisualReview": "Pending review of captured images.",
-  "staticCreatives": 29,
-  "newOwnBrandStatics": 0,
+  "staticCreatives": 32,
+  "newOwnBrandStatics": 3,
   "passed": false
 }
