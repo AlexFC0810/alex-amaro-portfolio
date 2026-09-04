@@ -22,7 +22,7 @@ jobs:
           (async()=>{
             const report=JSON.parse(fs.readFileSync('_review/reference-report.json'));
             let css=report.styles.join('\n');
-            for(const u of report.links){const r=await fetch(u);if(!r.ok())throw Error('Reference CSS failed');css+='\n'+await r.text();}
+            for(const u of report.links){const r=await fetch(u);if(!r.ok)throw Error('Reference CSS failed');css+='\n'+await r.text();}
             fs.writeFileSync('_review/reference.css',css.replace(/}/g,'}\n'));
             const desktop=await sharp('_review/reference-desktop.jpg').resize({width:720}).jpeg({quality:35}).toBuffer();
             const mobile=await sharp('_review/reference-mobile.jpg').resize({width:260}).jpeg({quality:35}).toBuffer();
