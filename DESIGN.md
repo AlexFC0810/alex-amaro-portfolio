@@ -567,6 +567,27 @@ wall's caption plate had been inheriting `top:14px` from the index-number rule a
 most of every tile — the index rule is now `> span:not(.plate)`. Every evidence-ledger row also
 carries an "Open the case" link to its case page (or the proof page where no single case holds it).
 
+**The caption is a plate under the work, never over it.** Alex's own read of the wall found the
+label still sitting on the ad — matted tiles hid it in the mat, but on the 4:5 chiropractic tiles it
+covered the ad's own CTA band. The tile is now image + a 46px caption bar below it (the tile carries
+the bottom padding; the image carries the 4:5). On a wall captioned *as they ran*, no pixel of an ad
+is behind a label. The plate is also the one place on this page set in **Inter, not mono** —
+`--fs-cap` 14px at 400, sentence case, tracking normal — because it is a gallery label, not UI
+chrome; it lands on a type style the page already had, so the rip is unchanged. It needed
+`:not(.plate)` on both `.creative-tile>span` rules (the mono block and the weight block) plus the
+font-size rule, or the element selector wins on specificity.
+
+**Every tile says how much more there is.** A tile's file prefix is its campaign, so the wall groups
+into seven sets. Each plate carries `1/8`-style position in gold, the hover chip reads "Open all 8"
+(always visible on touch and at ≤640), and opening a tile pages *that campaign* in the lightbox —
+"03 / 08 in this campaign", with a toolbar button to widen to "See all 29" and back. **All counts are
+computed at runtime from the tiles present**, so no static number is added to the HTML and none can
+drift from what a reader can see; they corroborate the section's own prose ("eight ways, six art
+directions, five castings"). While wiring it: `.modal__content--image>img` had never matched, because
+the image is appended inside `#modalBody` — so no lightbox image was ever height-capped and
+Previous/Next sat below the fold on every open since the port. Capped at
+`calc(100svh - 240px)`.
+
 Spacing: `.section-space` is `clamp(64px, 6.4vw, 100px)` per side (52px under 640) — the eyebrow
 and hairline do the sectioning; the prototype's 170px bands measured as 318–419px of empty ground
 between sections and were cut.
