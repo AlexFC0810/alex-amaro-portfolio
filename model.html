@@ -3,17 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Media buyer's model — Alex Amaro</title>
-<meta name="description" content="Spend to leads to booked jobs to ROAS, and which lever actually moves it.">
-<meta name="robots" content="noindex,follow">
+<title>The media buyer's model — Alex Amaro</title>
+<meta name="description" content="Spend to leads to booked jobs to return on ad spend, with a sensitivity panel that moves one input at a time. The argument it makes: on most local accounts cost per lead is the smallest of the three levers.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/model.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The media buyer's model — Alex Amaro">
+<meta property="og:description" content="Cost per lead is a leading indicator, not the scoreboard. Drag any input and watch which lever actually moves the return.">
+<meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/model.html">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png">
+<meta name="theme-color" content="#090c17">
+<link rel="preload" href="./assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Same self-hosted face as the rest of the estate, and the same metric-matched
+   fallback. Zero off-origin requests holds on this page too. */
+@font-face{
+  font-family:'Inter'; font-style:normal; font-weight:400 900; font-display:swap;
+  src:url('./assets/fonts/inter-latin-var.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Inter Fallback';
+  src:local('Arial'),local('Helvetica');
+  ascent-override:93.38%; descent-override:23.25%; line-gap-override:0%; size-adjust:103.74%;
+}
   :root{
     --bg:#090c17; --soft:#1f2435; --card:#2d344e; --raise:#3a4364;
     --line:#4a5474; --line-soft:#353d55;
     --ink:#eef0f7; --dim:#c3c9d8; --faint:#adb3c4;
     --accent:#f59e0b;
-    --mono:ui-monospace,"JetBrains Mono","SF Mono",Menlo,Consolas,monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
     --r-sm:4px; --r-md:10px; --r-full:999px;
     --lit:inset 0 1px 0 rgba(255,255,255,.075);
   }
@@ -103,6 +122,7 @@
   <p class="lede">Cost per lead is a leading indicator, not the scoreboard. This is the whole chain — and, at the bottom, which single lever actually moves the return. Drag anything.</p>
 
   <div class="presets" id="presets"></div>
+  <p class="note" style="margin-top:0; margin-bottom:26px">The three presets are <b>illustrative shapes of business, not results I am claiming</b> &mdash; plausible starting points, so you can see the mechanism rather than a screenshot of one. My own sourced figures are quoted per campaign on the <a href="./index.html#numbers">home page</a>, and each one carries what it does not claim. Nothing you type here is stored or sent anywhere.</p>
 
   <div class="modeswitch" id="modes">
     <button data-mode="fwd" aria-pressed="true">Forward &mdash; what will this spend produce</button>
@@ -133,6 +153,7 @@
   <footer>
     Every figure recomputes live from the inputs above &mdash; nothing here is a stored screenshot.
     <a href="./index.html">Back to the portfolio</a>
+    &middot; <a href="./claims.json">The claims contract</a>
   </footer>
 </div>
 
@@ -153,25 +174,34 @@ const FIELDS = [
 ];
 
 const PRESETS = [
-  {id:"waseem", name:"The $15k bathroom",
-   note:"The worked example as handed over: $2,000 spend, 30 qualified leads, 50% booking, 25% close.",
+  // WHY THESE ARE UNNAMED SCENARIOS AND NOT CASE STUDIES.
+  // Until 2026-09-04 the first preset was keyed to a real person's first name,
+  // and the second carried an account's spend, close rate and cash collected.
+  // Two problems, one fix. (1) A name in a public file is a name in a public
+  // file, whatever the variable happens to be called. (2) Client revenue and
+  // return on ad spend are NOT claimed anywhere on this estate — the
+  // attribution boundary stops at leads, booked appointments and the systems
+  // between them — so a revenue figure sitting in a preset was claiming, in
+  // JavaScript, something the contract refuses to claim in prose.
+  // What remains is what this page is actually for: three plausible shapes of
+  // business, stated as assumptions, so a reader can see WHICH LEVER MOVES THE
+  // RETURN. Real, sourced figures live on the home page and the case pages,
+  // per campaign, with their boundaries attached.
+  {id:"trade", name:"High-ticket trade job",
+   note:"Illustrative. A remodeling or installation business: few jobs, large ticket, mostly one-and-done.",
    v:{spend:2000,cpl:66.67,book:50,close:25,job:15000,ltv:1,margin:45}},
-  // The three hard figures are spend, scheduled appointments and cash collected: 13,465 /
-  // 218 / ~28,000. The 4.6% and the $2,800 are a DERIVATION from those, not separately
-  // measured — roughly ten closes at roughly $2,800 of first payment. Quote the three hard
-  // numbers and the 2.1x; treat the decomposition as illustration only.
-  {id:"b2b", name:"A campaign I ran end to end",
-   note:"B2B acquisition targeting clinic owners. $13,465 spend, 218 scheduled appointments at $61.77, and revenue visible all the way to cash collected — roughly $28,000 on first payment, just over 2x before any retention.",
-   v:{spend:13465,cpl:61.77,book:100,close:4.6,job:2800,ltv:2.6,margin:70}},
-  {id:"remodel", name:"Remodeling, conservative",
-   note:"Same trade, pessimistic assumptions — to show the floor, not the ceiling.",
-   v:{spend:3000,cpl:110,book:40,close:18,job:12000,ltv:1.2,margin:38}}
+  {id:"clinic", name:"Clinic offer, repeat visits",
+   note:"Illustrative. A local clinic on a priced entry offer: cheaper leads, smaller ticket, and most of the money in the second and third visit.",
+   v:{spend:3000,cpl:18,book:45,close:35,job:450,ltv:3.4,margin:65}},
+  {id:"b2b", name:"B2B service, expensive appointment",
+   note:"Illustrative. Selling a service to business owners, where the unit that matters is a booked appointment rather than a form fill, and a human's time is the expensive input.",
+   v:{spend:12000,cpl:62,book:80,close:12,job:4500,ltv:2.2,margin:70}}
 ];
 
 const state = Object.assign({}, PRESETS[0].v);
 let mode = "fwd";
 let target = 50000;
-let activePreset = "waseem";
+let activePreset = "trade";
 
 function calc(s){
   const leads   = s.spend / s.cpl;
@@ -359,7 +389,7 @@ $("modes").addEventListener("click",e=>{
   buildFields(); render();
 });
 
-buildPresets(); buildFields(); setPreset("waseem"); render();
+buildPresets(); buildFields(); setPreset("trade"); render();
 </script>
 </body>
 </html>
