@@ -22,6 +22,22 @@
 > tonal rendered as a single sheet of near-black behind 1.2:1 hairlines. The
 > direction was right. The intensity was the defect.
 
+> ### 2026-09-04 — re-synced to the second raise
+> The ladder was raised a second time on 2026-08-22 and this file did not follow.
+> `index.html` measured itself against ORYZO AI — whose own ground pairs run
+> 1.347 / 1.260 / 1.881 — and found that a ladder which cleared 1.15 and stopped
+> there was still the shallowest thing in the room. 1.15 was the floor, not the
+> target. Every token, both measurement tables and the two type-role notes below
+> now describe what actually ships, and every ratio here was recomputed rather
+> than copied across from the CSS comments.
+>
+> The re-measure turned up two things worth naming. `--text-faint` on
+> `--bg-raise` passes at **4.63:1**, which is 0.13 above the bar where the first
+> raise had 0.61 in hand. And the tightest cell on the page is no longer in the
+> text ramp at all: `--accent` on `--bg-raise` measures **4.51:1** — the
+> calculator's own answer, clearing the flat bar by 0.01. Deepen a ground again
+> and that is the pairing that fails first.
+
 ## Why this system and not another
 
 This is not a new palette. It is **the system Alex already shipped twice** —
@@ -55,16 +71,18 @@ and the first cut got it wrong by about 40%.
 
 ```css
 --bg:        #090c17;  /* page substrate — the floor everything sits on */
---bg-soft:   #181d2d;  /* alternating section bands;  1.163:1 above --bg */
---bg-card:   #242b40;  /* card and panel fill;        1.193:1 above --bg-soft */
---bg-raise:  #303853;  /* top of the ladder — hover, input fill, the inside of a
-                          card that already sits on a card. 1.215:1 above
-                          --bg-card, 1.687:1 end to end */
+--bg-soft:   #1f2435;  /* alternating section bands;  1.265:1 above --bg */
+--bg-card:   #2d344e;  /* card and panel fill;        1.258:1 above --bg-soft */
+--bg-raise:  #3a4364;  /* top of the ladder — hover, input fill, the inside of a
+                          card that already sits on a card. 1.265:1 above
+                          --bg-card, 2.013:1 end to end */
 ```
 
 **The rule that replaces the old one: every adjacent ground pair must measure
 ≥ 1.15:1.** That is the sixth check in the audit and it is not optional — a
-tonal system with no tonal amplitude is a flat page carrying extra tokens.
+tonal system with no tonal amplitude is a flat page carrying extra tokens. Read
+it as a floor rather than a target: the shipped ladder steps about 1.26 per
+rung, which is where the second raise put it.
 
 The ladder also has a temperature now, which it did not before. Pure-neutral
 near-black reads switched off rather than lit, and the warmth is the one thing
@@ -81,8 +99,9 @@ entire strategy — and they got brighter along with the grounds, because a 1.2:
 hairline on a flat ground was the other half of why the page read as one sheet.
 
 ```css
---border:      #3d4560;  /* the default 1px edge — 2.06:1 on --bg, 1.48:1 on --bg-card */
---border-soft: #2c3347;  /* section dividers and internal rules; quieter than --border
+--border:      #4a5474;  /* the default 1px edge — 2.61:1 on --bg, 1.64:1 on --bg-card,
+                            1.30:1 on --bg-raise */
+--border-soft: #353d55;  /* section dividers and internal rules; quieter than --border
                             so a divider never competes with a card edge */
 --border-lit:  rgba(245,158,11,.38);  /* hover/active ring. The accent as a RING,
                             never as a glow — a glow is a shadow wearing a costume */
@@ -92,22 +111,30 @@ hairline on a flat ground was the other half of why the page read as one sheet.
 
 ```css
 --text:       #eef0f7;  /* headings and body — the reading colour */
---text-dim:   #b3b9ca;  /* secondary copy, standfirsts, card body */
---text-faint: #a6acbf;  /* captions, meta, timestamps — the floor of the ramp */
+--text-dim:   #c3c9d8;  /* secondary copy, standfirsts, card body */
+--text-faint: #adb3c4;  /* captions, meta, timestamps — the floor of the ramp */
 ```
 
 **Every one of these moved when the grounds moved, and that is the point.** The
 worst pairing on this page is no longer `--text-faint` on `--bg`; it is
-`--text-faint` on `--bg-raise`, which is now a genuinely lighter surface. The old
-`#8b8b96` measures **3.43:1** against the new `--bg-raise` and would have shipped
-a failure. So would `#95959f`, at **3.90:1**. A palette change is exactly when to
+`--text-faint` on `--bg-raise`, which is now a genuinely lighter surface. The
+first raise's floor `#a6acbf` measures **4.28:1** against the shipped
+`--bg-raise` and would have shipped a failure — which is why the floor moved a
+second time, to `#adb3c4`. The older candidates fall further: `#95959f` at
+**3.27:1**, `#8b8b96` at **2.88:1**. A palette change is exactly when to
 re-measure every token, because the ground moved underneath all of them.
 
-**`--text-faint` is `#8b8b96` and must never be lowered to `#6b6b76`.** Alex's
-dashboard carries the note: *"#6b6b76 measured 3.76:1 and failed; this measures
-5.87:1."* The `sc-upwork-engine` proof-site still ships the failing value. This
-page inherits the fix, not the bug. Re-measured here: **3.76:1 vs 5.87:1** on
-`--bg`. Confirmed by calculation, not by memory.
+**The inherited floor is `#8b8b96`, and it must never be lowered to `#6b6b76`.**
+Alex's dashboard carries the note: *"#6b6b76 measured 3.76:1 and failed; this
+measures 5.87:1."* Those two figures belong to the dashboard's own near-neutral
+`#0a0a0a` ground, not to this page's. Re-measured here against `--bg`:
+**3.71:1 vs 5.79:1** — same verdict, different substrate. The earlier claim
+that 3.76 / 5.87 had been re-measured on `--bg` was the dashboard note being
+quoted rather than recalculated, and the matrix below always disagreed with it.
+The `sc-upwork-engine` proof-site still ships the failing value. This page
+inherits the fix and then goes past it: on the shipped `--bg-raise`, `#8b8b96`
+is only **2.88:1**, which is why the floor here is `#adb3c4` and not the value
+it was inherited from.
 
 ### The one accent
 
@@ -117,8 +144,9 @@ page inherits the fix, not the bug. Re-measured here: **3.76:1 vs 5.87:1** on
                        output. Never decorative, never a gradient, never a fill
                        behind body text. */
 --link:   #fbbf24;  /* interactive text only — one step brighter than --accent
-                       so a link is legible at body size (10.8:1 on --bg-card)
-                       where the accent proper is tuned for 1–2px rules and dots */
+                       so a link is legible at body size (7.34:1 on --bg-card,
+                       5.81:1 on --bg-raise) where the accent proper is tuned
+                       for 1–2px rules and dots */
 ```
 
 There is no second accent. No success-green, no danger-red, no info-blue. Status
@@ -163,8 +191,8 @@ body), both applied.
 | Token | Size | Weight | Tracking | Leading | Role |
 |---|---|---|---|---|---|
 | `--fs-display` | 64px | 590 | -0.045em | 1.00 | The hero claim. Used **once** on the page. |
-| `--fs-h1` | 44px | 560 | -0.035em | 1.06 | One use only: the creative-wall heading, which needs a bigger moment than the other four sections because the wall itself is full-bleed. |
-| `--fs-h2` | 32px | 560 | -0.028em | 1.18 | Section headings. Five on the page. |
+| `--fs-h1` | 44px | 560 | -0.035em | 1.06 | One use only: the `#numbers` heading ("Fewer, and sourced."). This note used to name the creative-wall heading; that heading is `--fs-h2` like every other section, and the larger step is spent on the numbers instead. |
+| `--fs-h2` | 32px | 560 | -0.028em | 1.18 | Section headings. Three on the page: `#running`, `#creative`, `#work`. (`#numbers` takes `--fs-h1`; the calculator's heading inside the hero is `--fs-h3`.) |
 | `--fs-h3` | 22px | 520 | -0.022em | 1.32 | Card titles, sub-heads. |
 | `--fs-lead` | 19px | 400 | -0.018em | 1.50 | Section standfirst — the one paragraph under a heading. |
 | `--fs-body` | 16px | 400 | -0.011em | 1.60 | Body copy. Also the **input floor** (see below). |
@@ -315,33 +343,40 @@ this portfolio once. It will not do it again.
 
 Contrast, computed against each ground (flat 4.5:1 bar, no large-text exemption):
 
-| | `--bg` #090c17 | `--bg-soft` #181d2d | `--bg-card` #242b40 | `--bg-raise` #303853 |
+| | `--bg` #090c17 | `--bg-soft` #1f2435 | `--bg-card` #2d344e | `--bg-raise` #3a4364 |
 |---|---|---|---|---|
-| `--text` #eef0f7 | 17.13 | 14.72 | 12.34 | 10.15 |
-| `--text-dim` #b3b9ca | 9.95 | 8.55 | 7.17 | 5.90 |
-| `--text-faint` #a6acbf | 8.62 | 7.41 | 6.21 | **5.11** |
-| `--accent` #f59e0b | 9.08 | 7.81 | 6.54 | 5.38 |
-| `--link` #fbbf24 | 11.68 | 10.04 | 8.42 | 6.93 |
-| ~~#95959f~~ (rejected) | 6.57 | 5.65 | 4.74 | **3.90** |
-| ~~#8b8b96~~ (the previous floor) | 5.79 | 4.98 | 4.17 | **3.43** |
+| `--text` #eef0f7 | 17.13 | 13.54 | 10.77 | 8.51 |
+| `--text-dim` #c3c9d8 | 11.77 | 9.30 | 7.40 | 5.85 |
+| `--text-faint` #adb3c4 | 9.31 | 7.36 | 5.85 | **4.63** |
+| `--accent` #f59e0b | 9.08 | 7.18 | 5.71 | **4.51** |
+| `--link` #fbbf24 | 11.68 | 9.24 | 7.34 | 5.81 |
+| ~~#95959f~~ (rejected) | 6.57 | 5.20 | 4.13 | **3.27** |
+| ~~#8b8b96~~ (the previous floor) | 5.79 | 4.58 | 3.64 | **2.88** |
 
-Tightest passing pair on the page: `--text-faint` on `--bg-raise` at **5.11:1**,
-up from 5.04:1 — and that is now measured against a surface 1.687:1 lighter than
-the one the old floor was measured on.
+Tightest passing pair in the text ramp: `--text-faint` on `--bg-raise` at
+**4.63:1** — 0.13 above the bar, where the first raise had 0.61 in hand at
+5.11:1, and now measured against a surface 2.013:1 lighter than `--bg`.
+
+The tightest cell on the page is not in that ramp. `--accent` on `--bg-raise`
+measures **4.51:1**, clearing the flat bar by 0.01. That pairing is real text
+rather than a rule or a dot — `.out-big` is the calculator's answer and
+`.calc-out` is the `--bg-raise` panel it sits in — so it is held to the same
+4.5:1 as body copy. It is the cell to check first if a ground moves again.
 
 **The ground ladder itself — the check this page previously had no bar for:**
 
 | pair | ratio | bar |
 |---|---|---|
-| `--bg` → `--bg-soft` | **1.163** | ≥ 1.15 ✔ |
-| `--bg-soft` → `--bg-card` | **1.193** | ≥ 1.15 ✔ |
-| `--bg-card` → `--bg-raise` | **1.215** | ≥ 1.15 ✔ |
-| `--bg` → `--bg-raise` (end to end) | **1.687** | — |
+| `--bg` → `--bg-soft` | **1.265** | ≥ 1.15 ✔ |
+| `--bg-soft` → `--bg-card` | **1.258** | ≥ 1.15 ✔ |
+| `--bg-card` → `--bg-raise` | **1.265** | ≥ 1.15 ✔ |
+| `--bg` → `--bg-raise` (end to end) | **2.013** | — |
 
-Previously: 1.050 / 1.044 / 1.064, and 1.166 end to end.
+Previously (first raise, 2026-08-21): 1.163 / 1.193 / 1.215, and 1.687 end to
+end. Before that: 1.050 / 1.044 / 1.064, and 1.166.
 
-`--border` is 2.06:1 against `--bg` and 1.48:1 against `--bg-card`, and is a
-*border*, never a text colour.
+`--border` is 2.61:1 against `--bg`, 1.64:1 against `--bg-card` and 1.30:1
+against `--bg-raise`, and is a *border*, never a text colour.
 
 ---
 
@@ -415,7 +450,7 @@ step that takes *positive* tracking because uppercase mono closes up without it.
 ## v3 tokens, measured
 
 Grounds (warm near-black): `#0f0c09 → #221c14 → #332a1e → #453a2a` —
-adjacent pairs **1.155 / 1.198 / 1.269**, end-to-end **1.757** (v2 shipped 1.687).
+adjacent pairs **1.155 / 1.198 / 1.269**, end-to-end **1.757** (v2 ships 2.013 after its second raise; 1.687 was the first).
 
 Text: `--text #f4ecdd` (9.46:1 worst), `--text-dim #c9bda9` (5.99 worst),
 `--text-faint #b5a993` (4.79 worst, on `--bg-raise`).
