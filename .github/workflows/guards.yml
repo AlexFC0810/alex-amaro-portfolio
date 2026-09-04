@@ -1,5 +1,3 @@
-# Public, deterministic content checks stay separate from live-publication checks.
-# Private names/patterns stay in the private vault; no private configuration here.
 name: guards
 on:
   push:
@@ -15,14 +13,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: leak tripwire + claims.json integrity
+      - name: Public privacy tripwire and compiled contract integrity
         run: node tools/public-selftest.mjs
-      - name: link integrity (internal targets and fragments)
+      - name: Internal links and fragments
         run: node tools/link-check.mjs
-      - name: home claims licensed by the public contract
+      - name: Public performance claims licensed by the contract
         run: node tools/check-home-claims.mjs
-      - name: creative review counts match the dated ledger
+      - name: Historical review counts match their dated ledger
         run: node tools/gate-ledger.mjs
+      - name: Current creative-first scope and asset integrity
+        run: node tools/check-creative-portfolio.mjs
+      - name: Generated home and collection match their source
+        run: |
+          node tools/build-creative-portfolio.mjs
+          git diff --exit-code -- index.html creative.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html tools/build-creative-wall.mjs proof/experience.json
   live-publication:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: guards
@@ -36,5 +40,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Confirm GitHub Pages serves the committed HTML and stylesheet
+      - name: Verify the actual public release
         run: node tools/check-live-site.mjs
