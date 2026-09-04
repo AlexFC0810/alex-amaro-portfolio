@@ -51,5 +51,69 @@
       "_review/packs/voice-375-05.txt",
       "_review/packs/voice-375-06.txt"
     ]
+  },
+  {
+    "name": "phone-375",
+    "width": 375,
+    "bytes": 6910,
+    "parts": [
+      "_review/packs/phone-375-01.txt",
+      "_review/packs/phone-375-02.txt"
+    ]
+  },
+  {
+    "name": "hero-1440",
+    "width": 720,
+    "bytes": 13040,
+    "parts": [
+      "_review/packs/hero-1440-01.txt",
+      "_review/packs/hero-1440-02.txt",
+      "_review/packs/hero-1440-03.txt"
+    ]
+  },
+  {
+    "name": "gallery-1440",
+    "width": 720,
+    "bytes": 14983,
+    "parts": [
+      "_review/packs/gallery-1440-01.txt",
+      "_review/packs/gallery-1440-02.txt",
+      "_review/packs/gallery-1440-03.txt",
+      "_review/packs/gallery-1440-04.txt"
+    ]
+  },
+  {
+    "name": "voice-1440",
+    "width": 850,
+    "bytes": 11775,
+    "parts": [
+      "_review/packs/voice-1440-01.txt",
+      "_review/packs/voice-1440-02.txt",
+      "_review/packs/voice-1440-03.txt"
+    ]
+  },
+  {
+    "name": "asset-own-brand-04",
+    "width": 640,
+    "bytes": 1684,
+    "parts": [
+      "_review/packs/asset-own-brand-04-01.txt"
+    ]
+  },
+  {
+    "name": "asset-own-brand-10",
+    "width": 640,
+    "bytes": 1684,
+    "parts": [
+      "_review/packs/asset-own-brand-10-01.txt"
+    ]
+  },
+  {
+    "name": "asset-own-brand-16",
+    "width": 640,
+    "bytes": 1684,
+    "parts": [
+      "_review/packs/asset-own-brand-16-01.txt"
+    ]
   }
 ]

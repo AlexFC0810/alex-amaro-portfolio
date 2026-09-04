@@ -1,8 +1,121 @@
 {
   "date": "2026-09-04",
-  "checks": [],
+  "checks": [
+    {
+      "viewport": [
+        375,
+        812
+      ],
+      "measured": {
+        "url": "http://127.0.0.1:8791/alex-amaro-portfolio/",
+        "viewport": {
+          "w": 375,
+          "h": 812
+        },
+        "docHeight": 11707,
+        "tap": {
+          "checked": 70,
+          "under44": 0,
+          "offenders": []
+        },
+        "text": {
+          "checked": 287,
+          "below45": 0,
+          "offenders": []
+        },
+        "gradientHoles": [],
+        "nav": {
+          "anchors": 0,
+          "sectionIds": []
+        }
+      },
+      "overflow": false,
+      "phoneLinks": 4,
+      "externalResources": [],
+      "failedResources": [],
+      "browserErrors": [],
+      "galleryInteractions": true
+    },
+    {
+      "viewport": [
+        760,
+        900
+      ],
+      "measured": {
+        "url": "http://127.0.0.1:8791/alex-amaro-portfolio/",
+        "viewport": {
+          "w": 760,
+          "h": 900
+        },
+        "docHeight": 9601,
+        "tap": {
+          "checked": 70,
+          "under44": 0,
+          "offenders": []
+        },
+        "text": {
+          "checked": 287,
+          "below45": 0,
+          "offenders": []
+        },
+        "gradientHoles": [],
+        "nav": {
+          "anchors": 0,
+          "sectionIds": []
+        }
+      },
+      "overflow": false,
+      "phoneLinks": 4,
+      "externalResources": [],
+      "failedResources": [],
+      "browserErrors": [],
+      "galleryInteractions": true
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "measured": {
+        "url": "http://127.0.0.1:8791/alex-amaro-portfolio/",
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "docHeight": 7992,
+        "tap": {
+          "checked": 74,
+          "under44": 1,
+          "offenders": [
+            {
+              "el": "a",
+              "text": "Work",
+              "w": 42.9,
+              "h": 44
+            }
+          ]
+        },
+        "text": {
+          "checked": 290,
+          "below45": 0,
+          "offenders": []
+        },
+        "gradientHoles": [],
+        "nav": {
+          "anchors": 0,
+          "sectionIds": []
+        }
+      },
+      "overflow": false,
+      "phoneLinks": 4,
+      "externalResources": [],
+      "failedResources": [],
+      "browserErrors": [],
+      "galleryInteractions": true
+    }
+  ],
   "failures": [
-    "locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('#nav-links a[href=\"#voice\"]')\n    - locator resolved to <a href=\"#voice\">AI demo</a>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is not visible\n    - retrying click action\n      - waiting 100ms\n    58 × waiting for element to be visible, enabled and stable\n       - element is not visible\n     - retrying click action\n       - waiting 500ms\n\n    at /home/runner/work/alex-amaro-portfolio/alex-amaro-portfolio/tools/creative-portfolio-qa.cjs:41:174"
+    "small targets 1440: [{\"el\":\"a\",\"text\":\"Work\",\"w\":42.9,\"h\":44}]"
   ],
   "phoneCallPlaced": false,
   "crmChanged": false,
@@ -10,5 +123,9 @@
   "manualVisualReview": "Pending review of captured images.",
   "staticCreatives": 32,
   "newOwnBrandStatics": 3,
+  "noJavaScript": {
+    "voiceVisible": true,
+    "galleryAnchors": 32
+  },
   "passed": false
 }

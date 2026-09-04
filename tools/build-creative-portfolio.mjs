@@ -123,6 +123,7 @@ write('assets/portfolio.css',css+`\n/* Owner-approved creative-first revision. R
 @media(max-width:380px){.wordmark{font-size:15px}.site-nav{padding-inline:14px;gap:10px}.mobile-demo{font-size:11px}.hero h1{font-size:50px}.hero-gallery{min-height:470px}.phone-number{font-size:28px}.hero-actions .button{font-size:11px}}
 /* Later owner-approved components do not inherit the reference fit band colors. */
 .gallery-actions button{min-width:44px}.site-footer nav a{min-width:44px}.site-footer p{color:var(--ink-soft)}.fit-section,.fit-grid article{background:var(--paper-bright);color:var(--ink)}
+@media(max-width:760px){.site-nav nav.is-open a{display:inline-flex;min-width:44px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 `);
 write('assets/portfolio.js',`(() => {
