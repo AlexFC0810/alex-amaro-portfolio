@@ -109,6 +109,22 @@ if (creativeDialog && dialogImage && dialogCaption && dialogClose) {
   });
 }
 
+const cockpitDialog = document.querySelector("[data-cockpit-dialog]");
+const cockpitOpen = document.querySelector("[data-cockpit-open]");
+const cockpitClose = document.querySelector("[data-cockpit-close]");
+
+if (cockpitDialog && cockpitOpen && cockpitClose) {
+  cockpitOpen.addEventListener("click", () => {
+    cockpitDialog.scrollTop = 0;
+    cockpitDialog.showModal();
+  });
+  cockpitClose.addEventListener("click", () => cockpitDialog.close());
+  cockpitDialog.addEventListener("click", (event) => {
+    if (event.target === cockpitDialog) cockpitDialog.close();
+  });
+  cockpitDialog.addEventListener("close", () => cockpitOpen.focus());
+}
+
 const filterButtons = [...document.querySelectorAll("[data-proof-filter]")];
 const proofItems = [...document.querySelectorAll("[data-proof-item]")];
 
