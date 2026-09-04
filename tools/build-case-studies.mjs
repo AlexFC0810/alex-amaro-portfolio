@@ -188,9 +188,12 @@ function nav(depth, current) {
   // one of them dropping the reader at the top of the home page with no error and
   // no clue. Nothing caught it because nothing was checking; tools/link-check.mjs
   // now resolves every fragment against the ids in the file it points at.
+  // Challenger branch: the root is shaped as stages of one machine, so the
+  // case-page nav points at the stages that exist on it. tools/link-check.mjs
+  // resolves every one of these fragments against the root's ids on each run.
   const L = [
-    ['running', 'Systems'], ['creative', 'Creative'],
-    ['numbers', 'Numbers'], ['record', 'The record'], ['work', 'More work'],
+    ['create', 'Create'], ['convert', 'Convert'],
+    ['compound', 'Compound'], ['verify', 'Verify'], ['work', 'More work'],
   ];
   const links = L.map(([id, t]) => `<a href="${up}index.html#${id}">${t}</a>`).join('\n      ');
   const workCur = current === 'work' ? ' aria-current="page"' : '';
@@ -625,11 +628,20 @@ for (let i = 0; i < cases.length; i++) {
 }
 fs.writeFileSync(path.join(ROOT, 'work.html'), renderIndex(cases));
 
-// sitemap — regenerated so routes and the file cannot disagree
+// sitemap — regenerated so routes and the file cannot disagree.
+// STANDING pages are listed here explicitly. Until 2026-09-04 this list knew
+// only the root, work.html and proof.html, so every run silently dropped
+// creative.html, audit.html and model.html from the sitemap — a regeneration
+// meant to keep routes and the file from disagreeing was the thing making
+// them disagree. Add a new hand-maintained page here or it will vanish on the
+// next build.
 const urls = [
   { loc: `${SITE}/`, pr: '1.0' },
   { loc: `${SITE}/work.html`, pr: '0.9' },
   { loc: `${SITE}/proof.html`, pr: '0.9' },
+  { loc: `${SITE}/creative.html`, pr: '0.9' },
+  { loc: `${SITE}/audit.html`, pr: '0.9' },
+  { loc: `${SITE}/model.html`, pr: '0.8' },
   ...cases.map((c) => ({ loc: `${SITE}/work/${c.slug}.html`, pr: '0.8' })),
 ];
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
