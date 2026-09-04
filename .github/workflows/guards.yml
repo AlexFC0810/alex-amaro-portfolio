@@ -27,3 +27,5 @@ jobs:
       # Run `node tools/link-check.mjs --external` by hand before a release.
       - name: link integrity (internal targets and fragments)
         run: node tools/link-check.mjs
+      - name: challenger structure + claim references
+        run: node tools/challenger-selftest.mjs

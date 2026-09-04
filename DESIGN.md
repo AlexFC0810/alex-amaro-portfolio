@@ -574,3 +574,45 @@ band 400/520/560, radius values 1 (the play discs), families 3.
 CSS scroll-driven reveals under `@supports (animation-timeline: view())` inside
 `prefers-reduced-motion: no-preference`; default state visible; no JavaScript involved. Tabs and
 the lightbox are progressive enhancement — every panel is in the DOM and every tile is a real link.
+
+---
+
+# AI-native growth challenger — editorial system + proof room (`/challenger/`, 2026-09-04)
+
+## The synthesis
+
+The challenger combines two proven directions instead of asking either one to carry the whole story:
+
+- The cream-and-purple creative portfolio supplies the public face: blunt hierarchy, oversized Inter, a single italic Instrument Serif gesture, visible ads, and a conversion path that reads in seconds.
+- The selected dark proof-room concept supplies the second register: warm black, cream type, amber evidence markers, full-size working artifacts, and visible claim boundaries.
+
+The transition is intentional. The opening says *creative operator with presence*. The dark system and evidence sections say *commercial operator whose work survives cross-examination*.
+
+## Content architecture
+
+The operating model is not a six-step conveyor belt. It is a graph:
+
+`new demand (create + capture)` and `latent demand (recover)` converge in `convert`; sales and service outcomes feed `compound`; reputation returns trust and discovery to the next acquisition cycle.
+
+Reputation is therefore a post-service flywheel, not a sixth equal-width stage. It remains visually first-class without falsely implying that review capture happens before conversion.
+
+Every major proof object uses one of three labels—performance, system, or judgment—and supports the SEE IT / TRY IT / VERIFY IT rhythm. Craft evidence is never allowed to impersonate campaign causation.
+
+## Tokens and behavior
+
+- Paper: `#f2eee5`; black: `#070706`; ink: `#f3eee5`; purple: `#6d38f0`; amber: `#e4b66d`; orange rule: `#ef5d3d`.
+- Inter carries directness; Instrument Serif carries editorial contrast and never body copy.
+- Zero drop shadows and zero gradients. Depth comes from tone, one-pixel rules, scale, crop, and real artifact imagery.
+- All fonts and page assets load locally. The route makes no off-origin resource request.
+- Default content is visible without JavaScript. JavaScript progressively enhances the system tabs, proof filters, copy action, and native creative dialog.
+- Every primary interactive target is at least 44 CSS pixels high. Keyboard tab navigation includes arrow, Home, and End behavior. Reduced-motion users do not receive the rotating industry example.
+
+## Public-evidence boundary
+
+The supplied Drive folders were reviewed. The strongest raw GoHighLevel images contain lead names, notes, and client-side values; the client video and private-message testimonial have no recorded public-use release. They are not copied into this public repository. The challenger uses anonymized, attributed descriptions of the signals and states that the raw material remains private pending redaction or release.
+
+CareLine motion work is excluded at Alex's request while it remains in progress. The live adaptive phone experience stays because it is working, testable system proof.
+
+## Promotion rule
+
+`/challenger/` stays `noindex, nofollow` and unlinked from production until it clears the claim guard, the challenger structural guard, responsive and keyboard QA, privacy review, and a scored comparison against the current production route. Production is promoted only if the challenger clears 85/100 and beats the best current route by at least 10 points with no clarity, proof, or mobile regression.
