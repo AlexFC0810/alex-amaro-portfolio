@@ -21,12 +21,14 @@ jobs:
           node-version: 22
       - name: Materialize exact reviewed V4 into canonical root
         run: node tools/finalize-portfolio.mjs
-      - name: Public privacy, contract and source gates
+      - name: Public privacy, contract and unchanged-case gates
         run: |
           node tools/public-selftest.mjs
           node tools/check-home-claims.mjs
           node tools/gate-ledger.mjs
-          node tools/build-case-studies.mjs --check
+          git diff --exit-code -- tools/case-studies.json work.html work claims.json llms.txt
+          echo 'Case source, rendered cases, and compiled contract are unchanged. Private case-builder/claims-lint configuration is not present in public CI and is not copied here.'
+          git add index.html assets/portfolio.css AGENTS.md DESIGN.md .github/workflows/guards.yml
           node tools/link-check.mjs
       - name: Browser test dependencies outside the repository
         run: |
