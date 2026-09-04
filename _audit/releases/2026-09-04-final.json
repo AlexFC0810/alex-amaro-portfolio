@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-04",
+  "base": "1ba3e02e7ec82b68a2db6e1e0810c0e443af3909",
+  "checks": [
+    {
+      "viewport": [
+        375,
+        812
+      ],
+      "smallTargets": 0,
+      "lowContrast": 0,
+      "horizontalOverflow": false,
+      "phoneLinks": 3,
+      "voiceDeepLink": true,
+      "gallery": true,
+      "keyboardTabs": true,
+      "externalRequests": 0,
+      "failedResources": 0,
+      "browserErrors": 0
+    },
+    {
+      "viewport": [
+        700,
+        900
+      ],
+      "smallTargets": 0,
+      "lowContrast": 0,
+      "horizontalOverflow": false,
+      "phoneLinks": 3,
+      "voiceDeepLink": true,
+      "gallery": true,
+      "keyboardTabs": true,
+      "externalRequests": 0,
+      "failedResources": 0,
+      "browserErrors": 0
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "smallTargets": 0,
+      "lowContrast": 0,
+      "horizontalOverflow": false,
+      "phoneLinks": 3,
+      "voiceDeepLink": true,
+      "gallery": true,
+      "keyboardTabs": true,
+      "externalRequests": 0,
+      "failedResources": 0,
+      "browserErrors": 0
+    }
+  ],
+  "phoneCallPlaced": false,
+  "crmChanged": false,
+  "privateClaimsSweep": "Not run here; private configuration is not copied into public CI. Public integrity/license checks and byte-preservation check run separately.",
+  "noJavaScript": {
+    "allPanelsVisible": true,
+    "phoneLinkPresent": 3
+  }
+}

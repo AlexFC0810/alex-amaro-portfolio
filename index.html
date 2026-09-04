@@ -3,876 +3,1023 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alex Amaro — Meta paid social, and the system behind the ads</title>
-<meta name="description" content="An AI-native growth operator whose specialty is Meta paid social: $225K+ in Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K. The offer, the creative tests, the follow-up system and the measurement are the same pair of hands — and every figure is published in a machine-readable contract you can cross-examine.">
+<title>Alex Amaro — The work is live. The proof is attached.</title>
+<meta name="description" content="Alex Amaro: Meta paid social and the systems behind the ads. Explore real campaign creative, source-linked results, growth economics, and a callable AI voice demo connected to a CRM-workflow story.">
 <meta name="author" content="Alex Amaro">
+<meta name="robots" content="index,follow">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/">
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Alex Amaro">
-<meta property="og:title" content="Alex Amaro — Meta paid social, and the system behind the ads">
-<meta property="og:description" content="Most marketers can show you campaigns. This one shows you the operation behind them — $225K+ in Meta spend managed across 14+ accounts, live systems, and a claims contract you can audit.">
+<meta property="og:title" content="Alex Amaro — The work is live. The proof is attached.">
+<meta property="og:description" content="Meta paid social, and the system behind the ads. 9.5x an incumbent agency's leads at ~75% lower cost per lead, same account — with every figure bound to a published contract.">
 <meta property="og:url" content="https://alexfc0810.github.io/alex-amaro-portfolio/">
-<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png">
+<meta property="og:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v4.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Alex Amaro — Meta paid social and the system behind the ads. 9.5x an agency's leads at ~75% lower CPL, same account.">
+<meta property="og:image:alt" content="Alex Amaro — The work is live. The proof is attached.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png">
-<meta name="twitter:title" content="Alex Amaro — Meta paid social, and the system behind the ads">
-<meta name="twitter:description" content="Most marketers can show you campaigns. This one shows you the operation behind them — $225K+ in Meta spend managed across 14+ accounts, live systems, and a claims contract you can audit.">
-<meta name="theme-color" content="#090c17">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23090c17'/%3E%3Crect x='7' y='14.5' width='18' height='3' rx='1.5' fill='%23f59e0b'/%3E%3C/svg%3E">
-
-<!-- Motion opt-in AND its own escape hatch, armed in the same statement so they
-     can never diverge. Whatever happens to the rest of this page's JS, every
-     revealed element force-settles 2.6s later. Content is never gated on a frame
-     that might not run — requestAnimationFrame is paused in background tabs, and
-     an entrance animation starting at opacity:0 has produced a blank screen in
-     this portfolio once already. Copied unmodified from index.html. -->
-<script>
-(function(){try{
-  var r=document.documentElement;
-  r.classList.add('js');
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('settled');return;}
-  r.classList.add('motion');
-  setTimeout(function(){r.classList.add('settled');},2600);
-}catch(e){document.documentElement.classList.add('settled');}})();
-</script>
-
-<!-- Structured data. The page had none, so a search result or a shared card had
-     nothing but the title tag to work with. Nothing here is a claim; it is
-     identity and links only. -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person",
- "name":"Alex Amaro",
- "jobTitle":"AI-native growth operator — Meta paid social",
- "description":"An AI-native growth operator whose specialty is Meta paid social, and who builds the offer, the creative testing, the follow-up system and the measurement behind the ads.",
- "url":"https://alexfc0810.github.io/alex-amaro-portfolio/",
- "image":"https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v2.png",
- "knowsLanguage":["en","es"],
- "knowsAbout":["Meta Ads","Paid social","Creative testing","Lead generation","Marketing automation","GoHighLevel","Conversion rate optimisation","Agentic AI systems"],
- "sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"]}
-</script>
-
+<meta name="twitter:image" content="https://alexfc0810.github.io/alex-amaro-portfolio/assets/og-v4.png">
+<meta name="theme-color" content="#050505">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23050505'/%3E%3Crect x='7' y='14.5' width='18' height='3' fill='%23e2b972'/%3E%3C/svg%3E">
+<!-- The head script only arms the nav menu and the tab/lightbox enhancements.
+     Nothing on this page is gated on it: every tour panel, every system panel
+     and every ledger row is in the HTML and visible without JavaScript. -->
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preload" href="./assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/* ============================================================================
-   PORTFOLIO v2 — full token reference and the reasoning behind every value
-   lives in ./DESIGN.md. Short version:
-
-   · Dark, one accent, narrow measure — unifying onto the system Alex already
-     shipped twice (sc-upwork-engine/proof-site and the Upwork dashboard).
-   · Weight ceiling 590. Hierarchy from size and colour, never from bold.
-   · Three radii. Eight sizes. Eleven bound type styles.
-   · NO box-shadow anywhere. Depth is a four-step tonal ground ladder plus 1px
-     hairlines — Linear's "let geometry do the work shadows usually would".
-   · Zero off-origin requests: font self-hosted, images self-hosted, no CDN.
-   ============================================================================ */
-
-/* --- TYPEFACE: one variable file, preloaded, from this origin --------------
-   Plus the metric-matched fallback inherited from index.html: Arial with
-   Inter's own metrics forced onto it. The 103.74% size-adjust is not a
-   published constant — it is the ratio measured across all 433 real text runs
-   on that page, so the pre-swap render occupies almost exactly the space the
-   post-swap render will and the swap stops moving anything. -------------- */
-@font-face{
-  font-family:'Inter'; font-style:normal; font-weight:400 900; font-display:swap;
-  src:url('./assets/fonts/inter-latin-var.woff2') format('woff2');
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
-}
-@font-face{
-  font-family:'Inter Fallback';
-  src:local('Arial'),local('Helvetica');
-  ascent-override:93.38%; descent-override:23.25%; line-gap-override:0%; size-adjust:103.74%;
-}
-
-:root{
-  /* --- GROUNDS: a navy ladder, at an amplitude you can actually see ------
-     These four steps shipped 1.044:1 and 1.050:1 apart. On a phone at 40%
-     brightness that collapses to one flat plane — which is exactly why a
-     system built on "tonal depth instead of shadows" rendered as a single
-     sheet of near-black with 1.2:1 hairlines. The deltas below are roughly
-     doubled: every adjacent pair is >= 1.15:1, measured 1.163 / 1.193 / 1.215,
-     1.687 end to end.
-
-     They also carry a navy cast now. Pure-neutral near-black reads switched
-     off; the v1 site's #16365C is the reference here — not for its hue, for
-     its PRESENCE. A developer tool is built to disappear behind the work. A
-     portfolio cannot disappear: it IS the work. */
-  --bg:#090c17;        /* page substrate */
-  --bg-soft:#1f2435;   /* alternating section band  ·  1.265 above --bg */
-  --bg-card:#2d344e;   /* card / panel fill         ·  1.258 above --bg-soft */
-  --bg-raise:#3a4364;  /* hover, input fill, lifted ·  1.265 above --bg-card */
-  /* Second raise, 2026-08-22. The first raise cleared the 1.15 floor and stopped
-     there. Measured against a shipped premium system — ORYZO AI, cached in
-     doctrine-hub/swipes/design-systems — whose own ground pairs run 1.347 /
-     1.260 / 1.881, this ladder was still the shallowest thing in the room.
-     1.15 turned out to be the floor, not the target. */
-
-  /* --- HAIRLINES: a supporting act now, not the whole separation strategy - */
-  --border:#4a5474;      /* 1.64:1 on --bg-card, 2.61:1 on --bg, 1.30:1 on --bg-raise.
-                            Raised with the grounds: #3d4560 measured 1.02:1 against the
-                            new --bg-raise, i.e. the hairline vanished exactly where a
-                            hover state needs it most. */
-  --border-soft:#353d55;
-  --border-lit:rgba(245,158,11,.38);
-
-  /* --- THE ACCENT, RATIONED ----------------------------------------------
-     Amber earns exactly four jobs on this page:
-       1. the one primary action            .hero-meta .btn-primary
-       2. the single hero metric            .hero-stat  (the 9.5x and its rule)
-       3. live status                       .tag-live::before, the dot only
-       4. ONE section eyebrow                "The system behind the wall"
-     It was spending itself 23 times — eyebrows, nav state, calculator INPUTS,
-     every figure in the numbers strip, a pull-quote rule, three "Live" labels.
-     Job 3 in the original list was the ROI calculator's own output; the
-     calculator left the page on 2026-09-04 and the accent did not get the
-     budget back — it was reassigned to the single eyebrow that points at the
-     creative wall, which is the one place the page asks to be followed.
-     Both cached benchmarks converge hard here and neither is subtle about it:
-     ORYZO reserves its one orange for links and credit lines and NEVER a
-     button, noting in its own docs that this "earns its rarity"; Mercury
-     spends its cobalt on a single "Open account" and nothing else.
-     An accent used everywhere is not an accent, it is a second body colour. */
-  /* --- THE ONE LIT EDGE --------------------------------------------------
-     The only box-shadow on this page, and it casts nothing. A 1px inset top
-     highlight is what makes a surface read as LIT rather than merely
-     outlined — lifted straight from index.html, where every elevation token
-     ends in `inset 0 1px 0 rgba(255,255,255,.92)`. One value, six surfaces,
-     still zero drop shadows. Measured: an inset shadow is painted UNDER a
-     top-edge <img>, so it lives on .card-body, which is where it reads on
-     both the image cards and the one without an image. */
-  --lit:inset 0 1px 0 rgba(255,255,255,.075);
-
-  /* --- TYPE COLOUR — every value measured against the WORST ground it sits
-     on, which is now --bg-raise rather than --bg ------------------------- */
-  --text:#eef0f7;        /* 17.13:1 on --bg  ·   8.51:1 on --bg-raise */
-  --text-dim:#c3c9d8;    /* 11.77:1 on --bg  ·   5.85:1 on --bg-raise */
-  --text-faint:#adb3c4;  /*  9.31:1 on --bg  ·   4.63:1 on --bg-raise.
-                            Deepening the ground COMPRESSES the text ramp — every tier
-                            had to move up to keep 4.5:1 on the worst surface it lands
-                            on, which is now a hovered .card (--bg-raise). Worth naming: ORYZO does not solve
-                            this, it avoids it, running essentially ONE text colour and
-                            reserving its mid-tone for dividers rather than type. Three
-                            grey tiers on a deep ground is the harder road, and the
-                            spread here (8.51 / 5.85 / 4.63) is about as far as it
-                            stretches before the tiers stop reading as distinct. */
-
-  /* --- THE ONE ACCENT ---------------------------------------------------- */
-  --accent:#f59e0b;  /* rules, dots, markers. Functional only. */
-  --link:#fbbf24;    /* interactive text — 8.42:1 on --bg-card, 6.93:1 on --bg-raise */
-
-  /* --- FAMILIES ---------------------------------------------------------- */
-  --sans:'Inter','Inter Fallback',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  /* JetBrains Mono is named in the brief but exists nowhere in the estate, and
-     fetching it from Google would break the zero-off-origin property. System
-     mono costs nothing and never fails to load. See DESIGN.md. */
-  --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
-
-  /* --- WEIGHT: the band, and its ceiling --------------------------------- */
-  --w-reg:400; --w-med:520; --w-semi:560; --w-max:590;
-
-  /* --- SIZE ramp (tracking tightens as size grows) ----------------------- */
-  --fs-display:clamp(38px,7.4vw,64px);
-  --fs-h1:clamp(30px,5vw,44px);
-  --fs-h2:clamp(25px,3.6vw,32px);
-  --fs-h3:22px;
-  --fs-lead:19px;
-  --fs-body:16px;
-  --fs-caption:13px;
-  --fs-label:12px;   /* mono */
-  --fs-data:15px;    /* mono */
-  --fs-figure:28px;  /* mono */
-  --fs-hero:clamp(50px,9vw,78px); /* mono — the one focal figure on the page */
-
-  /* --- RADIUS: three, and only three ------------------------------------- */
-  --r-sm:4px; --r-md:10px; --r-full:999px;
-
-  /* --- LAYOUT ------------------------------------------------------------ */
-  --measure:760px;   /* the reading rail */
-  --rail:1080px;     /* the card rail — a card is scanned, not read */
-  --section:clamp(72px,9vw,116px);
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; background:var(--bg); color:var(--text);
-  font-family:var(--sans); font-size:var(--fs-body); font-weight:var(--w-reg);
-  line-height:1.6; letter-spacing:-0.011em;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden; /* belt-and-braces: nothing should overflow, and if a future
-                        edit does, the page must not scroll sideways at 375px */
-}
-
-/* --- BOUND TYPE STYLES. A size never appears at two weights. ------------- */
-h1,h2,h3,h4{margin:0; text-wrap:balance}
-p,ul,ol{margin:0}
-/* <strong> and <b> default to 700. Unreset, that is the single most common way
-   a weight ceiling gets broken without anyone noticing. */
-strong,b{font-weight:var(--w-med)}
-
-.t-display{font-size:var(--fs-display); font-weight:var(--w-max); letter-spacing:-0.045em; line-height:1.0}
-.t-h1{font-size:var(--fs-h1); font-weight:var(--w-semi); letter-spacing:-0.035em; line-height:1.06}
-.t-h2{font-size:var(--fs-h2); font-weight:var(--w-semi); letter-spacing:-0.028em; line-height:1.18}
-.t-h3{font-size:var(--fs-h3); font-weight:var(--w-med); letter-spacing:-0.022em; line-height:1.32}
-.t-lead{font-size:var(--fs-lead); font-weight:var(--w-reg); letter-spacing:-0.018em; line-height:1.5; color:var(--text-dim)}
-.t-cap{font-size:var(--fs-caption); font-weight:var(--w-reg); letter-spacing:-0.005em; line-height:1.55; color:var(--text-faint)}
-.t-label{font-family:var(--mono); font-size:var(--fs-label); font-weight:var(--w-med); letter-spacing:0.08em; line-height:1.4; text-transform:uppercase}
-.t-data{font-family:var(--mono); font-size:var(--fs-data); font-weight:var(--w-reg); letter-spacing:-0.005em; line-height:1.5}
-.t-figure{font-family:var(--mono); font-size:var(--fs-figure); font-weight:var(--w-reg); letter-spacing:-0.02em; line-height:1.1}
-.t-hero{font-family:var(--mono); font-size:var(--fs-hero); font-weight:var(--w-reg); letter-spacing:-0.03em; line-height:1}
-
-a{color:var(--link); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:rgba(251,191,36,.4)}
-a:hover{text-decoration-color:var(--link)}
-/* Focus uses outline, not box-shadow, so the no-shadow property survives
-   keyboard navigation. */
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--link); outline-offset:2px; border-radius:var(--r-sm)}
-
-img,video{max-width:100%; height:auto; display:block}
-
-/* --- LAYOUT PRIMITIVES --------------------------------------------------- */
-.vh{position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
-.rail{max-width:var(--rail); margin-inline:auto; padding-inline:20px}
-.measure{max-width:var(--measure); margin-inline:auto; padding-inline:20px}
-section{padding-block:var(--section)}
-.band{background:var(--bg-soft); border-block:1px solid var(--border-soft)}
-
-.eyebrow{display:flex; align-items:center; gap:10px; color:var(--text-faint); margin-bottom:18px}
-.eyebrow::before{content:''; width:22px; height:2px; background:var(--border); border-radius:var(--r-sm); flex:none}
-
-.sec-head{margin-bottom:40px}
-.sec-head .t-lead{margin-top:16px; max-width:64ch}
-
-/* --- SKIP LINK ----------------------------------------------------------- */
-.skip{position:absolute; left:-9999px; top:0; z-index:100; display:flex; align-items:center;
-  min-height:44px; padding:0 18px; border-radius:var(--r-sm); color:var(--text)}
-.skip:focus{left:12px; top:12px; background:var(--bg-card); border:1px solid var(--border)}
-
-/* Inline links inside prose cannot be 44px tall without wrecking the line
-   rhythm, so every link that would otherwise sit inline in a paragraph is
-   promoted to a row of real targets instead. The type style is unchanged —
-   only the box grows. */
-.linkrow{display:flex; flex-wrap:wrap; gap:2px; margin-top:18px; margin-inline:-12px}
-.linkrow a{display:inline-flex; align-items:center; min-height:44px; padding:0 12px; border-radius:var(--r-sm)}
-.linkrow a:hover{background:var(--bg-card)}
-
-/* --- NAV ------------------------------------------------------------------
-   The scrolling nav hid 170px of itself at 375px: clientWidth 375 against
-   scrollWidth 545, with "Work" and "v1 site" entirely off-screen and no fade,
-   chevron or scrollbar to say so. Below 640px it now collapses to a real menu
-   button. The no-JS path keeps the horizontal scroller, so the links are never
-   gated on a script that might not run. Inter-link gap 6px -> 12px. --------- */
-header.nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--border-soft)}
-.nav-in{max-width:var(--rail); margin-inline:auto; padding-inline:20px; display:flex; align-items:center; gap:12px; min-height:56px}
-header.nav a{white-space:nowrap; flex:none; color:var(--text-dim); text-decoration:none;
-  display:flex; align-items:center; min-height:44px; padding:0 10px; border-radius:var(--r-sm)}
-header.nav a:hover{color:var(--text); background:var(--bg-card)}
-.nav-mark{color:var(--text); margin-right:auto; padding:0 10px 0 0}
-.nav-mark:hover{color:var(--text); background:transparent; text-decoration:none}
-.nav-links{display:flex; align-items:center; gap:12px; flex-wrap:nowrap;
-  overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none}
-.nav-links::-webkit-scrollbar{display:none}
-/* Scroll-spy. aria-current was 0 across the whole document; exactly one link
-   now carries it at all times, set before the first scroll event. */
-header.nav a[aria-current="true"]{color:var(--text); background:var(--bg-card); box-shadow:var(--lit)}
-/* The mark carries aria-current at the top of the page, which is correct — but
-   a wordmark styled as a selected tab reads as a nav pill, not as an identity.
-   It keeps the semantics and gives back the pill. */
-header.nav a.nav-mark[aria-current="true"]{color:var(--text); background:transparent; box-shadow:none}
-.nav-toggle{display:none; white-space:nowrap; align-items:center; min-height:44px; margin-left:auto;
-  padding:0 14px; background:var(--bg-card); color:var(--text); border:1px solid var(--border);
-  border-radius:var(--r-sm); cursor:pointer; box-shadow:var(--lit)}
-.nav-toggle:hover{border-color:var(--border-lit)}
-@media(max-width:639.98px){
-  html.js .nav-toggle{display:inline-flex}
-  html.js .nav-links{display:none; position:absolute; top:100%; left:0; right:0; overflow:visible;
-    flex-direction:column; align-items:stretch; gap:2px; padding:8px 20px 16px;
-    background:var(--bg-card); border-bottom:1px solid var(--border); box-shadow:var(--lit)}
-  html.js .nav-links[data-open]{display:flex}
-}
-
-/* --- HERO ---------------------------------------------------------------- */
-.hero{padding-top:clamp(48px,7vw,84px); padding-bottom:var(--section)}
-.hero .t-display{margin-bottom:22px}
-.hero .t-lead{max-width:60ch}
-.hero-meta{display:flex; flex-wrap:wrap; gap:6px 4px; margin-top:26px}
-.hero-meta a{color:var(--text-dim); text-decoration:none; border:1px solid var(--border); border-radius:var(--r-full);
-  padding:0 16px; min-height:44px; display:inline-flex; align-items:center}
-.hero-meta a:hover{color:var(--text); background:var(--bg-raise); border-color:var(--border-lit)}
-/* Four identical CTAs meant the page had no primary action at all — the only
-   solid amber fill on 19,000px of document was the currency toggle, which is
-   the least consequential control here. One real CTA takes the fill; the
-   toggle gives it back. */
-.hero-meta .btn-primary{background:var(--accent); border-color:var(--accent); color:var(--bg)}
-.hero-meta .btn-primary:hover{background:var(--link); border-color:var(--link); color:var(--bg)}
-
-/* --- THE FOCAL OBJECT -----------------------------------------------------
-   One focal point per screen, and this is it: the single most persuasive fact
-   on the page, which v2 had dropped below the fold. Every word of the copy is
-   verbatim from the approved claims contract — C3 headline.value,
-   headline.unit and wording.portfolio_employer. None of it is written here. */
-.hero-stat{margin:28px 0 0; padding:22px; background:var(--bg-card); border:1px solid var(--border);
-  border-radius:var(--r-md); box-shadow:var(--lit); display:grid; grid-template-columns:1fr; gap:16px}
-@media(min-width:600px){.hero-stat{grid-template-columns:auto 1fr; gap:30px; padding:26px 30px; align-items:center}}
-.hero-stat-fig{border-left:2px solid var(--accent); padding-left:20px}
-.hero-stat .t-hero{color:var(--accent)}
-.hero-stat .t-label{display:block; margin-top:9px; color:var(--text-faint)}
-.hero-stat .t-lead{color:var(--text); max-width:48ch}
-
-
-/* --- LIVE SURFACE CARDS -------------------------------------------------- */
-.cards{display:grid; grid-template-columns:1fr; gap:16px}
-@media(min-width:820px){.cards{grid-template-columns:1fr 1fr}}
-.card{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-md);
-  overflow:hidden; display:flex; flex-direction:column}
-.card:hover{background:var(--bg-raise); border-color:var(--border-lit)}
-.card .shot{border-bottom:1px solid var(--border-soft); background:var(--bg); aspect-ratio:8/5; object-fit:cover; object-position:top center; width:100%}
-.card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1; box-shadow:var(--lit)}
-.card-body .t-cap{color:var(--text-dim)}
-.card-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:auto; padding-top:6px}
-.tag{color:var(--text-faint); border:1px solid var(--border); border-radius:var(--r-full); padding:5px 10px}
-.tag-live{color:var(--text-dim); border-color:var(--border); display:inline-flex; align-items:center; gap:7px}
-.tag-live::before{content:''; width:6px; height:6px; border-radius:var(--r-full); background:var(--accent); flex:none}
-.card-link{display:inline-flex; align-items:center; min-height:44px; word-break:break-all}
-.arch{margin:0; padding:16px; background:var(--bg); border:1px solid var(--border-soft); border-radius:var(--r-sm);
-  font-family:var(--mono); font-size:var(--fs-caption); letter-spacing:-0.005em; line-height:1.75;
-  color:var(--text-dim); overflow-x:auto; white-space:pre}
-
-/* --- VOICE NOTE ---------------------------------------------------------- */
-.note{border-left:2px solid var(--border); padding:4px 0 4px 22px; margin-top:44px}
-
-/* --- THE HOOK LADDER ------------------------------------------------------
-   The concept wall and the two own-brand films left the home page on
-   2026-09-04: on a page whose differentiator must NOT be generative content,
-   spec imagery was outweighing the one piece of client craft evidence. Both
-   still live on creative.html. What remains here is the eight-hook test, and
-   every tile now carries the hook line it actually set and the awareness stage
-   it was written for — the variable being tested, readable without opening
-   another page. Captions come from tools/creative-manifest.mjs, which reads
-   them off the artwork rather than off a filename. */
-.matrix{display:grid; gap:10px; grid-template-columns:repeat(2,1fr)}
-@media(min-width:640px){.matrix{grid-template-columns:repeat(4,1fr)}}
-.matrix figure{margin:0}
-.matrix img{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--r-sm); border:1px solid var(--border-soft); background:var(--bg-card)}
-.matrix figcaption{margin-top:8px}
-.matrix .stage{display:block; color:var(--text-faint)}
-.matrix .hook{display:block; margin-top:3px; color:var(--text-dim)}
-
-/* --- NUMBERS ------------------------------------------------------------- */
-.nums{border-top:1px solid var(--border-soft)}
-.num{display:grid; grid-template-columns:1fr; gap:6px; padding:26px 0; border-bottom:1px solid var(--border-soft)}
-@media(min-width:640px){.num{grid-template-columns:170px 1fr; gap:28px; align-items:baseline}}
-.num .t-figure{color:var(--text)}
-
-/* --- WORK ---------------------------------------------------------------- */
-.work{display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--border-soft)}
-@media(min-width:720px){.work{grid-template-columns:1fr 1fr}}
-.work a{display:flex; flex-direction:column; justify-content:center; gap:6px; min-height:44px; padding:18px 4px;
-  border-bottom:1px solid var(--border-soft); color:var(--text); text-decoration:none}
-.work a:hover{color:var(--link)}
-.work a span{color:var(--text-faint)}
-
-/* --- FOOTER -------------------------------------------------------------- */
-footer{border-top:1px solid var(--border-soft); padding-block:56px; background:var(--bg-soft)}
-.disclaim{border:1px solid var(--border); border-radius:var(--r-md); padding:24px; background:var(--bg-card); box-shadow:var(--lit)}
-.disclaim li{margin-top:10px; color:var(--text-dim)}
-.disclaim ul{padding-left:20px}
-
-/* --- MOTION -------------------------------------------------------------
-   Reveal styles apply ONLY under html.motion. With JS disabled the class is
-   never added, so every section renders at full opacity with no <noscript>
-   dependency. html.settled is the force-settle escape hatch. ------------- */
-html.motion .reveal{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease}
-html.motion .reveal.in,html.settled .reveal{opacity:1; transform:none}
-@media(prefers-reduced-motion:reduce){
-  *{animation:none !important; transition:none !important}
-  html.motion .reveal{opacity:1; transform:none}
-}
-</style>
+<link rel="stylesheet" href="./assets/portfolio.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Alex Amaro","jobTitle":"Growth marketer — Meta paid social and AI systems","url":"https://alexfc0810.github.io/alex-amaro-portfolio/","knowsLanguage":["en","es"],"sameAs":["https://linkedin.com/in/alex-amaro-a4187a221","https://github.com/AlexFC0810"]}</script>
 </head>
 <body>
+<a class="skip" href="#top">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12-7.5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-seal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l2.4 2 3.1-.4 1 3 2.8 1.4-.6 3.1 1.6 2.7-2.3 2.1-.1 3.2-3.1.6-1.6 2.7-3.2-1-3.2 1-1.6-2.7-3.1-.6-.1-3.2-2.3-2.1 1.6-2.7-.6-3.1 2.8-1.4 1-3 3.1.4z"/><path d="M8.5 12.5l2.3 2.3 4.7-4.8"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
 
-<a class="skip t-label" href="#main">Skip to content</a>
-
-<header class="nav">
-  <div class="nav-in">
-    <a class="nav-mark t-label" href="#top">Alex&nbsp;Amaro</a>
-    <button id="navToggle" class="nav-toggle t-label" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
-    <nav id="navLinks" class="nav-links" aria-label="Sections">
-      <a class="t-label" href="#running">Systems</a>
-      <a class="t-label" href="#creative">Creative</a>
-      <a class="t-label" href="#numbers">Numbers</a>
-      <a class="t-label" href="#work">Work</a>
-      <a class="t-label" href="#record">Record</a>
-    </nav>
+<div class="site-shell">
+<header class="site-header">
+  <a href="#top" class="wordmark" aria-label="Alex Amaro — home">ALEX AMARO</a>
+  <div class="site-header__line" aria-hidden="true"></div>
+  <nav id="siteNav" class="site-nav" aria-label="Primary navigation">
+    <a href="#creative">Creative</a>
+    <a href="#voice">AI demo</a>
+    <a href="#running">Systems</a>
+    <a href="#numbers">Results</a>
+    <a href="#record">Record</a>
+    <a class="site-nav__mail" href="./Alex-Amaro-Resume.pdf">Résumé</a>
+    <a class="site-nav__cta" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Start a conversation <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+  </nav>
+  <div class="site-header__tools">
+    <a class="header-book" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book</a>
+    <button id="menuButton" class="menu-button" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation"><svg aria-hidden="true"><use href="#i-list"/></svg></button>
   </div>
 </header>
 
-<main id="main">
+<main id="top">
 
 <!-- ==========================================================================
-     1 — HERO: the lane, the argument, the proof, in that order.
-     Measured 2026-09-04 on the live page: at 375x812 the word "Meta" first
-     rendered at y=3989 and the managed-spend figure at y=10480 — screen 13 of
-     19 — while a missed-call ROI calculator occupied 1,328px of the first two
-     screens. A reader had decided what this person was long before the
-     strongest evidence arrived. The calculator is gone (it modelled the
-     READER's hypothetical loss and claimed nothing about Alex); the specialty
-     and the scale figure are now above the fold.
+     HERO — the proof room. Design from the 2026-08-27 prototype; content bound
+     to the contract. C3 in the card and rail; C1, C6 and B1 in the rail.
      ========================================================================== -->
-<section class="hero" id="top">
-  <div class="measure">
-    <p class="eyebrow t-label">Meta paid social · AI-native · Remote</p>
-    <h1 class="t-display">Most marketers can show you campaigns.</h1>
+<section class="hero section-frame" aria-labelledby="hero-title">
+  <div class="hero__copy">
+    <p class="eyebrow">Meta paid social · AI-native operator · Evidence on file</p>
+    <h1 id="hero-title">The work is live.<br>The proof is<br><em>attached.</em></h1>
+    <p class="hero__dek">Meta paid social is the specialty. I build the offer, the creative tests, the follow-up system and the measurement behind the ads — one operator, few handoffs — and every number on this page has a source you can open.</p>
+    <div class="hero__actions">
+      <a class="button button--primary" href="#tour">Start the proof tour <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      <a class="button button--ghost" href="tel:+18888147785">Call the AI demo <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+    </div>
+  </div>
 
-    <p class="t-lead">This one shows you the operation behind them. I&rsquo;m Alex Amaro &mdash; Meta paid social is the specialty, and I build the offer, the creative tests and the follow-up system behind it.</p>
+  <div class="hero-reel" aria-label="Selected work reel">
+    <div class="hero-reel__header" aria-hidden="true"><span>Proof room</span><span>01—04</span><span>Evidence on file</span></div>
+    <div class="hero-reel__grid">
+      <a class="reel-cell reel-cell--creative" href="#creative" aria-label="Client creative — open the campaign wall">
+        <div class="frame-label" aria-hidden="true"><span>Client creative</span><span>01</span></div>
+        <div class="contact-sheet contact-sheet--compact">
+          <div class="contact-sheet__item"><img src="./assets/creative-static/chiro-knee-pain-01-320.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="contact-sheet__item"><img src="./assets/creative-static/chiro-knee-pain-02-320.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="contact-sheet__item"><img src="./assets/creative-static/chiro-knee-pain-04-320.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="contact-sheet__item is-square"><img src="./assets/creative-static/medspa-laser-02-320.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="contact-sheet__item is-square"><img src="./assets/creative-static/medspa-body-contouring-03-320.webp" alt="" loading="eager" decoding="async"></div>
+          <div class="contact-sheet__item"><img src="./assets/creative-static/chiro-knee-pain-06-320.webp" alt="" loading="eager" decoding="async"></div>
+        </div>
+      </a>
+      <a class="reel-cell reel-cell--film" href="./assets/creative-video/b2b-refrigeration-video-01.mp4" data-video="./assets/creative-video/b2b-refrigeration-video-01.mp4" data-poster="./assets/creative-video/b2b-refrigeration-video-01-poster.webp" data-title="B2B refrigeration — video ad" data-note="Client campaign creative for a U.K. commercial-refrigeration installer — the account behind the cheapest cost per lead on this site.">
+        <div class="frame-label" aria-hidden="true"><span>Play</span><span>02</span></div>
+        <img src="./assets/creative-video/b2b-refrigeration-video-01-poster.webp" alt="" loading="eager" decoding="async">
+        <span class="reel-cell__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+        <span class="reel-cell__title">Ad creative<br>video</span>
+        <span class="vh">Play the B2B refrigeration video ad</span>
+      </a>
+      <a class="reel-cell reel-cell--system" href="#running" aria-label="Operator console — open the live systems">
+        <div class="frame-label" aria-hidden="true"><span>Operator console</span><span>03</span></div>
+        <img src="./assets/shot-upwork-command-720.webp" alt="Opportunity Command, the single-operator dashboard: a daily send floor, one next action and a copyable go-live command." loading="eager" decoding="async">
+      </a>
+      <a class="reel-cell reel-cell--proof" href="#numbers" data-claim="C3" aria-label="Source status, 9.5 times lead volume — open the evidence ledger">
+        <div class="frame-label" aria-hidden="true"><span>Source status</span><span>04</span></div>
+        <div class="proof-card proof-card--compact">
+          <div class="proof-card__top"><span data-status="verified · A">Verified · A</span><svg aria-hidden="true"><use href="#i-seal"/></svg></div>
+          <p class="proof-card__number">9.5&times;</p>
+          <p class="proof-card__label">Lead volume</p>
+          <div class="proof-card__rule" aria-hidden="true"></div>
+          <p>~75% lower CPL</p>
+          <p>Same account</p>
+          <footer>114 @ $12.59 vs 12 @ $49.81</footer>
+        </div>
+      </a>
+    </div>
+    <nav class="hero-reel__footer" aria-label="Reel index"><a href="#creative">Campaigns</a><a href="#video">Video</a><a href="#running">Systems</a><a href="#numbers">Proof</a></nav>
+  </div>
 
-    <figure class="hero-stat">
-      <div class="hero-stat-fig">
-        <p class="t-hero">9.5&times;</p>
-        <p class="t-label">lead volume</p>
-      </div>
-      <figcaption>
-        <p class="t-lead">Took over a chiropractic account from an incumbent national agency and delivered 9.5&times; the leads at ~75% lower cost per lead &mdash; same account (114 @ $12.59 vs 12 @ $49.81).</p>
-        <p class="t-cap" style="margin-top:14px">Not a one-account story: <strong style="color:var(--text)">$225K+ in Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K.</strong> The rest of that record, line by line, is further down.</p>
-      </figcaption>
-    </figure>
-
-    <div class="hero-meta">
-      <a class="t-label btn-primary" href="#running">See the systems</a>
-      <a class="t-label" href="./Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
-      <a class="t-label" href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
-      <a class="t-label" href="https://github.com/AlexFC0810">GitHub</a>
+  <div class="metric-rail" aria-label="Selected verified results">
+    <div data-claim="C1"><strong>$225K+</strong><span>Meta spend managed</span></div>
+    <i aria-hidden="true"></i>
+    <div data-claim="C3"><strong>9.5&times;</strong><span>Lead volume, same account</span></div>
+    <i aria-hidden="true"></i>
+    <div data-claim="C6"><strong>70</strong><span>Booked appointments / 30 days</span></div>
+    <i aria-hidden="true"></i>
+    <div data-claim="B1"><strong>6,250+</strong><span>Qualified leads</span></div>
+    <p><svg aria-hidden="true"><use href="#i-check"/></svg> Cost per lead is quoted per campaign — never total spend divided by total leads. No ROAS theatre, no borrowed outcomes, source status shown.</p>
+    <div class="metric-rail__cta">
+      <a class="button button--primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Start a conversation <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+      <a class="button button--ghost" href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">Email me <svg aria-hidden="true"><use href="#i-right"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     2 — OPERATING LEVERAGE: what one operator with agentic tooling can hold.
-     Reordered 2026-09-04. The old order led with two pieces of Upwork tooling,
-     which said "freelancer" louder than anything else on the page said
-     "operator", and it buried the two claims that matter most to a client or an
-     employer — B6 (the appointment engines) and B11 (AI voice running in four
-     live client accounts) — in a note UNDERNEATH the cards. Client systems now
-     lead; the self-serving tooling is last. Every figure below is verbatim from
-     the claims contract and marked with its claim id in the commit.
+     01 — THE PROOF TOUR. Three chapters, all three in the DOM.
      ========================================================================== -->
-<section id="running" class="band reveal">
-  <div class="rail">
-    <div class="sec-head">
-      <p class="eyebrow t-label">Operating leverage</p>
-      <h2 class="t-h2">One operator, few handoffs.</h2>
-      <p class="t-lead">A growth problem travels a long chain — signal, research, the economics, the decision, the system, the build, the measurement — and normally it changes hands four or five times on the way. Here it mostly does not, and that is the thing AI actually changed about this job. Below is where that shows: client systems first, then my own. Each caption says what you will really find, including where you will hit a sign-in wall. The software is built and maintained inside agentic coding environments; what to build, and whether the number it produces can be defended, is not delegated.</p>
+<section class="proof-tour section-frame section-space rv" id="tour" aria-labelledby="tour-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">The proof tour / 01</p>
+      <h2 id="tour-title">One operator.<br><em>Three surfaces.</em></h2>
     </div>
-
-    <div class="cards">
-
-      <article class="card">
-        <div class="card-body">
-          <p class="t-label" style="color:var(--text-faint)">Client systems</p>
-          <h3 class="t-h3">The follow-up engine, and AI voice inside live client accounts</h3>
-          <p class="t-cap">The part most media buyers skip: integrated GoHighLevel follow-up systems that convert paid leads into booked appointments &mdash; speed-to-lead, missed-call text-back, SMS and email nurture, reminders, reactivation, built as one system rather than seven automations.</p>
-          <p class="t-cap">On top of them: <strong>AI voice and conversational booking agents running in four live client accounts across three countries, earliest published February 2025</strong> &mdash; wired into the same builds that carry the speed-to-lead, no-show recovery and reactivation sequences. A deployment claim, not a volume claim: enrolments are single-digit to low-double, and I would rather say that than dress it up.</p>
-          <div class="linkrow t-cap" style="margin-top:14px">
-            <a href="./work/spine-clinic.html">The account where the voice agent shipped</a>
-            <a href="./work/aesthetic-clinic-bookings.html">The one that was a follow-up problem, not a media problem</a>
-          </div>
-          <div class="card-tags t-label">
-            <span class="tag">GoHighLevel</span><span class="tag">4 live client accounts, 3 countries</span><span class="tag">Deployment, not scale</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <img class="shot" src="./assets/shot-engine-proof-1200.webp"
-             srcset="./assets/shot-engine-proof-480.webp 480w, ./assets/shot-engine-proof-720.webp 720w, ./assets/shot-engine-proof-1200.webp 1200w"
-             sizes="(max-width:819px) calc(100vw - 40px), 512px"
-             width="1200" height="750" loading="lazy" decoding="async"
-             alt="Screenshot: a dark editorial audit page headed Apex Coatings and Styling — Meta Ads plus Backend Conversion Audit, labelled SAMPLE AUDIT.">
-        <div class="card-body">
-          <p class="t-label" style="color:var(--text-faint)">How I diagnose an account</p>
-          <h3 class="t-h3">A worked Meta-ads and CRM audit</h3>
-          <p class="t-cap">Offer, backend, creative and measurement read as one revenue system rather than four line items &mdash; which is the difference between an audit and a list of screenshot findings. <strong>It is a sample</strong>, a representative audit of a category, labelled as such on its own first screen. No real client, no borrowed numbers.</p>
-          <a class="card-link t-data" href="https://sc-upwork-engine-proof.vercel.app" target="_blank" rel="noopener">sc-upwork-engine-proof.vercel.app<span class="vh"> (opens in a new tab)</span></a>
-          <div class="card-tags t-label">
-            <span class="tag tag-live">Live</span><span class="tag">Sample, not a client</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <p class="t-label" style="color:var(--text-faint)">The economics</p>
-          <h3 class="t-h3">The media buyer&rsquo;s model</h3>
-          <p class="t-cap">Spend to leads to booked jobs to return, with the whole chain shown and a panel that moves one input at a time. It exists to make an argument I will defend: on most local accounts <strong>cost per lead is the smallest of the three levers</strong>, and booking rate is the one worth engineering. That is why I do not optimise to cost per lead alone. Nothing is stored and nothing is sent &mdash; every figure recomputes from your inputs, in your tab.</p>
-          <a class="card-link t-data" href="./model.html">The model &rarr;</a>
-          <div class="card-tags t-label">
-            <span class="tag tag-live">Live</span><span class="tag">No sign-in, nothing stored</span><span class="tag">One variable at a time</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <p class="t-label" style="color:var(--text-faint)">Agentic research</p>
-          <h3 class="t-h3">Autonomous Opportunity Radar</h3>
-          <p class="t-cap">TypeScript, on a 30-minute GitHub Actions cron. It has no public URL because it holds live inbox and Slack credentials, so instead of a screenshot, here is the pipeline:</p>
-          <pre class="arch">saved-search email
-   ↓ IMAP, skip anything tagged $RadarDone
-parse  → title · URL · budget
-   ↓
-score  → apply / screen / skip   (the rubric is the IP)
-   ↓
-draft  → Claude, prompt-cached templates
-   ↓
-post   → Slack, proposal attached
-   ↓
-mark   → set $RadarDone   (dedup survives a stateless cron)</pre>
-          <p class="t-cap"><strong>The judgment call is the interesting part.</strong> Version one read the official API &mdash; clean, but the key sits behind a manual approval gate that can stall for months, and once did. A perfect input that never turns on is worth zero. So the input became the inbox instead: no approval needed, unambiguously within terms, and that single change also deleted the dedup database, the bot and the always-on server. The workflow also ships <em>dormant-safe</em> &mdash; with no secrets set it exits green with a notice rather than failing every 30 minutes, so it arms itself the day the credentials land.</p>
-          <p class="t-cap">It reports into a single-operator dashboard I built for myself &mdash; a daily send floor, one next action, and a copyable go-live command instead of twelve charts.</p>
-          <a class="card-link t-data" href="https://sc-upwork-command.vercel.app" target="_blank" rel="noopener">sc-upwork-command.vercel.app<span class="vh"> (opens in a new tab)</span></a>
-          <div class="card-tags t-label">
-            <span class="tag">TypeScript</span><span class="tag">GitHub Actions</span><span class="tag">No public URL — holds secrets</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <img class="shot" src="./assets/shot-revops-1200.webp"
-             srcset="./assets/shot-revops-480.webp 480w, ./assets/shot-revops-720.webp 720w, ./assets/shot-revops-1200.webp 1200w"
-             sizes="(max-width:819px) calc(100vw - 40px), 512px"
-             width="1200" height="750" loading="lazy" decoding="async"
-             alt="Screenshot: a dark sign-in card headed RevOps Cockpit, with email and password fields.">
-        <div class="card-body">
-          <p class="t-label" style="color:var(--text-faint)">My own back office</p>
-          <h3 class="t-h3">Supercharged OS — AI operator console</h3>
-          <p class="t-cap">Next.js and Supabase, with three daily crons: scrape, enrich, then generate outreach scripts with Gemini and push them into the CRM and a cold-email sequence. <strong>What you will see is the door</strong> — the shell is public, the data is behind a sign-in, and I would rather you know that before you click than after.</p>
-          <a class="card-link t-data" href="https://revops.superchargedroi.com" target="_blank" rel="noopener">revops.superchargedroi.com<span class="vh"> (opens in a new tab)</span></a>
-          <div class="card-tags t-label">
-            <span class="tag tag-live">Live</span><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Sign-in wall</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- B8, attested (tier D), and it belongs HERE rather than in the numbers.
-         The three-persona read on 2026-09-04 found that a hiring manager for a
-         senior growth role finished this page without any evidence that Alex
-         had operated above solo execution — the one seniority signal a $75K+
-         band actually screens for. It also makes the section heading earned
-         instead of asserted: the handoffs did not vanish because the work got
-         smaller. Approved wording, and the contract's boundary is respected:
-         LED, at his own agency, never "hired" or "recruited". -->
-    <div class="note measure" style="margin-inline:0; padding-inline-start:22px; max-width:68ch">
-      <p class="t-cap"><strong>Where the leverage came from.</strong> Before any of this, I ran my own agency with a <strong>four-person delivery team</strong> &mdash; call center, media buyer, ad-creative specialist, GoHighLevel specialist &mdash; for roughly ten months, before rebuilding that same capability as AI systems. That one is founder-attested rather than documented, and I label it that way. It is also the honest origin of the heading above: the handoffs did not disappear because the work got smaller.</p>
-    </div>
+    <p>Not a collage of deliverables. The same chain a growth problem travels — attention, then the system, then the evidence — with the handoffs removed.</p>
   </div>
-</section>
 
-<!-- ==========================================================================
-     3 — THE CRAFT: full-bleed creative wall. Nothing folded shut.
-     ========================================================================== -->
-<section id="creative" class="reveal">
-  <div class="measure">
-    <div class="sec-head">
-      <p class="eyebrow t-label">The craft</p>
-      <h2 class="t-h2">One offer, eight hooks.</h2>
-      <p class="t-lead">Media buying is mostly a question of how many honest ways you can say the same thing before the market tells you which one it wanted. This is one chiropractic screening offer written eight ways — same price, same proof, eight different doors in. The variable under test is <strong>where on the awareness ladder the reader is standing</strong> when the ad reaches them, and one of the eight is the control: no emotional hook at all, just the offer.</p>
+  <div class="tour-tabs" role="tablist" aria-label="Proof tour chapters">
+    <button type="button" role="tab" id="tab-tour-01" class="is-active" aria-selected="true" aria-controls="tour-01" data-tab="tour-01"><span>01</span><strong>Shape demand</strong></button>
+    <button type="button" role="tab" id="tab-tour-02" aria-selected="false" tabindex="-1" aria-controls="tour-02" data-tab="tour-02"><span>02</span><strong>Run the system</strong></button>
+    <button type="button" role="tab" id="tab-tour-03" aria-selected="false" tabindex="-1" aria-controls="tour-03" data-tab="tour-03"><span>03</span><strong>Verify the result</strong></button>
+  </div>
+
+  <div class="tour-panel is-active" id="tour-01" role="tabpanel" aria-labelledby="tab-tour-01">
+    <div class="tour-copy">
+      <p class="micro-label">Brief → angles → variations</p>
+      <h3>Make the market stop.</h3>
+      <p>The opening move is not more media. It is a sharper reason to notice, care and act — written as a set of testable hypotheses against one offer, so the market tells you which door it wanted.</p>
+    </div>
+    <div class="tour-stage tour-stage--creative">
+      <div class="tour-stage__visual visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Campaign contact sheet</span><span>08 variations</span></div>
+        <div class="contact-sheet">
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-01-480.webp" alt="Knee-pain screening offer, hook variant 1" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-02-480.webp" alt="Knee-pain screening offer, hook variant 2" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-03-480.webp" alt="Knee-pain screening offer, hook variant 3" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-04-480.webp" alt="Knee-pain screening offer, hook variant 4" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-05-480.webp" alt="Knee-pain screening offer, hook variant 5" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-06-480.webp" alt="Knee-pain screening offer, hook variant 6" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-07-480.webp" alt="Knee-pain screening offer, hook variant 7 — the control" loading="lazy" decoding="async"></a>
+          <a class="contact-sheet__item" href="#creative"><img src="./assets/creative-static/chiro-knee-pain-08-480.webp" alt="Knee-pain screening offer, hook variant 8" loading="lazy" decoding="async"></a>
+        </div>
+      </div>
+      <div class="tour-stage__notes">
+        <p class="micro-label">The operating idea</p>
+        <p class="pull-quote">Same offer. Eight hypotheses. One coherent visual world.</p>
+        <div class="annotation-list">
+          <span>01 / The variable: where the reader stands on the awareness ladder</span>
+          <span>02 / One of the eight is the control — the offer, no hook</span>
+          <span>03 / Same price, same proof, eight doors in</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="rail">
-    <div class="matrix">
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-01-320.webp 320w, ./assets/creative-static/chiro-knee-pain-01-480.webp 480w, ./assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-01.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 1"></picture><figcaption><span class="stage t-label">Symptom-aware</span><span class="hook t-cap">&ldquo;Stairs feeling more difficult?&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-02-320.webp 320w, ./assets/creative-static/chiro-knee-pain-02-480.webp 480w, ./assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-02.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 2"></picture><figcaption><span class="stage t-label">Aspiration-led</span><span class="hook t-cap">&ldquo;Walking should feel easier&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-03-320.webp 320w, ./assets/creative-static/chiro-knee-pain-03-480.webp 480w, ./assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-03.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 3"></picture><figcaption><span class="stage t-label">Decision-anxiety</span><span class="hook t-cap">&ldquo;Get clarity before bigger knee decisions&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-04-320.webp 320w, ./assets/creative-static/chiro-knee-pain-04-480.webp 480w, ./assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-04.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 4"></picture><figcaption><span class="stage t-label">Solution-aware</span><span class="hook t-cap">&ldquo;Explore non-surgical knee pain options&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-05-320.webp 320w, ./assets/creative-static/chiro-knee-pain-05-480.webp 480w, ./assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-05.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 5"></picture><figcaption><span class="stage t-label">Symptom-aware</span><span class="hook t-cap">&ldquo;Everyday movement matters&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-06-320.webp 320w, ./assets/creative-static/chiro-knee-pain-06-480.webp 480w, ./assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-06.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 6"></picture><figcaption><span class="stage t-label">Identity-led</span><span class="hook t-cap">&ldquo;Stay active longer&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-07-320.webp 320w, ./assets/creative-static/chiro-knee-pain-07-480.webp 480w, ./assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-07.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 7"></picture><figcaption><span class="stage t-label">Offer-led · the control</span><span class="hook t-cap">&ldquo;$49 Knee Pain &amp; Mobility Screening&rdquo;</span></figcaption></figure>
-      <figure><picture><source type="image/webp" srcset="./assets/creative-static/chiro-knee-pain-08-320.webp 320w, ./assets/creative-static/chiro-knee-pain-08-480.webp 480w, ./assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width:640px) 46vw, 250px"><img src="./assets/creative-static/chiro-knee-pain-08.jpg" width="1080" height="1350" loading="lazy" decoding="async" alt="Knee-pain screening offer, hook variant 8"></picture><figcaption><span class="stage t-label">Symptom-aware, relocated</span><span class="hook t-cap">&ldquo;Everyday movement should feel easier&rdquo;</span></figcaption></figure>
+  <div class="tour-panel" id="tour-02" role="tabpanel" aria-labelledby="tab-tour-02">
+    <div class="tour-copy">
+      <p class="micro-label">Media → routing → follow-up</p>
+      <h3>Turn attention into an operating flow.</h3>
+      <p>The part most media buyers skip: integrated GoHighLevel follow-up systems that convert paid leads into booked appointments. Campaigns, lead routing, booking logic and operator visibility belong in one accountable system — the handoff is part of the work.</p>
+    </div>
+    <div class="tour-stage tour-stage--system">
+      <div class="tour-stage__visual visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Follow-up engine</span><span>System / 01</span></div>
+        <div class="sys-flow">
+          <div><span>01</span>Ad → qualified lead form (qualifying questions on B2C, a revenue filter on B2B)</div>
+          <div><span>02</span>Speed-to-lead and missed-call text-back</div>
+          <div><span>03</span>SMS, email and voicemail nurture</div>
+          <div><span>04</span>Booking, reminders, no-show recovery</div>
+          <div><span>05</span>Reactivation of aged leads</div>
+          <div><span>06</span>AI voice and conversational booking, inside the same build</div>
+        </div>
+      </div>
+      <div class="flow-map" aria-label="Operating flow">
+        <div class="flow-map__item"><span>01</span><strong>Signal</strong><svg aria-hidden="true"><use href="#i-down"/></svg></div>
+        <div class="flow-map__item"><span>02</span><strong>Decision</strong><svg aria-hidden="true"><use href="#i-down"/></svg></div>
+        <div class="flow-map__item"><span>03</span><strong>Action</strong><svg aria-hidden="true"><use href="#i-down"/></svg></div>
+        <div class="flow-map__item"><span>04</span><strong>Receipt</strong></div>
+      </div>
     </div>
   </div>
 
-  <div class="measure" style="margin-top:56px">
-    <p class="t-label" style="color:var(--accent)">The system behind the wall</p>
-    <h3 class="t-h3" style="margin-top:12px">A house system, not a lucky session</h3>
-    <p class="t-cap" style="margin-top:12px; max-width:68ch">The set above came out of a system rather than a session &mdash; a house library of reusable direction modes, one written brief and one named control variable per test, and a review gate that most generations do not get through. The system itself stays in-house; what it produces is what you just scrolled past. The whole wall &mdash; every client static, the own-brand concept work, both films, and the constant-versus-variable breakdown behind each test &mdash; lives on its own page, with every tile labelled client work or concept.</p>
-    <div class="linkrow t-data">
-      <a href="./creative.html">The Creative Wall &rarr;</a>
+  <div class="tour-panel" id="tour-03" role="tabpanel" aria-labelledby="tab-tour-03" data-claim="C3">
+    <div class="tour-copy">
+      <p class="micro-label">Claim → source → boundary</p>
+      <h3>Show what happened. Show where it stops.</h3>
+      <p>Every number earns a status, a source and a boundary. That makes the strongest true case without borrowing certainty the evidence cannot support — and it is published as a contract, not a promise.</p>
     </div>
-  </div>
-</section>
-
-<!-- ==========================================================================
-     4 — THE NUMBERS: sparse, monospace, contract-bound.
-     Every figure below comes from the approved claims contract. Spend and total
-     lead volume sit at opposite ends of the list on purpose — placed adjacently
-     they read as an implied blended cost per lead, which would be false.
-     ========================================================================== -->
-<section id="numbers" class="band reveal">
-  <div class="measure">
-    <div class="sec-head">
-      <p class="eyebrow t-label">The numbers</p>
-      <h2 class="t-h1">Fewer, and sourced.</h2>
-      <p class="t-lead">Cost per lead is quoted <strong>per campaign</strong>, never blended across an account set — a blended figure mixes brand spend with lead-gen spend and means nothing. Every line here traces to a specific account, and each one carries the boundary it will not cross. The head-to-head figure at the top of this page is the seventh; it is not repeated here.</p>
-    </div>
-
-    <div class="nums">
-      <div class="num">
-        <p class="t-figure">$225K+</p>
-        <div>
-          <p>Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K.</p>
-          <p class="t-cap">Medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B. Managed and supported &mdash; a large share of it on awareness objectives, which is exactly why it must never be divided by a lead count.</p>
-        </div>
-      </div>
-      <div class="num">
-        <p class="t-figure">~US$5.40</p>
-        <div>
-          <p>Average cost per lead across an entire Canadian body-contouring account &mdash; 1,192 leads at CA$7.39, with 80 booked appointments tracked.</p>
-          <p class="t-cap">CA$8,804.13 across 13 lead campaigns of 15. The account average is honest because the whole account was lead-objective; the currency travels with the number, because quoting the local figure unmarked would read as roughly 27% more expensive than it was.</p>
-        </div>
-      </div>
-      <div class="num">
-        <p class="t-figure">730+</p>
-        <div>
-          <p>Tattoo-removal leads at ~$19&ndash;$21 cost per lead, in a saturated Brooklyn and New York City market.</p>
-          <p class="t-cap">Flagship campaign 526 leads at $19 &mdash; the account total is never quoted at the flagship&rsquo;s price. My longest-running client, roughly two years and still running, and the one account where the client went on camera.</p>
-        </div>
-      </div>
-      <div class="num">
-        <p class="t-figure">70</p>
-        <div>
-          <p>Appointments booked in a 30-day window for a weight-loss clinic opening.</p>
-          <p class="t-cap">61 of them fell inside the calendar month. Booked means scheduled, not attended.</p>
-        </div>
-      </div>
-      <div class="num">
-        <p class="t-figure">$1.88</p>
-        <div>
-          <p>Cost per lead across 817 B2B leads for a U.K. commercial-refrigeration installer.</p>
-          <p class="t-cap">The flagship campaign ran 709 of them at about $1.50. B2B at consumer-grade cost &mdash; the cheap exception, not the rule, and it is labelled as one everywhere it appears.</p>
-        </div>
-      </div>
-      <div class="num">
-        <p class="t-figure">6,250+</p>
-        <div>
-          <p>Qualified leads across medspa, aesthetics, chiropractic, tattoo-removal, weight-loss and B2B campaigns.</p>
-          <p class="t-cap">Qualified is doing real work in that sentence: the consumer forms carried qualifying questions and the B2B forms filtered for $20K+/month businesses. Sales-ready, not raw volume.</p>
-        </div>
+    <div class="tour-stage tour-stage--proof">
+      <article class="proof-card">
+        <div class="proof-card__top"><span data-status="verified · A">Verified · A</span><svg aria-hidden="true"><use href="#i-seal"/></svg></div>
+        <p class="proof-card__number">9.5&times;</p>
+        <p class="proof-card__label">Lead volume</p>
+        <div class="proof-card__rule" aria-hidden="true"></div>
+        <p>~75% lower CPL</p>
+        <p>Same account</p>
+        <footer>114 @ $12.59 vs 12 @ $49.81</footer>
+      </article>
+      <div class="evidence-notes">
+        <p class="micro-label">Claim anatomy</p>
+        <div><span>Status</span><p>Verified — tier A, a hard artifact: a retained, re-checkable platform record.</p></div>
+        <div><span>Source</span><p>Exact-match verified from the live ad account — both operators&rsquo; campaigns are read from the same account&rsquo;s own reporting.</p></div>
+        <div><span>Boundary</span><p>A same-account comparison, not a controlled split test. The incumbent agency is never identified. Client revenue is not claimed.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     5 — THE WORK: links into the existing 18 case pages, untouched.
+     02 — CLIENT CREATIVE, STATIC. The rail. Every tile is client work built for
+     a paid campaign; clients appear by vertical only.
      ========================================================================== -->
-<section id="work" class="reveal">
-  <div class="measure">
-    <div class="sec-head">
-      <p class="eyebrow t-label">The work</p>
-      <h2 class="t-h2">Eighteen cases, each with what it does not claim.</h2>
-      <p class="t-lead">Every case page ends with a section headed &ldquo;what this case does not claim&rdquo; — the boundary stated before anyone has to ask for it. Seven of the eighteen carry no figure at all, because no approved figure exists for them, and they say so rather than reaching for a number.</p>
+<section class="creative section-space rv" id="creative" aria-labelledby="creative-title">
+  <div class="section-frame">
+    <div class="section-heading section-heading--split">
+      <div>
+        <p class="eyebrow">Client creative / 02</p>
+        <h2 id="creative-title">Client campaigns,<br><em>as they ran.</em></h2>
+      </div>
+      <div class="section-heading__aside">
+        <p>Static ad creative built for paid campaigns that spent real money — a chiropractic screening offer written eight ways, laser hair removal in six art directions, body contouring in five castings, Botox and GLP-1 offers, and B2B commercial refrigeration. Open any tile to page through every creative that ran in that campaign.</p>
+        <span class="status"><svg aria-hidden="true"><use href="#i-check"/></svg> Craft evidence</span>
+      </div>
     </div>
+  </div>
 
-    <div class="work">
-      <a href="./work/chiro-head-to-head.html">Head-to-head against an incumbent national agency<span class="t-cap">Chiropractic · same ad account</span></a>
-      <a href="./work/b2b-refrigeration.html">B2B refrigeration at consumer-grade cost per lead<span class="t-cap">Commercial refrigeration · U.K.</span></a>
-      <a href="./work/weight-loss-clinic-launch.html">Filling a calendar from zero at a clinic opening<span class="t-cap">Weight loss · U.S.</span></a>
-      <a href="./work/aesthetic-clinic-bookings.html">The leaky middle, between the lead and the consultation<span class="t-cap">Aesthetic clinic</span></a>
-      <a href="./work/montreal-bilingual.html">Bilingual acquisition held in-language to the calendar<span class="t-cap">Beauty · Canada · FR/EN</span></a>
-      <a href="./work/medspa-full-program.html">A full med spa programme across four service lines<span class="t-cap">Med spa · U.S.</span></a>
-      <a href="./work/tattoo-removal-studio.html">Tattoo removal in the most expensive consumer market<span class="t-cap">Tattoo removal · U.S.</span></a>
-      <a href="./work/body-contouring.html">A sustained monthly offer cycle in a small catchment<span class="t-cap">Body contouring · Canada</span></a>
-      <a href="./work/agency-own-pipeline.html">Running the play on my own business<span class="t-cap">B2B · selling to clinic owners</span></a>
-      <a href="./work/aesthetics-group.html">A group running three marketing jobs at once<span class="t-cap">Multi-location aesthetics</span></a>
-      <a href="./work/spine-clinic.html">A priced offer, bilingual campaigns, AI voice in the booking flow<span class="t-cap">Chiropractic · U.S.</span></a>
-      <a href="./work/wedding-venue-b2b.html">A survey-qualified cross-border funnel<span class="t-cap">Venue B2B · AI voice</span></a>
-      <a href="./work/eye-care-device-launch.html">Launching a device inside an existing medical practice<span class="t-cap">Eye care · U.S.</span></a>
-      <a href="./work/pmu-clinic.html">Where the only metric is what fraction of enquiries book<span class="t-cap">Permanent makeup</span></a>
-      <a href="./work/recruitment-lead-gen.html">Recruitment lead-gen as a bid-strategy problem<span class="t-cap">Recruitment</span></a>
-      <a href="./work/home-services-rebooking.html">The retention half, run on my own customers<span class="t-cap">Home services</span></a>
-      <a href="./work/medspa-laser-offers.html">The account whose numbers are gone — and what survived it<span class="t-cap">Med spa · laser</span></a>
-      <a href="./work/ecommerce-college-venture.html">The business I built to pay my own tuition<span class="t-cap">E-commerce · 2017–2021</span></a>
-    </div>
+  <div class="creative-rail" id="rail-static" tabindex="0" aria-label="Client campaign creative gallery">
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-01.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 01 · Symptom-aware"><span>01</span><img src="./assets/creative-static/chiro-knee-pain-01-480.webp" srcset="./assets/creative-static/chiro-knee-pain-01-480.webp 480w, ./assets/creative-static/chiro-knee-pain-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 1: stairs feeling more difficult?" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Symptom-aware</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-02.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 02 · Aspiration-led"><span>02</span><img src="./assets/creative-static/chiro-knee-pain-02-480.webp" srcset="./assets/creative-static/chiro-knee-pain-02-480.webp 480w, ./assets/creative-static/chiro-knee-pain-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 2: walking should feel easier" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Aspiration-led</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-03.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 03 · Decision-anxiety"><span>03</span><img src="./assets/creative-static/chiro-knee-pain-03-480.webp" srcset="./assets/creative-static/chiro-knee-pain-03-480.webp 480w, ./assets/creative-static/chiro-knee-pain-03-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 3: get clarity before bigger knee decisions" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Decision-anxiety</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-04.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 04 · Solution-aware"><span>04</span><img src="./assets/creative-static/chiro-knee-pain-04-480.webp" srcset="./assets/creative-static/chiro-knee-pain-04-480.webp 480w, ./assets/creative-static/chiro-knee-pain-04-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 4: explore non-surgical knee pain options" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Solution-aware</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-01.jpg" data-lightbox="static" data-caption="Med spa · Laser 01"><span>05</span><img src="./assets/creative-static/medspa-laser-01-480.webp" srcset="./assets/creative-static/medspa-laser-01-480.webp 480w, ./assets/creative-static/medspa-laser-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 1: a woman on a white-sand beach under palm fronds; a magenta band carries the headline" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-body-contouring-01.jpg" data-lightbox="static" data-caption="Med spa · Body contouring 01"><span>06</span><img src="./assets/creative-static/medspa-body-contouring-01-480.webp" srcset="./assets/creative-static/medspa-body-contouring-01-480.webp 480w, ./assets/creative-static/medspa-body-contouring-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Non-surgical body-contouring ad, casting 1: a woman in black activewear against a deep navy gradient" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Body contouring</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-05.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 05 · Symptom-aware"><span>07</span><img src="./assets/creative-static/chiro-knee-pain-05-480.webp" srcset="./assets/creative-static/chiro-knee-pain-05-480.webp 480w, ./assets/creative-static/chiro-knee-pain-05-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 5: everyday movement matters" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Symptom-aware</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-02.jpg" data-lightbox="static" data-caption="Med spa · Laser 02"><span>08</span><img src="./assets/creative-static/medspa-laser-02-480.webp" srcset="./assets/creative-static/medspa-laser-02-480.webp 480w, ./assets/creative-static/medspa-laser-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 2: an overhead shot of a woman floating in dark green pool water, type in gold" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-body-contouring-02.jpg" data-lightbox="static" data-caption="Med spa · Body contouring 02"><span>09</span><img src="./assets/creative-static/medspa-body-contouring-02-480.webp" srcset="./assets/creative-static/medspa-body-contouring-02-480.webp 480w, ./assets/creative-static/medspa-body-contouring-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Non-surgical body-contouring ad, casting 2: a woman leaps with one arm raised against a hot-pink ground" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Body contouring</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-06.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 06 · Identity-led"><span>10</span><img src="./assets/creative-static/chiro-knee-pain-06-480.webp" srcset="./assets/creative-static/chiro-knee-pain-06-480.webp 480w, ./assets/creative-static/chiro-knee-pain-06-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 6: stay active longer" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Identity-led</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-03.jpg" data-lightbox="static" data-caption="Med spa · Laser 03"><span>11</span><img src="./assets/creative-static/medspa-laser-03-480.webp" srcset="./assets/creative-static/medspa-laser-03-480.webp 480w, ./assets/creative-static/medspa-laser-03-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 3: a woman standing in the sea against a blue sky; the headline sits in a dark band" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-weight-loss-01.jpg" data-lightbox="static" data-caption="Med spa · GLP-1 offer"><span>12</span><img src="./assets/creative-static/medspa-weight-loss-01-480.webp" srcset="./assets/creative-static/medspa-weight-loss-01-480.webp 480w, ./assets/creative-static/medspa-weight-loss-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="GLP-1 weight-loss ad: the words skinny shots in gold beside a per-week price capsule on white" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · GLP-1</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-body-contouring-03.jpg" data-lightbox="static" data-caption="Med spa · Body contouring 03"><span>13</span><img src="./assets/creative-static/medspa-body-contouring-03-480.webp" srcset="./assets/creative-static/medspa-body-contouring-03-480.webp 480w, ./assets/creative-static/medspa-body-contouring-03-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Non-surgical body-contouring ad, casting 3: a low-angle hero shot against clouds, hands on hips" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Body contouring</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-07.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 07 · Offer-led, the control"><span>14</span><img src="./assets/creative-static/chiro-knee-pain-07-480.webp" srcset="./assets/creative-static/chiro-knee-pain-07-480.webp 480w, ./assets/creative-static/chiro-knee-pain-07-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 7, the control: the offer with no emotional hook" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · The control</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-04.jpg" data-lightbox="static" data-caption="Med spa · Laser 04"><span>15</span><img src="./assets/creative-static/medspa-laser-04-480.webp" srcset="./assets/creative-static/medspa-laser-04-480.webp 480w, ./assets/creative-static/medspa-laser-04-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 4: a woman walks out of the surf in an open white shirt; the price leads the frame" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-body-contouring-04.jpg" data-lightbox="static" data-caption="Med spa · Body contouring 04"><span>16</span><img src="./assets/creative-static/medspa-body-contouring-04-480.webp" srcset="./assets/creative-static/medspa-body-contouring-04-480.webp 480w, ./assets/creative-static/medspa-body-contouring-04-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Non-surgical body-contouring ad, casting 4: a woman in maroon activewear with earphones against a maroon-to-grey ground" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Body contouring</span></a>
+    <a class="creative-tile" href="./assets/creative-static/chiro-knee-pain-08.jpg" data-lightbox="static" data-caption="Chiropractic · Hook 08 · Symptom-aware, relocated"><span>17</span><img src="./assets/creative-static/chiro-knee-pain-08-480.webp" srcset="./assets/creative-static/chiro-knee-pain-08-480.webp 480w, ./assets/creative-static/chiro-knee-pain-08-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Knee-pain screening offer, hook variant 8: everyday movement should feel easier" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Chiropractic · Symptom-aware</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-05.jpg" data-lightbox="static" data-caption="Med spa · Laser 05"><span>18</span><img src="./assets/creative-static/medspa-laser-05-480.webp" srcset="./assets/creative-static/medspa-laser-05-480.webp 480w, ./assets/creative-static/medspa-laser-05-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 5: a studio cut-out against a purple gradient; benefits sit in white bars" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-body-contouring-05.jpg" data-lightbox="static" data-caption="Med spa · Body contouring 05"><span>19</span><img src="./assets/creative-static/medspa-body-contouring-05-480.webp" srcset="./assets/creative-static/medspa-body-contouring-05-480.webp 480w, ./assets/creative-static/medspa-body-contouring-05-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Non-surgical body-contouring ad, casting 5: a woman stretches with her eyes closed on a bright coastline" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Body contouring</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-laser-06.jpg" data-lightbox="static" data-caption="Med spa · Laser 06"><span>20</span><img src="./assets/creative-static/medspa-laser-06-480.webp" srcset="./assets/creative-static/medspa-laser-06-480.webp 480w, ./assets/creative-static/medspa-laser-06-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Laser hair removal ad, art direction 6: a client in protective eyewear during a laser session, clinician's hands in frame" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Laser</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-botox-01.jpg" data-lightbox="static" data-caption="Med spa · Botox 01"><span>21</span><img src="./assets/creative-static/medspa-botox-01-480.webp" srcset="./assets/creative-static/medspa-botox-01-480.webp 480w, ./assets/creative-static/medspa-botox-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Botox facial-rejuvenation package ad: the line chin up, gorgeous, over a woman in a towel looking up with a hand at her chin" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Botox</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/b2b-refrigeration-01.jpg" data-lightbox="static" data-caption="B2B refrigeration · Static 01"><span>22</span><img src="./assets/creative-static/b2b-refrigeration-01-480.webp" srcset="./assets/creative-static/b2b-refrigeration-01-480.webp 480w, ./assets/creative-static/b2b-refrigeration-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="B2B commercial refrigeration ad: a summer sale on commercial and retail chillers, four glass-door multideck renders on an orange and yellow ground" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">B2B refrigeration</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-glp1-01.jpg" data-lightbox="static" data-caption="Med spa · GLP-1 01"><span>23</span><img src="./assets/creative-static/medspa-glp1-01-480.webp" srcset="./assets/creative-static/medspa-glp1-01-480.webp 480w, ./assets/creative-static/medspa-glp1-01-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="GLP-1 medically supervised weight-loss programme ad, red theme: a woman holding out oversized jeans beside three benefit bullets" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · GLP-1</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/b2b-refrigeration-02.jpg" data-lightbox="static" data-caption="B2B refrigeration · Static 02"><span>24</span><img src="./assets/creative-static/b2b-refrigeration-02-480.webp" srcset="./assets/creative-static/b2b-refrigeration-02-480.webp 480w, ./assets/creative-static/b2b-refrigeration-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="B2B commercial refrigeration ad: a summer sale collage on white, a product render above a retail chiller-aisle photo" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">B2B refrigeration</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-botox-02.jpg" data-lightbox="static" data-caption="Med spa · Botox 02"><span>25</span><img src="./assets/creative-static/medspa-botox-02-480.webp" srcset="./assets/creative-static/medspa-botox-02-480.webp 480w, ./assets/creative-static/medspa-botox-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="Botox package ad with a Mother's Day angle: a smiling woman framing her jawline" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · Botox</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/b2b-refrigeration-03.jpg" data-lightbox="static" data-caption="B2B refrigeration · Static 03"><span>26</span><img src="./assets/creative-static/b2b-refrigeration-03-480.webp" srcset="./assets/creative-static/b2b-refrigeration-03-480.webp 480w, ./assets/creative-static/b2b-refrigeration-03-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="B2B commercial refrigeration ad: the headline affordable commercial refrigerators over a warehouse photo of shrink-wrapped multideck chillers" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">B2B refrigeration</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/medspa-glp1-02.jpg" data-lightbox="static" data-caption="Med spa · GLP-1 02"><span>27</span><img src="./assets/creative-static/medspa-glp1-02-480.webp" srcset="./assets/creative-static/medspa-glp1-02-480.webp 480w, ./assets/creative-static/medspa-glp1-02-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="GLP-1 medically supervised weight-loss programme ad, pink theme: an athletic woman in a white sports set beside three benefit bullets" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">Med spa · GLP-1</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/b2b-refrigeration-04.jpg" data-lightbox="static" data-caption="B2B refrigeration · Static 04"><span>28</span><img src="./assets/creative-static/b2b-refrigeration-04-480.webp" srcset="./assets/creative-static/b2b-refrigeration-04-480.webp 480w, ./assets/creative-static/b2b-refrigeration-04-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="B2B commercial refrigeration image ad: a warehouse photo of a shrink-wrapped multideck chiller with a red best-seller stamp" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">B2B refrigeration</span></a>
+    <a class="creative-tile is-square" href="./assets/creative-static/b2b-refrigeration-05.jpg" data-lightbox="static" data-caption="B2B refrigeration · Static 05"><span>29</span><img src="./assets/creative-static/b2b-refrigeration-05-480.webp" srcset="./assets/creative-static/b2b-refrigeration-05-480.webp 480w, ./assets/creative-static/b2b-refrigeration-05-720.webp 720w" sizes="(max-width:640px) 73vw, 330px" alt="B2B commercial refrigeration image ad: two glass-door multideck renders stacked on white, one stocked and one empty" loading="lazy" decoding="async"><i>Open the set <svg aria-hidden="true"><use href="#i-up-right"/></svg></i><span class="plate">B2B refrigeration</span></a>
+  </div>
 
-    <div class="linkrow t-cap" style="margin-top:22px">
-      <a href="./work.html">All eighteen cases, with the index</a>
-      <a href="./proof.html">The proof page</a>
+  <div class="section-frame creative__note">
+    <p><svg aria-hidden="true"><use href="#i-seal"/></svg> Creative and performance are adjacent evidence here — not a single-asset causation claim. Clients appear by vertical only.</p>
+    <div class="strip-bar" data-for="rail-static">
+      <button type="button" class="sbtn" data-dir="-1" aria-label="Scroll the creative back">&#8249;</button>
+      <button type="button" class="sbtn" data-dir="1" aria-label="Scroll the creative forward">&#8250;</button>
+      <span class="scount" aria-live="polite"></span>
     </div>
   </div>
 </section>
-
 
 <!-- ==========================================================================
-     6 — THE RECORD: the machinery that makes the numbers checkable.
-     Added 2026-09-04. Until now the root linked NONE of it — not claims.json,
-     not llms.txt, not the published cross-examination, not the counsel agent.
-     The most unusual thing on this estate was invisible to anyone who landed on
-     the home page, which is also where the AI-native claim has to be proved:
-     not by naming models, but by pointing at a gate that runs without me.
+     03 — CLIENT CREATIVE, VIDEO. Client video ads first. The own-brand
+     AI-generated hooks stay on the wall page, labelled, and out of this room.
      ========================================================================== -->
-<section id="record" class="band reveal">
-  <div class="rail">
-    <div class="sec-head">
-      <p class="eyebrow t-label">The record</p>
-      <h2 class="t-h2">Every number here stands cross-examination.</h2>
-      <p class="t-lead">A marketer&rsquo;s portfolio has one structural weakness: the figures are assertions, and the reader has no way to test them. This one answers that mechanically rather than rhetorically. The contract is published and machine-readable, the adversarial audit is public with the attacker&rsquo;s prompt included, an agent will answer hostile questions from the contract alone, and the repository this page is served from refuses to publish a figure the contract does not hold.</p>
+<section class="section-frame section-space rv" id="video" aria-labelledby="video-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">Video ad creative / 03</p>
+      <h2 id="video-title">Where the creative<br><em>really competes.</em></h2>
+    </div>
+    <p>A client video ad first, then one own-brand hook that came out of the AI creative pipeline — labelled as exactly that, because the generator is available to everyone and the judgment is not. Self-hosted from this origin; nothing autoplays and nothing loads until you ask.</p>
+  </div>
+  <div class="film-grid film-grid--two">
+    <a class="film-card film-card--feature" href="./assets/creative-video/b2b-refrigeration-video-01.mp4" data-video="./assets/creative-video/b2b-refrigeration-video-01.mp4" data-poster="./assets/creative-video/b2b-refrigeration-video-01-poster.webp" data-title="B2B refrigeration — video ad" data-note="Client campaign creative for a U.K. commercial-refrigeration installer — the account behind the cheapest cost per lead on this site.">
+      <div class="film-card__image">
+        <img src="./assets/creative-video/b2b-refrigeration-video-01-poster.webp" alt="" loading="lazy" decoding="async">
+        <span class="film-card__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+        <span class="film-card__time" aria-hidden="true">Play</span>
+      </div>
+      <div class="film-card__copy">
+        <span>Client campaign / video</span>
+        <h3>B2B, at consumer-grade cost.</h3>
+        <p>A U.K. commercial-refrigeration installer — the account behind the cheapest cost per lead on this site. Client work, as it ran.</p>
+      </div>
+    </a>
+    <a class="film-card" href="./assets/creative/ai-01-frontdesk-ad.mp4" data-video="./assets/creative/ai-01-frontdesk-ad.mp4" data-poster="./assets/creative/ai-01-frontdesk-ad.jpg" data-title="AI front-desk hook — own brand" data-note="Own-brand component assembly: an AI-generated hook with a claim-free CareLine end card. Concept work, not a client campaign or a measured performance result.">
+      <div class="film-card__image">
+        <img src="./assets/creative/ai-01-frontdesk-ad.jpg" alt="" loading="lazy" decoding="async">
+        <span class="film-card__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+        <span class="film-card__time" aria-hidden="true">Play</span>
+      </div>
+      <div class="film-card__copy">
+        <span>Own brand / AI-generated concept</span>
+        <h3>A hook, carried into an ad.</h3>
+        <p>Own-brand component assembly: an AI-generated hook with a claim-free CareLine end card. Shown as concept work, not a client campaign or a measured performance result.</p>
+      </div>
+    </a>
+  </div>
+  <div class="linkrow">
+    <a href="./creative.html">The full wall — every client static, the own-brand AI concept work, both films, labelled tile by tile <svg aria-hidden="true" width="12" height="12"><use href="#i-up-right"/></svg></a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 — OPERATING LEVERAGE (paper band). Content from the canonical root;
+     client systems first. B6, B11, B8 wording from the contract.
+     ========================================================================== -->
+<section class="systems section-space rv" id="running" aria-labelledby="systems-title">
+  <div class="section-frame">
+    <div class="section-heading section-heading--split">
+      <div>
+        <p class="eyebrow">Operating leverage / 04</p>
+        <h2 id="systems-title">One operator,<br><em>few handoffs.</em></h2>
+      </div>
+      <p>A growth problem travels a long chain — signal, research, the economics, the decision, the system, the build, the measurement — and normally it changes hands four or five times on the way. Here it mostly does not, and that is the thing AI actually changed about this job. Client systems first, then my own; each caption says what you will really find, including where you will hit a sign-in wall.</p>
     </div>
 
-    <div class="cards">
+    <div class="system-selector" role="tablist" aria-label="Live systems">
+      <button type="button" role="tab" id="tab-sys-01" class="is-active" aria-selected="true" aria-controls="sys-01" data-tab="sys-01"><span>01</span>Client follow-up + AI voice</button>
+      <button type="button" role="tab" id="tab-sys-02" aria-selected="false" tabindex="-1" aria-controls="sys-02" data-tab="sys-02"><span>02</span>A worked audit</button>
+      <button type="button" role="tab" id="tab-sys-03" aria-selected="false" tabindex="-1" aria-controls="sys-03" data-tab="sys-03"><span>03</span>The economics</button>
+      <button type="button" role="tab" id="tab-sys-04" aria-selected="false" tabindex="-1" aria-controls="sys-04" data-tab="sys-04"><span>04</span>Opportunity radar</button>
+      <button type="button" role="tab" id="tab-sys-05" aria-selected="false" tabindex="-1" aria-controls="sys-05" data-tab="sys-05"><span>05</span>My back office</button>
+    </div>
 
-      <article class="card">
-        <div class="card-body">
-          <h3 class="t-h3">The contract</h3>
-          <p class="t-cap">Every figure on this site with its status, evidence tier, provenance and boundaries &mdash; and the claim I retired, with the reason I retired it. The file carries its own sha256, so a hand-edit cannot ship quietly. There is a plain-language pointer for agents alongside it.</p>
-          <a class="card-link t-data" href="./claims.json">claims.json</a>
-          <a class="card-link t-data" href="./llms.txt">llms.txt</a>
-          <div class="card-tags t-label">
-            <span class="tag">Machine-readable</span><span class="tag">sha256-pinned</span><span class="tag">Retirements included</span>
-          </div>
+    <article class="system-feature system-panel is-active" id="sys-01" role="tabpanel" aria-labelledby="tab-sys-01">
+      <div class="system-feature__image visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Connected workflow</span><span>Illustrative / 01</span></div>
+        <div class="sys-flow">
+          <div><span>01</span>Incoming call → needs and booking intent</div>
+          <div><span>02</span>Approved in-call action → route or trigger the next step</div>
+          <div><span>03</span>Contact record → relevant details saved in the CRM</div>
+          <div><span>04</span>Workflow branch → follow-up or a task for the right person</div>
+          <div><span>05</span>Continuing follow-through → reminders or nurture</div>
+          <div><span>06</span>Outcome or exception → stop, adapt or hand over</div>
         </div>
-      </article>
-
-      <article class="card">
-        <div class="card-body">
-          <h3 class="t-h3">The cross-examination</h3>
-          <p class="t-cap">Published before the run rather than after it: exhibits from the record&rsquo;s own history &mdash; the figure I withdrew on my own review, the time a guard passed something it should have caught &mdash; the standing adversarial machinery, and the attacker&rsquo;s prompt in full, so you can run a harsher one than mine.</p>
-          <a class="card-link t-data" href="./audit.html">The audit record &rarr;</a>
-          <div class="card-tags t-label">
-            <span class="tag">Public</span><span class="tag">Attacker&rsquo;s prompt included</span>
+        <p class="workflow-caption">Illustrative workflow — configured per business, not a live activity log.</p>
+      </div>
+      <div class="system-feature__copy">
+        <p class="micro-label">CareLine · AI voice + CRM workflows</p>
+        <h3>The call is only the beginning.</h3>
+        <p>An AI receptionist is the front door. The connected CRM and workflows are what turn the conversation into follow-through.</p>
+        <p>I configure voice agents as part of an integrated CRM system, not as standalone answering bots. Depending on the deployment, approved actions can run while the caller is still on the line, with multi-step workflows continuing afterward: contact updates, qualification, routing, booking follow-through, reminders and human handoff.</p>
+        <p>Workflows can branch on the caller’s needs and the contact’s status, so the next step stays connected to the conversation.</p>
+        <p class="demo-credit">Built on GoHighLevel. My work: agent configuration, workflow design, integrations and testing.</p>
+        <p data-claim="B11">On top of them: AI voice and conversational booking agents running in four live client accounts across three countries, earliest published February 2025 — wired into the same GoHighLevel builds that carry the speed-to-lead, no-show recovery and reactivation sequences. Deployment claim, not a volume claim: enrolments are single-digit to low-double and are stated as such.</p>
+        <div class="voice-demo" id="voice" aria-label="Call the public AI demo">
+          <p class="micro-label">Try the public demo</p>
+          <a class="demo-number" href="tel:+18888147785" aria-label="Call the public AI demo at +1 888 814 7785">+1 (888) 814-7785</a>
+          <div class="demo-actions">
+            <a class="demo-action" href="tel:+18888147785">Call the AI demo <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+            <a class="text-link" href="./work/spine-clinic.html">See the client build <svg aria-hidden="true"><use href="#i-right"/></svg></a>
           </div>
+          <p>Tell the agent what kind of business you run and try a sample customer inquiry.</p>
+          <p class="demo-note">Public demo, not a client account. The demo captures booking intent for owner confirmation; available actions vary by setup. Use a sample scenario and avoid sensitive information.</p>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="card-body">
-          <h3 class="t-h3">The interrogation room</h3>
-          <p class="t-cap">An agent that answers only from the published contract, cites the claim it is answering from, and refuses out loud where the record is silent. Ask it the hostile question first &mdash; whether a number is blended, what is attested rather than verified, what was withdrawn. Agents can post a question to the same service directly.</p>
-          <a class="card-link t-data" href="https://proof-counsel.vercel.app/" target="_blank" rel="noopener">proof-counsel.vercel.app<span class="vh"> (opens in a new tab)</span></a>
-          <div class="card-tags t-label">
-            <span class="tag tag-live">Live</span><span class="tag">Answers from the contract</span><span class="tag">Refuses out loud</span>
-          </div>
+    <article class="system-feature system-panel" id="sys-02" role="tabpanel" aria-labelledby="tab-sys-02">
+      <div class="system-feature__image visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Worked audit</span><span>Live / 02</span></div>
+        <img src="./assets/shot-engine-proof-1200.webp" srcset="./assets/shot-engine-proof-720.webp 720w, ./assets/shot-engine-proof-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark editorial audit page headed Apex Coatings and Styling — Meta Ads plus Backend Conversion Audit, labelled sample audit." loading="lazy" decoding="async">
+      </div>
+      <div class="system-feature__copy">
+        <p class="micro-label">How I diagnose an account</p>
+        <h3>Proof should survive inspection.</h3>
+        <p>Offer, backend, creative and measurement read as one revenue system rather than four line items — which is the difference between an audit and a list of screenshot findings. It is a sample, a representative audit of a category, labelled as such on its own first screen. No real client, no borrowed numbers.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Live</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Sample, not a client</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Explicit boundaries on every finding</li>
+        </ul>
+        <a class="text-link" href="https://sc-upwork-engine-proof.vercel.app" target="_blank" rel="noopener">Open the audit <svg aria-hidden="true"><use href="#i-up-right"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      </div>
+    </article>
+
+    <article class="system-feature system-panel" id="sys-03" role="tabpanel" aria-labelledby="tab-sys-03">
+      <div class="system-feature__image visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>The economics</span><span>Live / 03</span></div>
+        <div class="sys-flow">
+          <div><span>01</span>Spend</div>
+          <div><span>02</span>Leads, at a per-campaign cost</div>
+          <div><span>03</span>Booked appointments — the lever worth engineering</div>
+          <div><span>04</span>Jobs</div>
+          <div><span>05</span>Return</div>
+          <div><span>06</span>One input moves at a time; nothing is stored or sent</div>
         </div>
-      </article>
+      </div>
+      <div class="system-feature__copy">
+        <p class="micro-label">The economics</p>
+        <h3>The media buyer&rsquo;s model.</h3>
+        <p>Spend to leads to booked jobs to return, with the whole chain visible. Change one input at a time to see which constraint matters most. The model makes the trade-offs after the click inspectable; its scenarios are illustrative assumptions, not client results.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> No sign-in, nothing stored</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> One variable at a time</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Recomputes from your inputs, in your tab</li>
+        </ul>
+        <a class="text-link" href="./model.html">Open the model <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </article>
 
-      <article class="card">
-        <div class="card-body">
-          <h3 class="t-h3">The guard on this repository</h3>
-          <p class="t-cap">The source of this page is public, and every push runs a salted-hash leak tripwire and a contract-integrity check. The eighteen case pages are not hand-written &mdash; they are rendered from the contract by a build that <strong>refuses to emit any figure it cannot find there</strong>, so a case with no approved claim dies on its first digit. That is the AI-native part I would actually defend: not that a model wrote something, but that a gate I built runs on every commit whether or not I am paying attention.</p>
-          <a class="card-link t-data" href="https://github.com/AlexFC0810/alex-amaro-portfolio" target="_blank" rel="noopener">github.com/AlexFC0810/alex-amaro-portfolio<span class="vh"> (opens in a new tab)</span></a>
-          <div class="card-tags t-label">
-            <span class="tag">Public source</span><span class="tag">CI on every push</span><span class="tag">Build blocks unapproved figures</span>
-          </div>
-        </div>
-      </article>
+    <article class="system-feature system-panel" id="sys-04" role="tabpanel" aria-labelledby="tab-sys-04">
+      <div class="system-feature__image visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Opportunity command</span><span>Live / 04</span></div>
+        <img src="./assets/shot-upwork-command-1200.webp" srcset="./assets/shot-upwork-command-720.webp 720w, ./assets/shot-upwork-command-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark dashboard headed Upwork Command showing a daily sends counter, a next-action card and a copyable go-live command." loading="lazy" decoding="async">
+      </div>
+      <div class="system-feature__copy">
+        <p class="micro-label">Agentic research</p>
+        <h3>Signal, triage and action in one view.</h3>
+        <p>An autonomous opportunity radar in TypeScript on a 30-minute GitHub Actions cron: it reads a saved-search inbox over IMAP, parses title, URL and budget, scores each opportunity against a rubric, drafts the proposal with prompt-cached templates and posts it to Slack with the draft attached. It has no public URL because it holds live inbox and Slack credentials — what you can open is the single-operator dashboard it reports into.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Dormant-safe: with no secrets set it exits green with a notice</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> The rubric is the IP; the pipeline is public</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> One next action instead of twelve charts</li>
+        </ul>
+        <a class="text-link" href="https://sc-upwork-command.vercel.app" target="_blank" rel="noopener">Open the dashboard <svg aria-hidden="true"><use href="#i-up-right"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      </div>
+    </article>
 
+    <article class="system-feature system-panel" id="sys-05" role="tabpanel" aria-labelledby="tab-sys-05">
+      <div class="system-feature__image visual-frame">
+        <div class="frame-label" aria-hidden="true"><span>Operator console</span><span>Live / 05</span></div>
+        <img src="./assets/shot-revops-1200.webp" srcset="./assets/shot-revops-720.webp 720w, ./assets/shot-revops-1200.webp 1200w" sizes="(max-width:900px) 100vw, 60vw" alt="Screenshot: a dark sign-in card headed RevOps Cockpit, with email and password fields." loading="lazy" decoding="async">
+      </div>
+      <div class="system-feature__copy">
+        <p class="micro-label">My own back office</p>
+        <h3>The work does not stop at the lead.</h3>
+        <p>Next.js and Supabase, with three daily crons: scrape, enrich, then generate outreach scripts and push them into the CRM and a cold-email sequence. What you will see is the door — the shell is public, the data is behind a sign-in, and I would rather you know that before you click than after.</p>
+        <ul>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Live</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Next.js, Supabase, three daily crons</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg> Sign-in wall</li>
+        </ul>
+        <a class="text-link" href="https://revops.superchargedroi.com" target="_blank" rel="noopener">Open the console <svg aria-hidden="true"><use href="#i-up-right"/></svg><span class="vh"> (opens in a new tab)</span></a>
+      </div>
+    </article>
+
+    <div class="note" data-claim="B8">
+      <p><strong>Where the leverage came from.</strong> Before any of this, I ran my own agency with a four-person delivery team — call center, media buyer, ad-creative specialist, GoHighLevel specialist — for roughly ten months, before rebuilding that same capability as AI systems. That one is founder-attested rather than documented, and I label it that way. It is also the honest origin of the heading above: the handoffs did not disappear because the work got smaller.</p>
     </div>
   </div>
 </section>
 
+<!-- ==========================================================================
+     05 — THE GATE. Inventory counts, not performance claims: re-derived from
+     the private creative manifest's craft field on 2026-09-04 and held to
+     proof/gate-ledger.json by tools/gate-ledger.mjs. Never within 300
+     characters of a spend, lead or booking figure.
+     ========================================================================== -->
+<section class="section-frame section-space rv" id="gate" aria-labelledby="gate-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">The gate / 05</p>
+      <h2 id="gate-title">Most generations<br><em>don&rsquo;t make it.</em></h2>
+    </div>
+    <p>Generative tools are available to everyone, so the generator is not the evidence. The judgment is. Every AI generation in the creative pipeline is logged to a manifest with its model, its named test variable and a craft verdict — and the reject pile is the part most portfolios would hide.</p>
+  </div>
+  <div class="ledger">
+    <div class="ledger-row"><p class="num" data-ledger="total">109</p><div><p>generations logged in the manifest.</p></div></div>
+    <div class="ledger-row"><p class="num" data-ledger="accepted">12</p><div><p>accepted on craft.</p><p class="cap">Craft is the review verdict — did the clip clear the brief — not a market result. Market verdicts come from a control, never from anyone&rsquo;s taste.</p></div></div>
+    <div class="ledger-row"><p class="num" data-ledger="rejected">25</p><div><p>rejected — each with a written reason.</p><p class="cap">The notes are specific or they are useless: a phone visible in a shot that specified none, a sign that would not spell, a delivery measured slow against its own word budget. The note is the asset — the next brief inherits it.</p></div></div>
+    <div class="ledger-row"><p class="num" data-ledger="unjudged">72</p><div><p>still in the queue, unjudged.</p><p class="cap">Logged is not shipped. Volume only counts after the verdict.</p></div></div>
+  </div>
+  <p class="gate-note">The films run the same discipline: a beat-sheet manifest per cut, then measured gates — a loudness window, a longest-gap check on speech pacing, letterbox and edge-density sweeps. A cut that misses a gate goes back, not out. <strong>This is what &ldquo;creative volume&rdquo; means here: not more generations — more judged generations.</strong> Counts as of 2026-09-04, from the manifest&rsquo;s craft field; the check that keeps them honest runs on every push to this repository.</p>
+</section>
+
+<!-- ==========================================================================
+     06 — THE EVIDENCE LEDGER. Twelve figures. Each row's number, wording and
+     boundaries are pasted from claims.json (v1.12.0); the pill prints the
+     claim's own status and evidence tier. tools/check-home-claims.mjs holds
+     every [data-claim] block to that. Spend leads, total leads close — never
+     adjacent.
+     ========================================================================== -->
+<section class="results section-frame section-space rv" id="numbers" aria-labelledby="results-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">Evidence ledger / 06</p>
+      <h2 id="results-title">A source — and<br><em>a stopping point.</em></h2>
+    </div>
+    <p>Proof tells the truth twice: what happened, and where the claim ends. Cost per lead is quoted per campaign, never blended across an account set, and every lead number here is qualified — B2C forms carried qualifying questions, B2B forms filtered for revenue. Every row below is the contract&rsquo;s own wording, with its status and evidence tier — A is a hard artifact, B measured but uncaptured, C structural, D attestation.</p>
+  </div>
+
+  <div class="claim-ledger">
+    <details class="claim" data-claim="C1" open>
+      <summary><span class="claim__index">01</span><span class="claim__number">$225K+</span><span class="claim__label">Meta ad spend managed</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Two independent platform pulls, nineteen days apart, agree within a tenth of a percent; the per-account export is retained in the vault.</p></div>
+        <div><span>What it means</span><p>$225K+ in Meta ad spend managed across 14+ accounts in the U.S., Canada and the U.K. — medspa, aesthetics, chiropractic, tattoo removal, weight loss, local service and B2B.</p></div>
+        <div><span>Where it stops</span><p>A majority of this spend sits on one account and includes awareness objectives — it is spend managed, and it is never paired with lead totals to imply a blended cost per lead.</p></div>
+        <a class="claim__open" href="./proof.html">The receipt, on the proof page <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C3">
+      <summary><span class="claim__index">02</span><span class="claim__number">9.5&times;</span><span class="claim__label">Lead volume against an incumbent national agency, same account</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Exact-match verified from the live ad account — both operators&rsquo; campaigns are read from the same account&rsquo;s own reporting.</p></div>
+        <div><span>What it means</span><p>Took over a chiropractic account from an incumbent national agency and delivered 9.5x the leads at ~75% lower cost per lead — same account (114 @ $12.59 vs 12 @ $49.81).</p></div>
+        <div><span>Where it stops</span><p>A same-account comparison, not a controlled split test. The incumbent agency is never identified. Client revenue is not claimed.</p></div>
+        <a class="claim__open" href="./work/chiro-head-to-head.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C5">
+      <summary><span class="claim__index">03</span><span class="claim__number">~US$5.40</span><span class="claim__label">Average cost per lead, a whole Canadian body-contouring account</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Lead volume and cost are platform-verified from the raw export; the booked count comes from the client&rsquo;s tracker and is labelled as such.</p></div>
+        <div><span>What it means</span><p>1,192 leads at ~US$5.40 average cost per lead (CA$7.39) across an entire Canadian body-contouring account — CA$8,804 spend, 13 lead campaigns, 80 booked appointments tracked.</p></div>
+        <div><span>Where it stops</span><p>The account average is honest because the whole account was lead-objective — it is not a blended figure. The 80 booked appointments are tracker-corroborated, not platform-verified, and the claim says which.</p></div>
+        <a class="claim__open" href="./work/body-contouring.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C6">
+      <summary><span class="claim__index">04</span><span class="claim__number">70</span><span class="claim__label">Booked appointments in a 30-day window, a weight-loss clinic opening</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Verified from the CRM tracker, deduplicated row by row.</p></div>
+        <div><span>What it means</span><p>70 booked appointments in a 30-day window (61 in the calendar month) for a weight-loss clinic grand opening.</p></div>
+        <div><span>Where it stops</span><p>Booked means scheduled, not attended.</p></div>
+        <a class="claim__open" href="./work/weight-loss-clinic-launch.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C7">
+      <summary><span class="claim__index">05</span><span class="claim__number">~120</span><span class="claim__label">Appointments booked in roughly three months, an aesthetic clinic</span><span class="status" data-status="partial · B"><svg aria-hidden="true"><use href="#i-check"/></svg> Partial · B</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Double-sourced — the client tracker and the CRM agree within a handful of rows; the platform-side export did not survive off-boarding.</p></div>
+        <div><span>What it means</span><p>~120 appointments booked in roughly three months for an aesthetic clinic (double-sourced: CRM + tracker).</p></div>
+        <div><span>Where it stops</span><p>Booked means scheduled — show rate is not claimed. Quoted as an approximation, never rounded up.</p></div>
+        <a class="claim__open" href="./work/aesthetic-clinic-bookings.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C8">
+      <summary><span class="claim__index">06</span><span class="claim__number">350+</span><span class="claim__label">Bilingual FR/EN leads, and 89 booked appointments, in ~10 weeks</span><span class="status" data-status="partial · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Partial · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>The lead floor sits under a photographed, DOM-verified count in a dedicated sub-account that held nothing else; the booked count is exactly the number of dated rows in the client&rsquo;s tracker.</p></div>
+        <div><span>What it means</span><p>350+ bilingual (FR/EN) leads and 89 booked appointments in ~10 weeks for a Montreal beauty brand — roughly one booked appointment per four leads.</p></div>
+        <div><span>Where it stops</span><p>Exact cost per lead is retired in every form — the ad account was revoked and nobody can check it, so it is not quoted. 89 means 89 dated rows — a row without an appointment date is not a booking.</p></div>
+        <a class="claim__open" href="./work/montreal-bilingual.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="C9">
+      <summary><span class="claim__index">07</span><span class="claim__number">~$1.88</span><span class="claim__label">Cost per lead across 817 B2B leads, a U.K. commercial-refrigeration installer</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Platform-verified on an account still in Meta access, running continuously since June 2024 — re-checkable today.</p></div>
+        <div><span>What it means</span><p>817 B2B leads at ~$1.88 CPL for a UK commercial-refrigeration installer — flagship campaign 709 leads at ~$1.50, ongoing since June 2024. The lead forms carried qualification, and the client reported a completed installation off the back of the leads.</p></div>
+        <div><span>Where it stops</span><p>The cheap exception — B2B is not generalized from it. The client&rsquo;s completed installation is lead-quality evidence, never claimed revenue.</p></div>
+        <a class="claim__open" href="./work/b2b-refrigeration.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="B2">
+      <summary><span class="claim__index">08</span><span class="claim__number">1,750+</span><span class="claim__label">Leads for a single med spa across four service lines</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Platform-verified across four service lines on one account.</p></div>
+        <div><span>What it means</span><p>1,750+ leads for a single med spa across four service lines, including 1,200+ weight-loss leads at ~$9 CPL.</p></div>
+        <div><span>Where it stops</span><p>One clinic, one programme — quoted per campaign, never blended with any other account.</p></div>
+        <a class="claim__open" href="./work/medspa-full-program.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="B3">
+      <summary><span class="claim__index">09</span><span class="claim__number">730+</span><span class="claim__label">Tattoo-removal leads at ~$19–$21 CPL, Brooklyn/NYC</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Platform-verified. The flagship campaign is quoted with its own count and the account total with its own range — never the total at the flagship&rsquo;s price. The client&rsquo;s video testimonial exists and is cleared for portfolio and interview use.</p></div>
+        <div><span>What it means</span><p>730+ tattoo-removal leads at ~$19–$21 CPL (Brooklyn/NYC), flagship campaign 526 at $19, with 701 of the CRM&rsquo;s 773 contacts traceable to named Facebook lead forms. My longest-running client — roughly two years and still running — and the one account where the client went on camera for me.</p></div>
+        <div><span>Where it stops</span><p>Any cost per lead is quoted against the platform&rsquo;s count, not the CRM&rsquo;s later total. The testimonial is cited, not quoted.</p></div>
+        <a class="claim__open" href="./work/tattoo-removal-studio.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="B10">
+      <summary><span class="claim__index">10</span><span class="claim__number">~35%</span><span class="claim__label">Lower cost per lead than another operator, same chiropractic account</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Read from the account&rsquo;s own reporting — every one of my campaigns beat every one of the other operator&rsquo;s, and the other operator&rsquo;s larger volume on larger spend is stated in the same breath.</p></div>
+        <div><span>What it means</span><p>Chiropractic lead-gen built on a priced $47 new-patient offer, run through Meta instant forms into a GoHighLevel pipeline I built. My campaigns: $30.38 blended, per-campaign $27.68–$35.23. Another operator&rsquo;s lead-form campaigns in the same account: $46.58 blended, $45.01–$53.42 per campaign. They spent 2.8x what I did to reach 250 leads against my 139. Campaign dates were not retained, so I call it a same-account comparison rather than a split test.</p></div>
+        <div><span>Where it stops</span><p>A same-account comparison — never a takeover, never a split test. The other operator is never named or characterized.</p></div>
+        <a class="claim__open" href="./work/spine-clinic.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="B4">
+      <summary><span class="claim__index">11</span><span class="claim__number">215+</span><span class="claim__label">Website-scheduled appointments, the agency&rsquo;s own B2B campaigns</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>Meta-reported website-scheduled appointments from the agency&rsquo;s own acquisition campaigns.</p></div>
+        <div><span>What it means</span><p>170+ B2B leads and 215+ website-scheduled appointments at ~$62 each, from campaigns selling agency services into the medspa/clinic market.</p></div>
+        <div><span>Where it stops</span><p>Scheduled appointments, never &ldquo;booked sales calls&rdquo; — the platform records the schedule event, not attendance or attendee identity.</p></div>
+        <a class="claim__open" href="./work/agency-own-pipeline.html">Open the case <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+    <details class="claim" data-claim="B1">
+      <summary><span class="claim__index">12</span><span class="claim__number">6,250+</span><span class="claim__label">Qualified leads across the client base</span><span class="status" data-status="verified · A"><svg aria-hidden="true"><use href="#i-check"/></svg> Verified · A</span><span class="claim__toggle" aria-hidden="true"><svg><use href="#i-down"/></svg></span></summary>
+      <div class="claim__details">
+        <div><span>Source</span><p>An itemized floor — counted account by account from clean lead campaigns only, excluding awareness and traffic spend, and excluding accounts lost at off-boarding.</p></div>
+        <div><span>What it means</span><p>6,250+ qualified leads across medspa, aesthetics, chiropractic, tattoo-removal, weight-loss and B2B campaigns — an itemized floor, counted account by account.</p></div>
+        <div><span>Where it stops</span><p>Never paired with total spend to imply a blended cost per lead.</p></div>
+        <a class="claim__open" href="./proof.html">The itemised floor, on the proof page <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+    </details>
+  </div>
+  <div class="linkrow">
+    <a href="./proof.html">The proof page, claim by claim, with the arithmetic <svg aria-hidden="true" width="12" height="12"><use href="#i-right"/></svg></a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 — STRATEGY. The front of the chain, shown as a method, and one called
+     shot. Public sources only; no partner, programme or channel is named;
+     nothing here is a performance claim. Register: proof/called-shots.json.
+     ========================================================================== -->
+<section class="strategy section-space rv" id="strategy" aria-labelledby="strategy-title">
+  <div class="section-frame">
+    <div class="section-heading section-heading--split">
+      <div>
+        <p class="eyebrow">Before the build / 07</p>
+        <h2 id="strategy-title">Decide what the media<br><em>should point at.</em></h2>
+      </div>
+      <p>The front of the chain, and the part that decides whether the rest should run at all. A signal — a market, a programme, a partner — is read from public sources and made to answer in a fixed order. Research that does not change a decision is not a receipt. Meta paid social stays the specialty; this is how I decide where to aim it.</p>
+    </div>
+    <div class="method">
+      <div class="method__flow" aria-label="Opportunity intelligence method">
+        <div><span>Signal</span><p>Public record only, dated. Verified fact, inference, estimate and hypothesis are labelled as which.</p></div>
+        <div><span>Economics</span><p>What it is worth, modelled in the buyer&rsquo;s own numbers — low, base and high — never linked to and assumed.</p></div>
+        <div><span>Competition</span><p>Who already holds the ground: the incumbent, its tenure, the credentials the scorecard rewards.</p></div>
+        <div><span>Fit</span><p>OWN when depth compounds. ASSEMBLE when a specialist should execute. PARTNER when someone already holds the trust. PARK when opportunity cost dominates.</p></div>
+        <div><span>Scenarios</span><p>Downside, base and upside, each with the assumption that produces it — decision thresholds where a probability would be fake precision.</p></div>
+        <div><span>Decision</span><p>GO, ITERATE, PARK or KILL — and the honest output is usually PARK.</p></div>
+        <div><span>Receipt</span><p>The cheapest external act that would change the decision. The worked briefs are private, because they are written for the people they are about; the discipline is not.</p></div>
+      </div>
+      <article class="shot" aria-labelledby="shot-title">
+        <div class="shot__label"><span>Called shot 01</span><span>Filed 2026-09-04</span></div>
+        <h3 id="shot-title">Public-program participant operations.</h3>
+        <p>A publicly funded programme creates value only when the people it was built for get from awareness to completion — and the outreach, intake, follow-up, scheduling and reporting between those two points are usually fragmented. The thesis under validation: that participant-operations infrastructure is a repeatable category rather than a one-off pattern, and that the right way in is as a partner beneath an established programme operator, never as a prime.</p>
+        <div class="shot__meta">
+          <div><span>Resolves</span><strong>2026-09-25</strong></div>
+          <div><span>Will have done</span><strong>Established the procurement mechanism, the buyer class and a safe pilot shape for one live programme — or published here that I could not.</strong></div>
+        </div>
+        <p class="cap">Exploratory. Nothing has shipped, nothing is claimed, no partner or programme is named. A called shot is a dated, falsifiable statement filed before the outcome is known; the verdict is printed here on the resolution date, and a miss is rendered exactly like a hit.</p>
+        <span class="shot__verdict">Verdict · pending · 2026-09-25</span>
+        <div class="shot__links">
+          <a href="https://github.com/AlexFC0810/alex-amaro-portfolio/blob/main/proof/called-shots.json" target="_blank" rel="noopener">The register, as filed <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+          <a href="https://github.com/AlexFC0810/alex-amaro-portfolio/commit/8e24a746cb842bafc898c3b9159f77f61badaa82" target="_blank" rel="noopener">Filing commit 8e24a74 <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     08 — THE WORK. Links into the existing 18 case pages, untouched.
+     ========================================================================== -->
+<section class="section-frame section-space rv" id="work" aria-labelledby="work-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">The work / 08</p>
+      <h2 id="work-title">Eighteen cases, each with<br><em>what it does not claim.</em></h2>
+    </div>
+    <p>Every case page ends with a section headed &ldquo;what this case does not claim&rdquo; — the boundary stated before anyone has to ask for it. Seven of the eighteen carry no figure at all, because no approved figure exists for them, and they say so rather than reaching for a number.</p>
+  </div>
+  <div class="work">
+    <a href="./work/chiro-head-to-head.html">Head-to-head against an incumbent national agency<span>Chiropractic · same ad account</span></a>
+    <a href="./work/b2b-refrigeration.html">B2B refrigeration at consumer-grade cost per lead<span>Commercial refrigeration · U.K.</span></a>
+    <a href="./work/weight-loss-clinic-launch.html">Filling a calendar from zero at a clinic opening<span>Weight loss · U.S.</span></a>
+    <a href="./work/aesthetic-clinic-bookings.html">The leaky middle, between the lead and the consultation<span>Aesthetic clinic</span></a>
+    <a href="./work/montreal-bilingual.html">Bilingual acquisition held in-language to the calendar<span>Beauty · Canada · FR/EN</span></a>
+    <a href="./work/medspa-full-program.html">A full med spa programme across four service lines<span>Med spa · U.S.</span></a>
+    <a href="./work/tattoo-removal-studio.html">Tattoo removal in the most expensive consumer market<span>Tattoo removal · U.S.</span></a>
+    <a href="./work/body-contouring.html">A sustained monthly offer cycle in a small catchment<span>Body contouring · Canada</span></a>
+    <a href="./work/agency-own-pipeline.html">Running the play on my own business<span>B2B · selling to clinic owners</span></a>
+    <a href="./work/aesthetics-group.html">A group running three marketing jobs at once<span>Multi-location aesthetics</span></a>
+    <a href="./work/spine-clinic.html">A priced offer, bilingual campaigns, AI voice in the booking flow<span>Chiropractic · U.S.</span></a>
+    <a href="./work/wedding-venue-b2b.html">A survey-qualified cross-border funnel<span>Venue B2B · AI voice</span></a>
+    <a href="./work/eye-care-device-launch.html">Launching a device inside an existing medical practice<span>Eye care · U.S.</span></a>
+    <a href="./work/pmu-clinic.html">Where the only metric is what fraction of enquiries book<span>Permanent makeup</span></a>
+    <a href="./work/recruitment-lead-gen.html">Recruitment lead-gen as a bid-strategy problem<span>Recruitment</span></a>
+    <a href="./work/home-services-rebooking.html">The retention half, run on my own customers<span>Home services</span></a>
+    <a href="./work/medspa-laser-offers.html">The account whose numbers are gone — and what survived it<span>Med spa · laser</span></a>
+    <a href="./work/ecommerce-college-venture.html">The business I built to pay my own tuition<span>E-commerce · 2017–2021</span></a>
+  </div>
+  <div class="linkrow">
+    <a href="./work.html">All eighteen cases, with the index</a>
+    <a href="./proof.html">The proof page</a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     09 — THE RECORD. The machinery that makes the numbers checkable. Verbatim
+     from the canonical root, plus the two new guards this page introduced.
+     ========================================================================== -->
+<section class="section-frame section-space rv" id="record" aria-labelledby="record-title">
+  <div class="section-heading section-heading--split">
+    <div>
+      <p class="eyebrow">The record / 09</p>
+      <h2 id="record-title">Every number here<br><em>stands cross-examination.</em></h2>
+    </div>
+    <p>A marketer&rsquo;s portfolio has one structural weakness: the figures are assertions, and the reader has no way to test them. This one answers that mechanically rather than rhetorically. The contract is published and machine-readable, the adversarial audit is public with the attacker&rsquo;s prompt included, an agent will answer hostile questions from the contract alone, and the repository this page is served from refuses to publish a figure the contract does not hold.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <h3>The contract</h3>
+      <p>Every figure on this site with its status, evidence tier, provenance and boundaries — and the claim I retired, with the reason I retired it. The file carries its own sha256, so a hand-edit cannot ship quietly. There is a plain-language pointer for agents alongside it.</p>
+      <a class="card-link" href="./claims.json">claims.json</a>
+      <a class="card-link" href="./llms.txt">llms.txt</a>
+      <div class="card-tags"><span class="tag">Machine-readable</span><span class="tag">sha256-pinned</span><span class="tag">Retirements included</span></div>
+    </article>
+    <article class="card">
+      <h3>The cross-examination</h3>
+      <p>Published before the run rather than after it: exhibits from the record&rsquo;s own history — the figure I withdrew on my own review, the time a guard passed something it should have caught — the standing adversarial machinery, and the attacker&rsquo;s prompt in full, so you can run a harsher one than mine.</p>
+      <a class="card-link" href="./audit.html">The audit record &rarr;</a>
+      <div class="card-tags"><span class="tag">Public</span><span class="tag">Attacker&rsquo;s prompt included</span></div>
+    </article>
+    <article class="card">
+      <h3>The interrogation room</h3>
+      <p>An agent that answers only from the published contract, cites the claim it is answering from, and refuses out loud where the record is silent. Ask it the hostile question first — whether a number is blended, what is attested rather than verified, what was withdrawn. Agents can post a question to the same service directly.</p>
+      <a class="card-link" href="https://proof-counsel.vercel.app/" target="_blank" rel="noopener">proof-counsel.vercel.app<span class="vh"> (opens in a new tab)</span></a>
+      <div class="card-tags"><span class="tag tag-live">Live</span><span class="tag">Answers from the contract</span><span class="tag">Refuses out loud</span></div>
+    </article>
+    <article class="card">
+      <h3>The guard on this repository</h3>
+      <p>The source of this page is public, and every push runs a salted-hash leak tripwire and a contract-integrity check. The eighteen case pages are rendered from the contract by a build that <strong>refuses to emit any figure it cannot find there</strong>, and this page holds itself to the same rule: every claim block is checked against the contract&rsquo;s own wording, and the gate counts against their dated snapshot. That is the AI-native part I would actually defend: not that a model wrote something, but that a gate I built runs on every commit whether or not I am paying attention.</p>
+      <a class="card-link" href="https://github.com/AlexFC0810/alex-amaro-portfolio" target="_blank" rel="noopener">github.com/AlexFC0810/alex-amaro-portfolio<span class="vh"> (opens in a new tab)</span></a>
+      <div class="card-tags"><span class="tag">Public source</span><span class="tag">CI on every push</span><span class="tag">Build blocks unapproved figures</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CLOSING — the collage, on clinic work. CTA: Calendly and email.
+     ========================================================================== -->
+<section class="closing section-space" aria-labelledby="closing-title">
+  <div class="closing__collage" aria-hidden="true">
+    <img src="./assets/creative-static/chiro-knee-pain-02-720.webp" alt="" loading="lazy" decoding="async">
+    <img src="./assets/creative-static/medspa-laser-02-720.webp" alt="" loading="lazy" decoding="async">
+    <img src="./assets/creative-static/medspa-body-contouring-03-720.webp" alt="" loading="lazy" decoding="async">
+    <img src="./assets/creative-static/medspa-laser-04-720.webp" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="closing__copy section-frame">
+    <p class="eyebrow">The next brief / 10</p>
+    <h2 id="closing-title">Bring me the account<br><em>that has stopped moving.</em></h2>
+    <p>Where the offer, the creative, the follow-up and the measurement collide — that is the work, and here it is one pair of hands. Every number above has a source. So will the next one.</p>
+    <div class="closing__actions">
+      <a class="button button--primary" href="https://calendly.com/alexelamaro/clarity-session" target="_blank" rel="noopener">Book a clarity session <svg aria-hidden="true"><use href="#i-up-right"/></svg></a>
+      <a class="button button--ghost" href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">Email me <svg aria-hidden="true"><use href="#i-right"/></svg></a>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer id="creds">
-  <div class="measure">
-    <div class="disclaim">
-      <p class="t-label" style="color:var(--text-dim)">What this page does not claim</p>
-      <ul>
-        <li class="t-cap">Not client revenue, and not ROAS. I do not have post-booking visibility, and closing is the client&rsquo;s side of the line. What I claim is leads, booked appointments and the follow-up systems between them.</li>
-        <li class="t-cap">Not a blended cost per lead. Total spend divided by total leads is not a CPL and I will not quote one.</li>
-        <li class="t-cap">Not scaled AI voice. Shipped, and ran, from February 2025 — at single-digit to low-double enrolment volumes.</li>
-        <li class="t-cap">Not client identities. Clients appear by vertical and country only.</li>
-        <li class="t-cap">Not a portfolio-wide appointment total. Bookings are claimed per client, tied to the campaigns that produced them, because a cross-client total would count appointments my campaigns did not generate.</li>
-      </ul>
-    </div>
-    <p class="t-cap" style="margin-top:26px">Alex Amaro · Meta paid social, and the system behind the ads · remote, United States · English and Spanish.</p>
-    <p class="t-cap" style="margin-top:6px">B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit). Associate&rsquo;s — University of Wisconsin&ndash;Oshkosh (conferred). HubSpot-certified; the builds are GoHighLevel.</p>
-    <div class="linkrow t-cap">
-      <a href="mailto:jesusalexelamaro@gmail.com">jesusalexelamaro@gmail.com</a>
-      <a href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
-      <a href="https://github.com/AlexFC0810">GitHub</a>
-      <a href="./Alex-Amaro-Resume.pdf">Résumé</a>
-      <a href="./v1.html">The first version of this site</a>
-    </div>
+<footer class="site-footer section-frame" id="creds">
+  <div class="disclaim">
+    <p class="mono">What this page does not claim</p>
+    <ul>
+      <li>Not client revenue, and not ROAS. I do not have post-booking visibility, and closing is the client&rsquo;s side of the line. What I claim is leads, booked appointments and the follow-up systems between them.</li>
+      <li>Not a blended cost per lead. Total spend divided by total leads is not a CPL and I will not quote one.</li>
+      <li>Not scaled AI voice. Shipped, and ran, from February 2025 — at single-digit to low-double enrolment volumes.</li>
+      <li>Not client identities. Clients appear by vertical and country only.</li>
+      <li>Not a portfolio-wide appointment total. Bookings are claimed per client, tied to the campaigns that produced them, because a cross-client total would count appointments my campaigns did not generate.</li>
+      <li>Not a result, anywhere the label says method, demo or called shot. The strategy block claims a discipline and a dated forecast; it claims no outcome.</li>
+    </ul>
+  </div>
+  <div class="creds">
+    <p>Alex Amaro · Meta paid social, and the system behind the ads · remote, United States · English and Spanish.</p>
+    <p>B.S. Business Administration, Marketing — Western Governors University (expected ~2027; transferring credit). Associate&rsquo;s — University of Wisconsin&ndash;Oshkosh (conferred). HubSpot-certified; the builds are GoHighLevel.</p>
+  </div>
+  <div class="site-footer__row">
+    <a href="mailto:jesusalexelamaro@gmail.com?subject=From%20your%20portfolio">jesusalexelamaro@gmail.com</a>
+    <a href="https://linkedin.com/in/alex-amaro-a4187a221">LinkedIn</a>
+    <a href="https://github.com/AlexFC0810">GitHub</a>
+    <a href="./Alex-Amaro-Resume.pdf">Résumé (PDF)</a>
+    <a href="./creative.html">The Creative Wall</a>
+    <a href="#top">Back to top</a>
   </div>
 </footer>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <button class="modal__backdrop" type="button" aria-label="Close" data-close></button>
+  <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="modalLabel">
+    <div class="modal__toolbar"><span id="modalLabel"></span><span class="modal__tools"><button class="modal__scope" id="modalScope" type="button" hidden></button><button class="icon-button" type="button" aria-label="Close" data-close><svg aria-hidden="true"><use href="#i-x"/></svg></button></span></div>
+    <div id="modalBody"></div>
+    <div class="modal__image-controls" id="modalControls" hidden>
+      <button type="button" data-nav="-1"><svg aria-hidden="true"><use href="#i-left"/></svg> Previous</button>
+      <span id="modalCount"></span>
+      <button type="button" data-nav="1">Next <svg aria-hidden="true"><use href="#i-right"/></svg></button>
+    </div>
+  </div>
+</div>
+</div>
 
 <script>
 (function(){
   'use strict';
 
-  /* --- reveal on scroll. Communicates sequence: the page has an argument and
-         it is ordered. Every element is force-settled by the head script after
-         2.6s regardless of whether any of this runs. --- */
+  /* --- mobile nav ------------------------------------------------------- */
   try{
-    var els = document.querySelectorAll('.reveal');
-    if(window.IntersectionObserver && document.documentElement.classList.contains('motion')){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-      },{rootMargin:'0px 0px -8% 0px', threshold:0.02});
-      els.forEach(function(el){ io.observe(el); });
-    } else {
-      document.documentElement.classList.add('settled');
-    }
-  }catch(e){ document.documentElement.classList.add('settled'); }
-
-  /* --- nav: the menu button below 640px, and a scroll-spy that keeps exactly
-         one aria-current on the page. Neither gates any content: with JS off
-         the links stay a horizontal scroller and every section still renders. */
-  try{
-    var toggle=document.getElementById('navToggle'), links=document.getElementById('navLinks');
-    if(toggle&&links){
-      var setOpen=function(open){
-        if(open){ links.setAttribute('data-open',''); } else { links.removeAttribute('data-open'); }
-        toggle.setAttribute('aria-expanded', open?'true':'false');
+    var menu=document.getElementById('menuButton'), nav=document.getElementById('siteNav');
+    if(menu&&nav){
+      var setOpen=function(o){
+        nav.classList.toggle('site-nav--open',o); menu.setAttribute('aria-expanded',o?'true':'false');
+        if(o){ var first=nav.querySelector('a'); if(first) first.focus(); }
       };
-      toggle.addEventListener('click',function(){ setOpen(toggle.getAttribute('aria-expanded')!=='true'); });
-      links.addEventListener('click',function(e){ if(e.target&&e.target.closest&&e.target.closest('a')) setOpen(false); });
-      document.addEventListener('keydown',function(e){ if(e.key==='Escape'||e.keyCode===27) setOpen(false); });
-      window.addEventListener('resize',function(){ if(window.innerWidth>=640) setOpen(false); });
+      menu.addEventListener('click',function(){ setOpen(menu.getAttribute('aria-expanded')!=='true'); });
+      nav.addEventListener('click',function(e){ if(e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+      window.addEventListener('resize',function(){ if(window.innerWidth>900) setOpen(false); });
     }
+  }catch(e){}
 
-    var order=['top','running','creative','numbers','work','record'], linkFor={};
-    order.forEach(function(id){
-      var a=document.querySelector('header.nav a[href="#'+id+'"]'); if(a) linkFor[id]=a;
+  /* --- tabs: proof tour and systems. All panels are in the DOM; JS only
+         toggles which is shown. Without JS they stack. ------------------ */
+  try{
+    document.querySelectorAll('[role="tablist"]').forEach(function(list){
+      var tabs=[].slice.call(list.querySelectorAll('[data-tab]'));
+      var activate=function(tab){
+        tabs.forEach(function(t){ t.classList.remove('is-active'); t.setAttribute('aria-selected','false'); t.setAttribute('tabindex','-1'); });
+        tab.classList.add('is-active'); tab.setAttribute('aria-selected','true'); tab.removeAttribute('tabindex');
+        tabs.forEach(function(t){ var p=document.getElementById(t.getAttribute('data-tab')); if(p) p.classList.toggle('is-active', t===tab); });
+      };
+      tabs.forEach(function(tab,i){
+        tab.addEventListener('click',function(){ activate(tab); });
+        tab.addEventListener('keydown',function(e){
+          var j=-1;
+          if(e.key==='ArrowRight'||e.key==='ArrowDown') j=(i+1)%tabs.length;
+          else if(e.key==='ArrowLeft'||e.key==='ArrowUp') j=(i-1+tabs.length)%tabs.length;
+          else if(e.key==='Home') j=0;
+          else if(e.key==='End') j=tabs.length-1;
+          if(j<0) return;
+          e.preventDefault(); activate(tabs[j]); tabs[j].focus();
+        });
+      });
     });
-    var setCurrent=function(id){
-      order.forEach(function(k){ if(linkFor[k]) linkFor[k].removeAttribute('aria-current'); });
-      if(linkFor[id]) linkFor[id].setAttribute('aria-current','true');
+  }catch(e){}
+
+  /* --- lightbox: images from the rail (prev/next), video from film cards
+         and the reel. Tiles are real links, so with JS off they still open.
+         Built with DOM methods only; nothing on the page is parsed as HTML. */
+  try{
+    var modal=document.getElementById('modal'), body=document.getElementById('modalBody'),
+        label=document.getElementById('modalLabel'), controls=document.getElementById('modalControls'),
+        count=document.getElementById('modalCount'), content=modal.querySelector('.modal__content'),
+        scopeBtn=document.getElementById('modalScope');
+    var tiles=[].slice.call(document.querySelectorAll('[data-lightbox="static"]'));
+    var current=-1, lastFocus=null, prevOverflow='';
+    var clear=function(el){ while(el.firstChild) el.removeChild(el.firstChild); };
+
+    /* --- campaign sets. A tile's file prefix is its campaign, so the counts
+           below are derived from the tiles actually on the page and cannot
+           drift from what a reader can see. Opening a tile pages that
+           campaign; the toolbar button widens the scope to the whole wall. */
+    var setKeyOf=function(a){
+      var h=a.getAttribute('href'), f=h.slice(h.lastIndexOf('/')+1), d=f.lastIndexOf('.');
+      if(d>0) f=f.slice(0,d);
+      var i=f.lastIndexOf('-');
+      return i>0 ? f.slice(0,i) : f;
     };
-    /* An IntersectionObserver was the obvious tool here and it was measurably
-       wrong: when a jump lands with no section inside the observation band the
-       callback finds nothing to promote and silently leaves the previous link
-       marked — at the top of the page it still read "Work". Position is the
-       thing being asked about, so ask position directly. This always resolves
-       to exactly one link, and it resolves once synchronously at init, so the
-       count is never zero even if no frame ever runs. */
-    var sections=order.map(function(id){ return document.getElementById(id); }).filter(Boolean);
-    var tops=[], lastId=null;
-    /* Offsets are cached on load and on resize, so the scroll handler is pure
-       arithmetic — no layout read, and nothing queued behind a frame. The first
-       draft throttled this with requestAnimationFrame and measurably stuck: one
-       frame ran, the in-flight flag never cleared in a background tab, and the
-       highlight froze on whatever section happened to be under it. */
-    var measure=function(){
-      if(!window.innerWidth) return;   /* a zero viewport makes every number a lie */
-      tops=sections.map(function(s){ return s.getBoundingClientRect().top+window.scrollY; });
+    var sets={};
+    tiles.forEach(function(a){ var k=setKeyOf(a); if(!sets[k]) sets[k]=[]; sets[k].push(a); });
+    var scope=tiles, scopeKey=null;
+    var setScopeFor=function(a){
+      var k=setKeyOf(a);
+      if(sets[k]&&sets[k].length>1){ scope=sets[k]; scopeKey=k; } else { scope=tiles; scopeKey=null; }
     };
-    var tick=function(){
-      if(!tops.length) return;
-      var line=window.scrollY+57+Math.min(160, window.innerHeight*0.25), cur=sections[0];
-      for(var i=0;i<sections.length;i++){ if(tops[i]<=line) cur=sections[i]; }
-      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) cur=sections[sections.length-1];
-      if(cur&&cur.id!==lastId){ lastId=cur.id; setCurrent(cur.id); }
+
+    /* every tile carries its position in its campaign, so the wall shows there
+       is more behind it without anyone having to hover to find out */
+    tiles.forEach(function(a){
+      var k=setKeyOf(a), n=sets[k].length, i=sets[k].indexOf(a)+1;
+      var plate=a.querySelector('.plate');
+      if(plate){
+        var txt=plate.textContent;
+        clear(plate);
+        var t=document.createElement('span'); t.className='plate__t'; t.textContent=txt; plate.appendChild(t);
+        if(n>1){ var c=document.createElement('span'); c.className='plate__n'; c.textContent=i+'/'+n; plate.appendChild(c); }
+      }
+      if(n>1){
+        var chip=a.querySelector('i');
+        if(chip&&chip.firstChild&&chip.firstChild.nodeType===3) chip.firstChild.nodeValue='Open all '+n+' ';
+      }
+    });
+    var close=function(){
+      modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true');
+      clear(body); document.body.style.overflow=prevOverflow;
+      if(lastFocus&&lastFocus.focus) lastFocus.focus();
     };
-    window.addEventListener('scroll', tick, {passive:true});
-    window.addEventListener('resize', function(){ measure(); tick(); });
-    window.addEventListener('load', function(){ measure(); tick(); });
-    measure(); tick();
-  }catch(e){ /* the nav degrades to plain anchor links */ }
+    var open=function(){
+      prevOverflow=document.body.style.overflow; document.body.style.overflow='hidden';
+      modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false');
+      var x=modal.querySelector('[data-close].icon-button'); if(x) x.focus();
+    };
+    var showImage=function(i){
+      current=(i+scope.length)%scope.length;
+      var a=scope[current];
+      clear(body);
+      var img=document.createElement('img'); img.src=a.getAttribute('href'); img.alt=a.querySelector('img').alt; body.appendChild(img);
+      content.className='modal__content modal__content--image';
+      label.textContent=a.getAttribute('data-caption')||('Creative / '+String(current+1).padStart(2,'0'));
+      controls.hidden=false;
+      count.textContent=String(current+1).padStart(2,'0')+' / '+String(scope.length).padStart(2,'0')+
+        (scopeKey?' in this campaign':' across every campaign');
+      if(scopeBtn){
+        var k=setKeyOf(a), n=sets[k]?sets[k].length:0;
+        scopeBtn.hidden=n<2;
+        scopeBtn.textContent=scopeKey?('See all '+tiles.length):'Just this campaign';
+      }
+    };
+    var toggleScope=function(){
+      if(current<0) return;
+      var a=scope[current];
+      if(scopeKey){ scope=tiles; scopeKey=null; } else { setScopeFor(a); }
+      showImage(scope.indexOf(a));
+    };
+    var showVideo=function(a){
+      clear(body);
+      var v=document.createElement('video'); v.controls=true; v.autoplay=true; v.playsInline=true; v.preload='metadata';
+      v.src=a.getAttribute('data-video'); v.poster=a.getAttribute('data-poster')||''; body.appendChild(v);
+      var cap=document.createElement('div'); cap.className='modal__caption';
+      var h=document.createElement('h3'); h.textContent=a.getAttribute('data-title')||''; cap.appendChild(h);
+      var p=document.createElement('p'); p.textContent=a.getAttribute('data-note')||''; cap.appendChild(p);
+      body.appendChild(cap);
+      content.className='modal__content modal__content--video';
+      label.textContent='Video ad creative'; controls.hidden=true; current=-1;
+    };
+    tiles.forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); lastFocus=a; setScopeFor(a); showImage(scope.indexOf(a)); open(); }); });
+    if(scopeBtn) scopeBtn.addEventListener('click',toggleScope);
+    document.querySelectorAll('[data-video]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); lastFocus=a; showVideo(a); open(); }); });
+    modal.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',close); });
+    controls.querySelectorAll('[data-nav]').forEach(function(b){ b.addEventListener('click',function(){ if(current>=0) showImage(current+Number(b.getAttribute('data-nav'))); }); });
+    document.addEventListener('keydown',function(e){
+      if(!modal.classList.contains('is-open')) return;
+      if(e.key==='Escape') close();
+      if(current>=0&&e.key==='ArrowLeft') showImage(current-1);
+      if(current>=0&&e.key==='ArrowRight') showImage(current+1);
+      if(e.key==='Tab'){
+        var f=[].slice.call(content.querySelectorAll('button,video,a[href]')).filter(function(el){ return !el.hidden&&el.offsetParent!==null; });
+        if(!f.length) return;
+        var first=f[0], last=f[f.length-1];
+        if(e.shiftKey&&document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey&&document.activeElement===last){ e.preventDefault(); first.focus(); }
+        else if(!content.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+      }
+    });
+  }catch(e){}
+
+  /* --- strip controls: prev/next, a live "a–b of n" counter, and drag-to-
+         scroll for mouse users. The bar only renders when the rail overflows. */
+  try{
+    document.querySelectorAll('.strip-bar').forEach(function(bar){
+      var strip=document.getElementById(bar.getAttribute('data-for'));
+      if(!strip) return;
+      var items=[].slice.call(strip.children), cnt=bar.querySelector('.scount');
+      var prev=bar.querySelector('[data-dir="-1"]'), next=bar.querySelector('[data-dir="1"]');
+      var update=function(){
+        var overflow=strip.scrollWidth>strip.clientWidth+8;
+        if(overflow){ bar.setAttribute('data-armed',''); } else { bar.removeAttribute('data-armed'); return; }
+        var sl=strip.scrollLeft, sr=sl+strip.clientWidth, a=0, b=0;
+        for(var i=0;i<items.length;i++){ var l=items[i].offsetLeft, r=l+items[i].offsetWidth; if(r-24>sl&&l+24<sr){ if(!a) a=i+1; b=i+1; } }
+        if(cnt) cnt.textContent=a+'–'+b+' of '+items.length;
+        if(prev) prev.disabled=sl<=4;
+        if(next) next.disabled=sl>=strip.scrollWidth-strip.clientWidth-4;
+      };
+      var step=function(d){ strip.scrollBy({left:d*Math.round(strip.clientWidth*0.8),behavior:'smooth'}); };
+      if(prev) prev.addEventListener('click',function(){ step(-1); });
+      if(next) next.addEventListener('click',function(){ step(1); });
+      strip.addEventListener('scroll',update,{passive:true});
+      window.addEventListener('resize',update);
+      update();
+      var down=null, dragged=false;
+      strip.addEventListener('pointerdown',function(e){ if(e.button!==0||e.pointerType!=='mouse') return; down={x:e.clientX,sl:strip.scrollLeft}; dragged=false; });
+      strip.addEventListener('pointermove',function(e){ if(!down) return; var dx=e.clientX-down.x; if(!dragged&&Math.abs(dx)>6){ dragged=true; strip.classList.add('dragging'); } if(dragged) strip.scrollLeft=down.sl-dx; });
+      var end=function(){ if(!down) return; down=null; if(dragged) setTimeout(function(){ strip.classList.remove('dragging'); dragged=false; },0); };
+      strip.addEventListener('pointerup',end); strip.addEventListener('pointerleave',end);
+      strip.addEventListener('click',function(e){ if(dragged||strip.classList.contains('dragging')){ e.preventDefault(); e.stopPropagation(); } },true);
+    });
+  }catch(e){}
+})();
+</script>
+<script>
+(function(){
+  function revealVoice(){
+    if(location.hash !== '#voice' && location.hash !== '#sys-01') return;
+    var tab=document.getElementById('tab-sys-01');
+    if(tab && tab.getAttribute('aria-selected')!=='true') tab.click();
+    var target=document.getElementById(location.hash.slice(1));
+    if(target) requestAnimationFrame(function(){ target.scrollIntoView({block:'start'}); });
+  }
+  window.addEventListener('hashchange',revealVoice);
+  revealVoice();
 })();
 </script>
 </body>
