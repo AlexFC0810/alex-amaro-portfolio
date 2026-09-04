@@ -613,13 +613,13 @@ ${setGrid('contour')}
   <div class="rail">
     <div class="sec-head">
       <p class="eyebrow t-label">Motion</p>
-      <h2 class="t-h1">Two cuts, one controlled difference.</h2>
-      <p class="t-lead">Generated UGC for CareLine &mdash; a product I own, so there is no client logo here, no patient, and no release to chase. Both cuts run the same presenter, the same room and the same offer. One walks and one holds still, which is the only thing being tested. Self-hosted from this origin; nothing autoplays and nothing downloads until you press play.</p>
+      <h2 class="t-h1">The component, then the ad it builds into.</h2>
+      <p class="t-lead">Generated UGC for CareLine &mdash; a product I own, so there is no client logo here, no patient, and no release to chase. A hook on its own is a component; a direct-response ad is that hook plus the end card carrying the promise and the call to action. Here is the component, and here is the finished unit it becomes. Self-hosted from this origin; nothing autoplays and nothing downloads until you press play.</p>
     </div>
     <div class="films">
 ${videoBlock}
     </div>
-    <p class="t-cap dim" style="margin-top:26px; max-width:68ch">Concept work. Neither cut has run in market, and neither carries a performance figure &mdash; which is precisely why they are filed under craft.</p>
+    <p class="t-cap dim" style="margin-top:26px; max-width:68ch">Concept work. Neither cut has run in market, and neither carries a performance figure &mdash; which is precisely why they are filed under craft. The end card is deliberately claim-free.</p>
   </div>
 </section>
 

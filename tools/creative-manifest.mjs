@@ -208,23 +208,33 @@ items.push({
   alt: 'A frame from a 3D-animated ad: a stylised man bends to hold a glowing knee on a garden path, caption reading you down.',
 });
 
-/* --- Motion. Self-hosted, preload="none", nothing autoplays. -------------- */
+/* --- Motion. Self-hosted, preload="none", nothing autoplays. --------------
+   Two files, ONE generated take. The first is the hook on its own; the second
+   is that same hook (tail-trimmed) stitched to a five-second claim-free end
+   card. They are not two generations and there is no controlled variable
+   between them — a previous caption said "one walks, one holds still", and a
+   viewer who pressed play on both saw the same walk twice. The pair exists to
+   show the difference between a COMPONENT and a FINISHED AD, which is the
+   distinction the private manifest's completeness gate is built around, and
+   the title on each tile is the visible label that gate requires. -------- */
 const videos = [
   {
     dir: 'creative', base: 'ai-01-frontdesk-walk', w: 1080, h: 1920, poster: 540,
-    title: 'Walking selfie', hook: 'The walking-selfie hook — a clinic owner talks to camera on the move',
+    title: 'Hook · component',
+    hook: '“Your front desk is with a patient, the phone rings, and nobody picks up.” Poses the problem, sells nothing.',
     offer: 'CareLine — AI front desk for clinics. Own brand.',
-    variable: 'Generated UGC. The walk is the variable: motion in the first frame is what buys the scroll-stop, and it is the harder thing to get out of a model cleanly.',
+    variable: 'Generated UGC, walking POV, one take. A hook on its own is a component, not an ad: it stops the scroll and asks for nothing. This one passed the craft gate; the ad beside it is what it builds into.',
     provenance: 'concept',
-    alt: 'Video: a presenter in a white coat speaks to a hand-held camera in a clinic corridor.',
+    alt: 'Video: a clinic owner walks toward the front desk, talking to a hand-held phone camera.',
   },
   {
     dir: 'creative', base: 'ai-01-frontdesk-ad', w: 1080, h: 1920, poster: 540,
-    title: 'Static-frame cut', hook: 'The same setup, held still',
+    title: 'Finished ad · hook + end card',
+    hook: 'The same hook, cut on her closing gesture and landed into an end card that names the stake and asks for the click.',
     offer: 'CareLine — AI front desk for clinics. Own brand.',
-    variable: 'The controlled comparison against the walking cut: same presenter, same room, same offer, camera locked off. Output alone proves a subscription; the pair proves a decision.',
+    variable: 'Hook plus a five-second end card: brand, promise, CTA, and not one digit. The card is deliberately claim-free and stands in for the designer’s final art. This is the completed direct-response unit; the hook alone is not.',
     provenance: 'concept',
-    alt: 'Video: the same presenter in the same clinic corridor, camera held still.',
+    alt: 'Video: the same walking hook, followed by a static CareLine end card with the offer and call to action.',
   },
 ];
 
