@@ -181,9 +181,16 @@ const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 function nav(depth, current) {
   const up = depth ? '../' : './';
+  // These are ids on the ROOT index.html, and they have to actually exist there.
+  // Until 2026-09-04 this list still named the v1 sections — gen-creative, voice,
+  // fullstack, systems, proof, growth-math, more — none of which had survived the
+  // v2 rebuild. Seven dead anchors on each of eighteen pages, 126 in total, every
+  // one of them dropping the reader at the top of the home page with no error and
+  // no clue. Nothing caught it because nothing was checking; tools/link-check.mjs
+  // now resolves every fragment against the ids in the file it points at.
   const L = [
-    ['gen-creative', 'Creative'], ['voice', 'Voice AI'], ['fullstack', 'Full stack'],
-    ['systems', 'Systems'], ['proof', 'Receipts'], ['growth-math', 'Growth math'], ['more', 'More work'],
+    ['running', 'Systems'], ['creative', 'Creative'],
+    ['numbers', 'Numbers'], ['record', 'The record'], ['work', 'More work'],
   ];
   const links = L.map(([id, t]) => `<a href="${up}index.html#${id}">${t}</a>`).join('\n      ');
   const workCur = current === 'work' ? ' aria-current="page"' : '';

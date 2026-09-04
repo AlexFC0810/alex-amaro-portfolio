@@ -17,3 +17,13 @@ jobs:
           node-version: 22
       - name: leak tripwire + claims.json integrity
         run: node tools/public-selftest.mjs
+      # Internal only: no network in CI, so this is deterministic and cannot be
+      # made red by somebody else's outage. It resolves every href, src, poster
+      # and srcset candidate to a file, and every #fragment to an id in the
+      # document it points at. That second half is the one that earns its keep:
+      # on 2026-09-04 it found 126 anchors on the case pages still aimed at v1
+      # sections that had not existed since the rebuild, none of which errored,
+      # all of which quietly dumped the reader at the top of the home page.
+      # Run `node tools/link-check.mjs --external` by hand before a release.
+      - name: link integrity (internal targets and fragments)
+        run: node tools/link-check.mjs
