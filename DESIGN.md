@@ -33,10 +33,28 @@
 >
 > The re-measure turned up two things worth naming. `--text-faint` on
 > `--bg-raise` passes at **4.63:1**, which is 0.13 above the bar where the first
-> raise had 0.61 in hand. And the tightest cell on the page is no longer in the
-> text ramp at all: `--accent` on `--bg-raise` measures **4.51:1** — the
-> calculator's own answer, clearing the flat bar by 0.01. Deepen a ground again
-> and that is the pairing that fails first.
+> raise had 0.61 in hand. And the tightest cell on the page was, at that moment,
+> not in the text ramp at all: `--accent` on `--bg-raise` measured **4.51:1** —
+> the ROI calculator's own answer, clearing the flat bar by 0.01.
+>
+> ### 2026-09-04, later the same day — the calculator left the page
+> The missed-call ROI calculator was removed from `index.html`. It modelled the
+> READER's hypothetical loss, it claimed nothing about Alex, and it occupied
+> 1,328px of the first two screens on a phone while the managed-spend figure sat
+> on screen 13 of 19. Three consequences for this document, which is why the
+> removal is recorded here and not only in a commit message:
+>
+> 1. **`--accent` on `--bg-raise` no longer occurs.** The accent is now set as
+>    text only on `--bg-card` (the hero figure) and `--bg` (one section eyebrow),
+>    so the 4.51:1 cell above is history rather than a live risk. The tightest
+>    cell is back inside the text ramp: `--text-faint` on `--bg-raise` at
+>    **4.63:1**, which is a tag inside a hovered card.
+> 2. **There is no `<input>` left on this page.** The input floor below still
+>    binds — it binds the next input anyone adds — but it currently governs
+>    nothing, and a rule that governs nothing has to say so, or the next reader
+>    mistakes it for a description of the page.
+> 3. **There is no `<noscript>` element left either.** The four-layer no-JS
+>    contract is unaffected, because it never depended on one.
 
 ## Why this system and not another
 
@@ -139,10 +157,13 @@ it was inherited from.
 ### The one accent
 
 ```css
---accent: #f59e0b;  /* THE accent. Functional only: the active nav marker, the
-                       eyebrow rule, the live-status dot, the calculator's own
-                       output. Never decorative, never a gradient, never a fill
-                       behind body text. */
+--accent: #f59e0b;  /* THE accent. Functional only: the one primary action, the
+                       single hero metric and its rule, the live-status dot, and
+                       exactly one section eyebrow (the pointer to the creative
+                       wall). Never decorative, never a gradient, never a fill
+                       behind body text. It had a fifth job until 2026-09-04 —
+                       the ROI calculator's answer — and did not get the budget
+                       back when the calculator was removed. */
 --link:   #fbbf24;  /* interactive text only — one step brighter than --accent
                        so a link is legible at body size (7.34:1 on --bg-card,
                        5.81:1 on --bg-raise) where the accent proper is tuned
@@ -192,14 +213,14 @@ body), both applied.
 |---|---|---|---|---|---|
 | `--fs-display` | 64px | 590 | -0.045em | 1.00 | The hero claim. Used **once** on the page. |
 | `--fs-h1` | 44px | 560 | -0.035em | 1.06 | One use only: the `#numbers` heading ("Fewer, and sourced."). This note used to name the creative-wall heading; that heading is `--fs-h2` like every other section, and the larger step is spent on the numbers instead. |
-| `--fs-h2` | 32px | 560 | -0.028em | 1.18 | Section headings. Three on the page: `#running`, `#creative`, `#work`. (`#numbers` takes `--fs-h1`; the calculator's heading inside the hero is `--fs-h3`.) |
+| `--fs-h2` | 32px | 560 | -0.028em | 1.18 | Section headings. Four on the page: `#running`, `#creative`, `#work`, `#record`. (`#numbers` takes `--fs-h1`.) |
 | `--fs-h3` | 22px | 520 | -0.022em | 1.32 | Card titles, sub-heads. |
 | `--fs-lead` | 19px | 400 | -0.018em | 1.50 | Section standfirst — the one paragraph under a heading. |
 | `--fs-body` | 16px | 400 | -0.011em | 1.60 | Body copy. Also the **input floor** (see below). |
 | `--fs-caption` | 13px | 400 | -0.005em | 1.55 | Captions, card meta, footnotes. |
 | `--fs-label` | 12px | 520 | +0.08em | 1.40 | **Mono.** Uppercase eyebrows, nav, tags. Positive tracking because uppercase mono at 12px closes up without it. |
 | `--fs-data` | 15px | 400 | -0.005em | 1.50 | **Mono.** Inline figures and URLs inside body copy. |
-| `--fs-figure` | 28px | 400 | -0.020em | 1.10 | **Mono.** The numbers section, and the calculator's own output. Monospace so a changing figure does not reflow its row. |
+| `--fs-figure` | 28px | 400 | -0.020em | 1.10 | **Mono.** The numbers section. Monospace because these figures sit in a column, and a proportional face makes a column of numbers ragged. |
 
 Plus one bound emphasis style: `strong` = `--fs-body` at weight 520. `<b>` and
 `<strong>` are **reset from their 700 default** — an unreset `<strong>` is the
@@ -227,8 +248,14 @@ ceiling. Here the only way to get weight is to use one of four tokens.
 
 Every `<input>` and `<select>` renders at **16px minimum**. Below 16px, iOS Safari
 auto-zooms the viewport on focus and the user is dumped into a scrolled, magnified
-page they did not ask for. The ROI calculator's number inputs are `--fs-body`
-(16px) for exactly this reason, and no smaller value may be substituted.
+page they did not ask for.
+
+**`index.html` currently has no input at all** — the ROI calculator that used to
+justify this rule was removed on 2026-09-04. The rule stays, because it binds the
+next input somebody adds and because the sibling pages still carry controls. But
+it is a standing constraint here rather than a description of the page, and the
+difference between those two is the difference between a live rule and a stale
+one.
 
 ---
 
@@ -302,7 +329,10 @@ design, because a wall that stops at 1080px is a grid, not a wall.
 ### Tap targets
 Every interactive element is **≥ 44 × 44 CSS px**, enforced with `min-height:44px`
 and padding rather than by hoping the text is tall enough. Nav links, tags, card
-links, calculator inputs and the reset button all clear it. Measured, not assumed.
+links, card links and the section links all clear it. Measured, not assumed:
+`_audit/measure.js` reports `tap.under44`, and the number has to be 0. It was 1
+on 2026-09-04 — an inline URL inside a card paragraph — and the fix was to
+promote it to a `.card-link`, not to argue that inline links are exempt.
 
 ---
 
@@ -328,10 +358,11 @@ already shipped on `index.html` and is copied here without modification:
 3. `try/catch` → settle on any error.
 4. **No `<noscript>` dependency for anything structural**: reveal styles only
    apply *under* `html.motion`, so with JS disabled the class is never added and
-   every section renders at full opacity by default. The page's one `<noscript>`
-   element is a courtesy note next to the calculator telling a JS-off reader that
-   the sliders are inert and the printed figures are the worked example. It adds
-   21px to the JS-off render and nothing else depends on it.
+   every section renders at full opacity by default. The page carried exactly one
+   `<noscript>` element, a courtesy note beside the ROI calculator; it left with
+   the calculator on 2026-09-04 and nothing structural noticed, which was always
+   the point. Re-verified after the removal by stripping every class the head
+   script adds: all six sections render at `opacity: 1`, `transform: none`.
 
 `requestAnimationFrame` is paused in background tabs. An entrance animation that
 starts at `opacity:0` and waits for a frame has already produced a blank screen in
@@ -357,11 +388,13 @@ Tightest passing pair in the text ramp: `--text-faint` on `--bg-raise` at
 **4.63:1** — 0.13 above the bar, where the first raise had 0.61 in hand at
 5.11:1, and now measured against a surface 2.013:1 lighter than `--bg`.
 
-The tightest cell on the page is not in that ramp. `--accent` on `--bg-raise`
-measures **4.51:1**, clearing the flat bar by 0.01. That pairing is real text
-rather than a rule or a dot — `.out-big` is the calculator's answer and
-`.calc-out` is the `--bg-raise` panel it sits in — so it is held to the same
-4.5:1 as body copy. It is the cell to check first if a ground moves again.
+That is now the tightest cell on the page, full stop. Until 2026-09-04 it was
+beaten by `--accent` on `--bg-raise` at **4.51:1** — the ROI calculator's answer
+on the raised panel it sat in, real text held to the flat bar and clearing it by
+0.01. The calculator was removed, and with it the only place on this page where
+the accent was ever set as text on the top of the ladder. `--text-faint` on
+`--bg-raise` is therefore the cell to check first if a ground moves again: it is
+a tag inside a hovered card, and it has 0.13 in hand.
 
 **The ground ladder itself — the check this page previously had no bar for:**
 
