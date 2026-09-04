@@ -459,6 +459,7 @@ h3 {
 }
 
 .hero-reel {
+  position: relative;
   width: min(100%, 760px);
   margin-inline: auto;
   padding: 14px;
