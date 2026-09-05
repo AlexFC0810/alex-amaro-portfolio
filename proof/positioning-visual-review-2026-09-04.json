@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-04",
+  "reviewed_render_commit": "3e8ca0ff21a2fddf0f327a1d8f4e3050021dda14",
+  "workflow_run": 33938462755,
+  "artifact_id": 9960968236,
+  "artifact_sha256": "b8b40009f0f00103c320564b218175d9dc2fee56e231604b4578a97ef19536fb",
+  "method": "Downloaded the actual screenshot artifact, extracted it in the working container, and opened after-hero-1440.png, after-hero-375.png, process-1440.png, process-375.png, about-1440.png and about-375.png for visual inspection.",
+  "findings": [
+    "The approved headline and cream/purple creative-first design are unchanged.",
+    "The intro explicitly identifies AI-native performance marketing, operator-minded scope and high-ticket service lead generation.",
+    "The phone hero contains both work and voice-demo actions plus the corrected since-2018/since-2022 biography.",
+    "The desktop process and origin-story copy fit the existing components and make AI visible across the work.",
+    "Tall mobile element captures include fixed-header/skip-link capture overlays. They are not clean promotional screenshots and were not used to assert a complete unobstructed mobile section view. The phone hero is a normal viewport capture; the automated checks establish the tested layout and interaction scope."
+  ],
+  "preservation": "No stylesheet, JavaScript, creative manifest, image, phone number, resume, compiled performance contract or generated case-study changed. Browser DOM comparison preserved all eight existing performance blocks.",
+  "decision": "Accept the bounded copy implementation; no measured conversion improvement or full redesign acceptance is claimed.",
+  "limits": "No physical-phone test, actual phone call, CRM mutation, original-Canva curation or additional AI-case verification was performed."
+}
