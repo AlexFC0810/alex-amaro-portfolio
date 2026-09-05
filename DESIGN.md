@@ -664,3 +664,7 @@ Preserve the approved cream/purple design, headline and operator copy. The new t
 
 ## Control-preserving refinement — 2026-09-04
 The owner-approved control is 20435ed. Preserve the cream/purple/black palette, hero arrangement, typography and manual gallery. New booking-pattern and leadership evidence use existing tokens and native disclosures. Audience variants change only the opening and relevant metadata, using one renderer. Native image dimensions are preserved. No new external resource, autoplay or tracking.
+
+
+## Final copy / credentials — 2026-09-05
+The accepted reference design remains the control. A compact two-column credentials block uses native details/summary, 44px targets, existing paper/ink/purple, and the existing font roles. The tattoo case spotlight is a text-only re-entry into an unchanged case. Audience views reuse the same gallery/content; only headline, descriptor, opening, CTA and metadata change. No new tracking, asset crop, animation or video.

@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 const base='https://alexfc0810.github.io/alex-amaro-portfolio/';
 const hash=b=>createHash('sha256').update(b).digest('hex');
-const files=['index.html','ai-growth.html','marketing-management.html','creative.html','assets/portfolio.css','assets/portfolio.js','assets/og-creative-first.png'];
+const files=['index.html','ai-growth.html','marketing-management.html','ai-operator.html','creative.html','assets/portfolio.css','assets/portfolio.js','assets/og-creative-first.png'];
 const expected=new Map(files.map(p=>[p,hash(fs.readFileSync(p))]));
 const home=fs.readFileSync('index.html','utf8');
 for(const id of ['voice','ai-work','fit','work']) assert.ok(home.includes(`id="${id}"`),'Missing public deep-link anchor '+id);

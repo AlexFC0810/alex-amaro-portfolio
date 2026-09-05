@@ -14,7 +14,7 @@ for(const x of manifest.items){
  assert.ok(!/\.(mp4|webm|mov)$/i.test(x.file),'Video entered the static manifest');
  if(x.sha256) assert.equal(createHash('sha256').update(fs.readFileSync(x.file)).digest('hex'),x.sha256,'Changed imported artwork '+x.id);
 }
-for(const file of ['index.html','creative.html','ai-growth.html','marketing-management.html']){
+for(const file of ['index.html','creative.html','ai-growth.html','marketing-management.html','ai-operator.html']){
  const html=fs.readFileSync(file,'utf8');
  assert.ok(!/<(?:video|iframe)\b/i.test(html),file+': unexpected embedded media');
  assert.ok(!/data-video=|\.mp4(?:["?])|\.webm(?:["?])/.test(html),file+': unexpected video link');

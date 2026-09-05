@@ -1,0 +1,115 @@
+{
+  "date": "2026-09-05",
+  "base": "d0937fb53ad4a2a13333a7a82b5c7db7cfcac73f",
+  "views": [
+    {
+      "file": "index.html",
+      "width": 375,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "index.html",
+      "width": 1440,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "marketing-management.html",
+      "width": 375,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "marketing-management.html",
+      "width": 1440,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "ai-growth.html",
+      "width": 375,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "ai-growth.html",
+      "width": 1440,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "ai-operator.html",
+      "width": 375,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "ai-operator.html",
+      "width": 1440,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "creative.html",
+      "width": 375,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    },
+    {
+      "file": "creative.html",
+      "width": 1440,
+      "contrastFailures": 0,
+      "smallTargets": 0,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "failedResources": 0,
+      "offOriginRequests": 0
+    }
+  ],
+  "callsPlaced": false,
+  "crmChanged": false,
+  "manualVisualReview": "Pending inspection of captured screenshots",
+  "noJavaScript": {
+    "voiceVisible": true,
+    "galleryLinks": 38,
+    "credentialDetailsWork": true
+  },
+  "passed": true
+}

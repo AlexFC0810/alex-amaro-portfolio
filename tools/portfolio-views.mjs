@@ -10,10 +10,11 @@ export const refinementCSS=`
 `;
 const base='https://alexfc0810.github.io/alex-amaro-portfolio/';
 const views=[
- {path:'ai-growth.html',title:'AI Growth Consultant',eyebrow:'AI growth consulting · High-ticket service businesses',headline:'Make AI work on the <em>right business problem.</em>',deck:'I’m an AI growth consultant for high-ticket service businesses. I diagnose the growth bottleneck, prioritize the opportunity and build the campaigns, automations and decision tools around the outcome—not the novelty.',primary:'#ai-work',primaryText:'Explore the systems',schema:'AI growth consultant'},
- {path:'marketing-management.html',title:'Marketing Strategy & Management',eyebrow:'Marketing strategy · Team leadership · AI-native execution',headline:'Sharper priorities.<br><em>Stronger marketing.</em>',deck:'I turn growth strategy into coordinated campaigns, creative and CRM execution. My specialty is Meta lead generation for high-ticket service businesses, backed by hands-on automation, delivery-team leadership and AI throughout.',primary:'#fit',primaryText:'See how I lead delivery',schema:'Growth marketing and automation lead'}
+ {path:'ai-growth.html',title:'AI Growth Systems & Implementation',eyebrow:'AI integration · Marketing automation · Sales operations',headline:'The right AI.<br><em>Working for growth.</em>',deck:'I select, integrate and implement AI solutions for marketing and sales—not just recommend the tools. I connect paid acquisition, voice AI and conversion workflows for high-ticket service businesses, drawing on B2B and B2C experience.',primary:'#ai-work',primaryText:'Explore the systems',schema:'AI growth systems and implementation specialist',close:'Let’s put the right AI<br><em>to work.</em>'},
+ {path:'marketing-management.html',title:'Marketing Operations & Management',eyebrow:'Marketing operations · Project management · AI-native execution',headline:'Better operations.<br><em>Stronger results.</em>',deck:'I connect marketing strategy, performance creative, paid acquisition and conversion systems—then lead the work from brief to launch. Hands-on automation, team leadership and B2B/B2C experience support my specialty in high-ticket service businesses.',primary:'#fit',primaryText:'See how I lead execution',schema:'Growth marketing and automation lead',close:'Better marketing operations.<br><em>Stronger execution.</em>'},
+ {path:'ai-operator.html',title:'AI-Native Operator',eyebrow:'AI-native operations · Workflow implementation · Growth systems',headline:'Turn AI capability<br><em>into working systems.</em>',deck:'I connect people, processes and AI to move commercial work from idea to implementation. My background spans B2B and B2C acquisition, marketing operations and hands-on automation for high-ticket service businesses.',primary:'#ai-work',primaryText:'Explore the implementations',schema:'AI-native operator',close:'Build the systems.<br><em>Move the business forward.</em>'}
 ];
-const links='<aside class="audience-links" aria-label="Portfolio views"><span>Explore by focus</span><a href="./index.html">Performance marketing</a><a href="./ai-growth.html">AI growth consulting</a><a href="./marketing-management.html">Marketing management</a></aside>';
+const links='<aside class="audience-links" aria-label="Portfolio views"><span>Explore by focus</span><a href="./index.html">Performance advertising + digital marketing</a><a href="./ai-growth.html">AI growth systems</a><a href="./marketing-management.html">Marketing operations + management</a><a href="./ai-operator.html">AI-native operator</a></aside>';
 export function renderAudienceViews(){
  let source=fs.readFileSync('index.html','utf8');
  if(!source.includes('class="audience-links"'))source=source.replace('<footer class="site-footer"',links+'<footer class="site-footer"');
@@ -32,7 +33,9 @@ export function renderAudienceViews(){
   html=html.replace(/<meta property="og:description" content="[^"]*">/,`<meta property="og:description" content="${v.deck}">`);
   html=html.replace('"jobTitle":"AI-native performance marketer"',`"jobTitle":"${v.schema}"`);
   html=html.replace('<meta name="robots" content="index,follow">','<meta name="robots" content="noindex,follow">');
+  html=html.replace('Let’s make your next campaign<br><em>hit harder.</em>',v.close);
   assert.ok(html.includes('high-ticket service businesses'));
+  assert.ok(html.includes(v.eyebrow)&&html.includes(v.headline)&&html.includes(v.deck),'View replacement failed '+v.path);
   fs.writeFileSync(v.path,html);
  }
  let creative=fs.readFileSync('creative.html','utf8');

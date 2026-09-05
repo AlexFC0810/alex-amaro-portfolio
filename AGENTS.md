@@ -1,3 +1,9 @@
+## Final copy and credential sweep — 2026-09-05
+
+Latest expression authority: Career Capital PORTFOLIO_FINAL_SWEEP_2026-09-05.md. Main view is Performance Advertising & Digital Marketing; management is Marketing Operations & Management; AI growth includes integration/implementation; ai-operator.html is a shared-content fourth view. Preserve the approved design and 38-piece collection. No new generated imagery or live-system promises.
+
+Alex requested removal of the separate owner-reported leadership microcopy. B8 is unchanged and its provenance remains in Proof; a source link replaces that front-page label. Capabilities for Slack alerts, keyword branching, review requests, sales-process setup, AI-assisted call analysis, ClickUp and GitHub Projects come from his direct experience statement; no new outcome metric is claimed. New credentials render from proof/credentials.json, sourced to Career Capital CERTIFICATIONS.md. Anthropic items are course certificates, not invented professional licenses. Unknown issuer URLs and degree enrollment are not fabricated. No calls, CRM writes, reviews or messages are triggered by the portfolio.
+
 ## Approved control and bounded CRO refinement — 2026-09-04
 
 The owner accepted commit `20435edca5bf7b201b5994ab4d6043814c597dfb` as the design/editorial control. Preserve that baseline and the approved layout/headline. New refinements are editorial hypotheses, not measured conversion winners. Latest upstream decision: Career Capital `PORTFOLIO_CONTROL_REFINEMENT_2026-09-04.md` at `1e683bf0f284311e10f5024c2bd3225bebaf496b`.
