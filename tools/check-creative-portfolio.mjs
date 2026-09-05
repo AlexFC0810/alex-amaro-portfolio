@@ -24,7 +24,11 @@ for(const file of ['index.html','creative.html']){
  const tel=[...html.matchAll(/href="(tel:[^"]+)"/g)].map(x=>x[1]);
  assert.ok(tel.length>0&&tel.every(x=>x==='tel:+18888147785'),file+': wrong demo number');
 }
+assert.ok(!ids.some(id=>id.startsWith('b2b-refrigeration-')),'Withdrawn refrigeration imagery returned');
+assert.ok(manifest.hero.every(id=>ids.includes(id)),'Curated hero drift');
 const home=fs.readFileSync('index.html','utf8');
+assert.ok(home.includes('id="ai-work"'),'AI work example missing');
+assert.ok(home.includes('not connected to my private inbox'),'AI walkthrough scope missing');
 assert.ok(home.includes('I specialize in Meta lead generation for high-ticket service businesses'),'First-person specialization missing');
 assert.ok(home.includes('Online business since 2018 · Client marketing since 2022'),'Biography drift');
 assert.ok(home.includes('AI-native performance marketer with an operator’s brain'),'AI-native operator framing missing');

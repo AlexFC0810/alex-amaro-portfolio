@@ -16,30 +16,36 @@
       "height": 1350
     },
     {
-      "id": "medspa-laser-02",
+      "id": "laser-treatment-canva",
       "category": "health",
       "market": "Laser hair removal",
-      "title": "A premium feel, a clear offer",
-      "alt": "Laser hair removal ad, art direction 2: an overhead shot of a woman floating in dark green pool water, type in gold",
-      "file": "assets/creative-static/medspa-laser-02.jpg",
-      "thumb": "assets/creative-static/medspa-laser-02-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
+      "title": "Put the treatment in the frame",
+      "alt": "Laser hair-removal static creative showing a practitioner holding the treatment device, with a first-session offer.",
+      "context": "Treatment-led creative: a clear view of the service, a visible entry offer and a short benefit hierarchy.",
+      "file": "assets/portfolio-static/laser-treatment-canva.avif",
+      "thumb": "assets/portfolio-static/laser-treatment-canva.avif",
+      "provenance": "Client creative",
+      "source": "Visually selected original Canva page preview; private source receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "ddf9892163f3ea13564cef3185fab62b3e49e2520b2414fb5bddc0cf6cdbbc8e",
+      "disclosure": "Original Canva page preview; historical offer artwork. No per-image performance claim."
     },
     {
-      "id": "medspa-body-contouring-02",
+      "id": "body-treatment-canva",
       "category": "health",
       "market": "Body contouring",
-      "title": "Lead with energy and emotion",
-      "alt": "Non-surgical body-contouring ad, casting 2: a woman leaps with one arm raised against a hot-pink ground",
-      "file": "assets/creative-static/medspa-body-contouring-02.jpg",
-      "thumb": "assets/creative-static/medspa-body-contouring-02-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
+      "title": "Make the treatment tangible",
+      "alt": "Body-contouring static creative showing a treatment in progress beside a new-client offer and service benefits.",
+      "context": "Procedure-led creative: lead with the treatment, then make the introductory offer easy to scan.",
+      "file": "assets/portfolio-static/body-treatment-canva.avif",
+      "thumb": "assets/portfolio-static/body-treatment-canva.avif",
+      "provenance": "Client creative",
+      "source": "Visually selected original Canva page preview; private source receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "310de18b505f2f9f66d3901e13c66aecf6b764d6964bc5b19b63d18d1372b1af",
+      "disclosure": "Portfolio copy: identifying logo removed. Original Canva page preview; historical offer artwork. No per-image performance claim."
     },
     {
       "id": "home-services-offer",
@@ -57,19 +63,6 @@
       "height": 717
     },
     {
-      "id": "b2b-refrigeration-01",
-      "category": "b2b",
-      "market": "Commercial refrigeration",
-      "title": "Commercial refrigeration · offer-led creative",
-      "alt": "B2B commercial refrigeration ad: a summer sale on commercial and retail chillers, four glass-door multideck renders on an orange and yellow ground",
-      "file": "assets/creative-static/b2b-refrigeration-01.jpg",
-      "thumb": "assets/creative-static/b2b-refrigeration-01-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
       "id": "own-brand-comparison",
       "sourcePath": "/library/ai/missed-call-02.webp",
       "title": "A missed-call comparison",
@@ -83,6 +76,32 @@
       "sha256": "871e1e26b31eb5078a0c2c9faf373d37e24ada1a99eb1efd407d9a7162051eb8",
       "width": 335,
       "height": 419
+    },
+    {
+      "id": "medspa-laser-05",
+      "category": "health",
+      "market": "Laser hair removal",
+      "title": "A different art direction",
+      "alt": "Laser hair removal ad, art direction 5: a studio cut-out against a purple gradient; benefits sit in white bars",
+      "file": "assets/creative-static/medspa-laser-05.jpg",
+      "thumb": "assets/creative-static/medspa-laser-05-720.webp",
+      "provenance": "Client campaign creative",
+      "source": "Existing published portfolio collection",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "medspa-body-contouring-04",
+      "category": "health",
+      "market": "Body contouring",
+      "title": "Speak to a different buyer",
+      "alt": "Non-surgical body-contouring ad, casting 4: a woman in maroon activewear with earphones against a maroon-to-grey ground",
+      "file": "assets/creative-static/medspa-body-contouring-04.jpg",
+      "thumb": "assets/creative-static/medspa-body-contouring-04-720.webp",
+      "provenance": "Client campaign creative",
+      "source": "Existing published portfolio collection",
+      "width": 1080,
+      "height": 1080
     },
     {
       "id": "medspa-botox-01",
@@ -109,19 +128,6 @@
       "source": "Existing published portfolio collection",
       "width": 1080,
       "height": 1350
-    },
-    {
-      "id": "medspa-laser-05",
-      "category": "health",
-      "market": "Laser hair removal",
-      "title": "A different art direction",
-      "alt": "Laser hair removal ad, art direction 5: a studio cut-out against a purple gradient; benefits sit in white bars",
-      "file": "assets/creative-static/medspa-laser-05.jpg",
-      "thumb": "assets/creative-static/medspa-laser-05-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
     },
     {
       "id": "chiro-knee-pain-01",
@@ -267,19 +273,6 @@
       "height": 1080
     },
     {
-      "id": "medspa-body-contouring-04",
-      "category": "health",
-      "market": "Body contouring",
-      "title": "Speak to a different buyer",
-      "alt": "Non-surgical body-contouring ad, casting 4: a woman in maroon activewear with earphones against a maroon-to-grey ground",
-      "file": "assets/creative-static/medspa-body-contouring-04.jpg",
-      "thumb": "assets/creative-static/medspa-body-contouring-04-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
       "id": "chiro-knee-pain-08",
       "category": "health",
       "market": "Chiropractic",
@@ -332,19 +325,6 @@
       "height": 1080
     },
     {
-      "id": "b2b-refrigeration-02",
-      "category": "b2b",
-      "market": "Commercial refrigeration",
-      "title": "Commercial refrigeration · creative variation",
-      "alt": "B2B commercial refrigeration ad: a summer sale collage on white, a product render above a retail chiller-aisle photo",
-      "file": "assets/creative-static/b2b-refrigeration-02.jpg",
-      "thumb": "assets/creative-static/b2b-refrigeration-02-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
       "id": "medspa-botox-02",
       "category": "health",
       "market": "Aesthetics",
@@ -358,19 +338,6 @@
       "height": 1080
     },
     {
-      "id": "b2b-refrigeration-03",
-      "category": "b2b",
-      "market": "Commercial refrigeration",
-      "title": "Commercial refrigeration · creative variation",
-      "alt": "B2B commercial refrigeration ad: the headline affordable commercial refrigerators over a warehouse photo of shrink-wrapped multideck chillers",
-      "file": "assets/creative-static/b2b-refrigeration-03.jpg",
-      "thumb": "assets/creative-static/b2b-refrigeration-03-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
       "id": "medspa-glp1-02",
       "category": "health",
       "market": "Weight-loss clinic",
@@ -378,32 +345,6 @@
       "alt": "GLP-1 medically supervised weight-loss programme ad, pink theme: an athletic woman in a white sports set beside three benefit bullets",
       "file": "assets/creative-static/medspa-glp1-02.jpg",
       "thumb": "assets/creative-static/medspa-glp1-02-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
-      "id": "b2b-refrigeration-04",
-      "category": "b2b",
-      "market": "Commercial refrigeration",
-      "title": "Commercial refrigeration · creative variation",
-      "alt": "B2B commercial refrigeration image ad: a warehouse photo of a shrink-wrapped multideck chiller with a red best-seller stamp",
-      "file": "assets/creative-static/b2b-refrigeration-04.jpg",
-      "thumb": "assets/creative-static/b2b-refrigeration-04-720.webp",
-      "provenance": "Client campaign creative",
-      "source": "Existing published portfolio collection",
-      "width": 1080,
-      "height": 1080
-    },
-    {
-      "id": "b2b-refrigeration-05",
-      "category": "b2b",
-      "market": "Commercial refrigeration",
-      "title": "Commercial refrigeration · creative variation",
-      "alt": "B2B commercial refrigeration image ad: two glass-door multideck renders stacked on white, one stocked and one empty",
-      "file": "assets/creative-static/b2b-refrigeration-05.jpg",
-      "thumb": "assets/creative-static/b2b-refrigeration-05-720.webp",
       "provenance": "Client campaign creative",
       "source": "Existing published portfolio collection",
       "width": 1080,
@@ -519,5 +460,26 @@
         "status": "pending-visual-review"
       }
     ]
+  },
+  "hero": [
+    "chiro-knee-pain-03",
+    "laser-treatment-canva",
+    "body-treatment-canva",
+    "home-services-offer"
+  ],
+  "curation": {
+    "date": "2026-09-04",
+    "reviewed_original_pages": 23,
+    "added_original_selections": 2,
+    "removed_from_active_gallery": [
+      "medspa-laser-02",
+      "medspa-body-contouring-02",
+      "b2b-refrigeration-01",
+      "b2b-refrigeration-02",
+      "b2b-refrigeration-03",
+      "b2b-refrigeration-04",
+      "b2b-refrigeration-05"
+    ],
+    "note": "Visual selection is an editorial judgment, not a finding of ad performance. Refrigeration results/case pages and original assets are preserved; imagery is withdrawn from active creative presentation. New selections retain native 447px preview size; no high-resolution export or AI upscale is claimed."
   }
 }
