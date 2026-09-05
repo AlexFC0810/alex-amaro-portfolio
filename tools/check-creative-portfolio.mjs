@@ -14,7 +14,7 @@ for(const x of manifest.items){
  assert.ok(!/\.(mp4|webm|mov)$/i.test(x.file),'Video entered the static manifest');
  if(x.sha256) assert.equal(createHash('sha256').update(fs.readFileSync(x.file)).digest('hex'),x.sha256,'Changed imported artwork '+x.id);
 }
-for(const file of ['index.html','creative.html']){
+for(const file of ['index.html','creative.html','ai-growth.html','marketing-management.html']){
  const html=fs.readFileSync(file,'utf8');
  assert.ok(!/<(?:video|iframe)\b/i.test(html),file+': unexpected embedded media');
  assert.ok(!/data-video=|\.mp4(?:["?])|\.webm(?:["?])/.test(html),file+': unexpected video link');
@@ -30,7 +30,7 @@ const home=fs.readFileSync('index.html','utf8');
 assert.ok(home.includes('id="ai-work"'),'AI work example missing');
 assert.ok(home.includes('not connected to my private inbox'),'AI walkthrough scope missing');
 assert.ok(home.includes('I specialize in Meta lead generation for high-ticket service businesses'),'First-person specialization missing');
-assert.ok(home.includes('Online business since 2018 · Client marketing since 2022'),'Biography drift');
+assert.ok(home.includes('Online business since 2018 · Digital marketing since 2020'),'Biography drift');
 assert.ok(home.includes('AI-native performance marketer with an operator’s brain'),'AI-native operator framing missing');
 assert.ok(home.includes('AI throughout.'),'AI-across-work framing missing');
 assert.ok(home.includes('id="voice"'),'Demo anchor missing');

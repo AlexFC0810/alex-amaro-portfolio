@@ -660,3 +660,7 @@ The reviewed V4 proof-room design is promoted to the root at Alex’s request. I
 ## Static curation / AI work — 2026-09-04
 
 Preserve the approved cream/purple design, headline and operator copy. The new two-card AI-work module uses the same ink/paper/purple tokens, 1px borders, 16px body, 12–13px supporting labels and 48px native disclosure summary. It documents two concrete builds rather than reinstating the rejected console screenshot. Native disclosure works without JavaScript. The image viewer does not upscale preview-resolution Canva selections; the relevant privacy/source note remains visible on mobile. No new font, palette, autoplay, remote resource or tracking.
+
+
+## Control-preserving refinement — 2026-09-04
+The owner-approved control is 20435ed. Preserve the cream/purple/black palette, hero arrangement, typography and manual gallery. New booking-pattern and leadership evidence use existing tokens and native disclosures. Audience variants change only the opening and relevant metadata, using one renderer. Native image dimensions are preserved. No new external resource, autoplay or tracking.
