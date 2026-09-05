@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-05",
+  "authorization": "Owner explicitly requested publication of the reviewed refinement, Career Capital integration, and final links in this conversation.",
+  "accepted_control_commit": "20435edca5bf7b201b5994ab4d6043814c597dfb",
+  "reviewed_render_commit": "342bd93e19a8bcae5697d96046c2e0fc59e34633",
+  "browser_run": 33945197831,
+  "browser_artifact": 9963101620,
+  "artifact_sha256": "24d4948e7db44a4a1df8a8f958256303e926763bd7c224fc0733789a6c2d9b51",
+  "manual_visual_review": {
+    "method": "Downloaded and extracted the actual browser artifact. Opened the desktop home at original size and assembled/opened review boards of the captured desktop and mobile views. These are real browser captures, not generated substitutes.",
+    "inspected": ["index-1440.png", "index-375.png", "ai-growth-1440.png", "ai-growth-375.png", "marketing-management-1440.png", "marketing-management-375.png", "gallery-1440.png", "bookings-1440.png", "bookings-375.png", "management-1440.png", "management-375.png", "automation-1440.png"],
+    "assessment": "Approved structure and hero remain recognizable. Audience openings, expanded manual gallery, time-bounded booking cases and leadership/automation sections are readable. Some section captures retain a focused Skip to content link from keyboard testing; that is a test-state overlay, not injected portfolio copy.",
+    "scope": "Publication pass did not replace or regenerate any artwork, copy, CSS or browser runtime after the captured build. This receipt completes the pending visual-review field in the earlier browser report. It is not a measured conversion-uplift claim."
+  },
+  "release_changes": ["Remove the completed one-time review workflow.", "Extend generated-source checks and live hash verification to both audience views.", "Keep main, creative, AI consulting and marketing-management content under one source and claims record."],
+  "boundaries": ["No actual telephone call, CRM mutation, outbound message, booking, application submission or private workflow was initiated.", "Private pattern configuration was not copied into public CI or rerun in this publication pass.", "The accepted control is preserved on control/creative-benchmark-2026-09-04; the published refinement is not asserted to be an A/B-tested winner.", "Native-resolution Canva previews remain previews, and client-identifying masks remain disclosed.", "Résumé and existing generated case studies are unchanged; this pass does not label the résumé newly regenerated."],
+  "career_home": "AlexFC0810/career-capital-os; public-link selection and application routing belong there, not in a duplicate portfolio."
+}
