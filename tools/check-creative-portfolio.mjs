@@ -25,8 +25,10 @@ for(const file of ['index.html','creative.html']){
  assert.ok(tel.length>0&&tel.every(x=>x==='tel:+18888147785'),file+': wrong demo number');
 }
 const home=fs.readFileSync('index.html','utf8');
-assert.ok(home.includes('I specialize in Meta paid social.'),'First-person specialization missing');
-assert.ok(home.includes('6+ years in online business · Digital marketing since 2022'),'Biography drift');
+assert.ok(home.includes('I specialize in Meta lead generation for high-ticket service businesses'),'First-person specialization missing');
+assert.ok(home.includes('Online business since 2018 · Client marketing since 2022'),'Biography drift');
+assert.ok(home.includes('AI-native performance marketer with an operator’s brain'),'AI-native operator framing missing');
+assert.ok(home.includes('AI throughout.'),'AI-across-work framing missing');
 assert.ok(home.includes('id="voice"'),'Demo anchor missing');
 assert.ok(home.includes('Built on GoHighLevel.'),'Implementation credit missing');
 assert.ok(home.includes('not a live log'),'Illustration boundary missing');
