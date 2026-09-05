@@ -1,0 +1,64 @@
+{
+  "date": "2026-09-04",
+  "baseline": "b71bb9894c0512a123f73c383624fc8cc0e0493c",
+  "kind": "Chromium on GitHub Actions; not user research or a telephone/backend test",
+  "viewports": [
+    {
+      "width": 375,
+      "height": 812,
+      "small_targets": 0,
+      "low_contrast": 0,
+      "horizontal_overflow": false,
+      "new_images_decode": true,
+      "viewer_no_upscale": true,
+      "gallery_filters_and_viewer": true,
+      "native_build_disclosure": true,
+      "phone_links_unchanged": true,
+      "off_origin_requests": 0,
+      "failed_resources": 0,
+      "browser_errors": 0
+    },
+    {
+      "width": 760,
+      "height": 900,
+      "small_targets": 0,
+      "low_contrast": 0,
+      "horizontal_overflow": false,
+      "new_images_decode": true,
+      "viewer_no_upscale": true,
+      "gallery_filters_and_viewer": true,
+      "native_build_disclosure": true,
+      "phone_links_unchanged": true,
+      "off_origin_requests": 0,
+      "failed_resources": 0,
+      "browser_errors": 0
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "small_targets": 0,
+      "low_contrast": 0,
+      "horizontal_overflow": false,
+      "new_images_decode": true,
+      "viewer_no_upscale": true,
+      "gallery_filters_and_viewer": true,
+      "native_build_disclosure": true,
+      "phone_links_unchanged": true,
+      "off_origin_requests": 0,
+      "failed_resources": 0,
+      "browser_errors": 0
+    }
+  ],
+  "claims_preserved": 8,
+  "gallery_count": 30,
+  "source_image_kind": "Original Canva page previews at 447px; body logo redacted",
+  "phone_call_placed": false,
+  "crm_changed": false,
+  "private_pattern_sweep": "Not rerun; public contract and source-preservation guards ran.",
+  "no_javascript": {
+    "hero_voice_and_ai_work_available": true,
+    "details_opens": true,
+    "creative_anchors": 30
+  },
+  "result": "PASS"
+}

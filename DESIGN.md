@@ -655,3 +655,8 @@ the lightbox are progressive enhancement — every panel is in the DOM and every
 # Final canonical portfolio — 2026-09-04
 
 The reviewed V4 proof-room design is promoted to the root at Alex’s request. Its measured token system is retained in `assets/portfolio.css`; the historical V4 files remain noindex and unmodified. The new phone number uses Instrument Serif at 400; the call control uses the existing ink/paper pair, Inter at 520, a 48px minimum height, no radius and no shadow. The workflow caption and demo boundaries use the existing 14px caption role. No new color, font or external request. The public demo is reachable from the hero and header, and the header exposes the résumé without burying it in the footer. On a deep link the relevant system tab opens before scrolling. The illustrative workflow is labelled as such and cannot be mistaken for execution telemetry.
+
+
+## Static curation / AI work — 2026-09-04
+
+Preserve the approved cream/purple design, headline and operator copy. The new two-card AI-work module uses the same ink/paper/purple tokens, 1px borders, 16px body, 12–13px supporting labels and 48px native disclosure summary. It documents two concrete builds rather than reinstating the rejected console screenshot. Native disclosure works without JavaScript. The image viewer does not upscale preview-resolution Canva selections; the relevant privacy/source note remains visible on mobile. No new font, palette, autoplay, remote resource or tracking.
