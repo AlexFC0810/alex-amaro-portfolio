@@ -16,8 +16,56 @@
       "height": 1350
     },
     {
+      "id": "laser-bilingual-01",
+      "category": "laser",
+      "market": "Laser hair removal",
+      "title": "Lead with confidence",
+      "alt": "Laser hair removal campaign artwork: Lead with confidence.",
+      "context": "Treatment imagery and a direct booking invitation. Client-identifying marks are masked; the creative and offer are otherwise unchanged.",
+      "file": "assets/portfolio-static/laser-bilingual-01.avif",
+      "thumb": "assets/portfolio-static/laser-bilingual-01.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "daff938db3d51b536c8014749395a7cdd74946f09b6f1d007b523bb1dc338b99",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim. Client-identifying marks masked for portfolio privacy."
+    },
+    {
+      "id": "tattoo-01",
+      "category": "tattoo",
+      "market": "Tattoo removal",
+      "title": "A clear next step for an old tattoo",
+      "alt": "Tattoo removal campaign artwork: A clear next step for an old tattoo.",
+      "context": "An objection-aware hook, an in-treatment image and a visible introductory offer. Client-identifying logo masked.",
+      "file": "assets/portfolio-static/tattoo-01.avif",
+      "thumb": "assets/portfolio-static/tattoo-01.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "ed756a6a2916ce5e7c4f9e58d59cb107750de6926f0e915ffe3194ab4fd21b6f",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim. Client-identifying marks masked for portfolio privacy."
+    },
+    {
+      "id": "weight-loss-05",
+      "category": "weight",
+      "market": "Weight-loss program",
+      "title": "Put the offer beside a human moment",
+      "alt": "Weight-loss program campaign artwork: Put the offer beside a human moment.",
+      "context": "A lifestyle-led composition with the offer and benefits grouped together.",
+      "file": "assets/portfolio-static/weight-loss-05.avif",
+      "thumb": "assets/portfolio-static/weight-loss-05.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "94a86fa72efcf2c4f69eae06a5fd0526bbbaf22296f24cfc58402a02840b2478",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim."
+    },
+    {
       "id": "laser-treatment-canva",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "Put the treatment in the frame",
       "alt": "Laser hair-removal static creative showing a practitioner holding the treatment device, with a first-session offer.",
@@ -48,21 +96,6 @@
       "disclosure": "Portfolio copy: identifying logo removed. Original Canva page preview; historical offer artwork. No per-image performance claim."
     },
     {
-      "id": "home-services-offer",
-      "sourcePath": "/library/home/clarity-door-02.webp",
-      "title": "Offer-first door hanger",
-      "alt": "Residential cleaning direct-mail design with a clear introductory offer",
-      "category": "home",
-      "market": "Residential cleaning",
-      "provenance": "Own-brand · Direct mail",
-      "file": "assets/portfolio-static/home-services-offer.webp",
-      "thumb": "assets/portfolio-static/home-services-offer.webp",
-      "source": "Owner-selected public reference; native-size static artwork",
-      "sha256": "81b2992666053d710b5a3c269342c5bd0746c30e25668c0ab7441487bc8e5053",
-      "width": 277,
-      "height": 717
-    },
-    {
       "id": "own-brand-comparison",
       "sourcePath": "/library/ai/missed-call-02.webp",
       "title": "A missed-call comparison",
@@ -78,8 +111,55 @@
       "height": 419
     },
     {
+      "id": "weight-loss-02",
+      "category": "weight",
+      "market": "Weight-loss program",
+      "title": "Change the casting and visual energy",
+      "alt": "Weight-loss program campaign artwork: Change the casting and visual energy.",
+      "context": "A warmer creative treatment of the same entry offer. Shown as a still preview of the original Canva layout.",
+      "file": "assets/portfolio-static/weight-loss-02.avif",
+      "thumb": "assets/portfolio-static/weight-loss-02.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "7d01daf1a6274514c380358cab37be97196d9af38c3217daba4aeec64664c7c9",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim."
+    },
+    {
+      "id": "laser-bilingual-04",
+      "category": "laser",
+      "market": "Laser hair removal",
+      "title": "Make the service feel approachable",
+      "alt": "Laser hair removal campaign artwork: Make the service feel approachable.",
+      "context": "A conversational headline paired with a close view of the procedure. Client-identifying logo masked.",
+      "file": "assets/portfolio-static/laser-bilingual-04.avif",
+      "thumb": "assets/portfolio-static/laser-bilingual-04.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "816d6b5371b32e804371300ef5f42fc77f70d735858bc8f785752ac5b6920795",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim. Client-identifying marks masked for portfolio privacy."
+    },
+    {
+      "id": "home-services-offer",
+      "sourcePath": "/library/home/clarity-door-02.webp",
+      "title": "Offer-first door hanger",
+      "alt": "Residential cleaning direct-mail design with a clear introductory offer",
+      "category": "home",
+      "market": "Residential cleaning",
+      "provenance": "Own-brand · Direct mail",
+      "file": "assets/portfolio-static/home-services-offer.webp",
+      "thumb": "assets/portfolio-static/home-services-offer.webp",
+      "source": "Owner-selected public reference; native-size static artwork",
+      "sha256": "81b2992666053d710b5a3c269342c5bd0746c30e25668c0ab7441487bc8e5053",
+      "width": 277,
+      "height": 717
+    },
+    {
       "id": "medspa-laser-05",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "A different art direction",
       "alt": "Laser hair removal ad, art direction 5: a studio cut-out against a purple gradient; benefits sit in white bars",
@@ -89,6 +169,22 @@
       "source": "Existing published portfolio collection",
       "width": 1080,
       "height": 1080
+    },
+    {
+      "id": "weight-loss-04",
+      "category": "weight",
+      "market": "Weight-loss program",
+      "title": "Give the program a different visual identity",
+      "alt": "Weight-loss program campaign artwork: Give the program a different visual identity.",
+      "context": "A medically supervised-program label, a prominent price and a pink art direction.",
+      "file": "assets/portfolio-static/weight-loss-04.avif",
+      "thumb": "assets/portfolio-static/weight-loss-04.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "a20c49f06bfc798fa5d9ce4b825242eec3af0a416b74603bc73d35f9231ea843",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim."
     },
     {
       "id": "medspa-body-contouring-04",
@@ -157,7 +253,7 @@
     },
     {
       "id": "medspa-laser-01",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "One offer. A brighter visual world.",
       "alt": "Laser hair removal ad, art direction 1: a woman on a white-sand beach under palm fronds; a magenta band carries the headline",
@@ -209,7 +305,7 @@
     },
     {
       "id": "medspa-laser-03",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "Keep the message easy to scan",
       "alt": "Laser hair removal ad, art direction 3: a woman standing in the sea against a blue sky; the headline sits in a dark band",
@@ -222,7 +318,7 @@
     },
     {
       "id": "medspa-weight-loss-01",
-      "category": "health",
+      "category": "weight",
       "market": "Weight-loss clinic",
       "title": "Weight-loss clinic · offer-led creative",
       "alt": "GLP-1 weight-loss ad: the words skinny shots in gold beside a per-week price capsule on white",
@@ -261,7 +357,7 @@
     },
     {
       "id": "medspa-laser-04",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "Put the offer first",
       "alt": "Laser hair removal ad, art direction 4: a woman walks out of the surf in an open white shirt; the price leads the frame",
@@ -300,7 +396,7 @@
     },
     {
       "id": "medspa-laser-06",
-      "category": "health",
+      "category": "laser",
       "market": "Laser hair removal",
       "title": "Show the treatment, not just the promise",
       "alt": "Laser hair removal ad, art direction 6: a client in protective eyewear during a laser session, clinician's hands in frame",
@@ -313,7 +409,7 @@
     },
     {
       "id": "medspa-glp1-01",
-      "category": "health",
+      "category": "weight",
       "market": "Weight-loss clinic",
       "title": "Weight-loss clinic · offer-led creative",
       "alt": "GLP-1 medically supervised weight-loss programme ad, red theme: a woman holding out oversized jeans beside three benefit bullets",
@@ -339,7 +435,7 @@
     },
     {
       "id": "medspa-glp1-02",
-      "category": "health",
+      "category": "weight",
       "market": "Weight-loss clinic",
       "title": "Weight-loss clinic · creative variation",
       "alt": "GLP-1 medically supervised weight-loss programme ad, pink theme: an athletic woman in a white sports set beside three benefit bullets",
@@ -409,6 +505,38 @@
       "sha256": "d682ccbb20730e709e6c0a738cdcd5113433b2f24c89076943c96f65eef4a7bd",
       "width": 447,
       "height": 447
+    },
+    {
+      "id": "weight-loss-01",
+      "category": "weight",
+      "market": "Weight-loss program",
+      "title": "One service. One visible entry offer.",
+      "alt": "Weight-loss program campaign artwork: One service. One visible entry offer..",
+      "context": "A blue offer-led layout with a clear price anchor and a short benefit hierarchy.",
+      "file": "assets/portfolio-static/weight-loss-01.avif",
+      "thumb": "assets/portfolio-static/weight-loss-01.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "6b15b58c9591f0ade5d5cd669c644685de680e2382d0969b1f459aca9b406900",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim."
+    },
+    {
+      "id": "weight-loss-03",
+      "category": "weight",
+      "market": "Weight-loss program",
+      "title": "Make the price easy to find",
+      "alt": "Weight-loss program campaign artwork: Make the price easy to find.",
+      "context": "A high-contrast offer band paired with a different visual direction.",
+      "file": "assets/portfolio-static/weight-loss-03.avif",
+      "thumb": "assets/portfolio-static/weight-loss-03.avif",
+      "provenance": "Campaign creative · still preview",
+      "source": "Original Canva page preview; private source and selection receipt retained",
+      "width": 447,
+      "height": 447,
+      "sha256": "96a95d5a7c468aa82e3bc4d90bb1393eb6fe221bfe2dc1841e3d45894de67b50",
+      "disclosure": "Original Canva page preview; historical promotional artwork, not a current offer or an individual-ad performance claim."
     }
   ],
   "referenceStaticReview": {
@@ -481,5 +609,20 @@
       "b2b-refrigeration-05"
     ],
     "note": "Visual selection is an editorial judgment, not a finding of ad performance. Refrigeration results/case pages and original assets are preserved; imagery is withdrawn from active creative presentation. New selections retain native 447px preview size; no high-resolution export or AI upscale is claimed."
+  },
+  "latest_curation": {
+    "date": "2026-09-04",
+    "basis": "Owner-approved control refinement; eight reviewed original previews added, stronger varied selection first. Authored motion-layout still previews allowed; no Higgsfield/video playback or refrigeration images.",
+    "control_commit": "20435edca5bf7b201b5994ab4d6043814c597dfb",
+    "added_ids": [
+      "laser-bilingual-01",
+      "laser-bilingual-04",
+      "tattoo-01",
+      "weight-loss-01",
+      "weight-loss-02",
+      "weight-loss-03",
+      "weight-loss-04",
+      "weight-loss-05"
+    ]
   }
 }

@@ -1,0 +1,121 @@
+{
+  "control": "20435edca5bf7b201b5994ab4d6043814c597dfb",
+  "date": "2026-09-04",
+  "kind": "Editorial refinement; not measured conversion testing",
+  "checks": [
+    {
+      "file": "index.html",
+      "viewport": [
+        375,
+        812
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "index.html",
+      "viewport": [
+        760,
+        900
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "index.html",
+      "viewport": [
+        1440,
+        900
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "ai-growth.html",
+      "viewport": [
+        375,
+        812
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "ai-growth.html",
+      "viewport": [
+        1440,
+        900
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "marketing-management.html",
+      "viewport": [
+        375,
+        812
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "marketing-management.html",
+      "viewport": [
+        1440,
+        900
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 4
+    },
+    {
+      "file": "creative.html",
+      "viewport": [
+        375,
+        812
+      ],
+      "smallTargets": 0,
+      "contrastFailures": 0,
+      "overflow": false,
+      "failedResources": 0,
+      "externalRequests": 0,
+      "phoneLinks": 1
+    }
+  ],
+  "phoneCallPlaced": false,
+  "crmChanged": false,
+  "privatePatternSweep": false,
+  "manualVisualReview": "Pending screenshot inspection",
+  "noJavaScript": {
+    "voiceVisible": true,
+    "galleryAnchors": 38,
+    "leadershipVisible": true
+  },
+  "passed": true
+}

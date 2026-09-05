@@ -1,6 +1,6 @@
 // Public expression of source-inspected builds. No inbox, model call, or private data.
 export const aiWork = `<section class="section ai-work-section" id="ai-work" aria-labelledby="ai-work-heading">
-  <div class="library-heading"><div><p class="eyebrow blue">AI in practice</p><h2 id="ai-work-heading">Not just content.<br>Tools that move the work.</h2></div><p>The same systems thinking behind a campaign can turn repetitive work into a useful workflow. Here are two ways I put it to work.</p></div>
+  <div class="library-heading"><div><p class="eyebrow blue">AI in practice</p><h2 id="ai-work-heading">Better decisions.<br>Systems built for results.</h2></div><p>I use AI where it improves a decision or a workflow—not simply to produce more output. These builds show how I turn diagnosis into practical implementation.</p></div>
   <div class="build-cases">
     <article class="build-case build-case--radar">
       <p class="build-kind">AI-assisted opportunity intelligence</p>

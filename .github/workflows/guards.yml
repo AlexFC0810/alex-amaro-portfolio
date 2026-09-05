@@ -18,15 +18,17 @@ jobs:
       - name: Internal links and fragments
         run: node tools/link-check.mjs
       - name: Public performance claims licensed by the contract
-        run: node tools/check-home-claims.mjs
+        run: |
+          node tools/check-home-claims.mjs
+          node tools/check-home-claims.mjs index.html creative.html ai-growth.html marketing-management.html
       - name: Historical review counts match their dated ledger
         run: node tools/gate-ledger.mjs
       - name: Current creative-first scope and asset integrity
         run: node tools/check-creative-portfolio.mjs
-      - name: Generated home and collection match their source
+      - name: Generated home, collection and audience views match their source
         run: |
           node tools/build-creative-portfolio.mjs
-          git diff --exit-code -- index.html creative.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html tools/build-creative-wall.mjs proof/experience.json
+          git diff --exit-code -- index.html creative.html ai-growth.html marketing-management.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html tools/build-creative-wall.mjs proof/experience.json
   live-publication:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: guards
@@ -40,5 +42,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify the actual public release
+      - name: Verify every published portfolio view and supporting links
         run: node tools/check-live-site.mjs
