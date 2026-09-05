@@ -1,0 +1,60 @@
+{
+  "date": "2026-09-04",
+  "base_commit": "95a4994caf426796b34a7cbb29ea69e516fb2a29",
+  "checks": [
+    {
+      "viewport": [
+        375,
+        812
+      ],
+      "performanceBlocksPreserved": 8,
+      "contrastFailures": 0,
+      "undersizedTargets": 0,
+      "horizontalOverflow": false,
+      "failedResources": 0,
+      "offOriginRequests": 0,
+      "browserErrors": 0,
+      "galleryAndNavigation": true,
+      "phoneLinks": 4
+    },
+    {
+      "viewport": [
+        760,
+        900
+      ],
+      "performanceBlocksPreserved": 8,
+      "contrastFailures": 0,
+      "undersizedTargets": 0,
+      "horizontalOverflow": false,
+      "failedResources": 0,
+      "offOriginRequests": 0,
+      "browserErrors": 0,
+      "galleryAndNavigation": true,
+      "phoneLinks": 4
+    },
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "performanceBlocksPreserved": 8,
+      "contrastFailures": 0,
+      "undersizedTargets": 0,
+      "horizontalOverflow": false,
+      "failedResources": 0,
+      "offOriginRequests": 0,
+      "browserErrors": 0,
+      "galleryAndNavigation": true,
+      "phoneLinks": 4
+    }
+  ],
+  "phoneCallPlaced": false,
+  "crmChanged": false,
+  "manualVisualReview": "Pending actual screenshot inspection; this is the automated receipt.",
+  "privateClaimsSweep": "Not rerun: private configuration is not copied into public CI. Existing cases, performance blocks, contract and resume are preserved.",
+  "noJavaScript": {
+    "heroVisible": true,
+    "demoVisible": true
+  },
+  "passed": true
+}
