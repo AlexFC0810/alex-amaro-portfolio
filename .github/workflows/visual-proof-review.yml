@@ -1,0 +1,55 @@
+name: Curated creative and AI work review
+on:
+  push:
+    branches: [portfolio/creative-proof-2026-09-04]
+permissions:
+  contents: write
+concurrency:
+  group: portfolio-visual-proof
+  cancel-in-progress: false
+jobs:
+  review:
+    if: "contains(github.event.head_commit.message, '[visual-proof-build]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply bounded changes to the existing source
+        run: |
+          python tools/visual-proof-patch.py
+          node tools/build-creative-portfolio.mjs
+          git add index.html creative.html assets/portfolio.css assets/portfolio.js tools/build-creative-portfolio.mjs tools/portfolio-gallery.json tools/check-creative-portfolio.mjs AGENTS.md DESIGN.md
+          node tools/public-selftest.mjs
+          node tools/check-home-claims.mjs
+          node tools/check-creative-portfolio.mjs
+          node tools/gate-ledger.mjs
+          node tools/link-check.mjs
+          git diff --exit-code b71bb9894c0512a123f73c383624fc8cc0e0493c -- claims.json llms.txt Alex-Amaro-Resume.pdf model.html work.html work tools/case-studies.json
+      - name: Browser verification dependencies
+        run: |
+          pip install playwright==1.55.0 beautifulsoup4 Pillow
+          python -m playwright install --with-deps chromium
+      - name: Three viewport checks and real browser captures
+        run: python tools/visual-proof-browser.py
+      - name: Preserve visual review captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-visual-proof-review
+          path: /tmp/visual-proof-review/
+          if-no-files-found: warn
+      - name: Commit tested render to this branch only
+        run: |
+          set -euo pipefail
+          test "$(git ls-remote origin refs/heads/portfolio/creative-proof-2026-09-04 | cut -f1)" = "$GITHUB_SHA"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm tools/visual-proof-patch.py tools/visual-proof-browser.py
+          git add _audit/releases/2026-09-04-visual-proof.json
+          git commit -m 'Render curated static work and AI examples after browser checks'
+          git push origin HEAD:refs/heads/portfolio/creative-proof-2026-09-04
