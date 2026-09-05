@@ -20,15 +20,17 @@ jobs:
       - name: Public performance claims licensed by the contract
         run: |
           node tools/check-home-claims.mjs
-          node tools/check-home-claims.mjs index.html creative.html ai-growth.html marketing-management.html
+          node tools/check-home-claims.mjs index.html creative.html ai-growth.html marketing-management.html ai-operator.html
       - name: Historical review counts match their dated ledger
         run: node tools/gate-ledger.mjs
       - name: Current creative-first scope and asset integrity
-        run: node tools/check-creative-portfolio.mjs
+        run: |
+          node tools/check-creative-portfolio.mjs
+          node tools/check-portfolio-credentials.mjs
       - name: Generated home, collection and audience views match their source
         run: |
           node tools/build-creative-portfolio.mjs
-          git diff --exit-code -- index.html creative.html ai-growth.html marketing-management.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html tools/build-creative-wall.mjs proof/experience.json
+          git diff --exit-code -- index.html creative.html ai-growth.html marketing-management.html ai-operator.html assets/portfolio.css assets/portfolio-base.css assets/portfolio.js assets/og-creative-first.html tools/build-creative-wall.mjs proof/experience.json
   live-publication:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: guards
