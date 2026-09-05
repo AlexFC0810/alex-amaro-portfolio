@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-04",
+  "reviewed_render_commit": "5467550e6fba34f4d3627bc92b71c0ea5c3fa39d",
+  "workflow_run": 33941900237,
+  "artifact_id": 9962103787,
+  "artifact_sha256": "714f208dbd28865f3a11d9a39a17720750ce49d9a7e2869dafddf6ade2d5ea50",
+  "method": "Downloaded the actual Chromium screenshot artifact, extracted it in the working environment, and opened the images directly. Inspected both final decoded native-size creative derivatives. No generated visual substitute or OCR was used.",
+  "opened_captures": ["hero-1440.png", "hero-375.png", "gallery-1440.png", "ai-work-1440.png", "ai-work-375.png"],
+  "observations": [
+    "Approved headline, AI-native positioning and cream/purple design remain intact.",
+    "Treatment-led laser/body artwork replaces the two weaker hero selections. The chiropractic and home-service choices remain.",
+    "Gallery presents 30 pieces with no refrigeration imagery; the supported refrigeration case link and result are preserved.",
+    "New AI-work cards are readable on desktop and phone and fit the existing design rather than reinstating the rejected console image.",
+    "The opportunity-workflow case is source-inspected architecture with a native disclosure, not a live inbox, model execution or fabricated activity log.",
+    "The growth-model card links to the existing calculation tool and explicitly separates illustrative scenarios from client revenue.",
+    "Final creative derivatives retain their native 447px preview resolution; this is not a high-resolution Canva export or an AI upscale. Viewer disclosure identifies the body-logo privacy removal."
+  ],
+  "source_authority": "Private Career Capital curation record PORTFOLIO_VISUAL_PROOF_SELECTION_2026-09-04.md; selected public derivatives and hashes in tools/portfolio-gallery.json. Private source URLs and implementation data are not published.",
+  "limits": [
+    "Editorial curation is not an individual-ad performance finding or a measured conversion uplift.",
+    "Browser tests used Chromium at three sizes, not a physical iPhone or every browser.",
+    "No phone call, CRM mutation, outbound message, booking or private opportunity workflow execution occurred.",
+    "The private pattern sweep and original campaign-asset compliance review were not rerun. Existing claims and case sources are preserved."
+  ],
+  "decision": "Accept for the owner-authorized bounded release, subject to normal source guards and actual live-publication verification."
+}
