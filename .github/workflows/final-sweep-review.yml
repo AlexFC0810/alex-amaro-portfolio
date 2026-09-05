@@ -1,51 +1,42 @@
-name: final portfolio sweep review
+name: final portfolio clean capture
 on:
   push:
     branches: [portfolio/final-sweep-2026-09-05]
 permissions:
-  contents: write
+  contents: read
 jobs:
-  review:
-    if: contains(github.event.head_commit.message, '[sweep-build]')
+  capture:
+    if: contains(github.event.head_commit.message, '[sweep-capture]')
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Apply bounded source edits
-        run: |
-          python3 tools/apply-final-sweep.py
-          node tools/build-creative-portfolio.mjs
-          git add AGENTS.md DESIGN.md index.html creative.html ai-growth.html ai-operator.html marketing-management.html assets/portfolio.css assets/portfolio.js proof/experience.json tools/build-creative-portfolio.mjs tools/portfolio-views.mjs tools/check-creative-portfolio.mjs tools/check-live-site.mjs
-      - name: Public source and content gates
-        run: |
-          node tools/public-selftest.mjs
-          node tools/check-home-claims.mjs index.html creative.html ai-growth.html marketing-management.html ai-operator.html
-          node tools/check-creative-portfolio.mjs
-          node tools/link-check.mjs
-          git diff --exit-code HEAD -- claims.json llms.txt Alex-Amaro-Resume.pdf work.html work tools/case-studies.json model.html tools/portfolio-gallery.json
-      - name: Browser dependencies
-        run: |
+      - run: |
           python3 -m pip install playwright==1.55.0
           python3 -m playwright install --with-deps chromium
-      - name: Inspect rendered views and interactions
-        run: python3 tools/final-sweep-qa.py
-      - name: Keep actual review screenshots
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: final-sweep-review
-          path: /tmp/final-sweep-review/
-          if-no-files-found: warn
-      - name: Save verified render to review branch only
+      - name: Capture unmodified page content; place sticky navigation in normal flow for isolated section images
         run: |
-          set -euo pipefail
-          test "$(git ls-remote origin refs/heads/portfolio/final-sweep-2026-09-05 | cut -f1)" = "$GITHUB_SHA"
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git rm tools/apply-final-sweep.py tools/final-sweep-qa.py
-          git add _audit/releases/2026-09-05-final-sweep.json
-          git commit -m 'Render final portfolio sweep and four shared audience views'
-          git push origin HEAD:refs/heads/portfolio/final-sweep-2026-09-05
+          python3 -m http.server 8791 >/tmp/server.log 2>&1 &
+          mkdir -p /tmp/clean-review
+          python3 - <<'PY'
+          from playwright.sync_api import sync_playwright
+          from pathlib import Path
+          out=Path('/tmp/clean-review')
+          with sync_playwright() as pw:
+            b=pw.chromium.launch()
+            for w,h in [(375,812),(1440,900)]:
+              p=b.new_page(viewport={'width':w,'height':h},reduced_motion='reduce')
+              p.goto('http://localhost:8791/index.html',wait_until='networkidle');p.evaluate('document.fonts.ready')
+              p.screenshot(path=str(out/f'home-{w}.png'))
+              p.add_style_tag(content='.site-nav{position:relative!important}')
+              for name,selector in [('credentials','#certifications'),('conversion','#voice'),('management','#fit'),('closing','#contact'),('tattoo','.case-spotlight')]:
+                p.evaluate('document.activeElement?.blur()');p.locator(selector).screenshot(path=str(out/f'{name}-{w}.png'))
+              for s in p.locator('.credential-group summary').all():s.click()
+              p.evaluate('document.activeElement?.blur()');p.locator('#certifications').screenshot(path=str(out/f'credentials-expanded-{w}.png'))
+              p.close()
+            b.close()
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: final-sweep-clean-capture
+          path: /tmp/clean-review/
