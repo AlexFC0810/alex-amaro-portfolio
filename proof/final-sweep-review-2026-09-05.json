@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-05",
+  "render_commit": "7e41e8f70c2d4dad81152713454893752221e719",
+  "browser_run": 33979553596,
+  "browser_artifact": 9973342956,
+  "clean_capture_run": 33979855184,
+  "clean_capture_artifact": 9973423986,
+  "review": "Downloaded and opened actual browser PNGs on phone and desktop; inspected four hero variants, credentials collapsed/expanded, conversion, management, tattoo spotlight and closing. Section captures placed sticky navigation in normal flow; the page content and deployed CSS were not changed for those captures. Off-viewport skip-link capture artifacts remain distinguishable from normal page visibility.",
+  "accepted": ["Original headline, palette, hero artwork and gallery preserved", "Main naming and conversion systems clear", "Management role focuses on strategy, project management and execution", "AI implementation and operator views remain tied to concrete commercial work", "Four HubSpot certifications and seven Anthropic course certificates rendered from the existing registry", "Separate front-page testimony microcopy removed, supporting B8 provenance unchanged", "Brooklyn tattoo-removal case surfaced, original case library unchanged"],
+  "limits": ["No fresh verification of issuer pages was completed; public certificate links are registry-sourced", "No degree status added", "No private-pattern full sweep rerun; compiled claims, original case sources/rendered pages, resume and model unchanged", "No physical-device or actual telephone test", "No new live CRM integration, call, message, review request or job application"],
+  "decision": "Accept for the user-authorized final refinement; actual publication must be confirmed separately.",
+  "conversion_uplift_measured": false
+}
