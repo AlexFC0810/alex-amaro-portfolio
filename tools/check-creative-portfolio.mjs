@@ -22,7 +22,7 @@ for(const file of ['index.html','creative.html','ai-growth.html','marketing-mana
  assert.deepEqual(rendered,ids,file+': gallery drift');
  assert.ok(html.includes('Available on request.'),file+': video request section missing');
  const tel=[...html.matchAll(/href="(tel:[^"]+)"/g)].map(x=>x[1]);
- assert.ok(tel.length>0&&tel.every(x=>x==='tel:+18888147785'),file+': wrong demo number');
+ assert.ok(tel.length>0&&tel.every(x=>x==='tel:+13217326334'),file+': wrong demo number');
 }
 assert.ok(!ids.some(id=>id.startsWith('b2b-refrigeration-')),'Withdrawn refrigeration imagery returned');
 assert.ok(manifest.hero.every(id=>ids.includes(id)),'Curated hero drift');
@@ -36,4 +36,5 @@ assert.ok(home.includes('AI throughout.'),'AI-across-work framing missing');
 assert.ok(home.includes('id="voice"'),'Demo anchor missing');
 assert.ok(home.includes('Built on GoHighLevel.'),'Implementation credit missing');
 assert.ok(home.includes('not a live log'),'Illustration boundary missing');
+assert.ok(home.includes('sc-signature-experiences.vercel.app/receptionist'),'Execution-receipt link missing');
 console.log('creative-first guard: pass — '+ids.length+' unique statics, no embedded videos, correct demo and biography.');

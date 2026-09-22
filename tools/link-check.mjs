@@ -36,6 +36,7 @@ const SKIP_DIRS = new Set(['node_modules', '.git', '.github', '.claude', '_audit
 // Both are documented on the page itself; neither is a broken link.
 const EXPECTED = {
   'https://proof-counsel.vercel.app/api/counsel': [200, 405],
+  'https://sc-signature-experiences.vercel.app/receptionist': [200],
 };
 
 function* walkHtml(dir) {
