@@ -1,7 +1,15 @@
 // Public expression of source-inspected builds. No inbox, model call, or private data.
 export const aiWork = `<section class="section ai-work-section" id="ai-work" aria-labelledby="ai-work-heading">
-  <div class="library-heading"><div><p class="eyebrow blue">AI in practice</p><h2 id="ai-work-heading">Better decisions.<br>Systems built for results.</h2></div><p>I use AI where it improves a decision or a workflow—not simply to produce more output. These builds show how I turn diagnosis into practical implementation.</p></div>
+  <div class="library-heading"><div><p class="eyebrow blue">AI in practice</p><h2 id="ai-work-heading">AI that acts.<br>Humans still own the call.</h2></div><p>I use AI as operating infrastructure—not as a replacement for judgment. These systems help execute real marketing work inside explicit boundaries, with state changes, verification and human escalation where it matters.</p></div>
   <div class="build-cases">
+    <article class="build-case build-case--client">
+      <p class="build-kind">Live client delivery · remodeling growth</p>
+      <h3>A supervised agentic workforce working inside the funnel.</h3>
+      <p>On an active remodeling-growth engagement, I use specialized agents to support strategy, performance analysis, creative, lead follow-up and GoHighLevel automation. They help me move faster; live and client-facing actions remain approval-gated, and changes are read back after execution.</p>
+      <ol class="build-sequence" aria-label="Live client delivery workflow"><li><span>Acquire</span>Meta + creative</li><li><span>Follow up</span>CRM + AI contact</li><li><span>Instrument</span>Milestone events</li><li><span>Verify</span>Readback + receipts</li></ol>
+      <details class="build-details"><summary>Inside the live operating model <span aria-hidden="true">+</span></summary><div><p><strong>What it touches:</strong> paid acquisition and creative iteration, GoHighLevel follow-up and opt-out workflows, AI-assisted lead contact, CRM-to-Meta conversion instrumentation, and weekly performance / lead-quality review.</p><p><strong>How authority works:</strong> specialist agents analyze, draft and assist with implementation inside bounded roles. Human approval remains required for live-account and client-facing actions. Important changes carry an approval trail, readback and reversal path.</p><p><strong>Why it matters:</strong> the advantage is not “using AI.” It is connecting acquisition, conversion operations and agentic execution without losing accountability.</p><p class="build-note">Current engagement. Client identity and engagement-specific quantitative results are intentionally withheld here until they clear the separate proof process.</p></div></details>
+      <a class="text-link" href="https://sc-signature-experiences.vercel.app/receptionist" target="_blank" rel="noopener">See the public execution-receipt pattern <span aria-hidden="true">↗</span></a>
+    </article>
     <article class="build-case build-case--radar">
       <p class="build-kind">AI-assisted opportunity intelligence</p>
       <h3>Turn an alert into a next action.</h3>
@@ -21,14 +29,16 @@ export const aiWork = `<section class="section ai-work-section" id="ai-work" ari
   </div>
 </section>`;
 export const aiWorkCSS = `
-/* Two source-inspected builds, using the approved portfolio palette and type. */
+/* Source-inspected builds, using the approved portfolio palette and type. */
 .ai-work-section{background:var(--paper-bright)}
 .build-cases{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
 .build-case{border:1px solid var(--ink);padding:32px;display:flex;flex-direction:column;min-width:0}
+.build-case--client{grid-column:1/-1;border-top:5px solid var(--blue);background:var(--paper)}
 .build-case--radar{border-top:5px solid var(--blue)}
 .build-case--model{background:var(--paper);border-top:5px solid var(--ink)}
 .build-kind{font-size:12px;font-weight:750;letter-spacing:.035em;color:var(--blue);margin-bottom:20px}
-.build-case h3{font-size:clamp(28px,2.6vw,38px);line-height:1.08;font-weight:780;letter-spacing:-.045em;max-width:20ch;margin-bottom:20px}
+.build-case h3{font-size:clamp(28px,2.6vw,38px);line-height:1.08;font-weight:780;letter-spacing:-.045em;max-width:24ch;margin-bottom:20px}
+.build-case--client h3{max-width:28ch}
 .build-case>p:not(.build-kind):not(.build-note),.build-details p{font-size:16px;line-height:1.7;color:var(--ink-soft)}
 .build-sequence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:28px 0;list-style:none;padding:0;border-block:1px solid var(--line)}
 .build-sequence li{font-size:12px;line-height:1.45;padding:18px 8px 18px 0}
@@ -42,5 +52,5 @@ export const aiWorkCSS = `
 .economics-chain b{font-weight:400;color:var(--blue)}
 .build-case .text-link{margin-top:18px}
 #lightbox-image{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
-@media(max-width:760px){.build-cases{grid-template-columns:1fr;gap:20px;margin-top:28px}.build-case{padding:24px 20px}.build-case h3{font-size:30px;max-width:none}.build-sequence{grid-template-columns:1fr 1fr}.build-sequence li{padding:14px 8px 14px 0}.economics-chain{font-size:13px;gap:5px}.build-kind{font-size:12px}}
+@media(max-width:760px){.build-cases{grid-template-columns:1fr;gap:20px;margin-top:28px}.build-case--client{grid-column:auto}.build-case{padding:24px 20px}.build-case h3{font-size:30px;max-width:none}.build-sequence{grid-template-columns:1fr 1fr}.build-sequence li{padding:14px 8px 14px 0}.economics-chain{font-size:13px;gap:5px}.build-kind{font-size:12px}}
 `;
