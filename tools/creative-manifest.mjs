@@ -22,6 +22,9 @@
    ========================================================================== */
 
 /* --- The chiropractic hook ladder ---------------------------------------
+   2026-10-14 vault ruling: this set was designed in June 2026, after the chiropractic account's
+   last ad, so it is a hook-test set and never the creative behind that account's results. The
+   live gallery labels it "Hook-test set"; this legacy manifest is not rendered.
    One offer written eight ways. The variable is WHERE ON THE AWARENESS LADDER
    the reader is standing when the ad reaches them — which is the actual unit of
    media-buying work, and the reason this is the best set in the library. */
