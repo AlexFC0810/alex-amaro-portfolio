@@ -8,7 +8,7 @@
  * machine rather than pulling in puppeteer.
  *
  *   node tools/make-og.mjs                 # renders assets/og-v2.html
- *   node tools/make-og.mjs og-v3           # renders assets/og-v3.html
+ *   node tools/make-og.mjs og-cover        # renders assets/og-cover.html
  *   CHROME=/path/to/chrome node tools/make-og.mjs
  *
  * WHY THIS EXISTS AT ALL. The card is rendered from HTML that shares the site's

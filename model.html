@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The media buyer's model — Alex Amaro</title>
-<meta name="description" content="Spend to leads to booked jobs to return on ad spend, with a sensitivity panel that moves one input at a time. The argument it makes: on most local accounts cost per lead is the smallest of the three levers.">
+<meta name="description" content="Spend to leads to booked appointments to closed jobs, with a sensitivity panel that moves one input at a time. The argument it makes: on most local accounts cost per lead is the smallest of the three levers.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://alexfc0810.github.io/alex-amaro-portfolio/model.html">
 <meta property="og:type" content="article">
@@ -189,7 +189,8 @@ const PRESETS = [
   // per campaign, with their boundaries attached.
   {id:"trade", name:"High-ticket trade job",
    note:"Illustrative. A remodeling or installation business: few jobs, large ticket, mostly one-and-done.",
-   v:{spend:2000,cpl:66.67,book:50,close:25,job:15000,ltv:1,margin:45}},
+   // CPL is $2,000 / 30 exactly, so the chain reads 30 leads → 15 booked → 3.75 jobs → $56,250.
+   v:{spend:2000,cpl:2000/30,book:50,close:25,job:15000,ltv:1,margin:45}},
   {id:"clinic", name:"Clinic offer, repeat visits",
    note:"Illustrative. A local clinic on a priced entry offer: cheaper leads, smaller ticket, and most of the money in the second and third visit.",
    v:{spend:3000,cpl:18,book:45,close:35,job:450,ltv:3.4,margin:65}},
@@ -278,15 +279,14 @@ function render(){
 
   const out=$("outputs");
   while(out.firstChild) out.removeChild(out.firstChild);
-  out.appendChild(cell("Return on ad spend", r.roas.toFixed(1)+"×", true));
+  out.appendChild(cell("Booked appointments", r.books.toFixed(1), true));
   out.appendChild(cell(mode==="rev"?"Spend required":"Ad spend", money(s.spend)));
   out.appendChild(cell("Qualified leads", Math.round(r.leads).toLocaleString()));
-  out.appendChild(cell("Booked", r.books.toFixed(1)));
   out.appendChild(cell("Cost per booking", money2(r.cpb)));
   out.appendChild(cell("Closed", r.closes.toFixed(2)));
   out.appendChild(cell("Cost to acquire (CAC)", money(r.cac)));
   out.appendChild(cell("Revenue, first sale", money(r.rev)));
-  out.appendChild(cell("With lifetime value", money(r.revLtv)+"  ("+r.roasLtv.toFixed(1)+"×)"));
+  out.appendChild(cell("With lifetime value", money(r.revLtv)));
   out.appendChild(cell("Gross profit after ad spend", money(r.profit)));
   out.appendChild(cell("Breakeven", r.beCloses.toFixed(2)+" closes"));
 
@@ -296,8 +296,7 @@ function render(){
     [money(s.spend)+" spend"," ÷ "+money2(s.cpl)+" CPL"," = "+Math.round(r.leads)+" qualified leads"],
     [Math.round(r.leads)+" leads"," × "+s.book+"% booked"," = "+r.books.toFixed(1)+" booked"],
     [r.books.toFixed(1)+" booked"," × "+s.close+"% closed"," = "+r.closes.toFixed(2)+" jobs"],
-    [r.closes.toFixed(2)+" jobs"," × "+money(s.job)," = "+money(r.rev)+" revenue"],
-    [money(r.rev)+" ÷ "+money(s.spend)," "," = "+r.roas.toFixed(1)+"× ROAS"]
+    [r.closes.toFixed(2)+" jobs"," × "+money(s.job)," = "+money(r.rev)+" revenue"]
   ];
   for(const [a,b,c] of steps){
     const line=document.createElement("div");
@@ -337,7 +336,7 @@ function renderSensitivity(s, base){
     fi.style.width=Math.max(2,(Math.abs(l.delta)/max)*100)+"%";
     tr.appendChild(fi);
     const nm=document.createElement("div"); nm.className="num";
-    nm.textContent=(l.delta>=0?"+":"")+l.delta.toFixed(0)+"% ROAS";
+    nm.textContent=(l.delta>=0?"+":"")+l.delta.toFixed(0)+"% return";
     row.appendChild(lb); row.appendChild(tr); row.appendChild(nm);
     host.appendChild(row);
   }

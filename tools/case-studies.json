@@ -64,8 +64,8 @@
     },
     {
       "id": "own",
-      "name": "My own ventures",
-      "blurb": "Businesses I owned outright. No attribution boundary — the whole chain is mine."
+      "name": "Own and family businesses",
+      "blurb": "No client-side attribution boundary: the whole marketing chain is my work."
     }
   ],
   "cases": [
@@ -102,8 +102,8 @@
           "b": "The winning campaign is built on a specific, differentiated, non-surgical treatment the practice actually owned — rather than the generic adjust-and-wellness pitch every competing clinic in the market was also running. Category-generic offers are what push a local cost per lead toward $49.81."
         },
         {
-          "t": "Wrote and produced the creative himself",
-          "b": "Direct-response static built to the offer: pain-state hook, plain-language explanation of the modality, consultation call to action. The finished ad set is retained and independently corroborates the campaign name — the creative and the platform label were produced in two different systems and agree."
+          "t": "Owned the offer and the creative direction",
+          "b": "Direct-response creative built to the offer: pain-state hook, plain-language explanation of the modality, consultation call to action. The campaign ran two statics and a video on that angle, and the ad-level record names which of them produced the leads. The creative’s angle and the platform’s campaign label were produced in two different systems and agree."
         },
         {
           "t": "Built a second funnel layer instead of one flat campaign",
@@ -156,6 +156,10 @@
         {
           "t": "No account-blended cost per lead",
           "b": "Cost per lead is quoted per campaign, always. The account totals exist to reconcile two independent pulls, not to be divided into a headline number."
+        },
+        {
+          "t": "The knee-pain hook-test set is not this campaign’s creative",
+          "b": "That set in the creative gallery was designed in 2026, after this account’s last ad. It never ran here, and it is never shown beside these figures."
         }
       ]
     },
@@ -285,7 +289,7 @@
         },
         {
           "t": "An AI voice agent shipped into a live client booking flow",
-          "b": "Published voice workflows sit in this client’s account: an AI call that books an appointment, one that routes to support, and a booking trigger behind them. This is a deployment, stated as a deployment — not a volume story."
+          "b": "Published voice workflows sit in this client’s account: an AI call wired to hand off to booking, one that routes to support, and a booking trigger behind them. This is a deployment, stated as a deployment — not a volume story."
         },
         {
           "t": "A system re-architecture retrofitted onto an older build",
@@ -406,7 +410,7 @@
           "b": "Two routes were run against each other on the same service line, and the native instant form turned out to be the more expensive one. The finding was kept rather than quietly dropped."
         },
         {
-          "t": "Produced the creative and designed the offers",
+          "t": "Designed the offers and directed the creative",
           "b": "Including a priced voucher used as a qualifying mechanism rather than a discount, and qualification at the form on which service and how soon."
         },
         {
@@ -462,7 +466,7 @@
       "title": "Tattoo removal in the most expensive consumer market in America",
       "vertical": "Laser aesthetics",
       "client": "A laser tattoo-removal studio",
-      "region": "Brooklyn / New York City",
+      "region": "New York City",
       "window": "The longest-tenured relationship in the book",
       "figure": {
         "value": "730+",
@@ -549,7 +553,7 @@
       "order": 7,
       "title": "Bilingual acquisition in Montréal, held in-language all the way to the calendar",
       "vertical": "Aesthetics, FR/EN",
-      "client": "The Montréal location of a national laser and wax franchise",
+      "client": "A Montreal beauty brand",
       "region": "Canada",
       "window": "~10 weeks",
       "figure": {
@@ -621,7 +625,7 @@
         },
         {
           "t": "No client revenue and no return on ad spend",
-          "b": "The franchise’s treatment revenue is its own. Closing is client-side."
+          "b": "The brand’s treatment revenue is its own. Closing is client-side."
         },
         {
           "t": "The lead figure is founder-attested at its floor",
@@ -994,7 +998,7 @@
       "vertical": "B2B trade services",
       "client": "A UK commercial-refrigeration installer",
       "region": "United Kingdom",
-      "window": "A two-year account relationship",
+      "window": "Jul 2024 – Jan 2025",
       "figure": {
         "value": "817",
         "unit": "B2B leads at ~$1.88 each",
@@ -1078,19 +1082,19 @@
       "group": "b2b",
       "claim": "B4",
       "order": 14,
-      "title": "Running the play on my own business, selling to clinic owners",
+      "title": "Running the play on the agency’s own pipeline, selling to clinic owners",
       "vertical": "B2B agency growth",
-      "client": "Alex’s own agency",
+      "client": "Supercharged ROI — the agency’s own pipeline",
       "region": "United States",
       "window": "Roughly eighteen months of live account",
-      "ownership": "My own business — not client work",
+      "ownership": "Supercharged ROI’s own acquisition — not client work",
       "figure": {
         "value": "215+",
         "unit": "scheduled appointments at ~$62 each",
         "note": "Alongside 170+ leads. The platform result type is website appointments scheduled — which is why this never says “booked sales calls”."
       },
       "cardCopy": "Every agency claims it can generate leads. Almost none can show what happened when they pointed the machine at themselves.",
-      "lede": "Most agencies get clients from referrals and founder-network warmth, and quietly never run the play they sell. This is that play, run on his own business.",
+      "lede": "Most agencies get clients from referrals and founder-network warmth, and quietly never run the play they sell. This is that play, run on Supercharged ROI’s own pipeline.",
       "problem": [
         "Paid social selling agency services to clinic and med spa owners, with the objective set to a scheduled appointment rather than a form fill.",
         "It is the hardest version of the job. The prospect is an owner already being cold-called, direct-messaged and emailed by a dozen agencies a week.",
@@ -1160,7 +1164,7 @@
           "b": "The appointments are the claim. What came after them is not."
         },
         {
-          "t": "This is his own business, and it says so",
+          "t": "This is the agency’s own pipeline, and it says so",
           "b": "Nothing here is presented as client work, and the agency’s own client-getting creative is kept separate from client creative."
         }
       ]
@@ -1248,7 +1252,7 @@
         },
         {
           "t": "AI voice agents wired into the booking flow",
-          "b": "An AI call ending, handing off to SMS, and triggering a booking is a complete conversational-to-calendar chain rather than a demo. This is a deployment claim and nothing more."
+          "b": "An AI call that ends by handing off to SMS, wired to hand off to booking, is a complete conversational-to-calendar chain rather than a demo. This is a deployment claim and nothing more."
         },
         {
           "t": "The orchestration hub for an outbound fleet",
@@ -1277,24 +1281,24 @@
       "group": "own",
       "claim": null,
       "order": 17,
-      "title": "The retention half of the system, run on my own customers",
+      "title": "The retention half of the system, run on the family business",
       "vertical": "Home services",
-      "client": "Alex’s own residential cleaning business",
+      "client": "The family’s residential cleaning business",
       "region": "United States",
-      "window": "Running since 2023",
-      "ownership": "My own business — not client work",
+      "window": "2021–present",
+      "ownership": "Family business, where Alex is Marketing, Brand & Web Lead — not client work",
       "capability": "Rebooking without a salesperson",
       "cardCopy": "Every other case here answers how you fill a calendar with strangers. This one answers the question that comes after — and decides whether a local service business survives.",
       "lede": "Residential cleaning is a recurring-revenue business trapped in a one-off-transaction interface. The economics live entirely in rebooking.",
       "problem": [
         "The customer books once, is happy, and then does nothing until the house is dirty again — by which point a competitor’s flyer has arrived.",
         "Rebooking is an operations and automation problem, not a media problem. No amount of new traffic fixes it.",
-        "Alex owns this business, so unlike every client engagement in the portfolio there is no attribution boundary here. The whole chain is his."
+        "This is his family’s business, where Alex leads marketing, brand and web, so unlike every client engagement in the portfolio there is no client-side attribution boundary here. The whole chain is his work."
       ],
       "built": [
         {
           "t": "A CRM and booking system built for a home-services business in 2023",
-          "b": "One of the oldest sub-accounts in the estate, predating most of the client work. This is where the appointment-engine pattern that later went to clinics was first run — on his own money and his own customers."
+          "b": "One of the oldest sub-accounts in the estate, predating most of the client work. This is where the appointment-engine pattern that later went to clinics was first run — on the family business and its own customers."
         },
         {
           "t": "A productised snapshot of the whole build",
@@ -1312,7 +1316,7 @@
           "b": "This is the only retention proof in the portfolio and it carries a measured rebooking ratio. It is not in the claims contract, so the ratio is not stated here."
         },
         {
-          "t": "It is his own business, and it always says so",
+          "t": "It is the family business, and it always says so",
           "b": "This is never presented as client work, and it is never counted inside client totals."
         },
         {
@@ -1331,7 +1335,7 @@
       "vertical": "E-commerce",
       "client": "Alex’s own venture",
       "region": "United States",
-      "window": "2017–2021",
+      "window": "2018–2021",
       "ownership": "My own business — not client work",
       "capability": "A multi-six-figure Amazon and eBay business, run solo through college",
       "cardCopy": "Before the agency, before a single ad account: a retail business run solo while carrying a full-time course load and a restaurant job.",

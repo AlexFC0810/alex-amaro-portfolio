@@ -477,7 +477,7 @@ function renderIndex(cases) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Case studies — Alex Amaro &middot; ${cases.length} engagements</title>
-<meta name="description" content="${cases.length} engagements across clinical, aesthetics, B2B and my own ventures — the problem, the mechanism, the result, and what each case deliberately does not claim.">
+<meta name="description" content="${cases.length} engagements across clinical, aesthetics, B2B and own or family businesses — the problem, the mechanism, the result, and what each case deliberately does not claim.">
 <link rel="canonical" href="${SITE}/work.html">
 <link rel="icon" href="${FAVICON}">
 <meta name="author" content="Alex Amaro">
@@ -512,7 +512,7 @@ ${nav(0, 'work')}
     <h1>${cases.length} engagements, and what each one is evidence of.</h1>
     <p class="promise">Every case follows the same four beats: <strong>the problem</strong> the business actually had, <strong>the mechanism</strong> I built, <strong>the result</strong> with the system it was read out of &mdash; and <strong>what the case does not claim</strong>. That last section is the one worth reading.</p>
     <dl class="facts">
-        <div class="fact"><dt>Verticals</dt><dd>Clinical, aesthetics, B2B, own ventures</dd></div>
+        <div class="fact"><dt>Verticals</dt><dd>Clinical, aesthetics, B2B, own and family businesses</dd></div>
         <div class="fact"><dt>Regions</dt><dd>United States, Canada, United Kingdom</dd></div>
         <div class="fact"><dt>Figures shown</dt><dd>Only where the claims contract approves them</dd></div>
     </dl>
@@ -625,11 +625,16 @@ for (let i = 0; i < cases.length; i++) {
 }
 fs.writeFileSync(path.join(ROOT, 'work.html'), renderIndex(cases));
 
-// sitemap — regenerated so routes and the file cannot disagree
+// sitemap — regenerated so routes and the file cannot disagree. creative.html and model.html are
+// listed here because the sitemap used to be hand-edited after each build and silently lost them.
+// audit.html stays reachable but is not advertised (2026-10-14): it is a record-keeping page, not
+// a page a hiring manager should land on from search.
 const urls = [
   { loc: `${SITE}/`, pr: '1.0' },
   { loc: `${SITE}/work.html`, pr: '0.9' },
   { loc: `${SITE}/proof.html`, pr: '0.9' },
+  { loc: `${SITE}/creative.html`, pr: '0.9' },
+  { loc: `${SITE}/model.html`, pr: '0.8' },
   ...cases.map((c) => ({ loc: `${SITE}/work/${c.slug}.html`, pr: '0.8' })),
 ];
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'),
