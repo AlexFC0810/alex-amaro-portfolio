@@ -1,3 +1,13 @@
+## Claims and chronology pass — 2026-10-14
+
+Authorities: Career Capital `portfolio/2026-10-14_PORTFOLIO_MAP.md` (§2d, §3), `EXPERIENCE_ARCHITECTURE.md`, `APPLICATION-ANSWERS.md` ("Leading number"); the proof vault owns every number.
+
+- **Interim lead total.** While the vault re-scopes B1 and C1, public copy says "5,800+ leads from my own campaigns across more than a dozen client accounts": no spend total, and never "qualified" on the total. It is the only figure on the site that is not in `claims.json`, so it is marked `data-interim-claim="B1"` (home ribbon in `tools/build-creative-portfolio.mjs`, `proof.html`, `assets/og-cover.html`). When the vault publishes the re-scoped B1 and `claims.json` is re-synced, switch those blocks to `data-claim="B1"` and the contract wording. Do not bring back the held spend total, the old 6,250+ lead total, or "14+ accounts" beside a lead total.
+- **Company-first chronology.** FA Systems — Growth Marketing Lead (Contract) · Aug 2026–present; Supercharged ROI — Growth Marketing & Operations Lead · Mar 2024–Aug 2026; a digital agency — Growth Marketing & Automation Specialist · Jan 2022–Feb 2024. Three separate companies, not a rebrand. Rendered as the hero career strip and in About. The 2022–2024 employer and the family business are described rather than named because the vault's public banlist still lists both names (`public-selftest` fails on them); name them only after the vault releases them and `proof/banlist.public.json` is re-synced. The family-business role is Marketing, Brand & Web Lead, 2021–present; e-commerce is 2018–2021. The agency's own pipeline (B4) is Supercharged ROI's. No "my own agency", "select projects" or partner-pitch framing on rendered pages.
+- **Wording.** "70 booked appointments in a 30-day window"; "scheduled appointments", never booked calls; "six-figure", not "multi-six-figure"; refrigeration ran Jul 2024 – Jan 2025; AI voice is a deployment claim and an AI call is "wired to hand off to booking"; specialists Alex directs handled part of the design and editing. `model.html` leads with booked appointments and prints no ROAS multiple.
+- **Retired pages.** `v1.html`, `v3/` and `v4/` are now redirect stubs like `v2/`; their sources are in git history before this pass, and the assets only they used were removed. `audit.html` stays reachable but is not in the sitemap, which `tools/build-case-studies.mjs` generates.
+- **Known drift.** `work.html` carries hand edits the case builder does not reproduce (nav, two card badges, door copy). Patch it by hand, or port those edits into `renderIndex` before regenerating it. The résumé PDF is still the 2026-09-04 build (see below): replace it only with a vNext build that already uses the interim lead wording.
+
 ## Final copy and credential sweep — 2026-09-05
 
 Latest expression authority: Career Capital PORTFOLIO_FINAL_SWEEP_2026-09-05.md. Main view is Performance Advertising & Digital Marketing; management is Marketing Operations & Management; AI growth includes integration/implementation; ai-operator.html is a shared-content fourth view. Preserve the approved design and 38-piece collection. No new generated imagery or live-system promises.
@@ -59,8 +69,7 @@ It is also an **evidence surface with a contract behind it**: every public figur
 | `proof.html` | The Proof Room — claims with verification status. |
 | `audit.html` | The published cross-examination, including the attacker's prompt. |
 | `model.html` | The unit-economics model. Claims nothing; runs entirely client-side. |
-| `v1.html`, `v2/`, `v3/` | History and drafts. `v3/` is `noindex` and unlinked. |
-| `v4/` | Retained noindex source snapshot of the proof-room design. The canonical final version is now `index.html`; do not overwrite its voice/CRM improvements with this older snapshot. Guards: `tools/check-home-claims.mjs`, `tools/gate-ledger.mjs`. |
+| `v1.html`, `v2/`, `v3/`, `v4/` | Redirect stubs to the root (since 2026-10-14 for v1, v3 and v4). The drafts they held live in git history; do not restore them as pages. |
 | `claims.json`, `llms.txt` | The machine-readable record. **Compiled in the private vault** — never hand-edit; the sha256 will catch you. |
 | `Alex-Amaro-Resume.pdf` | Downloadable résumé. **See the warning below.** |
 

@@ -668,3 +668,7 @@ The owner-approved control is 20435ed. Preserve the cream/purple/black palette, 
 
 ## Final copy / credentials — 2026-09-05
 The accepted reference design remains the control. A compact two-column credentials block uses native details/summary, 44px targets, existing paper/ink/purple, and the existing font roles. The tattoo case spotlight is a text-only re-entry into an unchanged case. Audience views reuse the same gallery/content; only headline, descriptor, opening, CTA and metadata change. No new tracking, asset crop, animation or video.
+
+
+## Claims and chronology pass — 2026-10-14
+The accepted cream/purple/black control is unchanged. The hero gains a compact career strip after the two actions: an ordered list of three rows (company, title, dates) set in the existing 13–14px caption role, Inter 750 for the company, `--ink-soft` for the title and `--quiet` tabular figures for the dates, separated by 1px `--ink`/`--line` hairlines. Below 760px each row stacks the title under the company and dates. No new colour, font, radius, shadow or motion. The voice-demo button now prints the number beside its label so it works on a desktop, where a tel: link does nothing. The proof ribbon leads with the interim lead total and keeps its acid-on-ink treatment. `v1.html`, `v3/` and `v4/` became redirect stubs, so the v3 and v4 sections above describe retired pages whose source lives in git history; `v4/style.css` went with them.

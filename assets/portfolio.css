@@ -343,6 +343,9 @@ img{width:100%;display:block}
 @media(max-width:760px){.site-nav nav.is-open a{display:inline-flex;min-width:44px}}
 .site-nav nav a{min-width:44px}
 .hero h1{letter-spacing:-.05em;word-spacing:.02em;line-height:.98}.hero h1 em{margin-right:.05em}
+/* Company-first career strip (2026-10-14): existing ink/paper tokens, 13–14px caption role, hairlines, no new colour. */
+.career-strip{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--ink);max-width:640px}.career-strip li{display:grid;grid-template-columns:9.5em minmax(0,1fr) auto;gap:2px 16px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.45}.career-strip strong{font-weight:750;color:var(--ink)}.career-strip span{color:var(--ink-soft)}.career-strip span:last-child{color:var(--quiet);font-variant-numeric:tabular-nums;white-space:nowrap}.career-strip+.experience-line{margin-top:16px}
+@media(max-width:760px){.career-strip{margin-top:24px}.career-strip li{grid-template-columns:minmax(0,1fr) auto;font-size:13px}.career-strip strong{grid-column:1;grid-row:1}.career-strip span:last-child{grid-column:2;grid-row:1}.career-strip span:nth-child(2){grid-column:1/-1;grid-row:2}}
 
 /* Two source-inspected builds, using the approved portfolio palette and type. */
 .ai-work-section{background:var(--paper-bright)}
